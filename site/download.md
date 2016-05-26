@@ -26,7 +26,7 @@ limitations under the License.
 
 ## {{ site.data.project.name }} Downloads
 
-{{ site.data.project.name }} is released as a source artifact, and also through Maven.
+{{ site.data.project.name }} will be released as a source and binary artifacts, as well as through Maven.
 
 ### Source releases
 

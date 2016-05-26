@@ -17,35 +17,221 @@
 # Pages such as community.md use this data.
 # Please keep the list in alphabetical order.
 #
+
+- name: Andrew Or
+  apacheId: andrewor14
+  githubId: andrewor14
+  org: Databricks
+  role: Apache Spark PMC
+
+- name: Andy Konwinski
+  apacheId: andrew
+  githubId: andyk
+  org: Databricks
+  role: Apache Spark PMC
+
+- name: Ankur Dave
+  apacheId: ankurdave
+  githubId: ankurdave
+  org: UC Berkeley
+  role: Apache Spark PMC
+
+- name: Cheng Lian
+  apacheId: lian
+  githubId: liancheng
+  org: Databricks
+  role: Apache Spark committer
+
+- name: Chris Mattmann
+  apacheId: mattmann
+  githubId: chrismattmann
+  org: NASA
+  role: PMC Member
+
+- name: Davies Liu
+  apacheId: davies
+  githubId: davies
+  org: Databricks
+  role: Apache Spark committer
+
 - name: DB Tsai
   apacheId: dbtsai
   githubId: dbtsai
-  role: PMC
   org: Netflix
+  role: Apache Spark committer
 
-- name: Julian Hyde
-  apacheId: jhyde
-  githubId: julianhyde
-  org: Hortonworks
-  role: Contributor
-  homepage: http://people.apache.org/~jhyde
+- name: Haoyuan Li
+  apacheId: haoyuan
+  githubId: haoyuan
+  org: Alluxio, UC Berkeley
+  role: Apache Spark PMC
+
+- name: Herman van Hövell
+  apacheId: hvanhovell
+  githubId: hvanhovell
+  org: QuestTec B.V.
+  role: Apache Spark committer
+
+- name: Imran Rashid
+  apacheId: irashid
+  githubId: squito
+  org: Cloudera
+  role: Apache Spark PMC
+
+- name: Jean-Baptiste Onofré
+  apacheId: jbonofre
+  githubId: jbonofre
+  org: Talend
+  role: PMC Member
+
+- name: Joseph Kurata Bradley
+  apacheId: jkbradley
+  githubId: jkbradley
+  org: Databricks
+  role: Apache Spark PMC
+
+- name: Josh Rosen
+  apacheId: joshrosen
+  githubId: JoshRosen
+  org: Databricks
+  role: Apache Spark PMC
+
+- name: Kay Ousterhout
+  apacheId: kayousterhout
+  githubId: kayousterhout
+  org: UC Berkeley
+  role: Apache Spark PMC
+
+- name: Kousuke Saruta
+  apacheId: sarutak
+  githubId: sarutak
+  org: NTT Data
+  role: Apache Spark committer
 
 - name: Luciano Resende
   apacheId: lresende
   githubId: lresende
   org: IBM
-  role: Committer and Mentor
+  role: PMC Member
+
+- name: Marcelo Masiero Vanzin
+  apacheId: vanzin
+  githubId: vanzin
+  org: Cloudera
+  role: PMC Member
+
+- name: Mark Hamstra
+  apacheId: markhamstra
+  githubId: markhamstra
+  org: ClearStory Data
+  role: Apache Spark PMC
+
+- name: Matei Alexandru Zaharia
+  apacheId: matei
+  githubId: mateiz
+  org: Databricks
+  role: Apache Spark PMC
+
+- name: Michael Armbrust
+  apacheId: marmbrus
+  githubId: marmbrus
+  org: Databricks
+  role: Apache Spark PMC
+
+- name: Mridul Muralidharan
+  apacheId: mridulm80
+  githubId: mridulm
+  org: Yahoo! Research Labs
+  role: PMC Member
+
+- name: Patrick Wendell
+  apacheId: pwendell
+  githubId: pwendell
+  org: Databricks
+  role: Apache Spark PMC
+
+- name: Prashant Sharma
+  apacheId: prashant
+  githubId: ScrapCodes
+  org: IBM
+  role: Apache Spark PMC
+
+- name: Ram Sriharsha
+  apacheId: harsha
+  githubId: harsha2010
+  org: Databricks
+  role: Apache Spark committer
 
 - name: Reynold Xin
   apacheId: rxin
   githubId: rxin
   org: Databricks
-  role: Committer and Mentor
+  role: PMC Member
 
-- name: Rich Bowen
-  apacheId: rbowen
-  githubId: rbowen
-  org:
-  role: Mentor
+- name: Sanford Ryza
+  apacheId: sandy
+  githubId: sryza
+  org: Clover Health
+  role: Apache Spark committer
+
+- name: Sean R. Owen
+  apacheId: srowen
+  githubId: srowen
+  org: Cloudera
+  role: PMC Member
+
+- name: Shivaram Venkataraman
+  apacheId: shivaram
+  githubId: shivaram
+  org: UC Berkeley
+  role: Apache Spark PMC
+
+- name: Shixiong Zhu
+  apacheId: zsxwing
+  githubId: zsxwing
+  org: Databricks
+  role: Apache Spark committer
+
+- name: Steve Loughran
+  apacheId: stevel
+  githubId: steveloughran
+  org: Hortonworks
+  role: PMC Member
+
+- name: Tathagata Das
+  apacheId: tdas
+  githubId: tdas
+  org: Databricks
+  role: Apache Spark PMC
+
+- name: Thomas Graves
+  apacheId: tgraves
+  githubId: tgravescs
+  org: Yahoo!
+  role: Apache Spark PMC
+
+- name: Wenchen Fan
+  apacheId: wenchen
+  githubId: cloud-fan
+  org: Databricks
+  role: Apache Spark committer
+
+- name: Xiangrui Meng
+  apacheId: meng
+  githubId: mengxr
+  org: Databricks
+  role: Apache Spark PMC
+
+- name: Yin Huai
+  apacheId: yhuai
+  githubId: yhuai
+  org: Databricks
+  role: Apache Spark PMC
+
+- name: Zhihong Yu
+  apacheId: tedyu
+  githubId: tedyu
+  org: Hortonworks
+  role: Apache HBase PMC
 
 # End contributors.yml

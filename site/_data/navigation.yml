@@ -1,0 +1,52 @@
+## Topnav single links
+## if you want to list an external url, use external_url instead of url. the theme will apply a different link base.
+#    - title: Sample
+#      url: /mydoc/sample.html
+#      audience: developers, consumers
+#      platform: all
+#      product: all
+#      version: all
+#      output: web
+
+
+#            <li id="community">
+#              <a href="#" data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a>
+#               <ul class="dropdown-menu dropdown-left">
+#                <li><a href="/community">Get Involved</a></li>
+#                <li><a href="/community-members">Who we are</a></li>
+#               </ul>
+#            </li>
+#            <li><a href="{{ site.data.project.source_repository }}">GitHub</a></li>
+#            <li id="apache">
+#              <a href="#" data-toggle="dropdown" class="dropdown-toggle">Apache<b class="caret"></b></a>
+#               <ul class="dropdown-menu">
+#                <li><a href="http://www.apache.org/foundation/how-it-works.html">Apache Software Foundation</a></li>
+#                <li><a href="http://www.apache.org/licenses/">Apache License</a></li>
+#                <li><a href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+#                <li><a href="http://www.apache.org/foundation/thanks.html">Thanks</a></li>
+#                </ul>
+#            </li>
+
+
+topnav:
+
+- title: Community
+  subcategories:
+  - title: Get Involved
+    url: /community
+  - title: Who we are
+    url: /community-members
+
+- title: GitHub
+  url: https://github.com/apache/bahir
+
+- title: Apache
+  subcategories:
+  - title: Apache Software Foundation
+    url: http://www.apache.org/foundation/how-it-works.html
+  - title: Apache License
+    url: http://www.apache.org/licenses/
+  - title: Sponsorship
+    url: http://www.apache.org/foundation/sponsorship
+  - title: Thanks
+    url: http://www.apache.org/foundation/thanks.html

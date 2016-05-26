@@ -18,7 +18,7 @@ permalink: /news/:year/:month/:day/:title/
 excerpt_separator: ""
 
 repository: https://github.com/apache/apache-website-template
-destination: target
+destination: _site
 exclude: [README.md,Gemfile*]
 keep_files: [".git", ".svn", "apidocs"]
 

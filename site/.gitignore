@@ -32,4 +32,4 @@
 Gemfile.lock
 
 # generated site
-target
+_site

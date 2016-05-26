@@ -7,7 +7,7 @@ body {
 }
 
 .jumbotron {
-    background-color: #3071a9;
+    background-color: #0d5373 /* #3071a9 */;
 }
 
 .navbar-brand {
@@ -17,29 +17,29 @@ body {
 }
 
 .navbar {
- background-color:#3071a9;
+ background-color:#0d5373 /* #3071a9 */;
  border-bottom:0px;
- height: 50px;
+ /*height: 50px; */
 }
 
 .navbar-inverse .navbar-nav > li > a {
  color: #ffffff;
- background-color:#3071a9;
+ background-color: #0d5373 /* #3071a9 */;
 }
 
-.navbar-inverse .navbar-nav > li > a:hover, 
+.navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
   color: #ffffff;
-  background-color: #2C6094;
+  background-color: #3D758F /* #2C6094 */;
 }
-.navbar-inverse .navbar-nav > li > a.active:hover, 
+.navbar-inverse .navbar-nav > li > a.active:hover,
 .navbar-inverse .navbar-nav > li > a.active:focus {
   text-decoration: none;
-  background-color: #265380;
+  background-color: #3D758F /* #265380 */;
 }
 
 .navbar-inverse .navbar-nav > li > a.active {
-  background-color: #265380;
+  background-color: #3D758F /* #265380 */;
 }
 
 .navbar-inverse .navbar-brand:hover,
@@ -54,8 +54,8 @@ body {
 
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
-  border-color: #265380;
-  background-color: #3071a9;
+  border-color: #062A3A;
+  background-color: #0d5373 /* #3071a9 */;
 }
 
 @media (max-width: 768px) {
@@ -89,6 +89,10 @@ body {
   outline-width: 0px;
 }
 
+a {
+  color: #3D758F /* #428bca */;
+  text-decoration: none;
+}
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
@@ -320,7 +324,14 @@ body {
 .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus {
   color: #ffffff;
-  background-color: #286090;
+  background-color: #0A3E56;
+}
+
+.navbar-nav > .open > .dropdown-menu > li > a:hover,
+.navbar-nav > .open > .dropdown-menu > li > a:focus {
+  color: #092C3E;
+  text-decoration: none;
+  background-color: #DBE5EA;
 }
 
 /* Custom, iPhone Retina */ 

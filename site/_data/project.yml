@@ -15,42 +15,42 @@
 #
 # Apache Project configurations
 #
-name: Apache SystemML
-short_name: SystemML
-unix_name: systemml
-incubator_name: incubator-systemml
-incubator_slash_name: incubator/systemml
-description: Apache SystemML is a distributed and declarative machine learning platform.
+name: Apache Bahir
+short_name: Bahir
+unix_name: bahir
+github_project_name: bahir
+description: Apache Bahir is a community project managing extensions to Apache Spark.
 
-download: /download.html
+download: /download
+latest_release:
 
-dev_list: dev@systemml.incubator.apache.org
-dev_list_subscribe: dev-subscribe@systemml.incubator.apache.org
-dev_list_unsubscribe: dev-unsubscribe@systemml.incubator.apache.org
-dev_list_archive: http://mail-archives.apache.org/mod_mbox/systemml-dev/
-dev_list_archive_mailarchive: https://www.mail-archive.com/dev@systemml.incubator.apache.org/
+dev_list: dev@bahir.apache.org
+dev_list_subscribe: dev-subscribe@bahir.apache.org
+dev_list_unsubscribe: dev-unsubscribe@bahir.apache.org
+dev_list_archive: http://mail-archives.apache.org/mod_mbox/bahir-dev/
+dev_list_archive_mailarchive: https://www.mail-archive.com/dev@bahir.apache.org/
 dev_list_archive_markmail:
 
-user_list:
-user_list_subscribe:
-user_list_unsubscribe:
-user_list_archive:
-user_list_archive_mailarchive:
+user_list: user@bahir.apache.org
+user_list_subscribe: user-subscribe@bahir.apache.org
+user_list_unsubscribe: user-unsubscribe@bahir.apache.org
+user_list_archive: http://mail-archives.apache.org/mod_mbox/bahir-user/
+user_list_archive_mailarchive: https://www.mail-archive.com/user@bahir.apache.org/
 user_list_archive_markmail:
 
-commits_list: commits@systemml.incubator.apache.org
-commits_list_subscribe: commits-subscribe@systemml.incubator.apache.org
-commits_list_unsubscribe: commits-unsubscribe@systemml.incubator.apache.org
-commits_list_archive: http://mail-archives.apache.org/mod_mbox/systemml-commits/
-commits_list_archive_mailarchive: https://www.mail-archive.com/commits@systemml.incubator.apache.org/
+commits_list: commits@bahir.apache.org
+commits_list_subscribe: commits-subscribe@bahir.apache.org
+commits_list_unsubscribe: commits-unsubscribe@bahir.apache.org
+commits_list_archive: http://mail-archives.apache.org/mod_mbox/bahir-commits/
+commits_list_archive_mailarchive: https://www.mail-archive.com/commits@bahir.apache.org/
 commits_list_archive_markmail:
 
-jira: SYSTEMML
+jira: BAHIR
 
-source_repository: https://git-wip-us.apache.org/repos/asf/incubator-systemml.git
-source_repository_mirror: https://github.com/apache/incubator-systemml
+source_repository: https://git-wip-us.apache.org/repos/asf/bahir.git
+source_repository_mirror: https://github.com/apache/bahir
 
-website_repository: https://git-wip-us.apache.org/repos/asf/incubator-systemml-website.git
-website_repository_mirror: https://github.com/apache/incubator-systemml-website
+website_repository: https://git-wip-us.apache.org/repos/asf/bahir-website.git
+website_repository_mirror: https://github.com/apache/bahir-website
 
-podling: true
+podling: false

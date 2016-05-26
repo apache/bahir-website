@@ -26,6 +26,10 @@
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
   -->
 
+    <!-- make tables sortable by adding class tag "sortable" to table elements -->
+    <script src="http://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+
+
   </head>
 
   <body>
@@ -33,12 +37,14 @@
     {% include themes/apache/_navigation.html %}
 
     <div class="container">
+
       {{ content }}
+
       <hr>
-      <footer>
-        <!-- <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}</p>-->
-        {% include themes/apache/footer.html %}
-      </footer>
+
+      <!-- <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}</p>-->
+      {% include themes/apache/footer.html %}
+
     </div>
 
     {% include JB/analytics %}
