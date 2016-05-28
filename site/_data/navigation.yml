@@ -34,7 +34,11 @@ topnav:
   subcategories:
   - title: Get Involved
     url: /community
-  - title: Who we are
+  - title: Issue Tracker
+    url: https://issues.apache.org/jira/browse/BAHIR
+  - title: Source Code
+    url: https://github.com/apache/bahir
+  - title: Project Committers
     url: /community-members
 
 - title: GitHub
