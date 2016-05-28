@@ -26,15 +26,18 @@ limitations under the License.
 
 ## {{ site.data.project.name }}
 
-{{ site.data.project.name }} is an [Apache Software Foundation](http://www.apache.org){:target="_blank"} project providing extensions to [Apache Spark](http://spark.apache.org){:target="_blank"}
+{{ site.data.project.name }} provides extensions to distributed analytic platforms such as [Apache Spark](http://spark.apache.org){:target="_blank"}.
 
-Initially Apache Bahir will contain streaming connectors that were a part of Apache Spark prior to version 2.0:
+
+Initially {{ site.data.project.name }} will contain streaming connectors that were a part of Apache Spark prior to version 2.0:
 
  - streaming-akka
  - streaming-mqtt
  - streaming-twitter
  - streaming-zeromq
  
+The {{ site.data.project.name }} community welcomes the proposal of new extensions.
+
 <br>
 
 <br>
