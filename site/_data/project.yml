@@ -19,7 +19,7 @@ name: Apache Bahir
 short_name: Bahir
 unix_name: bahir
 github_project_name: bahir
-description: Apache Bahir is a community project managing extensions to Apache Spark.
+description: Apache Bahir provides extensions to distributed analytic platforms such as Apache Spark.
 
 download: /download
 latest_release:
