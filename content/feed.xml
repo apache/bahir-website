@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <description></description>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 28 May 2016 07:52:24 -0700</pubDate>
+    <lastBuildDate>Sat, 28 May 2016 07:52:24 -0700</lastBuildDate>
+    <generator>Jekyll v3.0.0</generator>
+    
+      <item>
+        <title>Release 0.2.0</title>
+        <description>&lt;!--
+
+--&gt;
+
+&lt;p&gt;This is our second release! Thanks to everyone who has contributed to
+it.&lt;/p&gt;
+
+&lt;p&gt;In addition to a large number of bug fixes and minor enhancements,
+this release includes faster-than-light travel and chewing gum that
+never loses its flavor.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 10 Nov 2015 04:00:00 -0800</pubDate>
+        <link>/news/2015/11/10/release-0-2-0/</link>
+        <guid isPermaLink="true">/news/2015/11/10/release-0-2-0/</guid>
+        
+        <category>v0-2-0</category>
+        
+        
+        <category>release</category>
+        
+      </item>
+    
+      <item>
+        <title>Project adds 2 committers</title>
+        <description>&lt;!--
+
+--&gt;
+
+&lt;p&gt;The Bahir project management committee today added two new
+committers for their work on the project. Welcome!&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Darth Vader&lt;/li&gt;
+  &lt;li&gt;Princess Leia&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 08 Nov 2015 19:03:07 -0800</pubDate>
+        <link>/news/2015/11/08/new-committers/</link>
+        <guid isPermaLink="true">/news/2015/11/08/new-committers/</guid>
+        
+        
+        <category>team</category>
+        
+      </item>
+    
+      <item>
+        <title>Release 0.1.0</title>
+        <description>&lt;!--
+
+--&gt;
+
+&lt;p&gt;This is our first release!&lt;/p&gt;
+
+&lt;p&gt;We’re so pleased to be in the Apache Incbuator.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 25 Sep 2015 05:00:00 -0700</pubDate>
+        <link>/news/2015/09/25/release-0-1-0/</link>
+        <guid isPermaLink="true">/news/2015/09/25/release-0-1-0/</guid>
+        
+        <category>v0-1-0</category>
+        
+        
+        <category>release</category>
+        
+      </item>
+    
+  </channel>
+</rss>
