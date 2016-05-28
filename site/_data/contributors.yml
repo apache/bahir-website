@@ -22,25 +22,25 @@
   apacheId: andrewor14
   githubId: andrewor14
   org: Databricks
-  role: Apache Spark PMC
+  role: Committer
 
 - name: Andy Konwinski
   apacheId: andrew
   githubId: andyk
   org: Databricks
-  role: Apache Spark PMC
+  role: Committer
 
 - name: Ankur Dave
   apacheId: ankurdave
   githubId: ankurdave
   org: UC Berkeley
-  role: Apache Spark PMC
+  role: Committer
 
 - name: Cheng Lian
   apacheId: lian
   githubId: liancheng
   org: Databricks
-  role: Apache Spark committer
+  role: Committer
 
 - name: Chris Mattmann
   apacheId: mattmann
@@ -52,31 +52,31 @@
   apacheId: davies
   githubId: davies
   org: Databricks
-  role: Apache Spark committer
+  role: Committer
 
 - name: DB Tsai
   apacheId: dbtsai
   githubId: dbtsai
   org: Netflix
-  role: Apache Spark committer
+  role: Committer
 
 - name: Haoyuan Li
   apacheId: haoyuan
   githubId: haoyuan
   org: Alluxio, UC Berkeley
-  role: Apache Spark PMC
+  role: Committer
 
 - name: Herman van Hövell
   apacheId: hvanhovell
   githubId: hvanhovell
   org: QuestTec B.V.
-  role: Apache Spark committer
+  role: Committer
 
 - name: Imran Rashid
   apacheId: irashid
   githubId: squito
   org: Cloudera
-  role: Apache Spark PMC
+  role: Committer
 
 - name: Jean-Baptiste Onofré
   apacheId: jbonofre
@@ -88,25 +88,25 @@
   apacheId: jkbradley
   githubId: jkbradley
   org: Databricks
-  role: Apache Spark PMC
+  role: Committer
 
 - name: Josh Rosen
   apacheId: joshrosen
   githubId: JoshRosen
   org: Databricks
-  role: Apache Spark PMC
+  role: Committer
 
 - name: Kay Ousterhout
   apacheId: kayousterhout
   githubId: kayousterhout
   org: UC Berkeley
-  role: Apache Spark PMC
+  role: Committer
 
 - name: Kousuke Saruta
   apacheId: sarutak
   githubId: sarutak
   org: NTT Data
-  role: Apache Spark committer
+  role: Committer
 
 - name: Luciano Resende
   apacheId: lresende
@@ -124,19 +124,19 @@
   apacheId: markhamstra
   githubId: markhamstra
   org: ClearStory Data
-  role: Apache Spark PMC
+  role: Committer
 
 - name: Matei Alexandru Zaharia
   apacheId: matei
   githubId: mateiz
   org: Databricks
-  role: Apache Spark PMC
+  role: Committer
 
 - name: Michael Armbrust
   apacheId: marmbrus
   githubId: marmbrus
   org: Databricks
-  role: Apache Spark PMC
+  role: Committer
 
 - name: Mridul Muralidharan
   apacheId: mridulm80
@@ -148,19 +148,19 @@
   apacheId: pwendell
   githubId: pwendell
   org: Databricks
-  role: Apache Spark PMC
+  role: Committer
 
 - name: Prashant Sharma
   apacheId: prashant
   githubId: ScrapCodes
   org: IBM
-  role: Apache Spark PMC
+  role: Committer
 
 - name: Ram Sriharsha
   apacheId: harsha
   githubId: harsha2010
   org: Databricks
-  role: Apache Spark committer
+  role: Committer
 
 - name: Reynold Xin
   apacheId: rxin
@@ -172,7 +172,7 @@
   apacheId: sandy
   githubId: sryza
   org: Clover Health
-  role: Apache Spark committer
+  role: Committer
 
 - name: Sean R. Owen
   apacheId: srowen
@@ -184,13 +184,13 @@
   apacheId: shivaram
   githubId: shivaram
   org: UC Berkeley
-  role: Apache Spark PMC
+  role: Committer
 
 - name: Shixiong Zhu
   apacheId: zsxwing
   githubId: zsxwing
   org: Databricks
-  role: Apache Spark committer
+  role: Committer
 
 - name: Steve Loughran
   apacheId: stevel
@@ -202,36 +202,36 @@
   apacheId: tdas
   githubId: tdas
   org: Databricks
-  role: Apache Spark PMC
+  role: Committer
 
 - name: Thomas Graves
   apacheId: tgraves
   githubId: tgravescs
   org: Yahoo!
-  role: Apache Spark PMC
+  role: Committer
 
 - name: Wenchen Fan
   apacheId: wenchen
   githubId: cloud-fan
   org: Databricks
-  role: Apache Spark committer
+  role: Committer
 
 - name: Xiangrui Meng
   apacheId: meng
   githubId: mengxr
   org: Databricks
-  role: Apache Spark PMC
+  role: Committer
 
 - name: Yin Huai
   apacheId: yhuai
   githubId: yhuai
   org: Databricks
-  role: Apache Spark PMC
+  role: Committer
 
 - name: Zhihong Yu
   apacheId: tedyu
   githubId: tedyu
   org: Hortonworks
-  role: Apache HBase PMC
+  role: Committer
 
 # End contributors.yml
