@@ -63,6 +63,8 @@ running from within the directory:
 2. Open [http://localhost:4000](http://localhost:4000)
 ```
 
+<!--
+{% comment %}
 ## Pushing to site
 
 ```
@@ -75,6 +77,9 @@ running from within the directory:
 Within a few minutes, svnpubsub should kick in and you'll be able to
 see the results at
 [bahir.apache.org](https://bahir.apache.org/).
+
+{% endcomment %}
+-->
 
 ## Adding contributors
 
