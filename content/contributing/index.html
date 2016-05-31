@@ -154,12 +154,9 @@
 
 <h1 id="contributing-code-changes">Contributing code changes</h1>
 
-<p>Please review the preceding section before proposing a code change. This section documents how to do so.</p>
+<p>Please review the preceding section before proposing a code change. This section documents how to do so:</p>
 
-<p><code>
-When you contribute code, you affirm that the contribution is your original work and that you license the work to the project under the project's open source license. 
-Whether or not you state this explicitly, by submitting any copyrighted material via pull request, email, or other means you agree to license the material under the project's open source license and warrant that you have the legal authority to do so.
-</code></p>
+<p><img src="https://developer.atlassian.com/s/en_GB/5989/aaad9997c145089d7f38b9dea0ac5b91728ef55a.56/_/images/icons/emoticons/check.png" /> <strong>When you contribute code, you affirm that the contribution is your original work and that you license the work to the project under the project’s open source license. Whether or not you state this explicitly, by submitting any copyrighted material via pull request, email, or other means you agree to license the material under the project’s open source license and warrant that you have the legal authority to do so.</strong></p>
 
 <ol>
   <li><a href="#JIRA">Identifiyng JIRAS</a></li>
@@ -219,39 +216,36 @@ Whether or not you state this explicitly, by submitting any copyrighted material
 
 <p>Make sure you do not have any uncommitted changes and rebase master with latest changes from upstream:</p>
 
-<p><code>
-git fetch upstream
+<pre><code>git fetch upstream
 git checkout master
 git rebase upstream/master
-</code></p>
+</code></pre>
 
 <p>Now you should rebase your branch with master, to receive the upstream changes</p>
 
-<p><code>
-git checkout branch
+<pre><code>git checkout branch
 git rebase master
-</code></p>
+</code></pre>
 
 <p>In both cases, you can have conflicts:</p>
 
-<p>```
-error: could not apply fa39187… something to add to patch A</p>
+<pre><code>error: could not apply fa39187... something to add to patch A
 
-<p>When you have resolved this problem, run “git rebase –continue”.
-If you prefer to skip this patch, run “git rebase –skip” instead.
-To check out the original branch and stop rebasing, run “git rebase –abort”.
-Could not apply fa39187f3c3dfd2ab5faa38ac01cf3de7ce2e841… Change fake file
-```</p>
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+Could not apply fa39187f3c3dfd2ab5faa38ac01cf3de7ce2e841... Change fake file
+</code></pre>
 
 <p>Here, Git is telling you which commit is causing the conflict (fa39187). You’re given three choices:</p>
 
 <ul>
-  <li>You can run <code>git rebase --abort</code> to completely undo the rebase. Git will return you to your branch’s state as it was before git rebase was called.</li>
-  <li>You can run <code>git rebase --skip</code> to completely skip the commit. That means that none of the changes introduced by the problematic commit will be included. It is very rare that you would choose this option.</li>
+  <li>You can run <strong>git rebase –abort</strong> to completely undo the rebase. Git will return you to your branch’s state as it was before git rebase was called.</li>
+  <li>You can run <strong>git rebase –skip</strong> to completely skip the commit. That means that none of the changes introduced by the problematic commit will be included. It is very rare that you would choose this option.</li>
   <li>You can fix the conflict.</li>
 </ul>
 
-<p>To fix the conflict, you can follow <a href="https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line">the standard procedures for resolving merge conflicts from the command line</a>. When you’re finished, you’ll need to call <code>git rebase --continue</code> in order for Git to continue processing the rest of the rebase.</p>
+<p>To fix the conflict, you can follow <a href="https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line">the standard procedures for resolving merge conflicts from the command line</a>. When you’re finished, you’ll need to call <strong>git rebase –continue</strong> in order for Git to continue processing the rest of the rebase.</p>
 
 <h2 id="creating-a-pull-request">Creating a Pull Request</h2>
 
@@ -279,12 +273,11 @@ Could not apply fa39187f3c3dfd2ab5faa38ac01cf3de7ce2e841… Change fake file
 
 <p>Below is an example of a good commit message</p>
 
-<p>```
-[BAHIR-130] Performance enhancements for decision tree</p>
+<pre><code>[BAHIR-130] Performance enhancements for decision tree
 
-<p>Generate Matrix with random values through local memory
+Generate Matrix with random values through local memory
 if there is sufficient memory.
-```</p>
+</code></pre>
 
 <h2 id="code-review-criteria">Code Review Criteria</h2>
 <p>Before considering how to contribute code, it’s useful to understand how code is reviewed, and why changes may be rejected. Simply put, changes that have many or large positives, and few negative effects or risks, are much more likely to be merged, and merged quickly. Risky and less valuable changes are very unlikely to be merged, and may be rejected outright rather than receive iterations of review.</p>
