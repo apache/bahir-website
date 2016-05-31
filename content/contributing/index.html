@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Contributing</title>
+    <meta name="description" content="Contributing to the project page">
+    <meta name="author" content="">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/apache-clean/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/themes/apache-clean/css/style.css?body=1" rel="stylesheet" type="text/css">
+    <link href="/assets/themes/apache-clean/css/syntax.css" rel="stylesheet"  type="text/css" media="screen" />
+    <!-- Le fav and touch icons -->
+    <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- make tables sortable by adding class tag "sortable" to table elements -->
+    <script src="http://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+
+
+  </head>
+
+  <body>
+
+    
+
+<!-- Navigation -->
+<div id="nav-bar">
+  <nav id="nav-container" class="navbar navbar-inverse " role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand page-scroll" href="/#home">Home</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <nav class="navbar-collapse collapse" role="navigation">
+        <ul class="nav navbar-nav">
+          
+          <li id="community">
+            
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a>
+            <ul class="dropdown-menu dropdown-left">
+              
+              
+              <li><a href="/community" target="_self">Get Involved</a></li>
+              
+              
+              <li><a href="/contributing" target="_self">Contributing to project</a></li>
+              
+              
+              <li><a href="https://issues.apache.org/jira/browse/BAHIR" target="_blank">Issue Tracker</a></li>
+              
+              
+              <li><a href="https://github.com/apache/bahir" target="_blank">Source Code</a></li>
+              
+              
+              <li><a href="/community-members" target="_self">Project Committers</a></li>
+              
+            </ul>
+            
+          </li>
+          
+          <li id="github">
+            
+            
+            <a href="https://github.com/apache/bahir" target="_blank">GitHub</a>
+            
+          </li>
+          
+          <li id="apache">
+            
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Apache<b class="caret"></b></a>
+            <ul class="dropdown-menu dropdown-left">
+              
+              
+              <li><a href="http://www.apache.org/foundation/how-it-works.html" target="_blank">Apache Software Foundation</a></li>
+              
+              
+              <li><a href="http://www.apache.org/licenses/" target="_blank">Apache License</a></li>
+              
+              
+              <li><a href="http://www.apache.org/foundation/sponsorship" target="_blank">Sponsorship</a></li>
+              
+              
+              <li><a href="http://www.apache.org/foundation/thanks.html" target="_blank">Thanks</a></li>
+              
+            </ul>
+            
+          </li>
+          
+        </ul>
+      </nav><!--/.navbar-collapse -->
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </nav>
+</div>
+
+
+
+
+
+    <div class="container">
+
+      
+<!--<div class="hero-unit Contributing">
+  <h1></h1>
+</div>
+-->
+
+<div class="row">
+  <div class="col-md-12">
+    <!--
+
+-->
+
+<p>This guide documents the best way to make various types of contribution to Apache Bahir, including what is required before submitting a code change and how to properly merge them.</p>
+
+<p>Contributing to Bahir doesn’t just mean writing code. Helping testing and reviewing pull requests and improving documentation are also welcome. In fact, proposing significant code changes usually requires first gaining experience and credibility within the community by helping in other ways. This is also a guide to becoming an effective contributor.</p>
+
+<h1 id="contributing-by-helping-other-users">Contributing by Helping Other Users</h1>
+
+<p>A great way to contribute to Bahir is to help answer user questions on the <a href="https://www.mail-archive.com/user@bahir.apache.org/">user@bahir.apache.org</a> mailing list. There are always many new users; taking a few minutes to help answer a question is a very valuable community service.</p>
+
+<p>Contributors should subscribe to this list and follow it in order to keep up to date on what’s happening in Bahir. Answering questions is an excellent and visible way to help the community, which also demonstrates your expertise.</p>
+
+<h1 id="contributing-by-testing-releases">Contributing by Testing Releases</h1>
+
+<p>Bahir’s release process is community-oriented, and members of the community can vote on new releases on the <a href="https://www.mail-archive.com/dev@bahir.apache.org/">dev@bahir.apache.org</a> mailing list. Bahir users are invited to subscribe to this list to receive announcements of release vote, and test Bahir extensions on newer release and provide feedback on any performance or correctness issues found in the newer release.</p>
+
+<!--
+
+-->
+
+<h1 id="contributing-code-changes">Contributing code changes</h1>
+
+<p>Please review the preceding section before proposing a code change. This section documents how to do so.</p>
+
+<p><code>
+When you contribute code, you affirm that the contribution is your original work and that you license the work to the project under the project's open source license. 
+Whether or not you state this explicitly, by submitting any copyrighted material via pull request, email, or other means you agree to license the material under the project's open source license and warrant that you have the legal authority to do so.
+</code></p>
+
+<ol>
+  <li><a href="#JIRA">Identifiyng JIRAS</a></li>
+  <li><a href="#Before+creating+a+Pull+Request">Before creating a Pull Request</a></li>
+  <li><a href="#Creating+a+Pull+Request">Creating a Pull Request</a></li>
+  <li><a href="#The+Review+Process">The Review Process</a></li>
+  <li><a href="#Merging+Pull+Requests">Merging Pull Requests</a></li>
+</ol>
+
+<h2 id="jira">JIRA</h2>
+
+<p>Bahir uses JIRA to track issues, including bugs and improvements, and uses Github pull requests to manage the review and merge of specific code changes. That is, JIRAs are used to describe what should be fixed or changed, and high-level approaches, and pull requests describe how to implement that change in the project’s source code. For example, major design decisions are discussed in JIRA.</p>
+
+<ol>
+  <li>Find the existing <a href="https://issues.apache.org/jira/browse/BAHIR">Bahir JIRA</a> that the change pertains to.
+    <ul>
+      <li>Do not create a new JIRA if creating a change to address an existing issue in JIRA; add to the existing discussion and work instead</li>
+      <li>Look for existing pull requests that are linked from the JIRA, to understand if someone is already working on the JIRA</li>
+    </ul>
+  </li>
+  <li>If the change is new, then it usually needs a new JIRA. However, trivial changes, where the what should change is virtually the same as the how it should change do not require a JIRA. Example: “Fix typos in Foo scaladoc”</li>
+  <li>If required, create a new JIRA:
+    <ul>
+      <li>Provide a descriptive Title. “Update web UI” or “Problem in scheduler” is not sufficient. “Kafka Streaming support fails to handle empty queue in YARN cluster mode” is good.</li>
+      <li>Write a detailed Description. For bug reports, this should ideally include a short reproduction of the problem. For new features, it may include a design document.</li>
+      <li>Set required fields:</li>
+      <li><strong>Issue Type</strong>. Generally, Bug, Improvement and New Feature are the only types used in Bahir.</li>
+      <li><strong>Priority</strong>. Set to Major or below; higher priorities are generally reserved for committers to set. JIRA tends to unfortunately conflate “size” and “importance” in its Priority field values. Their meaning is roughly:
+        <ul>
+          <li>Blocker: pointless to release without this change as the release would be unusable to a large minority of users</li>
+          <li>Critical: a large minority of users are missing important functionality without this, and/or a workaround is difficult</li>
+          <li>Major: a small minority of users are missing important functionality without this, and there is a workaround</li>
+          <li>Minor: a niche use case is missing some support, but it does not affect usage or is easily worked around</li>
+          <li>Trivial: a nice-to-have change but unlikely to be any problem in practice otherwise</li>
+        </ul>
+      </li>
+      <li><strong>Component</strong></li>
+      <li><strong>Affects Version</strong>. For Bugs, assign at least one version that is known to exhibit the problem or need the change</li>
+      <li>Do not set the following fields:</li>
+      <li><strong>Fix Version</strong>. This is assigned by committers only when resolved.</li>
+      <li><strong>Target Version</strong>. This is assigned by committers to indicate a PR has been accepted for possible fix by the target version.</li>
+      <li>Do not include a patch file; pull requests are used to propose the actual change.</li>
+    </ul>
+  </li>
+  <li>If the change is a large change, consider inviting discussion on the issue at dev@bahir.apache.org first before proceeding to implement the change.</li>
+</ol>
+
+<h2 id="before-creating-a-pull-request">Before creating a Pull Request</h2>
+
+<p>Fork the Github repository at https://github.com/apache/bahir and clone your fork if you haven’t already</p>
+
+<ul>
+  <li>If you haven’t done so, please set upstream as described in <a href="https://help.github.com/articles/configuring-a-remote-for-a-fork/">GitHub Documentation</a></li>
+</ul>
+
+<p>Make sure you have the most up to date code</p>
+
+<p>Make sure you do not have any uncommitted changes and rebase master with latest changes from upstream:</p>
+
+<p><code>
+git fetch upstream
+git checkout master
+git rebase upstream/master
+</code></p>
+
+<p>Now you should rebase your branch with master, to receive the upstream changes</p>
+
+<p><code>
+git checkout branch
+git rebase master
+</code></p>
+
+<p>In both cases, you can have conflicts:</p>
+
+<p>```
+error: could not apply fa39187… something to add to patch A</p>
+
+<p>When you have resolved this problem, run “git rebase –continue”.
+If you prefer to skip this patch, run “git rebase –skip” instead.
+To check out the original branch and stop rebasing, run “git rebase –abort”.
+Could not apply fa39187f3c3dfd2ab5faa38ac01cf3de7ce2e841… Change fake file
+```</p>
+
+<p>Here, Git is telling you which commit is causing the conflict (fa39187). You’re given three choices:</p>
+
+<ul>
+  <li>You can run <code>git rebase --abort</code> to completely undo the rebase. Git will return you to your branch’s state as it was before git rebase was called.</li>
+  <li>You can run <code>git rebase --skip</code> to completely skip the commit. That means that none of the changes introduced by the problematic commit will be included. It is very rare that you would choose this option.</li>
+  <li>You can fix the conflict.</li>
+</ul>
+
+<p>To fix the conflict, you can follow <a href="https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line">the standard procedures for resolving merge conflicts from the command line</a>. When you’re finished, you’ll need to call <code>git rebase --continue</code> in order for Git to continue processing the rest of the rebase.</p>
+
+<h2 id="creating-a-pull-request">Creating a Pull Request</h2>
+
+<ol>
+  <li>Create a new branch, push commits to the branch.</li>
+  <li>Consider whether documentation or tests need to be added or updated as part of the change, and add them as needed.</li>
+  <li>Open a pull request against the master branch of apache/bahir. (Only in special cases would the PR be opened against other branches.)
+    <ul>
+      <li>The PR title should be of the form [BAHIR-xxxx] Title, where BAHIR-xxxx is the relevant JIRA number and Title may be the JIRA’s title or a more specific title describing the PR itself.</li>
+      <li>If the pull request is still a work in progress, and so is not ready to be merged, but needs to be pushed to Github to facilitate review, then add [WIP] after the component.</li>
+    </ul>
+  </li>
+  <li>Follow <a href="http://chris.beams.io/posts/git-commit/">The 7 rules for a great commit message</a>
+    <ul>
+      <li>Separate subject from body with a blank line</li>
+      <li>Limit the subject line to 50 characters</li>
+      <li>Capitalize the subject line</li>
+      <li>Do not end the subject line with a period</li>
+      <li>Use the imperative mood in the subject line</li>
+      <li>Wrap the body at 72 characters</li>
+      <li>Use the body to explain what and why vs. how</li>
+    </ul>
+  </li>
+</ol>
+
+<p>Below is an example of a good commit message</p>
+
+<p>```
+[BAHIR-130] Performance enhancements for decision tree</p>
+
+<p>Generate Matrix with random values through local memory
+if there is sufficient memory.
+```</p>
+
+<h2 id="code-review-criteria">Code Review Criteria</h2>
+<p>Before considering how to contribute code, it’s useful to understand how code is reviewed, and why changes may be rejected. Simply put, changes that have many or large positives, and few negative effects or risks, are much more likely to be merged, and merged quickly. Risky and less valuable changes are very unlikely to be merged, and may be rejected outright rather than receive iterations of review.</p>
+
+<p><strong>Positives</strong></p>
+
+<ul>
+  <li>Fixes the root cause of a bug in existing functionality</li>
+  <li>Adds functionality or fixes a problem needed by a large number of users</li>
+  <li>Simple, targeted</li>
+  <li>Easily tested; has tests</li>
+  <li>Reduces complexity and lines of code</li>
+  <li>Change has already been discussed and is known to committers</li>
+</ul>
+
+<p><strong>Negatives, Risks</strong></p>
+
+<ul>
+  <li>Band-aids a symptom of a bug only</li>
+  <li>Introduces complex new functionality, especially an API that needs to be supported</li>
+  <li>Adds complexity that only helps a niche use case</li>
+  <li>Changes a public API or semantics (rarely allowed)</li>
+  <li>Adds large dependencies</li>
+  <li>Changes versions of existing dependencies</li>
+  <li>Adds a large amount of code</li>
+  <li>Makes lots of modifications in one “big bang” change</li>
+</ul>
+
+<h2 id="the-review-process">The Review Process</h2>
+
+<ul>
+  <li>Other reviewers, including committers, may comment on the changes and suggest modifications. Changes can be added by simply pushing more commits to the same branch.</li>
+  <li>Lively, polite, rapid technical debate is encouraged from everyone in the community. The outcome may be a rejection of the entire change.</li>
+  <li>Reviewers can indicate that a change looks suitable for merging with a comment such as: “I think this patch looks good”. Bahir uses the LGTM convention for indicating the strongest level of technical sign-off on a patch: simply comment with the word “LGTM”. It specifically means: “I’ve looked at this thoroughly and take as much ownership as if I wrote the patch myself”. If you comment LGTM you will be expected to help with bugs or follow-up issues on the patch. Consistent, judicious use of LGTMs is a great way to gain credibility as a reviewer with the broader community.</li>
+  <li>Sometimes, other changes will be merged which conflict with your pull request’s changes. The PR can’t be merged until the conflict is resolved. This can be resolved with “git fetch origin” followed by “git merge origin/master” and resolving the conflicts by hand, then pushing the result to your branch.</li>
+  <li>Try to be responsive to the discussion rather than let days pass between replies</li>
+</ul>
+
+
+  </div>
+</div>
+
+
+
+      <hr>
+
+      <!-- <p>&copy; 2016 </p>-->
+      <footer class="site-footer">
+    <div class="wrapper">
+        <div class="footer-col-wrapper">
+            
+            <div style="text-align:center;">
+                
+                <div>
+                    Copyright &copy; 2016 <a href="http://www.apache.org">The Apache Software Foundation</a>.
+                    Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version
+                    2.0</a>.
+                    <br>
+                    
+                    Apache and the Apache Feather logo are trademarks of The Apache Software Foundation.
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+
+    
+    <script src="/assets/themes/apache-clean/jquery/jquery-2.1.1.min.js"></script>
+
+    <script src="/assets/themes/apache-clean/bootstrap/js/bootstrap.min.js"></script>
+
+
+  </body>
+</html>
+
