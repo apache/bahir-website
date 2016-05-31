@@ -3,8 +3,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>History</title>
-    <meta name="description" content="Release History">
+    <title>Contributing a new extension</title>
+    <meta name="description" content="Contributing a new extension page">
     <meta name="author" content="">
 
     <!-- Enable responsive viewport -->
@@ -126,7 +126,7 @@
     <div class="container">
 
       
-<!--<div class="hero-unit History">
+<!--<div class="hero-unit Contributing a new extension">
   <h1></h1>
 </div>
 -->
@@ -137,29 +137,49 @@
 
 -->
 
-<h2 id="apache-bahir-downloads">Apache Bahir Downloads</h2>
+<p>Apache Bahir provides extensions to distributed analytic platforms such as Apache Spark.  In the context of Apache Spark, extensions can be Streaming connectors, SQL data sources, etc</p>
 
-<p>For a full list of releases, see
-<a href="https://github.com/apache/bahir/releases">github</a>.
-Downloads are available on the
-<a href="/download.html">downloads page</a>.</p>
+<p>This document explains the process for proposing a new extension to Apache Bahir, and how the extension lifecycle are handled in the project.</p>
 
-<h2 id="v0-2-0"><a href="https://github.com/apache/bahir/releases/tag/bahir-0.2.0">0.2.0</a> / 2015-11-10</h2>
+<h1 id="proposing-a-new-extension">Proposing a new extension</h1>
 
-<p>Our second release!</p>
+<p>In Apache Bahir we believe that forming a community around these extensions will actually make it better, and extend its life cycle, thus we require that new extensions be discussed on the project mailing list and receive at least 3 +1 from other committers.</p>
 
-<p>New features</p>
+<p>When set of committers provides a +1 vote to a new extension, they become the initial community around the extension, and will become responsible for helping on patch reviews, but especially, they will become the backup for maintaining the extension in case of build issues, reacting to api changes, or any other issues that might break the extension.</p>
 
-<ul>
-  <li>[<a href="https://issues.apache.org/jira/browse/FOO-911">FOO-911</a>]
-Add a variant of <code>FooSchema</code> that does not cache sub-objects</li>
-  <li>[<a href="https://issues.apache.org/jira/browse/FOO-845">FOO-845</a>]
-Derive <code>FOO</code> return type by a customizable policy</li>
-</ul>
+<p>Once a proposed extension gets the necessary votes, the author should follow the regular contribution process, creating a jira if one is not available yet, and provide a pull request.</p>
 
-<h2 id="v0-1-0"><a href="https://github.com/apache/bahir/releases/tag/bahir-0.1.0">0.1.0</a> / 2015-09-25</h2>
+<h1 id="what-is-expected-of-a-new-extension">What is expected of a new extension</h1>
 
-<p>Our first release!</p>
+<p>Extensions must provide:</p>
+
+<ol>
+  <li><strong>The main extension code</strong>: this is the actually the extension core code</li>
+  <li><strong>Extensible test coverage</strong>: automated tests is a MUST to serve as examples on how to use the extension, but also to assert that it works and continue to works while it evolves</li>
+  <li><strong>Documentation</strong>: extensions MUST provide details on how users would integrated the extension in their applications</li>
+</ol>
+
+<p>Extensions might also provide:</p>
+
+<ol>
+  <li><strong>Example</strong>: a simple application that can serve as a reference point on how to use the extension in an application. Users must be able to simply build and deploy the sample application into a cluster.</li>
+</ol>
+
+<h1 id="extension-life-cycle">Extension life cycle</h1>
+
+<p>We understand that software, particularly open source one, evolves quite quickly, and thus we antecipate that some extensions might start to lag behind in its maintenance.</p>
+
+<p>The steps described below were crafted with the intention to alleviate the side-effects of one extension lagging behind and becoming broke for one reason or another.</p>
+
+<h2 id="retiring-extensions">Retiring extensions</h2>
+
+<p>When a particular extension breaks a build, it will be removed from the build (TBD the actual period here) to minimize the impact on the community.</p>
+
+<p>Extensions that stay out of the build for a period of time (TBD the actual period here) will be retired to an ‘contrib’ folder, and at that point will not be part of the official releases.</p>
+
+<h2 id="resurecting-a-retired-extension">Resurecting a retired extension</h2>
+
+<p>At any point, a community member can request to resurect a retired extension, and at this point, the process is the same as the initial extension proposal, where he would propose the extension to be brought to life again, and would need to receive at least 3 +1 from other committers.</p>
 
   </div>
 </div>
