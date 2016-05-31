@@ -21,37 +21,9 @@ limitations under the License.
 
 The Apache Bahir website was forked from the [Apache Website Template](https://github.com/apache/apache-website-template).
 
-The website gets generated using [Jekyll](https://jekyllrb.com/).
-
-To use it, copy the `site` directory into your project.  You must also
-include licensing information from the `LICENSE` and `NOTICE` files in
-your own project.
+The website gets generated using [Jekyll](https://jekyllrb.com/)and the instructions below assume you have [Jekyll installed](https://jekyllrb.com/docs/installation/).
 
 # How to deploy your project's web site
-
-(In the following instructions we assume that your project is called
-'Apache Foo'; search and replace with your actual project name.)
-
-## Setup
-
-```
-1. cd site
-2. svn co https://svn.apache.org/repos/asf/bahir/site target
-3. sudo apt-get install rubygems ruby2.1-dev zlib1g-dev
-4. sudo gem install bundler github-pages jekyll
-5. bundle install
-```
-
-## Add javadoc
-
-If your project supports javadoc, you can copy the generated javadoc
-into svn each time you need to re-generate.
-
-```
-1. cd ..
-2. mvn -DskipTests site
-3. mv target/site/apidocs site/_site
-```
 
 ## Running locally
 
@@ -59,31 +31,31 @@ Before opening a pull request, you can preview your contributions by
 running from within the directory:
 
 ```
-1. bundle exec jekyll serve
-2. Open [http://localhost:4000](http://localhost:4000)
+1. cd site
+2. jekyll serve
+3. Open [http://localhost:4000](http://localhost:4000)
 ```
 
-<!--
-{% comment %}
-## Pushing to site
+
+## Publishing to live site
+
+Bahir is using [gitpubsub](http://www.apache.org/dev/gitpubsub.html) for publishing the website,
+and the live website content is stored in the asf-site git branch.
+
+To publish new contents to the website, commit your changes to master, and use the 'publish.sh'
+shell script.
 
 ```
-1. cd site/_site
-2. svn status
-3. You'll need to `svn add` any new files
-4. svn ci
+1. Make your changes
+2. git commit -a -m"My updates"
+3. ./publish.sh
+4. git push origin asf-site
 ```
 
-Within a few minutes, svnpubsub should kick in and you'll be able to
-see the results at
-[bahir.apache.org](https://bahir.apache.org/).
-
-{% endcomment %}
--->
+Within a few minutes, gitpubsub should kick in and you'll be able to
+see the results at [bahir.apache.org](https://bahir.apache.org/).
 
 ## Adding contributors
 
-To add a contributor to the project, or to modify existing contributors,
-edit `site/_data/contributors.yml`.
-The [project members](http://localhost:4000/community-members)
-list will be re-generated.
+To add a contributor to the project, or to modify existing contributors, edit `site/_data/contributors.yml`.
+The [project members](http://localhost:4000/community-members) list will be re-generated.
