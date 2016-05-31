@@ -13,9 +13,27 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-.idea
+
+# Mac
+.DS_Store
+
+# Eclipse
+.classpath
+.project
+.settings/
+target/
+
+# Intellij
+.idea/
+.idea_modules/
+*.iml
+*.iws
+*.class
+*.log
+
+# Others
+*~
 .sass-cache
 .jekyll-metadata
-*.iml
-*~
-
+.checkstyle
+.fbExcludeFilterFile
