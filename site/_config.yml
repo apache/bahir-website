@@ -17,7 +17,7 @@ markdown: kramdown
 permalink: /news/:year/:month/:day/:title/
 excerpt_separator: ""
 
-repository: https://github.com/apache/apache-website-template
+repository: https://github.com/apache/bahir-website
 destination: _site
 exclude: [README.md,Gemfile*]
 keep_files: [".git", ".svn", "apidocs"]
