@@ -23,6 +23,12 @@ limitations under the License.
 {% endcomment %}
 -->
 
+{% include JB/setup %}
+
+## {{ site.data.project.name }} Privacy Policy
+
+<br/>
+
 Information about your use of this website is collected using server access logs and a tracking cookie. The collected information consists of the following:
 
     The IP address from which you access the website;
