@@ -38,6 +38,6 @@ Initially {{ site.data.project.name }} will contain streaming connectors that we
  
 The {{ site.data.project.name }} community welcomes the proposal of new extensions.
 
-<br>
+<br/>
 
-<br>
+<br/>

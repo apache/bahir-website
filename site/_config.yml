@@ -13,6 +13,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+title: Apache Bahir
+email: dev@bahir.apache.org
+description: > # this means to ignore newlines until "baseurl:"
+  Apache Bahir provides extensions to distributed analytic platforms such as Apache Spark.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://bahir.apache.org" # the base hostname & protocol for your site
+#twitter_username: ApacheBahir
+github_username:  apache
+
+# Build settings
 markdown: kramdown
 permalink: /news/:year/:month/:day/:title/
 excerpt_separator: ""
@@ -22,8 +32,10 @@ destination: _site
 exclude: [README.md,Gemfile*]
 keep_files: [".git", ".svn", "apidocs"]
 
-# The base path where the website is deployed
-baseurl:
-
-# End _config.yml
-
+# if 'analytics_on' is true, analytics section will be rendered on the HTML pages
+JB:
+  analytics:
+    provider: google_universal
+    google_universal:
+       domain: bahir.apache.org
+       tracking_id: UA-79140859-1
