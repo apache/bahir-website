@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title></title>
-    <description></description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 31 May 2016 16:58:56 -0700</pubDate>
-    <lastBuildDate>Tue, 31 May 2016 16:58:56 -0700</lastBuildDate>
+    <title>Apache Bahir</title>
+    <description>Apache Bahir provides extensions to distributed analytic platforms such as Apache Spark.
+</description>
+    <link>http://bahir.apache.org/</link>
+    <atom:link href="http://bahir.apache.org/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 10 Jun 2016 09:19:59 -0700</pubDate>
+    <lastBuildDate>Fri, 10 Jun 2016 09:19:59 -0700</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
     
       <item>
@@ -23,8 +24,8 @@ this release includes faster-than-light travel and chewing gum that
 never loses its flavor.&lt;/p&gt;
 </description>
         <pubDate>Tue, 10 Nov 2015 04:00:00 -0800</pubDate>
-        <link>/news/2015/11/10/release-0-2-0/</link>
-        <guid isPermaLink="true">/news/2015/11/10/release-0-2-0/</guid>
+        <link>http://bahir.apache.org/news/2015/11/10/release-0-2-0/</link>
+        <guid isPermaLink="true">http://bahir.apache.org/news/2015/11/10/release-0-2-0/</guid>
         
         <category>v0-2-0</category>
         
@@ -48,8 +49,8 @@ committers for their work on the project. Welcome!&lt;/p&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 08 Nov 2015 19:03:07 -0800</pubDate>
-        <link>/news/2015/11/08/new-committers/</link>
-        <guid isPermaLink="true">/news/2015/11/08/new-committers/</guid>
+        <link>http://bahir.apache.org/news/2015/11/08/new-committers/</link>
+        <guid isPermaLink="true">http://bahir.apache.org/news/2015/11/08/new-committers/</guid>
         
         
         <category>team</category>
@@ -67,8 +68,8 @@ committers for their work on the project. Welcome!&lt;/p&gt;
 &lt;p&gt;We’re so pleased to be in the Apache Incbuator.&lt;/p&gt;
 </description>
         <pubDate>Fri, 25 Sep 2015 05:00:00 -0700</pubDate>
-        <link>/news/2015/09/25/release-0-1-0/</link>
-        <guid isPermaLink="true">/news/2015/09/25/release-0-1-0/</guid>
+        <link>http://bahir.apache.org/news/2015/09/25/release-0-1-0/</link>
+        <guid isPermaLink="true">http://bahir.apache.org/news/2015/09/25/release-0-1-0/</guid>
         
         <category>v0-1-0</category>
         
