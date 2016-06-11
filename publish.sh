@@ -22,6 +22,8 @@ jekyll build -d _site
 COMMIT_HASH=`git rev-parse HEAD`
 cd ..
 git checkout asf-site
+git branch --set-upstream-to=origin/asf-site asf-site
+git pull --rebase
 rm -rf content
 mkdir content
 mv site/_site/* content
