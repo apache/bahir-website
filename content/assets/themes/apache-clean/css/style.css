@@ -332,7 +332,7 @@ body {
   background-color: #D5D5D5 /* #3D758F #265380 */;
 }
 
-/* Custom, iPhone Retina */ 
+/* Custom, iPhone Retina */
 @media only screen and (max-width : 480px) {
   .jumbotron h1 {
     display: none;
@@ -340,6 +340,15 @@ body {
   .navbar-brand small {
       display: none;
       color: #FFF;
+  }
+  .logo-img {
+     width: 320px;
+  }
+}
+
+@media only screen and (min-width : 480px) and (max-width: 768px) {
+  .logo-img {
+     width: 400px;
   }
 }
 
@@ -358,4 +367,8 @@ and (max-width : 1024px) {
   .navbar-collapse.collapse {
       padding-right: 0;
   }
+  .logo-img {
+     width: 700px;
+  }
+
 }
