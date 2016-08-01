@@ -137,17 +137,19 @@
 
 -->
 
+<h1 id="contributing-to-apache-bahir-community">Contributing to Apache Bahir Community</h1>
+
 <p>This guide documents the best way to make various types of contribution to Apache Bahir, including what is required before submitting a code change and how to properly merge them.</p>
 
 <p>Contributing to Bahir doesn’t just mean writing code. Helping testing and reviewing pull requests and improving documentation are also welcome. In fact, proposing significant code changes usually requires first gaining experience and credibility within the community by helping in other ways. This is also a guide to becoming an effective contributor.</p>
 
-<h1 id="contributing-by-helping-other-users">Contributing by Helping Other Users</h1>
+<h2 id="contributing-by-helping-other-users">Contributing by Helping Other Users</h2>
 
 <p>A great way to contribute to Bahir is to help answer user questions on the <a href="https://www.mail-archive.com/user@bahir.apache.org/">user@bahir.apache.org</a> mailing list. There are always many new users; taking a few minutes to help answer a question is a very valuable community service.</p>
 
 <p>Contributors should subscribe to this list and follow it in order to keep up to date on what’s happening in Bahir. Answering questions is an excellent and visible way to help the community, which also demonstrates your expertise.</p>
 
-<h1 id="contributing-by-testing-releases">Contributing by Testing Releases</h1>
+<h2 id="contributing-by-testing-releases">Contributing by Testing Releases</h2>
 
 <p>Bahir’s release process is community-oriented, and members of the community can vote on new releases on the <a href="https://www.mail-archive.com/dev@bahir.apache.org/">dev@bahir.apache.org</a> mailing list. Bahir users are invited to subscribe to this list to receive announcements of release vote, and test Bahir extensions on newer release and provide feedback on any performance or correctness issues found in the newer release.</p>
 
@@ -155,7 +157,7 @@
 
 -->
 
-<h1 id="contributing-code-changes">Contributing code changes</h1>
+<h2 id="contributing-code-changes">Contributing code changes</h2>
 
 <p>Please review the preceding section before proposing a code change. This section documents how to do so:</p>
 
@@ -169,7 +171,7 @@
   <li><a href="#Merging+Pull+Requests">Merging Pull Requests</a></li>
 </ol>
 
-<h2 id="jira">JIRA</h2>
+<h3 id="jira">JIRA</h3>
 
 <p>Bahir uses JIRA to track issues, including bugs and improvements, and uses Github pull requests to manage the review and merge of specific code changes. That is, JIRAs are used to describe what should be fixed or changed, and high-level approaches, and pull requests describe how to implement that change in the project’s source code. For example, major design decisions are discussed in JIRA.</p>
 
@@ -207,7 +209,7 @@
   <li>If the change is a large change, consider inviting discussion on the issue at dev@bahir.apache.org first before proceeding to implement the change.</li>
 </ol>
 
-<h2 id="before-creating-a-pull-request">Before creating a Pull Request</h2>
+<h3 id="before-creating-a-pull-request">Before creating a Pull Request</h3>
 
 <p>Fork the Github repository at https://github.com/apache/bahir and clone your fork if you haven’t already</p>
 
@@ -250,7 +252,7 @@ Could not apply fa39187f3c3dfd2ab5faa38ac01cf3de7ce2e841... Change fake file
 
 <p>To fix the conflict, you can follow <a href="https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line">the standard procedures for resolving merge conflicts from the command line</a>. When you’re finished, you’ll need to call <strong>git rebase –continue</strong> in order for Git to continue processing the rest of the rebase.</p>
 
-<h2 id="creating-a-pull-request">Creating a Pull Request</h2>
+<h3 id="creating-a-pull-request">Creating a Pull Request</h3>
 
 <ol>
   <li>Create a new branch, push commits to the branch.</li>
@@ -282,7 +284,7 @@ Generate Matrix with random values through local memory
 if there is sufficient memory.
 </code></pre>
 
-<h2 id="code-review-criteria">Code Review Criteria</h2>
+<h3 id="code-review-criteria">Code Review Criteria</h3>
 <p>Before considering how to contribute code, it’s useful to understand how code is reviewed, and why changes may be rejected. Simply put, changes that have many or large positives, and few negative effects or risks, are much more likely to be merged, and merged quickly. Risky and less valuable changes are very unlikely to be merged, and may be rejected outright rather than receive iterations of review.</p>
 
 <p><strong>Positives</strong></p>
@@ -309,7 +311,7 @@ if there is sufficient memory.
   <li>Makes lots of modifications in one “big bang” change</li>
 </ul>
 
-<h2 id="the-review-process">The Review Process</h2>
+<h3 id="the-review-process">The Review Process</h3>
 
 <ul>
   <li>Other reviewers, including committers, may comment on the changes and suggest modifications. Changes can be added by simply pushing more commits to the same branch.</li>
