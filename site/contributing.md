@@ -23,19 +23,21 @@ limitations under the License.
 {% endcomment %}
 -->
 
+# Contributing to {{ site.data.project.name }} Community
+
 This guide documents the best way to make various types of contribution to Apache Bahir, including what is required before submitting a code change and how to properly merge them.
 
 Contributing to Bahir doesn't just mean writing code. Helping testing and reviewing pull requests and improving documentation are also welcome. In fact, proposing significant code changes usually requires first gaining experience and credibility within the community by helping in other ways. This is also a guide to becoming an effective contributor.
 
 
-#Contributing by Helping Other Users
+## Contributing by Helping Other Users
 
 A great way to contribute to Bahir is to help answer user questions on the [user@bahir.apache.org]({{ site.data.project.user_list_archive_mailarchive }}) mailing list. There are always many new users; taking a few minutes to help answer a question is a very valuable community service.
 
 Contributors should subscribe to this list and follow it in order to keep up to date on what's happening in Bahir. Answering questions is an excellent and visible way to help the community, which also demonstrates your expertise.
 
 
-#Contributing by Testing Releases
+## Contributing by Testing Releases
 
 Bahir's release process is community-oriented, and members of the community can vote on new releases on the [dev@bahir.apache.org]({{ site.data.project.dev_list_archive_mailarchive }}) mailing list. Bahir users are invited to subscribe to this list to receive announcements of release vote, and test Bahir extensions on newer release and provide feedback on any performance or correctness issues found in the newer release.
 
@@ -49,7 +51,7 @@ The process to propose a doc change is otherwise the same as the process for pro
 {% endcomment %}
 -->
 
-# Contributing code changes
+## Contributing code changes
 
 Please review the preceding section before proposing a code change. This section documents how to do so:
 
@@ -64,7 +66,7 @@ Please review the preceding section before proposing a code change. This section
 1. [The Review Process](#The+Review+Process)
 4. [Merging Pull Requests](#Merging+Pull+Requests)
 
-## JIRA
+### JIRA
 
 Bahir uses JIRA to track issues, including bugs and improvements, and uses Github pull requests to manage the review and merge of specific code changes. That is, JIRAs are used to describe what should be fixed or changed, and high-level approaches, and pull requests describe how to implement that change in the project's source code. For example, major design decisions are discussed in JIRA.
 
@@ -92,7 +94,7 @@ Bahir uses JIRA to track issues, including bugs and improvements, and uses Githu
 1. If the change is a large change, consider inviting discussion on the issue at dev@bahir.apache.org first before proceeding to implement the change.
 
 
-## Before creating a Pull Request
+### Before creating a Pull Request
 
 Fork the Github repository at https://github.com/apache/bahir and clone your fork if you haven't already
 
@@ -131,7 +133,7 @@ Here, Git is telling you which commit is causing the conflict (fa39187). You're 
 
 To fix the conflict, you can follow [the standard procedures for resolving merge conflicts from the command line](https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line). When you're finished, you'll need to call **git rebase --continue** in order for Git to continue processing the rest of the rebase.
 
-##Creating a Pull Request
+### Creating a Pull Request
 
 1. Create a new branch, push commits to the branch.
 1. Consider whether documentation or tests need to be added or updated as part of the change, and add them as needed.
@@ -155,7 +157,7 @@ Below is an example of a good commit message
     if there is sufficient memory.
 
 
-##Code Review Criteria
+### Code Review Criteria
 Before considering how to contribute code, it's useful to understand how code is reviewed, and why changes may be rejected. Simply put, changes that have many or large positives, and few negative effects or risks, are much more likely to be merged, and merged quickly. Risky and less valuable changes are very unlikely to be merged, and may be rejected outright rather than receive iterations of review.
 
 **Positives**
@@ -178,7 +180,7 @@ Before considering how to contribute code, it's useful to understand how code is
 * Adds a large amount of code
 * Makes lots of modifications in one "big bang" change
 
-##The Review Process
+### The Review Process
 
 * Other reviewers, including committers, may comment on the changes and suggest modifications. Changes can be added by simply pushing more commits to the same branch.
 * Lively, polite, rapid technical debate is encouraged from everyone in the community. The outcome may be a rejection of the entire change.
