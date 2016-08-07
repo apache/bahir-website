@@ -37,6 +37,22 @@ running from within the directory:
 ```
 
 
+## Update extensions documentation
+
+To update the current documentation contents, use the update-doc script. 
+This script will update the documentation contents based on the README.md 
+files from the source of each extension.
+
+```
+1. update-doc.sh
+2. git commit -a -m"My updates"
+3. git push
+4. ./publish.sh
+5. git push origin asf-site
+```
+
+
+
 ## Publishing to live site
 
 Bahir is using [gitpubsub](http://www.apache.org/dev/gitpubsub.html) for publishing the website,
@@ -48,8 +64,9 @@ shell script.
 ```
 1. Make your changes
 2. git commit -a -m"My updates"
-3. ./publish.sh
-4. git push origin asf-site
+3. git push
+4. ./publish.sh
+5. git push origin asf-site
 ```
 
 Within a few minutes, gitpubsub should kick in and you'll be able to
