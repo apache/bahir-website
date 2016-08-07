@@ -45,6 +45,11 @@ topnav:
   - title: Project Committers
     url: /community-members
 
+- title: Documentation
+  subcategories:
+  - title: Current
+    url: /docs/spark/current/documentation
+
 - title: GitHub
   url: https://github.com/apache/bahir
 
