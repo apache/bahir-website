@@ -139,34 +139,51 @@
 
 <h2 id="apache-bahir-downloads">Apache Bahir Downloads</h2>
 
-<p>Apache Bahir will be released as a source and binary artifacts, as well as through Maven.</p>
+<p>Please find below the latest releases of Apache Bahir. Note that the binary artifacts are also published through Maven.</p>
 
-<h3 id="source-releases">Source releases</h3>
+<h3 id="latest-release">Latest Release</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Release</th>
-      <th style="text-align: left">Date</th>
-      <th style="text-align: left">Commit</th>
-      <th style="text-align: left">Download</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><a href="/history.html#v0-2-0">0.2.0</a></td>
-      <td style="text-align: left">10 Nov 2015</td>
-      <td style="text-align: left"><a href="https://github.com/apache/bahir/commit/ba6e43c">ba6e43c</a></td>
-      <td style="text-align: left"><a href="http://www.apache.org/dyn/closer.lua?filename=bahir/apache-bahir-0.2.0/apache-bahir-0.2.0-src.tar.gz&amp;action=download">tar</a> (<a href="https://www.apache.org/dist/bahir/apache-bahir-0.2.0/apache-bahir-0.2.0-src.tar.gz.md5">md5</a> <a href="https://www.apache.org/dist/bahir/apache-bahir-0.2.0/apache-bahir-0.2.0-src.tar.gz.asc">pgp</a>) <br /> <a href="http://www.apache.org/dyn/closer.lua?filename=bahir/apache-bahir-0.2.0/apache-bahir-0.2.0-src.zip&amp;action=download">zip</a> (<a href="https://www.apache.org/dist/bahir/apache-bahir-0.2.0/apache-bahir-0.2.0-src.zip.md5">md5</a> <a href="https://www.apache.org/dist/bahir/apache-bahir-0.2.0/apache-bahir-0.2.0-src.zip.asc">pgp</a>)</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><a href="/history.html#v0-1-0">0.1.0</a></td>
-      <td style="text-align: left">25 Sep 2015</td>
-      <td style="text-align: left"><a href="https://github.com/apache/bahir/commit/cafecafe">cafecafe</a></td>
-      <td style="text-align: left"><a href="http://www.apache.org/dyn/closer.lua?filename=bahir/apache-bahir-0.1.0/apache-bahir-0.1.0-src.tar.gz&amp;action=download">tar</a> (<a href="https://www.apache.org/dist/bahir/apache-bahir-0.1.0/apache-bahir-0.1.0-src.tar.gz.md5">md5</a> <a href="https://www.apache.org/dist/bahir/apache-bahir-0.1.0/apache-bahir-0.1.0-src.tar.gz.asc">pgp</a>) <br /> <a href="http://www.apache.org/dyn/closer.lua?filename=bahir/apache-bahir-0.1.0/apache-bahir-0.1.0-src.zip&amp;action=download">zip</a> (<a href="https://www.apache.org/dist/bahir/apache-bahir-0.1.0/apache-bahir-0.1.0-src.zip.md5">md5</a> <a href="https://www.apache.org/dist/bahir/apache-bahir-0.1.0/apache-bahir-0.1.0-src.zip.asc">pgp</a>)</td>
-    </tr>
-  </tbody>
+<p>Our latest release is Apache Bahir 2.0.0-preview, released on (07/01/2016).</p>
+
+<table class="table table-hover sortable">
+    <thead>
+        <tr>
+            <th><b>Name</b></th>
+            <th><b>Archive</b></th>
+            <th><b>MD5</b></th>
+            <!--th><b>SHA-1</b></th-->
+            <th><b>signature</b></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Apache Bahir 2.0.0-preview (tar.gz)</td>
+            <td><a href="http://www.apache.org/dyn/closer.lua/bahir/2.0.0-preview/apache-bahir-2.0.0-preview-src.tar.gz">tar.gz</a></td>
+            <td><a href="http://www.apache.org/dist/bahir/2.0.0-preview/apache-bahir-2.0.0-preview-src.tar.gz.md5">MD5</a></td>
+            <!--td><a href="http://www.apache.org/dist/bahir/2.0.0-preview/apache-bahir-2.0.0-preview-src.tar.gz.sha1">SHA-1</a></td-->
+            <td><a href="http://www.apache.org/dist/bahir/2.0.0-preview/apache-bahir-2.0.0-preview-src.tar.gz.asc">ASC</a></td>
+        </tr>
+        <tr>
+            <td>Apache Bahir 2.0.0-preview (zip)</td>
+            <td><a href="http://www.apache.org/dyn/closer.lua/bahir/2.0.0-preview/apache-bahir-2.0.0-preview-src.zip">zip</a></td>
+            <td><a href="http://www.apache.org/dist/bahir/2.0.0-preview/apache-bahir-2.0.0-preview-src.zip.md5">MD5</a></td>
+            <!--td><a href="http://www.apache.org/dist/bahir/2.0.0-preview/apache-bahir-2.0.0-preview-src.zip.sha1">SHA-1</a></td-->
+            <td><a href="http://www.apache.org/dist/bahir/2.0.0-preview/apache-bahir-2.0.0-preview-src.zip.asc">ASC</a></td>
+        </tr>
+    </tbody>
 </table>
+
+<p>Instructions for checking hashes and signatures is indicated on the <a href="http://www.apache.org/info/verification.html">Verifying Apache Software Foundation Releases</a> page.</p>
+
+<p>You can also retrieve the source files from our svn repository by typing :</p>
+
+<pre>
+git clone https://github.com/apache/bahir
+cd bahir
+git checkout -b tags/v2.0.0-preview v2.0.0-preview
+</pre>
+
+<h3 id="verifying-a-release">Verifying a Release</h3>
 
 <p>Choose a source distribution in either <em>tar</em> or <em>zip</em> format,
 and <a href="http://www.apache.org/dyn/closer.cgi#verify">verify</a>
@@ -177,13 +194,16 @@ download has completed OK.</p>
 
 <p>For fast downloads, current source distributions are hosted on mirror servers;
 older source distributions are in the
-<a href="http://archive.apache.org/dist/incubator/bahir/">archive</a>.
+<a href="http://archive.apache.org/dist/bahir/">archive</a>.
 If a download from a mirror fails, retry, and the second download will likely
 succeed.</p>
 
 <p>For security, hash and signature files are always hosted at
 <a href="https://www.apache.org/dist">Apache</a>.</p>
 
+<h3 id="previous-releases">Previous Releases</h3>
+
+<p>All previous releases of Apache Wink can be found in the <a href="http://archive.apache.org/dist/bahir/">archives</a>.</p>
 
   </div>
 </div>

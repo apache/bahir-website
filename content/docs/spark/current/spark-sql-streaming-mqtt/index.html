@@ -3,8 +3,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Home</title>
-    
+    <title>Spark Structured Streaming MQTT</title>
+    <meta name="description" content="Spark Structured Streaming MQTT">
     <meta name="author" content="">
 
     <!-- Enable responsive viewport -->
@@ -36,18 +36,6 @@
   <body>
 
     
-<div class="jumbotron">
-  <div class="container">
-    <img class="logo-img" src="/assets/themes/apache-clean/img/apache_logo_800.png" alt="Apache Bahir"/>
-    <!--h1>Apache Bahir</h1-->
-    <p>Apache Bahir provides extensions to distributed analytic platforms such as Apache Spark.</p>
-
-    
-    <a href="/download" class="btn btn-primary btn-lg bigFingerButton" role="button">Download Apache Bahir 2.0.0-preview</a></p>
-    
-  </div>
-</div>
-
 
 <!-- Navigation -->
 <div id="nav-bar">
@@ -138,8 +126,8 @@
     <div class="container">
 
       
-<!--<div class="hero-unit Home">
-  <h1> <small>Apache Project !</small></h1>
+<!--<div class="hero-unit Spark Structured Streaming MQTT">
+  <h1></h1>
 </div>
 -->
 
@@ -149,24 +137,128 @@
 
 -->
 
-<h2 id="apache-bahir">Apache Bahir</h2>
+<p>A library for reading data from MQTT Servers using Spark SQL Streaming ( or Structured streaming.).</p>
 
-<p>Apache Bahir provides extensions to distributed analytic platforms such as <a href="http://spark.apache.org" target="_blank">Apache Spark</a>.</p>
+<h2 id="linking">Linking</h2>
 
-<p>Initially Apache Bahir will contain streaming connectors that were a part of Apache Spark prior to version 2.0:</p>
+<p>Using SBT:</p>
 
-<ul>
-  <li>streaming-akka</li>
-  <li>streaming-mqtt</li>
-  <li>streaming-twitter</li>
-  <li>streaming-zeromq</li>
-</ul>
+<p><code>scala
+libraryDependencies += "org.apache.bahir" %% "spark-sql-streaming-mqtt" % "2.0.0"
+</code></p>
 
-<p>The Apache Bahir community welcomes the proposal of new extensions.</p>
+<p>Using Maven:</p>
 
-<p><br /></p>
+<p>```xml</p>
+<dependency>
+    <groupid>org.apache.bahir</groupid>
+    <artifactid>spark-sql-streaming-mqtt_2.11</artifactid>
+    <version>2.0.0</version>
+</dependency>
+<p>```</p>
 
-<p><br /></p>
+<p>This library can also be added to Spark jobs launched through <code>spark-shell</code> or <code>spark-submit</code> by using the <code>--packages</code> command line option.
+For example, to include it when starting the spark shell:</p>
+
+<p><code>
+$ bin/spark-shell --packages org.apache.bahir:spark-sql-streaming-mqtt_2.11:2.0.0
+</code></p>
+
+<p>Unlike using <code>--jars</code>, using <code>--packages</code> ensures that this library and its dependencies will be added to the classpath.
+The <code>--packages</code> argument can also be used with <code>bin/spark-submit</code>.</p>
+
+<p>This library is compiled for Scala 2.11 only, and intends to support Spark 2.0 onwards.</p>
+
+<h2 id="examples">Examples</h2>
+
+<p>A SQL Stream can be created with data streams received through MQTT Server using,</p>
+
+<p>```scala
+sqlContext.readStream
+  .format(“org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider”)
+  .option(“topic”, “mytopic”)
+  .load(“tcp://localhost:1883”)</p>
+
+<p>```</p>
+
+<h2 id="enable-recovering-from-failures">Enable recovering from failures.</h2>
+
+<p>Setting values for option <code>localStorage</code> and <code>clientId</code> helps in recovering in case of a restart, by restoring the state where it left off before the shutdown.</p>
+
+<p>```scala
+sqlContext.readStream
+  .format(“org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider”)
+  .option(“topic”, “mytopic”)
+  .option(“localStorage”, “/path/to/localdir”)
+  .option(“clientId”, “some-client-id”)
+  .load(“tcp://localhost:1883”)</p>
+
+<p>```</p>
+
+<h3 id="scala-api">Scala API</h3>
+
+<p>An example, for scala API to count words from incoming message stream.</p>
+
+<p>```scala
+    // Create DataFrame representing the stream of input lines from connection to mqtt server
+    val lines = spark.readStream
+      .format(“org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider”)
+      .option(“topic”, topic)
+      .load(brokerUrl).as[(String, Timestamp)]</p>
+
+<pre><code>// Split the lines into words
+val words = lines.map(_._1).flatMap(_.split(" "))
+
+// Generate running word count
+val wordCounts = words.groupBy("value").count()
+
+// Start running the query that prints the running counts to the console
+val query = wordCounts.writeStream
+  .outputMode("complete")
+  .format("console")
+  .start()
+
+query.awaitTermination()
+</code></pre>
+
+<p>```
+Please see <code>MQTTStreamWordCount.scala</code> for full example.</p>
+
+<h3 id="java-api">Java API</h3>
+
+<p>An example, for Java API to count words from incoming message stream.</p>
+
+<p>```java</p>
+
+<pre><code>    // Create DataFrame representing the stream of input lines from connection to mqtt server.
+    Dataset&lt;String&gt; lines = spark
+            .readStream()
+            .format("org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider")
+            .option("topic", topic)
+            .load(brokerUrl).select("value").as(Encoders.STRING());
+
+    // Split the lines into words
+    Dataset&lt;String&gt; words = lines.flatMap(new FlatMapFunction&lt;String, String&gt;() {
+        @Override
+        public Iterator&lt;String&gt; call(String x) {
+            return Arrays.asList(x.split(" ")).iterator();
+        }
+    }, Encoders.STRING());
+
+    // Generate running word count
+    Dataset&lt;Row&gt; wordCounts = words.groupBy("value").count();
+
+    // Start running the query that prints the running counts to the console
+    StreamingQuery query = wordCounts.writeStream()
+            .outputMode("complete")
+            .format("console")
+            .start();
+
+    query.awaitTermination(); ```
+</code></pre>
+
+<p>Please see <code>JavaMQTTStreamWordCount.java</code> for full example.</p>
+
 
   </div>
 </div>
