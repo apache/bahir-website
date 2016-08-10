@@ -83,6 +83,18 @@
             
           </li>
           
+          <li id="documentation">
+            
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Documentation<b class="caret"></b></a>
+            <ul class="dropdown-menu dropdown-left">
+              
+              
+              <li><a href="/docs/spark/current/documentation" target="_self">Current</a></li>
+              
+            </ul>
+            
+          </li>
+          
           <li id="github">
             
             
@@ -143,26 +155,23 @@
 
 <p>Using SBT:</p>
 
-<p><code>scala
-libraryDependencies += "org.apache.bahir" %% "spark-sql-streaming-mqtt" % "2.0.0"
-</code></p>
+<pre><code>libraryDependencies += "org.apache.bahir" %% "spark-sql-streaming-mqtt" % "2.0.0"
+</code></pre>
 
 <p>Using Maven:</p>
 
-<p>```xml</p>
-<dependency>
-    <groupid>org.apache.bahir</groupid>
-    <artifactid>spark-sql-streaming-mqtt_2.11</artifactid>
-    <version>2.0.0</version>
-</dependency>
-<p>```</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
+    &lt;artifactId&gt;spark-sql-streaming-mqtt_2.11&lt;/artifactId&gt;
+    &lt;version&gt;2.0.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
 
 <p>This library can also be added to Spark jobs launched through <code>spark-shell</code> or <code>spark-submit</code> by using the <code>--packages</code> command line option.
 For example, to include it when starting the spark shell:</p>
 
-<p><code>
-$ bin/spark-shell --packages org.apache.bahir:spark-sql-streaming-mqtt_2.11:2.0.0
-</code></p>
+<pre><code>$ bin/spark-shell --packages org.apache.bahir:spark-sql-streaming-mqtt_2.11:2.0.0
+</code></pre>
 
 <p>Unlike using <code>--jars</code>, using <code>--packages</code> ensures that this library and its dependencies will be added to the classpath.
 The <code>--packages</code> argument can also be used with <code>bin/spark-submit</code>.</p>
@@ -173,40 +182,35 @@ The <code>--packages</code> argument can also be used with <code>bin/spark-submi
 
 <p>A SQL Stream can be created with data streams received through MQTT Server using,</p>
 
-<p>```scala
-sqlContext.readStream
-  .format(“org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider”)
-  .option(“topic”, “mytopic”)
-  .load(“tcp://localhost:1883”)</p>
-
-<p>```</p>
+<pre><code>sqlContext.readStream
+    .format("org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider")
+    .option("topic", "mytopic")
+    .load("tcp://localhost:1883")
+</code></pre>
 
 <h2 id="enable-recovering-from-failures">Enable recovering from failures.</h2>
 
 <p>Setting values for option <code>localStorage</code> and <code>clientId</code> helps in recovering in case of a restart, by restoring the state where it left off before the shutdown.</p>
 
-<p>```scala
-sqlContext.readStream
-  .format(“org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider”)
-  .option(“topic”, “mytopic”)
-  .option(“localStorage”, “/path/to/localdir”)
-  .option(“clientId”, “some-client-id”)
-  .load(“tcp://localhost:1883”)</p>
-
-<p>```</p>
+<pre><code>sqlContext.readStream
+    .format("org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider")
+    .option("topic", "mytopic")
+    .option("localStorage", "/path/to/localdir")
+    .option("clientId", "some-client-id")
+    .load("tcp://localhost:1883")
+</code></pre>
 
 <h3 id="scala-api">Scala API</h3>
 
 <p>An example, for scala API to count words from incoming message stream.</p>
 
-<p>```scala
-    // Create DataFrame representing the stream of input lines from connection to mqtt server
-    val lines = spark.readStream
-      .format(“org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider”)
-      .option(“topic”, topic)
-      .load(brokerUrl).as[(String, Timestamp)]</p>
+<pre><code>// Create DataFrame representing the stream of input lines from connection to mqtt server
+val lines = spark.readStream
+  .format("org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider")
+  .option("topic", topic)
+  .load(brokerUrl).as[(String, Timestamp)]
 
-<pre><code>// Split the lines into words
+// Split the lines into words
 val words = lines.map(_._1).flatMap(_.split(" "))
 
 // Generate running word count
@@ -221,40 +225,37 @@ val query = wordCounts.writeStream
 query.awaitTermination()
 </code></pre>
 
-<p>```
-Please see <code>MQTTStreamWordCount.scala</code> for full example.</p>
+<p>Please see <code>MQTTStreamWordCount.scala</code> for full example.</p>
 
 <h3 id="java-api">Java API</h3>
 
 <p>An example, for Java API to count words from incoming message stream.</p>
 
-<p>```java</p>
+<pre><code>// Create DataFrame representing the stream of input lines from connection to mqtt server.
+Dataset&lt;String&gt; lines = spark
+        .readStream()
+        .format("org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider")
+        .option("topic", topic)
+        .load(brokerUrl).select("value").as(Encoders.STRING());
 
-<pre><code>    // Create DataFrame representing the stream of input lines from connection to mqtt server.
-    Dataset&lt;String&gt; lines = spark
-            .readStream()
-            .format("org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider")
-            .option("topic", topic)
-            .load(brokerUrl).select("value").as(Encoders.STRING());
+// Split the lines into words
+Dataset&lt;String&gt; words = lines.flatMap(new FlatMapFunction&lt;String, String&gt;() {
+    @Override
+    public Iterator&lt;String&gt; call(String x) {
+        return Arrays.asList(x.split(" ")).iterator();
+    }
+}, Encoders.STRING());
 
-    // Split the lines into words
-    Dataset&lt;String&gt; words = lines.flatMap(new FlatMapFunction&lt;String, String&gt;() {
-        @Override
-        public Iterator&lt;String&gt; call(String x) {
-            return Arrays.asList(x.split(" ")).iterator();
-        }
-    }, Encoders.STRING());
+// Generate running word count
+Dataset&lt;Row&gt; wordCounts = words.groupBy("value").count();
 
-    // Generate running word count
-    Dataset&lt;Row&gt; wordCounts = words.groupBy("value").count();
+// Start running the query that prints the running counts to the console
+StreamingQuery query = wordCounts.writeStream()
+        .outputMode("complete")
+        .format("console")
+        .start();
 
-    // Start running the query that prints the running counts to the console
-    StreamingQuery query = wordCounts.writeStream()
-            .outputMode("complete")
-            .format("console")
-            .start();
-
-    query.awaitTermination(); ```
+query.awaitTermination();
 </code></pre>
 
 <p>Please see <code>JavaMQTTStreamWordCount.java</code> for full example.</p>

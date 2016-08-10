@@ -83,6 +83,18 @@
             
           </li>
           
+          <li id="documentation">
+            
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Documentation<b class="caret"></b></a>
+            <ul class="dropdown-menu dropdown-left">
+              
+              
+              <li><a href="/docs/spark/current/documentation" target="_self">Current</a></li>
+              
+            </ul>
+            
+          </li>
+          
           <li id="github">
             
             
@@ -143,26 +155,23 @@
 
 <p>Using SBT:</p>
 
-<p><code>
-libraryDependencies += "org.apache.bahir" %% "spark-streaming-twitter" % "2.0.0"
-</code></p>
+<pre><code>libraryDependencies += "org.apache.bahir" %% "spark-streaming-twitter" % "2.0.0"
+</code></pre>
 
 <p>Using Maven:</p>
 
-<p>```xml</p>
-<dependency>
-    <groupid>org.apache.bahir</groupid>
-    <artifactid>spark-streaming-twitter_2.11</artifactid>
-    <version>2.0.0</version>
-</dependency>
-<p>```</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
+    &lt;artifactId&gt;spark-streaming-twitter_2.11&lt;/artifactId&gt;
+    &lt;version&gt;2.0.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
 
 <p>This library can also be added to Spark jobs launched through <code>spark-shell</code> or <code>spark-submit</code> by using the <code>--packages</code> command line option.
 For example, to include it when starting the spark shell:</p>
 
-<p><code>
-$ bin/spark-shell --packages org.apache.bahir:spark-streaming_twitter_2.11:2.0.0
-</code></p>
+<pre><code>$ bin/spark-shell --packages org.apache.bahir:spark-streaming_twitter_2.11:2.0.0
+</code></pre>
 
 <p>Unlike using <code>--jars</code>, using <code>--packages</code> ensures that this library and its dependencies will be added to the classpath.
 The <code>--packages</code> argument can also be used with <code>bin/spark-submit</code>.</p>
@@ -176,22 +185,20 @@ can be provided by any of the <a href="http://twitter4j.org/en/configuration.htm
 
 <h3 id="scala-api">Scala API</h3>
 
-<p>```Scala
-import org.apache.spark.streaming.twitter._</p>
+<pre><code>import org.apache.spark.streaming.twitter._
 
-<p>TwitterUtils.createStream(ssc, None)
-```</p>
+TwitterUtils.createStream(ssc, None)
+</code></pre>
 
 <h3 id="java-api">Java API</h3>
 
-<p>```Java
-import org.apache.spark.streaming.twitter.*;</p>
+<pre><code>import org.apache.spark.streaming.twitter.*;
 
-<p>TwitterUtils.createStream(jssc);
-```</p>
+TwitterUtils.createStream(jssc);
+</code></pre>
 
 <p>You can also either get the public stream, or get the filtered stream based on keywords. 
-See end-to-end examples at (<a href="https://github.com/apache/bahir/tree/master/streaming-twitter/examples">Twitter Examples</a></p>
+See end-to-end examples at <a href="https://github.com/apache/bahir/tree/master/streaming-twitter/examples">Twitter Examples</a></p>
 
   </div>
 </div>
