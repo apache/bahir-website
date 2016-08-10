@@ -192,11 +192,11 @@ this actor can be configured to handle failures, etc.</p>
     case data: String =&gt; store(data)
   }
 }
-</code></pre>
 
-<p>// A new input stream can be created with this custom actor as
-val ssc: StreamingContext = …
-val lines = AkkaUtils.createStream<a href="ssc, Props[CustomActor]()," title="CustomReceiver">String</a></p>
+// A new input stream can be created with this custom actor as
+val ssc: StreamingContext = ...
+val lines = AkkaUtils.createStream[String](ssc, Props[CustomActor](), "CustomReceiver")
+</code></pre>
 
 <h3 id="java-api">Java API</h3>
 
@@ -209,12 +209,11 @@ this actor can be configured to handle failures, etc.</p>
         store((String) msg);
     }
 }
-</code></pre>
 
-<p>// A new input stream can be created with this custom actor as
-JavaStreamingContext jssc = …;
-JavaDStream<string> lines = AkkaUtils.<string>createStream(jssc, Props.create(CustomActor.class), "CustomReceiver");
-```</string></string></p>
+// A new input stream can be created with this custom actor as
+JavaStreamingContext jssc = ...;
+JavaDStream&lt;String&gt; lines = AkkaUtils.&lt;String&gt;createStream(jssc, Props.create(CustomActor.class), "CustomReceiver");
+</code></pre>
 
 <p>See end-to-end examples at <a href="https://github.com/apache/bahir/tree/master/streaming-akka/examples">Akka Examples</a></p>
 
