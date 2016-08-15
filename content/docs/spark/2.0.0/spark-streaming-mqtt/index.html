@@ -3,8 +3,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Spark Streaming ZeroMQ</title>
-    <meta name="description" content="Spark Streaming ZeroMQ">
+    <title>Spark Structured Streaming MQTT</title>
+    <meta name="description" content="Spark Structured Streaming MQTT">
     <meta name="author" content="">
 
     <!-- Enable responsive viewport -->
@@ -141,7 +141,7 @@
     <div class="container">
 
       
-<!--<div class="hero-unit Spark Streaming ZeroMQ">
+<!--<div class="hero-unit Spark Structured Streaming MQTT">
   <h1></h1>
 </div>
 -->
@@ -152,7 +152,54 @@
 
 -->
 
+<p><a href="http://mqtt.org/">MQTT</a> is MQTT is a machine-to-machine (M2M)/”Internet of Things” connectivity protocol. It was designed as an extremely lightweight publish/subscribe messaging transport. It is useful for connections with remote locations where a small code footprint is required and/or network bandwidth is at a premium.</p>
 
+<h2 id="linking">Linking</h2>
+
+<p>Using SBT:</p>
+
+<pre><code>libraryDependencies += "org.apache.bahir" %% "spark-streaming-mqtt" % "2.0.0"
+</code></pre>
+
+<p>Using Maven:</p>
+
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
+    &lt;artifactId&gt;spark-streaming-mqtt_2.11&lt;/artifactId&gt;
+    &lt;version&gt;2.0.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>This library can also be added to Spark jobs launched through <code>spark-shell</code> or <code>spark-submit</code> by using the <code>--packages</code> command line option.
+For example, to include it when starting the spark shell:</p>
+
+<pre><code>$ bin/spark-shell --packages org.apache.bahir:spark-streaming_mqtt_2.11:2.0.0
+</code></pre>
+
+<p>Unlike using <code>--jars</code>, using <code>--packages</code> ensures that this library and its dependencies will be added to the classpath.
+The <code>--packages</code> argument can also be used with <code>bin/spark-submit</code>.</p>
+
+<p>This library is cross-published for Scala 2.10 and Scala 2.11, so users should replace the proper Scala version (2.10 or 2.11) in the commands listed above.</p>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="scala-api">Scala API</h3>
+
+<p>You need to extend <code>ActorReceiver</code> so as to store received data into Spark using <code>store(...)</code> methods. The supervisor strategy of
+this actor can be configured to handle failures, etc.</p>
+
+<pre><code>val lines = MQTTUtils.createStream(ssc, brokerUrl, topic)
+</code></pre>
+
+<h3 id="java-api">Java API</h3>
+
+<p>You need to extend <code>JavaActorReceiver</code> so as to store received data into Spark using <code>store(...)</code> methods. The supervisor strategy of
+this actor can be configured to handle failures, etc.</p>
+
+<pre><code>JavaDStream&lt;String&gt; lines = MQTTUtils.createStream(jssc, brokerUrl, topic);
+</code></pre>
+
+<p>See end-to-end examples at <a href="https://github.com/apache/bahir/tree/master/streaming-mqtt/examples">MQTT Examples</a></p>
 
   </div>
 </div>

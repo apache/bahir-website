@@ -89,7 +89,10 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              <li><a href="/docs/spark/current/documentation" target="_self">Current</a></li>
+              <li><a href="/docs/spark/current/documentation" target="_self">Bahir Spark Extensions - Current</a></li>
+              
+              
+              <li><a href="/docs/spark/2.0.0/documentation" target="_self">Bahir Spark Extensions - 2.0.0</a></li>
               
             </ul>
             
@@ -155,7 +158,7 @@
 
 <p>Using SBT:</p>
 
-<pre><code>libraryDependencies += "org.apache.bahir" %% "spark-streaming-mqtt" % "2.0.0"
+<pre><code>libraryDependencies += "org.apache.bahir" %% "spark-streaming-mqtt" % "2.1.0-SNAPSHOT"
 </code></pre>
 
 <p>Using Maven:</p>
@@ -163,14 +166,14 @@
 <pre><code>&lt;dependency&gt;
     &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
     &lt;artifactId&gt;spark-streaming-mqtt_2.11&lt;/artifactId&gt;
-    &lt;version&gt;2.0.0&lt;/version&gt;
+    &lt;version&gt;2.1.0-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre>
 
 <p>This library can also be added to Spark jobs launched through <code>spark-shell</code> or <code>spark-submit</code> by using the <code>--packages</code> command line option.
 For example, to include it when starting the spark shell:</p>
 
-<pre><code>$ bin/spark-shell --packages org.apache.bahir:spark-streaming_mqtt_2.11:2.0.0
+<pre><code>$ bin/spark-shell --packages org.apache.bahir:spark-streaming_mqtt_2.11:2.1.0-SNAPSHOT
 </code></pre>
 
 <p>Unlike using <code>--jars</code>, using <code>--packages</code> ensures that this library and its dependencies will be added to the classpath.

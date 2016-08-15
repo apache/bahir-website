@@ -89,7 +89,10 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              <li><a href="/docs/spark/current/documentation" target="_self">Current</a></li>
+              <li><a href="/docs/spark/current/documentation" target="_self">Bahir Spark Extensions - Current</a></li>
+              
+              
+              <li><a href="/docs/spark/2.0.0/documentation" target="_self">Bahir Spark Extensions - 2.0.0</a></li>
               
             </ul>
             
