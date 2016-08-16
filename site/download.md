@@ -95,4 +95,4 @@ For security, hash and signature files are always hosted at
 
 ### Previous Releases
 
-All previous releases of Apache Wink can be found in the [archives](http://archive.apache.org/dist/bahir/). 
+All previous releases of Apache Bahir can be found in the [archives](http://archive.apache.org/dist/bahir/).
