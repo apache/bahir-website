@@ -27,7 +27,6 @@ function checkout_code {
     rm -rf target
     mkdir target
     cd target
-    rm -rf bahir
     git clone https://git-wip-us.apache.org/repos/asf/bahir.git
     cd bahir
     git checkout $GIT_REF
@@ -41,7 +40,7 @@ function checkout_code {
 
 checkout_code
 
-rm  $WEBSITE_DOC_DIR/spark*.md
+rm  -rf $WEBSITE_DOC_DIR/spark*.md
 
 cp  $WEBSITE_DOC_DIR/spark-sql-streaming-mqtt.template $WEBSITE_DOC_DIR/spark-sql-streaming-mqtt.md
 cat $BAHIR_SOURCE_DIR/sql-streaming-mqtt/README.md >> $WEBSITE_DOC_DIR/spark-sql-streaming-mqtt.md
