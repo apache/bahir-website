@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -92,6 +93,9 @@
               <li><a href="/docs/spark/current/documentation" target="_self">Bahir Spark Extensions - Current</a></li>
               
               
+              <li><a href="/docs/spark/2.0.1/documentation" target="_self">Bahir Spark Extensions - 2.0.1</a></li>
+              
+              
               <li><a href="/docs/spark/2.0.0/documentation" target="_self">Bahir Spark Extensions - 2.0.0</a></li>
               
             </ul>
@@ -141,6 +145,7 @@
     <div class="container">
 
       
+
 <!--<div class="hero-unit Contributing">
   <h1></h1>
 </div>
@@ -236,26 +241,29 @@
 
 <p>Make sure you do not have any uncommitted changes and rebase master with latest changes from upstream:</p>
 
-<pre><code>git fetch upstream
+<div class="highlighter-rouge"><pre class="highlight"><code>git fetch upstream
 git checkout master
 git rebase upstream/master
 </code></pre>
+</div>
 
 <p>Now you should rebase your branch with master, to receive the upstream changes</p>
 
-<pre><code>git checkout branch
+<div class="highlighter-rouge"><pre class="highlight"><code>git checkout branch
 git rebase master
 </code></pre>
+</div>
 
 <p>In both cases, you can have conflicts:</p>
 
-<pre><code>error: could not apply fa39187... something to add to patch A
+<div class="highlighter-rouge"><pre class="highlight"><code>error: could not apply fa39187... something to add to patch A
 
 When you have resolved this problem, run "git rebase --continue".
 If you prefer to skip this patch, run "git rebase --skip" instead.
 To check out the original branch and stop rebasing, run "git rebase --abort".
 Could not apply fa39187f3c3dfd2ab5faa38ac01cf3de7ce2e841... Change fake file
 </code></pre>
+</div>
 
 <p>Here, Git is telling you which commit is causing the conflict (fa39187). You’re given three choices:</p>
 
@@ -293,11 +301,12 @@ Could not apply fa39187f3c3dfd2ab5faa38ac01cf3de7ce2e841... Change fake file
 
 <p>Below is an example of a good commit message</p>
 
-<pre><code>[BAHIR-130] Performance enhancements for decision tree
+<div class="highlighter-rouge"><pre class="highlight"><code>[BAHIR-130] Performance enhancements for decision tree
 
 Generate Matrix with random values through local memory
 if there is sufficient memory.
 </code></pre>
+</div>
 
 <h3 id="code-review-criteria">Code Review Criteria</h3>
 <p>Before considering how to contribute code, it’s useful to understand how code is reviewed, and why changes may be rejected. Simply put, changes that have many or large positives, and few negative effects or risks, are much more likely to be merged, and merged quickly. Risky and less valuable changes are very unlikely to be merged, and may be rejected outright rather than receive iterations of review.</p>

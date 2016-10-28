@@ -6,9 +6,9 @@
 </description>
     <link>http://bahir.apache.org/</link>
     <atom:link href="http://bahir.apache.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 15 Aug 2016 21:55:42 -0400</pubDate>
-    <lastBuildDate>Mon, 15 Aug 2016 21:55:42 -0400</lastBuildDate>
-    <generator>Jekyll v3.0.0</generator>
+    <pubDate>Fri, 28 Oct 2016 02:00:42 +0200</pubDate>
+    <lastBuildDate>Fri, 28 Oct 2016 02:00:42 +0200</lastBuildDate>
+    <generator>Jekyll v3.2.1</generator>
     
       <item>
         <title>Release 0.2.0</title>
@@ -23,9 +23,9 @@ it.&lt;/p&gt;
 this release includes faster-than-light travel and chewing gum that
 never loses its flavor.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 10 Nov 2015 07:00:00 -0500</pubDate>
-        <link>http://bahir.apache.org/news/2015/11/10/release-0-2-0/</link>
-        <guid isPermaLink="true">http://bahir.apache.org/news/2015/11/10/release-0-2-0/</guid>
+        <pubDate>Tue, 10 Nov 2015 13:00:00 +0100</pubDate>
+        <link>http://bahir.apache.org/news/2015/11/10/release-0.2.0/</link>
+        <guid isPermaLink="true">http://bahir.apache.org/news/2015/11/10/release-0.2.0/</guid>
         
         <category>v0-2-0</category>
         
@@ -48,9 +48,9 @@ committers for their work on the project. Welcome!&lt;/p&gt;
   &lt;li&gt;Princess Leia&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Sun, 08 Nov 2015 22:03:07 -0500</pubDate>
-        <link>http://bahir.apache.org/news/2015/11/08/new-committers/</link>
-        <guid isPermaLink="true">http://bahir.apache.org/news/2015/11/08/new-committers/</guid>
+        <pubDate>Mon, 09 Nov 2015 04:03:07 +0100</pubDate>
+        <link>http://bahir.apache.org/news/2015/11/09/new-committers/</link>
+        <guid isPermaLink="true">http://bahir.apache.org/news/2015/11/09/new-committers/</guid>
         
         
         <category>team</category>
@@ -67,9 +67,9 @@ committers for their work on the project. Welcome!&lt;/p&gt;
 
 &lt;p&gt;We’re so pleased to be in the Apache Incbuator.&lt;/p&gt;
 </description>
-        <pubDate>Fri, 25 Sep 2015 08:00:00 -0400</pubDate>
-        <link>http://bahir.apache.org/news/2015/09/25/release-0-1-0/</link>
-        <guid isPermaLink="true">http://bahir.apache.org/news/2015/09/25/release-0-1-0/</guid>
+        <pubDate>Fri, 25 Sep 2015 14:00:00 +0200</pubDate>
+        <link>http://bahir.apache.org/news/2015/09/25/release-0.1.0/</link>
+        <guid isPermaLink="true">http://bahir.apache.org/news/2015/09/25/release-0.1.0/</guid>
         
         <category>v0-1-0</category>
         
