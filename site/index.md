@@ -24,20 +24,40 @@ limitations under the License.
 
 {% include JB/setup %}
 
-## {{ site.data.project.name }}
+## What is {{ site.data.project.name }}
 
-{{ site.data.project.name }} provides extensions to distributed analytic platforms such as [Apache Spark](http://spark.apache.org){:target="_blank"}.
+{{ site.data.project.name }} provides extensions to distributed analytic platforms such as [Apache Spark](http://spark.apache.org){:target="_blank"} and [Apache Fink](http://flink.apache.org){:target="_blank"}.
+
+{{ site.data.project.short_name }} currently extends the reach of your analytic platform by providing a diversity of streaming connectors and SQL data sources.
 
 
-Initially {{ site.data.project.name }} will contain streaming connectors that were a part of Apache Spark prior to version 2.0:
 
- - streaming-akka
- - streaming-mqtt
- - streaming-twitter
- - streaming-zeromq
+## Apache Spark extensions
+
+ - Spark Structured Streaming data source for MQTT
+ - Spark DStream connector for Akka
+ - Spark DStream connector for MQTT
+ - Spark DStream connector for Twitter
+ - Spark DStream connector for ZeroMQ
+
+
+## Apache Flink extensions
+
+ - Flink connector for ActiveMQ
+ - Flink connector for Flume
+ - Flink connector for Redis
+
  
 The {{ site.data.project.name }} community welcomes the proposal of new extensions.
 
-<br/>
+## Contact the {{ site.data.project.short_name }} community
 
-<br/>
+For {{ site.data.project.short_name }} updates and news, subscribe to our development mailing list. Check out [All Mailing Lists](/community)
+
+<div class="row">
+  <div class="col-md-12">
+      <a href="mailto:{{ site.data.project.dev_list }}?subject=Please update your subject" class="btn btn-primary btn-lg bigFingerButton" role="button">E-mail us</a>
+      <a href="mailto:{{ site.data.project.dev_list_subscribe }}?subject=send this email to subscribe" class="btn btn-primary btn-lg bigFingerButton" role="button">Subscribe</a>
+      <a href="{{ site.data.project.dev_list_archive_mailarchive }}" target="_blank" class="btn btn-primary btn-lg bigFingerButton" role="button">View Archive</a>
+  </div>
+</div>
