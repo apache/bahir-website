@@ -18,7 +18,7 @@
 
 set -e
 cd site
-jekyll build -d _site
+bundle exec jekyll build -d _site
 COMMIT_HASH=`git rev-parse HEAD`
 cd ..
 git checkout asf-site
