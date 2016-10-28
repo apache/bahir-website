@@ -4,8 +4,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Spark Streaming ZeroMQ</title>
-    <meta name="description" content="Spark Streaming ZeroMQ">
+    <title>Spark Streaming Twitter</title>
+    <meta name="description" content="Spark Streaming Twitter">
     <meta name="author" content="">
 
     <!-- Enable responsive viewport -->
@@ -146,7 +146,7 @@
 
       
 
-<!--<div class="hero-unit Spark Streaming ZeroMQ">
+<!--<div class="hero-unit Spark Streaming Twitter">
   <h1></h1>
 </div>
 -->
@@ -157,8 +157,61 @@
 
 -->
 
+<p>A library for reading social data from <a href="http://twitter.com/">twitter</a> using Spark Streaming.</p>
 
+<h2 id="linking">Linking</h2>
 
+<p>Using SBT:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>libraryDependencies += "org.apache.bahir" %% "spark-streaming-twitter" % "2.1.0-SNAPSHOT"
+</code></pre>
+</div>
+
+<p>Using Maven:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
+    &lt;artifactId&gt;spark-streaming-twitter_2.11&lt;/artifactId&gt;
+    &lt;version&gt;2.1.0-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+</div>
+
+<p>This library can also be added to Spark jobs launched through <code class="highlighter-rouge">spark-shell</code> or <code class="highlighter-rouge">spark-submit</code> by using the <code class="highlighter-rouge">--packages</code> command line option.
+For example, to include it when starting the spark shell:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ bin/spark-shell --packages org.apache.bahir:spark-streaming_twitter_2.11:2.1.0-SNAPSHOT
+</code></pre>
+</div>
+
+<p>Unlike using <code class="highlighter-rouge">--jars</code>, using <code class="highlighter-rouge">--packages</code> ensures that this library and its dependencies will be added to the classpath.
+The <code class="highlighter-rouge">--packages</code> argument can also be used with <code class="highlighter-rouge">bin/spark-submit</code>.</p>
+
+<p>This library is cross-published for Scala 2.10 and Scala 2.11, so users should replace the proper Scala version (2.10 or 2.11) in the commands listed above.</p>
+
+<h2 id="examples">Examples</h2>
+
+<p><code class="highlighter-rouge">TwitterUtils</code> uses Twitter4j to get the public stream of tweets using <a href="https://dev.twitter.com/docs/streaming-apis">Twitter’s Streaming API</a>. Authentication information
+can be provided by any of the <a href="http://twitter4j.org/en/configuration.html">methods</a> supported by Twitter4J library. You can import the <code class="highlighter-rouge">TwitterUtils</code> class and create a DStream with <code class="highlighter-rouge">TwitterUtils.createStream</code> as shown below.</p>
+
+<h3 id="scala-api">Scala API</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import org.apache.spark.streaming.twitter._
+
+TwitterUtils.createStream(ssc, None)
+</code></pre>
+</div>
+
+<h3 id="java-api">Java API</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import org.apache.spark.streaming.twitter.*;
+
+TwitterUtils.createStream(jssc);
+</code></pre>
+</div>
+
+<p>You can also either get the public stream, or get the filtered stream based on keywords. 
+See end-to-end examples at <a href="https://github.com/apache/bahir/tree/master/streaming-twitter/examples">Twitter Examples</a></p>
 
   </div>
 </div>

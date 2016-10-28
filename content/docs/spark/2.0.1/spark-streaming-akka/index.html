@@ -4,8 +4,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Spark Structured Streaming MQTT</title>
-    <meta name="description" content="Spark Structured Streaming MQTT">
+    <title>Spark Streaming Akka</title>
+    <meta name="description" content="Spark Streaming Akka">
     <meta name="author" content="">
 
     <!-- Enable responsive viewport -->
@@ -146,7 +146,7 @@
 
       
 
-<!--<div class="hero-unit Spark Structured Streaming MQTT">
+<!--<div class="hero-unit Spark Streaming Akka">
   <h1></h1>
 </div>
 -->
@@ -157,9 +157,78 @@
 
 -->
 
+<p>A library for reading data from Akka Actors using Spark Streaming.</p>
 
+<h2 id="linking">Linking</h2>
 
+<p>Using SBT:</p>
 
+<div class="highlighter-rouge"><pre class="highlight"><code>libraryDependencies += "org.apache.bahir" %% "spark-streaming-akka" % "2.1.0"
+</code></pre>
+</div>
+
+<p>Using Maven:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
+    &lt;artifactId&gt;spark-streaming-akka_2.11&lt;/artifactId&gt;
+    &lt;version&gt;2.1.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+</div>
+
+<p>This library can also be added to Spark jobs launched through <code class="highlighter-rouge">spark-shell</code> or <code class="highlighter-rouge">spark-submit</code> by using the <code class="highlighter-rouge">--packages</code> command line option.
+For example, to include it when starting the spark shell:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ bin/spark-shell --packages org.apache.bahir:spark-streaming_akka_2.11:2.1.0
+</code></pre>
+</div>
+
+<p>Unlike using <code class="highlighter-rouge">--jars</code>, using <code class="highlighter-rouge">--packages</code> ensures that this library and its dependencies will be added to the classpath.
+The <code class="highlighter-rouge">--packages</code> argument can also be used with <code class="highlighter-rouge">bin/spark-submit</code>.</p>
+
+<p>This library is cross-published for Scala 2.10 and Scala 2.11, so users should replace the proper Scala version (2.10 or 2.11) in the commands listed above.</p>
+
+<h2 id="examples">Examples</h2>
+
+<p>DStreams can be created with data streams received through Akka actors by using <code class="highlighter-rouge">AkkaUtils.createStream(ssc, actorProps, actor-name)</code>.</p>
+
+<h3 id="scala-api">Scala API</h3>
+
+<p>You need to extend <code class="highlighter-rouge">ActorReceiver</code> so as to store received data into Spark using <code class="highlighter-rouge">store(...)</code> methods. The supervisor strategy of
+this actor can be configured to handle failures, etc.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>class CustomActor extends ActorReceiver {
+  def receive = {
+    case data: String =&gt; store(data)
+  }
+}
+
+// A new input stream can be created with this custom actor as
+val ssc: StreamingContext = ...
+val lines = AkkaUtils.createStream[String](ssc, Props[CustomActor](), "CustomReceiver")
+</code></pre>
+</div>
+
+<h3 id="java-api">Java API</h3>
+
+<p>You need to extend <code class="highlighter-rouge">JavaActorReceiver</code> so as to store received data into Spark using <code class="highlighter-rouge">store(...)</code> methods. The supervisor strategy of
+this actor can be configured to handle failures, etc.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>class CustomActor extends JavaActorReceiver {
+    @Override
+    public void onReceive(Object msg) throws Exception {
+        store((String) msg);
+    }
+}
+
+// A new input stream can be created with this custom actor as
+JavaStreamingContext jssc = ...;
+JavaDStream&lt;String&gt; lines = AkkaUtils.&lt;String&gt;createStream(jssc, Props.create(CustomActor.class), "CustomReceiver");
+</code></pre>
+</div>
+
+<p>See end-to-end examples at <a href="https://github.com/apache/bahir/tree/master/streaming-akka/examples">Akka Examples</a></p>
 
   </div>
 </div>
