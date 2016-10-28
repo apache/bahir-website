@@ -58,6 +58,13 @@ Our latest release is {{ site.data.project.name }} {{site.data.project.latest_re
             <!--td><a href="http://www.apache.org/dist/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/apache-bahir-{{site.data.project.latest_release}}-src.zip.sha1">SHA-1</a></td-->
             <td><a href="http://www.apache.org/dist/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/apache-bahir-{{site.data.project.latest_release}}-src.zip.asc">ASC</a></td>
         </tr>
+        <tr>
+            <td>Release Notes</td>
+            <td><a href="/releases/{{ site.data.project.latest_release }}/release-notes">{{ site.data.project.latest_release }}</a></td>
+            <td></td>
+            <!--td></td-->
+            <td></td>
+        </tr>
     </tbody>
 </table>
 {% endif %}
