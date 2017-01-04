@@ -174,12 +174,6 @@
   org: Clover Health
   role: Committer
 
-- name: Sean R. Owen
-  apacheId: srowen
-  githubId: srowen
-  org: Cloudera
-  role: PMC Member
-
 - name: Shivaram Venkataraman
   apacheId: shivaram
   githubId: shivaram
