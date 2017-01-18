@@ -48,6 +48,12 @@
   org: NASA
   role: PMC Member
 
+- name: Christian Kadner
+  apacheId: ckadner
+  githubId: ckadner
+  org: IBM
+  role: Committer
+
 - name: Davies Liu
   apacheId: davies
   githubId: davies
