@@ -29,7 +29,7 @@ excerpt_separator: ""
 
 repository: https://github.com/apache/bahir-website
 destination: _site
-exclude: [README.md,Gemfile*]
+exclude: [README.md,Gemfile*,"docs/spark/templates"]
 keep_files: [".git", ".svn", "apidocs"]
 
 # if 'analytics_on' is true, analytics section will be rendered on the HTML pages

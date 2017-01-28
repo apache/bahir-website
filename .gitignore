@@ -32,6 +32,7 @@ target/
 *.log
 
 # ignore published content (after running ./publish.sh)
+site/_site/
 content/
 
 # Others

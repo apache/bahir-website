@@ -38,7 +38,7 @@ You can:
 
 Visit the [Contributing](/community) page for more information.
 
-### Mailing list
+## Mailing list
 
 Get help using {{ site.data.project.short_name }} or contribute to the project on our mailing lists:
 
@@ -47,11 +47,11 @@ Get help using {{ site.data.project.short_name }} or contribute to the project o
 * [{{ site.data.project.commits_list }}](mailto:{{ site.data.project.commits_list }}) is for commit messages and patches to {{ site.data.project.short_name }}. [subscribe](mailto:{{ site.data.project.commits_list_subscribe }}?subject=send this email to subscribe), [unsubscribe](mailto:{{ site.data.project.commits_list_unsubscribe }}?subject=send this email to unsubscribe), [archives]({{ site.data.project.commits_list_archive_mailarchive }})
 
 
-### Issue tracker
+## Issue tracker
 
 
 
-#### Bug Reports
+### Bug Reports
 
 Found bug? Enter an issue in the [Issue Tracker](https://issues.apache.org/jira/browse/{{ site.data.project.jira }}).
 
@@ -63,7 +63,7 @@ Before submitting an issue, please:
 
 
 
-#### Feature Requests
+### Feature Requests
 
 Enhancement requests for new features are also welcome. The more concrete and rationale the request is, the greater the chance it will incorporated into future releases.
 
@@ -71,11 +71,11 @@ Enhancement requests for new features are also welcome. The more concrete and ra
   [https://issues.apache.org/jira/browse/{{ site.data.project.jira }}](https://issues.apache.org/jira/browse/{{ site.data.project.jira }})
 
 
-### Source Code
+## Source Code
 
 The project sources are accessible via the [source code repository]({{ site.data.project.source_repository }}) which is also mirrored in [GitHub]({{ site.data.project.source_repository_mirror }})
 
 
-### Website Source Code
+## Website Source Code
 
 The project website sources are accessible via the [website source code repository]({{ site.data.project.website_repository }}) which is also mirrored in [GitHub]({{ site.data.project.website_repository_mirror }})

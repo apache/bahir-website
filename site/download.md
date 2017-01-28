@@ -24,13 +24,13 @@ limitations under the License.
 -->
 {% include JB/setup %}
 
-## {{ site.data.project.name }} Downloads
+# {{ site.data.project.name }} Downloads
 
 Please find below the latest releases of {{ site.data.project.name }}. Note that the binary artifacts are also published through Maven.
 
-### Latest Release 
+## Latest Release 
 
-Our latest release is {{ site.data.project.name }} {{site.data.project.latest_release}}, released on ({{site.data.project.latest_release_date}}).
+Our latest release is {{ site.data.project.name }} {{site.data.project.latest_release}}, released on {{site.data.project.latest_release_date}}.
 
 {% if site.data.project.latest_release %}
 <table class="table table-hover sortable">
@@ -72,17 +72,17 @@ Our latest release is {{ site.data.project.name }} {{site.data.project.latest_re
 
 Instructions for checking hashes and signatures is indicated on the [Verifying Apache Software Foundation Releases](http://www.apache.org/info/verification.html) page.
 
-You can also retrieve the source files from our svn repository by typing :
+You can also retrieve the source files from our git repository by typing:
 
 <pre>
-git clone https://github.com/apache/bahir
+git clone https://github.com/apache/bahir.git
 cd bahir
 git checkout -b tags/v{{site.data.project.latest_release}} v{{site.data.project.latest_release}}
 </pre>
 
 
 
-### Verifying a Release
+## Verifying a Release
 
 Choose a source distribution in either *tar* or *zip* format,
 and [verify](http://www.apache.org/dyn/closer.cgi#verify)
@@ -100,6 +100,6 @@ succeed.
 For security, hash and signature files are always hosted at
 [Apache](https://www.apache.org/dist).
 
-### Previous Releases
+## Previous Releases
 
 All previous releases of Apache Bahir can be found in the [archives](http://archive.apache.org/dist/bahir/).

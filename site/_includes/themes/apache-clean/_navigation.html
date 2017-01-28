@@ -31,6 +31,8 @@
       <nav class="navbar-collapse collapse" role="navigation">
         <ul class="nav navbar-nav">
           {% for entry in site.data.navigation.topnav %}
+          {% comment %}<!-- exclude Download from navbar on the Home page -->{% endcomment %}
+          {% if page.title != "Home" or entry.title != "Download" %}
           <li id="{{ entry.title | slugify }}">
             {% if entry.subcategories %}
             <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{ entry.title }}<b class="caret"></b></a>
@@ -49,6 +51,7 @@
             <a href="{{ entry.url }}" target="{{ target }}">{{ entry.title }}</a>
             {% endif %}
           </li>
+          {% endif %}
           {% endfor %}
         </ul>
       </nav><!--/.navbar-collapse -->

@@ -22,8 +22,8 @@ github_project_name: bahir
 description: Apache Bahir provides extensions to distributed analytic platforms such as Apache Spark.
 
 download: /download
-latest_release: 2.0.1
-latest_release_date: 11/27/2016
+latest_release: 2.0.2
+latest_release_date: 01/27/2017
 
 dev_list: dev@bahir.apache.org
 dev_list_subscribe: dev-subscribe@bahir.apache.org
