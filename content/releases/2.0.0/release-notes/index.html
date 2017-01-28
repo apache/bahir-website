@@ -4,8 +4,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Spark Structured Streaming MQTT</title>
-    <meta name="description" content="Spark Structured Streaming MQTT">
+    <title>Community</title>
+    <meta name="description" content="Project Community Page">
     <meta name="author" content="">
 
     <!-- Enable responsive viewport -->
@@ -171,7 +171,7 @@
 
       
 
-<!--<div class="hero-unit Spark Structured Streaming MQTT">
+<!--<div class="hero-unit Community">
   <h1></h1>
 </div>
 -->
@@ -182,59 +182,57 @@
 
 -->
 
-<p><a href="http://mqtt.org/">MQTT</a> is MQTT is a machine-to-machine (M2M)/”Internet of Things” connectivity protocol. It was designed as an extremely lightweight publish/subscribe messaging transport. It is useful for connections with remote locations where a small code footprint is required and/or network bandwidth is at a premium.</p>
+<h1 id="apache-bahir-200-for-apache-spark">Apache Bahir 2.0.0 for Apache Spark</h1>
 
-<h2 id="linking">Linking</h2>
+<h2 id="bug">Bug</h2>
 
-<p>Using SBT:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>libraryDependencies += "org.apache.bahir" %% "spark-streaming-mqtt" % "2.0.0"
+<div class="highlighter-rouge"><pre class="highlight"><code>[BAHIR-13] - Update spark tags dependency
+[BAHIR-14] - Cleanup maven pom from Spark dependencies
+[BAHIR-15] - Enable RAT on Bahir builds
+[BAHIR-16] - Build issues due to log4j properties not found
+[BAHIR-18] - Include examples in Maven test build
+[BAHIR-23] - Build should fail on Checkstyle violation
+[BAHIR-24] - Fix MQTT Python code
+[BAHIR-38] - Spark-submit does not use latest locally installed Bahir packages
+[BAHIR-42] - Refactor sql-streaming-mqtt examples to follow other projects pattern
+[BAHIR-43] - Add missing apache license header to sql-mqtt file
+[BAHIR-44] - Add new sql-streaming-mqtt to distribution
 </code></pre>
 </div>
 
-<p>Using Maven:</p>
+<h2 id="improvement">Improvement</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
-    &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
-    &lt;artifactId&gt;spark-streaming-mqtt_2.11&lt;/artifactId&gt;
-    &lt;version&gt;2.0.0&lt;/version&gt;
-&lt;/dependency&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code>[BAHIR-36] - Update readme.md with build instructions
 </code></pre>
 </div>
 
-<p>This library can also be added to Spark jobs launched through <code class="highlighter-rouge">spark-shell</code> or <code class="highlighter-rouge">spark-submit</code> by using the <code class="highlighter-rouge">--packages</code> command line option.
-For example, to include it when starting the spark shell:</p>
+<h2 id="new-feature">New Feature</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ bin/spark-shell --packages org.apache.bahir:spark-streaming_mqtt_2.11:2.0.0
+<div class="highlighter-rouge"><pre class="highlight"><code>[BAHIR-2]  - Create initial build for Bahir components
+[BAHIR-39] - MQTT as a streaming source for SQL Streaming
 </code></pre>
 </div>
 
-<p>Unlike using <code class="highlighter-rouge">--jars</code>, using <code class="highlighter-rouge">--packages</code> ensures that this library and its dependencies will be added to the classpath.
-The <code class="highlighter-rouge">--packages</code> argument can also be used with <code class="highlighter-rouge">bin/spark-submit</code>.</p>
+<h2 id="task">Task</h2>
 
-<p>This library is cross-published for Scala 2.10 and Scala 2.11, so users should replace the proper Scala version (2.10 or 2.11) in the commands listed above.</p>
-
-<h2 id="examples">Examples</h2>
-
-<h3 id="scala-api">Scala API</h3>
-
-<p>You need to extend <code class="highlighter-rouge">ActorReceiver</code> so as to store received data into Spark using <code class="highlighter-rouge">store(...)</code> methods. The supervisor strategy of
-this actor can be configured to handle failures, etc.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>val lines = MQTTUtils.createStream(ssc, brokerUrl, topic)
+<div class="highlighter-rouge"><pre class="highlight"><code>[BAHIR-17] - Prepare release based on Apache Spark 2.0.0-preview
+[BAHIR-22] - Add script to run examples
+[BAHIR-35] - Include Python code in the binary jars for use with "--packages ..."
+[BAHIR-37] - Prepare release based on Apache Spark 2.0.0
 </code></pre>
 </div>
 
-<h3 id="java-api">Java API</h3>
+<h2 id="sub-task">Sub-task</h2>
 
-<p>You need to extend <code class="highlighter-rouge">JavaActorReceiver</code> so as to store received data into Spark using <code class="highlighter-rouge">store(...)</code> methods. The supervisor strategy of
-this actor can be configured to handle failures, etc.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>JavaDStream&lt;String&gt; lines = MQTTUtils.createStream(jssc, brokerUrl, topic);
+<div class="highlighter-rouge"><pre class="highlight"><code>[BAHIR-19] - Create Bahir source distribution
+[BAHIR-20] - Create release script
+[BAHIR-21] - Create script to change build between scala 2.10 and 2.11
+[BAHIR-28] - Add documentation for streaming-akka connector
+[BAHIR-29] - Add documentation for streaming-mqtt connector
+[BAHIR-30] - Add documentation for streaming-twitter connector
+[BAHIR-31] - Add documentation for streaming-zeromq connector
 </code></pre>
 </div>
-
-<p>See end-to-end examples at <a href="https://github.com/apache/bahir/tree/master/streaming-mqtt/examples">MQTT Examples</a></p>
 
   </div>
 </div>

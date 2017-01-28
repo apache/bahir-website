@@ -57,6 +57,18 @@
       <nav class="navbar-collapse collapse" role="navigation">
         <ul class="nav navbar-nav">
           
+          
+          
+          <li id="download">
+            
+            
+            <a href="/download" target="_self">Download</a>
+            
+          </li>
+          
+          
+          
+          
           <li id="community">
             
             <a href="#" data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a>
@@ -84,6 +96,9 @@
             
           </li>
           
+          
+          
+          
           <li id="documentation">
             
             <a href="#" data-toggle="dropdown" class="dropdown-toggle">Documentation<b class="caret"></b></a>
@@ -91,6 +106,9 @@
               
               
               <li><a href="/docs/spark/current/documentation" target="_self">Bahir Spark Extensions - Current</a></li>
+              
+              
+              <li><a href="/docs/spark/2.0.2/documentation" target="_self">Bahir Spark Extensions - 2.0.2</a></li>
               
               
               <li><a href="/docs/spark/2.0.1/documentation" target="_self">Bahir Spark Extensions - 2.0.1</a></li>
@@ -102,12 +120,18 @@
             
           </li>
           
+          
+          
+          
           <li id="github">
             
             
             <a href="https://github.com/apache/bahir" target="_blank">GitHub</a>
             
           </li>
+          
+          
+          
           
           <li id="apache">
             
@@ -133,6 +157,7 @@
             
           </li>
           
+          
         </ul>
       </nav><!--/.navbar-collapse -->
       <!-- /.navbar-collapse -->
@@ -157,13 +182,13 @@
 
 -->
 
-<h2 id="apache-bahir-downloads">Apache Bahir Downloads</h2>
+<h1 id="apache-bahir-downloads">Apache Bahir Downloads</h1>
 
 <p>Please find below the latest releases of Apache Bahir. Note that the binary artifacts are also published through Maven.</p>
 
-<h3 id="latest-release">Latest Release</h3>
+<h2 id="latest-release">Latest Release</h2>
 
-<p>Our latest release is Apache Bahir 2.0.1, released on (11/27/2016).</p>
+<p>Our latest release is Apache Bahir 2.0.2, released on 01/27/2017.</p>
 
 <table class="table table-hover sortable">
     <thead>
@@ -177,22 +202,22 @@
     </thead>
     <tbody>
         <tr>
-            <td>Apache Bahir 2.0.1 (tar.gz)</td>
-            <td><a href="http://www.apache.org/dyn/closer.lua/bahir/2.0.1/apache-bahir-2.0.1-src.tar.gz">tar.gz</a></td>
-            <td><a href="http://www.apache.org/dist/bahir/2.0.1/apache-bahir-2.0.1-src.tar.gz.md5">MD5</a></td>
-            <!--td><a href="http://www.apache.org/dist/bahir/2.0.1/apache-bahir-2.0.1-src.tar.gz.sha1">SHA-1</a></td-->
-            <td><a href="http://www.apache.org/dist/bahir/2.0.1/apache-bahir-2.0.1-src.tar.gz.asc">ASC</a></td>
+            <td>Apache Bahir 2.0.2 (tar.gz)</td>
+            <td><a href="http://www.apache.org/dyn/closer.lua/bahir/2.0.2/apache-bahir-2.0.2-src.tar.gz">tar.gz</a></td>
+            <td><a href="http://www.apache.org/dist/bahir/2.0.2/apache-bahir-2.0.2-src.tar.gz.md5">MD5</a></td>
+            <!--td><a href="http://www.apache.org/dist/bahir/2.0.2/apache-bahir-2.0.2-src.tar.gz.sha1">SHA-1</a></td-->
+            <td><a href="http://www.apache.org/dist/bahir/2.0.2/apache-bahir-2.0.2-src.tar.gz.asc">ASC</a></td>
         </tr>
         <tr>
-            <td>Apache Bahir 2.0.1 (zip)</td>
-            <td><a href="http://www.apache.org/dyn/closer.lua/bahir/2.0.1/apache-bahir-2.0.1-src.zip">zip</a></td>
-            <td><a href="http://www.apache.org/dist/bahir/2.0.1/apache-bahir-2.0.1-src.zip.md5">MD5</a></td>
-            <!--td><a href="http://www.apache.org/dist/bahir/2.0.1/apache-bahir-2.0.1-src.zip.sha1">SHA-1</a></td-->
-            <td><a href="http://www.apache.org/dist/bahir/2.0.1/apache-bahir-2.0.1-src.zip.asc">ASC</a></td>
+            <td>Apache Bahir 2.0.2 (zip)</td>
+            <td><a href="http://www.apache.org/dyn/closer.lua/bahir/2.0.2/apache-bahir-2.0.2-src.zip">zip</a></td>
+            <td><a href="http://www.apache.org/dist/bahir/2.0.2/apache-bahir-2.0.2-src.zip.md5">MD5</a></td>
+            <!--td><a href="http://www.apache.org/dist/bahir/2.0.2/apache-bahir-2.0.2-src.zip.sha1">SHA-1</a></td-->
+            <td><a href="http://www.apache.org/dist/bahir/2.0.2/apache-bahir-2.0.2-src.zip.asc">ASC</a></td>
         </tr>
         <tr>
             <td>Release Notes</td>
-            <td><a href="/releases/2.0.1/release-notes">2.0.1</a></td>
+            <td><a href="/releases/2.0.2/release-notes">2.0.2</a></td>
             <td></td>
             <!--td></td-->
             <td></td>
@@ -202,15 +227,15 @@
 
 <p>Instructions for checking hashes and signatures is indicated on the <a href="http://www.apache.org/info/verification.html">Verifying Apache Software Foundation Releases</a> page.</p>
 
-<p>You can also retrieve the source files from our svn repository by typing :</p>
+<p>You can also retrieve the source files from our git repository by typing:</p>
 
 <pre>
-git clone https://github.com/apache/bahir
+git clone https://github.com/apache/bahir.git
 cd bahir
-git checkout -b tags/v2.0.1 v2.0.1
+git checkout -b tags/v2.0.2 v2.0.2
 </pre>
 
-<h3 id="verifying-a-release">Verifying a Release</h3>
+<h2 id="verifying-a-release">Verifying a Release</h2>
 
 <p>Choose a source distribution in either <em>tar</em> or <em>zip</em> format,
 and <a href="http://www.apache.org/dyn/closer.cgi#verify">verify</a>
@@ -228,7 +253,7 @@ succeed.</p>
 <p>For security, hash and signature files are always hosted at
 <a href="https://www.apache.org/dist">Apache</a>.</p>
 
-<h3 id="previous-releases">Previous Releases</h3>
+<h2 id="previous-releases">Previous Releases</h2>
 
 <p>All previous releases of Apache Bahir can be found in the <a href="http://archive.apache.org/dist/bahir/">archives</a>.</p>
 
@@ -247,7 +272,7 @@ succeed.</p>
             <div style="text-align:center;">
                 
                 <div>
-                    Copyright &copy; 2016 <a href="http://www.apache.org">The Apache Software Foundation</a>.
+                    Copyright &copy; 2016-2017 <a href="http://www.apache.org">The Apache Software Foundation</a>.
                     Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version
                     2.0</a>.
                     <br>

@@ -4,8 +4,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Spark Structured Streaming MQTT</title>
-    <meta name="description" content="Spark Structured Streaming MQTT">
+    <title>Spark Streaming ZeroMQ</title>
+    <meta name="description" content="Spark Streaming ZeroMQ">
     <meta name="author" content="">
 
     <!-- Enable responsive viewport -->
@@ -171,7 +171,7 @@
 
       
 
-<!--<div class="hero-unit Spark Structured Streaming MQTT">
+<!--<div class="hero-unit Spark Streaming ZeroMQ">
   <h1></h1>
 </div>
 -->
@@ -182,13 +182,13 @@
 
 -->
 
-<p><a href="http://mqtt.org/">MQTT</a> is MQTT is a machine-to-machine (M2M)/”Internet of Things” connectivity protocol. It was designed as an extremely lightweight publish/subscribe messaging transport. It is useful for connections with remote locations where a small code footprint is required and/or network bandwidth is at a premium.</p>
+<p>A library for reading data from <a href="http://zeromq.org/">ZeroMQ</a> using Spark Streaming.</p>
 
 <h2 id="linking">Linking</h2>
 
 <p>Using SBT:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>libraryDependencies += "org.apache.bahir" %% "spark-streaming-mqtt" % "2.0.0"
+<div class="highlighter-rouge"><pre class="highlight"><code>libraryDependencies += "org.apache.bahir" %% "spark-streaming-zeromq" % "2.0.2"
 </code></pre>
 </div>
 
@@ -196,8 +196,8 @@
 
 <div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
     &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
-    &lt;artifactId&gt;spark-streaming-mqtt_2.11&lt;/artifactId&gt;
-    &lt;version&gt;2.0.0&lt;/version&gt;
+    &lt;artifactId&gt;spark-streaming-zeromq_2.11&lt;/artifactId&gt;
+    &lt;version&gt;2.0.2&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre>
 </div>
@@ -205,7 +205,7 @@
 <p>This library can also be added to Spark jobs launched through <code class="highlighter-rouge">spark-shell</code> or <code class="highlighter-rouge">spark-submit</code> by using the <code class="highlighter-rouge">--packages</code> command line option.
 For example, to include it when starting the spark shell:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ bin/spark-shell --packages org.apache.bahir:spark-streaming_mqtt_2.11:2.0.0
+<div class="highlighter-rouge"><pre class="highlight"><code>$ bin/spark-shell --packages org.apache.bahir:spark-streaming_zeromq_2.11:2.0.2
 </code></pre>
 </div>
 
@@ -218,23 +218,17 @@ The <code class="highlighter-rouge">--packages</code> argument can also be used 
 
 <h3 id="scala-api">Scala API</h3>
 
-<p>You need to extend <code class="highlighter-rouge">ActorReceiver</code> so as to store received data into Spark using <code class="highlighter-rouge">store(...)</code> methods. The supervisor strategy of
-this actor can be configured to handle failures, etc.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>val lines = MQTTUtils.createStream(ssc, brokerUrl, topic)
+<div class="highlighter-rouge"><pre class="highlight"><code>val lines = ZeroMQUtils.createStream(ssc, ...)
 </code></pre>
 </div>
 
 <h3 id="java-api">Java API</h3>
 
-<p>You need to extend <code class="highlighter-rouge">JavaActorReceiver</code> so as to store received data into Spark using <code class="highlighter-rouge">store(...)</code> methods. The supervisor strategy of
-this actor can be configured to handle failures, etc.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>JavaDStream&lt;String&gt; lines = MQTTUtils.createStream(jssc, brokerUrl, topic);
+<div class="highlighter-rouge"><pre class="highlight"><code>JavaDStream&lt;String&gt; lines = ZeroMQUtils.createStream(jssc, ...);
 </code></pre>
 </div>
 
-<p>See end-to-end examples at <a href="https://github.com/apache/bahir/tree/master/streaming-mqtt/examples">MQTT Examples</a></p>
+<p>See end-to-end examples at <a href="https://github.com/apache/bahir/tree/master/streaming-zeromq/examples">ZeroMQ Examples</a></p>
 
   </div>
 </div>
