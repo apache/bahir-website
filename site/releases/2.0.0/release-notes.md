@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Community
-description: Project Community Page
+title: Bahir Release 2.0.0
+description: Release Notes for Apache Bahir 2.0.0
 group: nav-right
 ---
 <!--
@@ -26,7 +26,7 @@ limitations under the License.
 {% include JB/setup %}
 
 
-# Apache Bahir 2.0.0 for Apache Spark
+# Apache Bahir 2.0 for Apache Spark 2.0
     
 ## Bug
 

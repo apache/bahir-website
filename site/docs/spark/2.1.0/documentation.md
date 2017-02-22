@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Bahir Release 2.0.2
-description: Release Notes for Apache Bahir 2.0.2
+title: Extensions for Apache Spark
+description: Extensions for Apache Spark
 group: nav-right
 ---
 <!--
@@ -25,19 +25,22 @@ limitations under the License.
 
 {% include JB/setup %}
 
+### Apache Bahir Extensions for Apache Spark
 
-# Apache Bahir 2.0.2 for Apache Spark 2.0.2
-    
-## Task
-    
-    [BAHIR-82] - Prepare release based on Apache Spark 2.0.2
+<br/>
 
-## Sub-Task
+#### Structured Streaming Data Sources
 
-    [BAHIR-64] - Add test that Akka streaming connector can receive data
-    [BAHIR-69] - Clean build between different scala versions
+[MQTT data source](../spark-sql-streaming-mqtt)
 
-## Test
+<br/>
 
-    [BAHIR-83] - Flaky test in BasicMQTTSourceSuite
-    [BAHIR-84] - Build log flooded with test log messages
+#### Discretized Streams (DStreams) Connectors
+
+[Akka connector](../spark-streaming-akka)
+
+[MQTT connector](../spark-streaming-mqtt)
+
+[Twitter connector](../spark-streaming-twitter)
+
+[ZeroMQ connector](../spark-streaming-zeromq)

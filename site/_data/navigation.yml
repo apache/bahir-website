@@ -52,6 +52,8 @@ topnav:
   subcategories:
   - title: Bahir Spark Extensions - Current
     url: /docs/spark/current/documentation
+  - title: Bahir Spark Extensions - 2.1.0
+    url: /docs/spark/2.1.0/documentation
   - title: Bahir Spark Extensions - 2.0.2
     url: /docs/spark/2.0.2/documentation
   - title: Bahir Spark Extensions - 2.0.1

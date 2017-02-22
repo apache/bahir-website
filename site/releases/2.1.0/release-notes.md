@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Bahir Release 2.0.2
-description: Release Notes for Apache Bahir 2.0.2
+title: Bahir Release 2.1.0
+description: Release Notes for Apache Bahir 2.1.0
 group: nav-right
 ---
 <!--
@@ -26,18 +26,11 @@ limitations under the License.
 {% include JB/setup %}
 
 
-# Apache Bahir 2.0.2 for Apache Spark 2.0.2
+# Apache Bahir 2.1 for Apache Spark 2.1
     
 ## Task
-    
-    [BAHIR-82] - Prepare release based on Apache Spark 2.0.2
 
-## Sub-Task
+    [BAHIR-87] - Prepare release based on Apache Spark 2.1.0
+    [MINOR]    - Update Scaladoc in MQTTWordCount example  
+    [MINOR]    - Fix Maven artifact IDs in README.md files
 
-    [BAHIR-64] - Add test that Akka streaming connector can receive data
-    [BAHIR-69] - Clean build between different scala versions
-
-## Test
-
-    [BAHIR-83] - Flaky test in BasicMQTTSourceSuite
-    [BAHIR-84] - Build log flooded with test log messages
