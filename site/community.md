@@ -73,7 +73,10 @@ Enhancement requests for new features are also welcome. The more concrete and ra
 
 ## Source Code
 
-The project sources are accessible via the [source code repository]({{ site.data.project.source_repository }}) which is also mirrored in [GitHub]({{ site.data.project.source_repository_mirror }})
+The project sources for each supported platform are accessible via their respective source code repositories:
+
+ - Apache Spark Extensions: ({{ site.data.project.spark_source_repository }}), also mirrored in [GitHub]({{ site.data.project.spark_source_repository_mirror }})
+ - Apache Flink Extensions: ({{ site.data.project.flink_source_repository }}), also mirrored in [GitHub]({{ site.data.project.flink_source_repository_mirror }})
 
 
 ## Website Source Code

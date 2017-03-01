@@ -34,7 +34,8 @@ The steps below will install the latest [Jekyll](https://jekyllrb.com/) version 
 
 ```
 1. sudo gem install jekyll bundler
-2. sudo bundle install
+2. cd site
+3. sudo bundle install
 ```
 
 For more information, see [Installing Jekyll](https://jekyllrb.com/docs/installation/).
@@ -57,7 +58,7 @@ To update the current documentation contents, use the update-doc script. This sc
 
 ```
 1. update-doc.sh
-2. git commit -a -m"My updates"
+2. git commit -a -m "My updates"
 3. git push
 4. ./publish.sh
 5. git push origin asf-site
@@ -72,7 +73,7 @@ To publish new contents to the website, commit your changes to master, and use t
 
 ```
 1. Make your changes
-2. git commit -a -m"My updates"
+2. git commit -a -m "My updates"
 3. git push
 4. ./publish.sh
 5. git push origin asf-site
