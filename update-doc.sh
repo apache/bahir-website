@@ -78,10 +78,11 @@ function update_docs {
     SOURCE_DIR=$3
     shift 3
 
+    [ ! -d "$WEBSITE_DOC_DIR" ] && mkdir "$WEBSITE_DOC_DIR"
 
     while [ $# -ne 0 ]; do
         echo "Syncing document $WEBSITE_DOC_DIR/$1.md with source $SOURCE_DIR/$2/README.md"
-        rm "$WEBSITE_DOC_DIR/$1.md"
+        rm -f "$WEBSITE_DOC_DIR/$1.md"
         cp "$WEBSITE_TEMPLATES_DIR/$1.template" "$WEBSITE_DOC_DIR/$1.md"
         cat "$SOURCE_DIR/$2/README.md"       >> "$WEBSITE_DOC_DIR/$1.md"
         shift 2
