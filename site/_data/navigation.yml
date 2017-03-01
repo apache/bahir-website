@@ -50,16 +50,10 @@ topnav:
 
 - title: Documentation
   subcategories:
-  - title: Bahir Spark Extensions - Current
-    url: /docs/spark/current/documentation
-  - title: Bahir Spark Extensions - 2.1.0
-    url: /docs/spark/2.1.0/documentation
-  - title: Bahir Spark Extensions - 2.0.2
-    url: /docs/spark/2.0.2/documentation
-  - title: Bahir Spark Extensions - 2.0.1
-    url: /docs/spark/2.0.1/documentation
-  - title: Bahir Spark Extensions - 2.0.0
-    url: /docs/spark/2.0.0/documentation
+  - title: Bahir Spark Extensions
+    url: /docs/spark/overview
+  - title: Bahir Flink Extensions
+    url: /docs/flink/overview
 
 - title: GitHub
   url: https://github.com/apache/bahir

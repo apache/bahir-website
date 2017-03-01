@@ -15,15 +15,12 @@
 #
 # Apache Project configurations
 #
+
+# settings common across all supported platforms
+
 name: Apache Bahir
 short_name: Bahir
-unix_name: bahir
-github_project_name: bahir
-description: Apache Bahir provides extensions to distributed analytic platforms such as Apache Spark.
-
-download: /download
-latest_release: 2.1.0
-latest_release_date: 02/22/2017
+description: Apache Bahir provides extensions to distributed analytic platforms such as Apache Spark and Apache Flink.
 
 dev_list: dev@bahir.apache.org
 dev_list_subscribe: dev-subscribe@bahir.apache.org
@@ -48,10 +45,33 @@ commits_list_archive_markmail:
 
 jira: BAHIR
 
-source_repository: https://git-wip-us.apache.org/repos/asf/bahir.git
-source_repository_mirror: https://github.com/apache/bahir
-
 website_repository: https://git-wip-us.apache.org/repos/asf/bahir-website.git
 website_repository_mirror: https://github.com/apache/bahir-website
 
 podling: false
+
+# settings specific to supported platforms
+
+# Apache Spark
+
+spark_unix_name: bahir
+spark_github_project_name: bahir
+
+spark_latest_release: 2.1.0
+spark_latest_release_date: 02/22/2017
+spark_download: /downloads/spark
+
+spark_source_repository: https://git-wip-us.apache.org/repos/asf/bahir.git
+spark_source_repository_mirror: https://github.com/apache/bahir
+
+# Apache Flink
+
+flink_unix_name: bahir-flink
+flink_github_project_name: bahir-flink
+
+#flink_latest_release:
+#flink_latest_release_date:
+flink_download: /downloads/flink
+
+flink_source_repository: https://git-wip-us.apache.org/repos/asf/bahir-flink.git
+flink_source_repository_mirror: https://github.com/apache/bahir-flink

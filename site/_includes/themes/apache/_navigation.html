@@ -49,8 +49,12 @@
     <h1>{{ site.data.project.name }}</h1>
     <p>{{ site.data.project.description }}</p>
 
-    {% if site.data.project.latest_release %}
-       <a href="{{ site.data.project.download }}" class="btn btn-primary btn-lg bigFingerButton" role="button">Get {{ site.data.project.short_name }}</a></p>
+    {% if site.data.project.spark_latest_release %}
+       <a href="{{ site.data.project.spark_download }}" class="btn btn-primary btn-lg bigFingerButton" role="button">Get {{ site.data.project.short_name }} Spark Extensions</a></p>
+    {% endif %}
+
+    {% if site.data.project.flink_latest_release %}
+      <a href="{{ site.data.project.flink_download }}" class="btn btn-primary btn-lg bigFingerButton" role="button">Get {{ site.data.project.short_name }} Flink Extensions</a></p>
     {% endif %}
   </div>
 </div>

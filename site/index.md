@@ -26,10 +26,9 @@ limitations under the License.
 
 ## What is {{ site.data.project.name }}
 
-{{ site.data.project.name }} provides extensions to distributed analytic platforms such as [Apache Spark](http://spark.apache.org){:target="_blank"} and [Apache Fink](http://flink.apache.org){:target="_blank"}.
+{{ site.data.project.name }} provides extensions to multiple distributed analytic platforms, extending their reach with a diversity of streaming connectors and SQL data sources.
 
-{{ site.data.project.short_name }} currently extends the reach of your analytic platform by providing a diversity of streaming connectors and SQL data sources.
-
+Currently, {{ site.data.project.short_name }} provides extensions for [Apache Spark](http://spark.apache.org){:target="_blank"} and [Apache Flink](http://flink.apache.org){:target="_blank"}.
 
 
 ## Apache Spark extensions
@@ -43,16 +42,18 @@ limitations under the License.
 
 ## Apache Flink extensions
 
- - Flink connector for ActiveMQ
- - Flink connector for Flume
- - Flink connector for Redis
+ - Flink streaming connector for ActiveMQ
+ - Flink streaming connector for Flume
+ - Flink streaming connector for Redis
+ - Flink streaming connector for Akka
+ - Flink streaming connector for Netty
 
  
 The {{ site.data.project.name }} community welcomes the proposal of new extensions.
 
 ## Contact the {{ site.data.project.short_name }} community
 
-For {{ site.data.project.short_name }} updates and news, subscribe to our development mailing list. Check out [All Mailing Lists](/community)
+For {{ site.data.project.short_name }} updates and news, subscribe to our development mailing list. Check out [All Mailing Lists](/community).
 
 <div class="row">
   <div class="col-md-12">
