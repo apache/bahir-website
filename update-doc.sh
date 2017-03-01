@@ -61,10 +61,10 @@ function checkout_code {
     rm -rf target
     mkdir target
     cd target
-    git clone https://git-wip-us.apache.org/repos/asf/$1.git --quiet
-    cd $1
-    git checkout $GIT_REF
-    git_hash=`git rev-parse --short HEAD`
+    git clone "https://git-wip-us.apache.org/repos/asf/$1.git" --quiet
+    cd "$1"
+    git checkout "$GIT_REF"
+    git_hash=$(git rev-parse --short HEAD)
     echo "Checked out $1 git hash $git_hash"
 
     git clean -d -f -x
@@ -78,21 +78,22 @@ function update_docs {
     SOURCE_DIR=$3
     shift 3
 
+
     while [ $# -ne 0 ]; do
         echo "Syncing document $WEBSITE_DOC_DIR/$1.md with source $SOURCE_DIR/$2/README.md"
-        rm $WEBSITE_DOC_DIR/$1.md
-        cp $WEBSITE_TEMPLATES_DIR/$1.template $WEBSITE_DOC_DIR/$1.md
-        cat $SOURCE_DIR/$2/README.md        >> $WEBSITE_DOC_DIR/$1.md
+        rm "$WEBSITE_DOC_DIR/$1.md"
+        cp "$WEBSITE_TEMPLATES_DIR/$1.template" "$WEBSITE_DOC_DIR/$1.md"
+        cat "$SOURCE_DIR/$2/README.md"       >> "$WEBSITE_DOC_DIR/$1.md"
         shift 2
     done
 }
 
 function check_version_strings {
-    if grep -q -r "[0-9]-SNAPSHOT" $1/*.md ; then
+    if grep -q -r "[0-9]-SNAPSHOT" "$1"/*.md ; then
         echo
         echo "TODO: Replace '...-SNAPSHOT' version strings:"
         echo
-        grep -r -n "[0-9]-SNAPSHOT" $1/*.md | sed -e 's|'$(pwd)/'||g' | grep --color "[0-9.]*-SNAPSHOT"
+        grep -r -n "[0-9]-SNAPSHOT" "$1"/*.md | sed -e 's|'"$(pwd)"/'||g' | grep --color "[0-9.]*-SNAPSHOT"
         echo
         echo "i.e. to replace '2.1.0-SNAPSHOT' with '2.0.2' run the following command:"
         echo
@@ -102,7 +103,7 @@ function check_version_strings {
         echo
         echo "Generated files:"
         echo
-        ls $1/*.md | xargs -n1 | sed -e 's|'$(pwd -P)/'||g'
+        ls "$1"/*.md | xargs -n1 | sed -e 's|'"$(pwd -P)"/'||g'
     fi
 }
 
@@ -112,14 +113,14 @@ echo
 
 checkout_code $SPARK_REPO_NAME
 
-update_docs $SPARK_WEBSITE_TEMPLATES_DIR $SPARK_WEBSITE_DOC_DIR $SPARK_BAHIR_SOURCE_DIR \
+update_docs "$SPARK_WEBSITE_TEMPLATES_DIR" "$SPARK_WEBSITE_DOC_DIR" "$SPARK_BAHIR_SOURCE_DIR" \
     spark-sql-streaming-mqtt sql-streaming-mqtt \
     spark-streaming-akka streaming-akka \
     spark-streaming-mqtt streaming-mqtt \
     spark-streaming-twitter streaming-twitter \
     spark-streaming-zeromq streaming-zeromq
 
-check_version_strings $SPARK_WEBSITE_DOC_DIR
+check_version_strings "$SPARK_WEBSITE_DOC_DIR"
 
 echo
 echo "================= Updating Apache Flink Extension documents ================="
@@ -127,13 +128,13 @@ echo
 
 checkout_code $FLINK_REPO_NAME
 
-update_docs $FLINK_WEBSITE_TEMPLATES_DIR $FLINK_WEBSITE_DOC_DIR $FLINK_BAHIR_SOURCE_DIR \
+update_docs "$FLINK_WEBSITE_TEMPLATES_DIR" "$FLINK_WEBSITE_DOC_DIR" "$FLINK_BAHIR_SOURCE_DIR" \
     flink-streaming-activemq flink-connector-activemq \
     flink-streaming-akka flink-connector-akka \
     flink-streaming-flume flink-connector-flume \
     flink-streaming-netty flink-connector-netty \
     flink-streaming-redis flink-connector-redis
 
-check_version_strings $FLINK_WEBSITE_DOC_DIR
+check_version_strings "$FLINK_WEBSITE_DOC_DIR"
 
 set +e
