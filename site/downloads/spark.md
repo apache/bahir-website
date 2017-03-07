@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Downloads
-description: Project Downloads page
+title: Bahir Spark Extensions Downloads
+description: Bahir Spark Extensions Downloads page
 group: nav-right
 ---
 <!--
@@ -25,15 +25,16 @@ limitations under the License.
 
 {% include JB/setup %}
 
-# {{ site.data.project.name }} Downloads
+# {{ site.data.project.name }} Spark Extensions Downloads
 
-Please find below the latest releases of {{ site.data.project.name }}. Note that the binary artifacts for each platform are published independently through Maven.
+Please find below the latest releases of {{ site.data.project.name }} for Apache Spark Extensions. Note that the binary artifacts for each platform are also published independently through Maven.
 
 ## Bahir Spark Extensions Latest Release 
 
+{% if site.data.project.spark_latest_release %}
+
 Our latest {{ site.data.project.name }} release for Apache Spark extensions is {{site.data.project.spark_latest_release}}, released on {{site.data.project.spark_latest_release_date}}.
 
-{% if site.data.project.spark_latest_release %}
 <table class="table table-hover sortable">
     <thead>
         <tr>
@@ -68,7 +69,6 @@ Our latest {{ site.data.project.name }} release for Apache Spark extensions is {
         </tr>
     </tbody>
 </table>
-{% endif %}
 
 You can also retrieve the source files from our git repository by typing:
 
@@ -81,59 +81,6 @@ git checkout -b tags/v{{site.data.project.spark_latest_release}} v{{site.data.pr
 ### Previous Releases
 
 All previous releases of {{ site.data.project.name }} Spark Extensions can be found in the [archives](http://archive.apache.org/dist/{{site.data.project.spark_unix_name}}/).
-
-## Bahir Flink Extensions Latest Release 
-
-Our latest {{ site.data.project.name }} release for Apache Flink extensions is {{site.data.project.flink_latest_release}}, released on {{site.data.project.flink_latest_release_date}}.
-
-{% if site.data.project.flink_latest_release %}
-<table class="table table-hover sortable">
-    <thead>
-        <tr>
-            <th><b>Name</b></th>
-            <th><b>Archive</b></th>
-            <th><b>MD5</b></th>
-            <!--th><b>SHA-1</b></th-->
-            <th><b>signature</b></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>{{ site.data.project.name }} Flink Extensions {{site.data.project.flink_latest_release}} (tar.gz)</td>
-            <td><a href="http://www.apache.org/dyn/closer.lua/{{site.data.project.flink_unix_name}}/{{site.data.project.flink_latest_release}}/apache-bahir-{{site.data.project.flink_latest_release}}-src.tar.gz">tar.gz</a></td>
-            <td><a href="http://www.apache.org/dist/{{site.data.project.flink_unix_name}}/{{site.data.project.flink_latest_release}}/apache-bahir-{{site.data.project.flink_latest_release}}-src.tar.gz.md5">MD5</a></td>
-            <!--td><a href="http://www.apache.org/dist/{{site.data.project.flink_unix_name}}/{{site.data.project.flink_latest_release}}/apache-bahir-{{site.data.project.flink_latest_release}}-src.tar.gz.sha1">SHA-1</a></td-->
-            <td><a href="http://www.apache.org/dist/{{site.data.project.flink_unix_name}}/{{site.data.project.flink_latest_release}}/apache-bahir-{{site.data.project.flink_latest_release}}-src.tar.gz.asc">ASC</a></td>
-        </tr>
-        <tr>
-            <td>{{ site.data.project.name }} Flink Extensions {{site.data.project.flink_latest_release}} (zip)</td>
-            <td><a href="http://www.apache.org/dyn/closer.lua/{{site.data.project.flink_unix_name}}/{{site.data.project.flink_latest_release}}/apache-bahir-{{site.data.project.flink_latest_release}}-src.zip">zip</a></td>
-            <td><a href="http://www.apache.org/dist/{{site.data.project.flink_unix_name}}/{{site.data.project.flink_latest_release}}/apache-bahir-{{site.data.project.flink_latest_release}}-src.zip.md5">MD5</a></td>
-            <!--td><a href="http://www.apache.org/dist/{{site.data.project.flink_unix_name}}/{{site.data.project.flink_latest_release}}/apache-bahir-{{site.data.project.flink_latest_release}}-src.zip.sha1">SHA-1</a></td-->
-            <td><a href="http://www.apache.org/dist/{{site.data.project.flink_unix_name}}/{{site.data.project.flink_latest_release}}/apache-bahir-{{site.data.project.flink_latest_release}}-src.zip.asc">ASC</a></td>
-        </tr>
-        <tr>
-            <td>Release Notes</td>
-            <td><a href="/releases/flink/{{ site.data.project.flink_latest_release }}/release-notes">{{ site.data.project.flink_latest_release }}</a></td>
-            <td></td>
-            <!--td></td-->
-            <td></td>
-        </tr>
-    </tbody>
-</table>
-{% endif %}
-
-You can also retrieve the source files from our git repository by typing:
-
-<pre>
-git clone {{site.data.project.flink_source_repository_mirror}}
-cd {{site.data.project.flink_github_project_name}}
-git checkout -b tags/v{{site.data.project.flink_latest_release}} v{{site.data.project.flink_latest_release}}
-</pre>
-
-### Previous Releases
-
-All previous releases of {{ site.data.project.name }} Flink Extensions can be found in the [archives](http://archive.apache.org/dist/{{site.data.project.flink_unix_name}}/).
 
 ## Verifying a Release
 
@@ -154,3 +101,16 @@ succeed.
 
 For security, hash and signature files are always hosted at
 [Apache](https://www.apache.org/dist).
+
+{% else %}
+
+Currently, there isn't a release available for Bahir Spark Extensions yet.
+
+You can still retrieve the source files from our git repository by typing:
+
+<pre>
+git clone {{site.data.project.spark_source_repository_mirror}}
+cd {{site.data.project.spark_github_project_name}}
+</pre>
+
+{% endif %}
