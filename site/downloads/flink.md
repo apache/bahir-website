@@ -25,11 +25,11 @@ limitations under the License.
 
 {% include JB/setup %}
 
-# {{ site.data.project.name }} Flink Extensions Downloads
+# {{ site.data.project.name }} Extensions for Apache Flink Downloads
 
 Please find below the latest releases of {{ site.data.project.name }} for Apache Flink Extensions. Note that the binary artifacts for each platform are also published independently through Maven and each [extension documentation page](/docs/flink/overview) describes how to add these artifacts to your application.
 
-## Bahir Flink Extensions Latest Release
+## Bahir Extensions for Apache Flink Latest Release
 
 {% if site.data.project.flink_latest_release %}
 

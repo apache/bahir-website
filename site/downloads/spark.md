@@ -25,15 +25,15 @@ limitations under the License.
 
 {% include JB/setup %}
 
-# {{ site.data.project.name }} Spark Extensions Downloads
+# {{ site.data.project.name }} Extensions for Apache Spark Downloads
 
 Please find below the latest releases of {{ site.data.project.name }} for Apache Spark Extensions. Note that the binary artifacts for each platform are also published independently through Maven and each [extension documentation page](/docs/spark/overview) describes how to add these artifacts to your application.
 
-## Bahir Spark Extensions Latest Release
+## Bahir Extensions for Apache Spark {{site.data.project.spark_latest_release}} Release
 
 {% if site.data.project.spark_latest_release %}
 
-Our latest {{ site.data.project.name }} release for Apache Spark extensions is {{site.data.project.spark_latest_release}}, released on {{site.data.project.spark_latest_release_date}}.
+Our latest release supports Apache Spark {{site.data.project.spark_latest_release}}, and was released on {{site.data.project.spark_latest_release_date}}.
 
 <table class="table table-hover sortable">
     <thead>
@@ -47,14 +47,14 @@ Our latest {{ site.data.project.name }} release for Apache Spark extensions is {
     </thead>
     <tbody>
         <tr>
-            <td>{{ site.data.project.name }} Spark Extensions {{site.data.project.spark_latest_release}} (tar.gz)</td>
+            <td>{{ site.data.project.name }} Extensions for Apache Spark {{site.data.project.spark_latest_release}} (tar.gz)</td>
             <td><a href="http://www.apache.org/dyn/closer.lua/{{site.data.project.spark_unix_name}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.tar.gz">tar.gz</a></td>
             <td><a href="http://www.apache.org/dist/{{site.data.project.spark_unix_name}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.tar.gz.md5">MD5</a></td>
             <!--td><a href="http://www.apache.org/dist/{{site.data.project.spark_unix_name}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.tar.gz.sha1">SHA-1</a></td-->
             <td><a href="http://www.apache.org/dist/{{site.data.project.spark_unix_name}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.tar.gz.asc">ASC</a></td>
         </tr>
         <tr>
-            <td>{{ site.data.project.name }} Spark Extensions {{site.data.project.spark_latest_release}} (zip)</td>
+            <td>{{ site.data.project.name }} Extensions for Apache Spark {{site.data.project.spark_latest_release}} (zip)</td>
             <td><a href="http://www.apache.org/dyn/closer.lua/{{site.data.project.spark_unix_name}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.zip">zip</a></td>
             <td><a href="http://www.apache.org/dist/{{site.data.project.spark_unix_name}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.zip.md5">MD5</a></td>
             <!--td><a href="http://www.apache.org/dist/{{site.data.project.spark_unix_name}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.zip.sha1">SHA-1</a></td-->
