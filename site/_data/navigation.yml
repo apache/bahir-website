@@ -56,7 +56,13 @@ topnav:
     url: /docs/flink/overview
 
 - title: GitHub
-  url: https://github.com/apache/bahir
+  subcategories:
+  - title: Bahir Spark Extensions
+    url: https://github.com/apache/bahir
+  - title: Bahir Flink Extensions
+    url: https://github.com/apache/bahir-flink
+  - title: Bahir Website
+    url: https://github.com/apache/bahir-website
 
 - title: Apache
   subcategories:

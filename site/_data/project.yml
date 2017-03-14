@@ -75,3 +75,8 @@ flink_download: /downloads/flink
 
 flink_source_repository: https://git-wip-us.apache.org/repos/asf/bahir-flink.git
 flink_source_repository_mirror: https://github.com/apache/bahir-flink
+
+# Website
+
+website_source_repository: https://git-wip-us.apache.org/repos/asf/bahir-website.git
+website_source_repository_mirror: https://github.com/apache/bahir-website
