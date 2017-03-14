@@ -27,9 +27,9 @@ limitations under the License.
 
 # {{ site.data.project.name }} Spark Extensions Downloads
 
-Please find below the latest releases of {{ site.data.project.name }} for Apache Spark Extensions. Note that the binary artifacts for each platform are also published independently through Maven.
+Please find below the latest releases of {{ site.data.project.name }} for Apache Spark Extensions. Note that the binary artifacts for each platform are also published independently through Maven and each [extension documentation page](/docs/spark/overview) describes how to add these artifacts to your application.
 
-## Bahir Spark Extensions Latest Release 
+## Bahir Spark Extensions Latest Release
 
 {% if site.data.project.spark_latest_release %}
 
