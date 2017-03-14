@@ -31,7 +31,11 @@
 topnav:
 
 - title: Download
-  url: /download
+  subcategories:
+  - title: Bahir Spark Extensions
+    url: /downloads/spark
+  - title: Bahir Flink Extensions
+    url: /downloads/flink
 
 - title: Community
   subcategories:
