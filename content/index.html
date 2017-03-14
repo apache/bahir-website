@@ -41,10 +41,12 @@
   <div class="container">
     <img class="logo-img" src="/assets/themes/apache-clean/img/apache_logo_800.png" alt="Apache Bahir"/>
     <!--h1>Apache Bahir</h1-->
-    <p>Apache Bahir provides extensions to distributed analytic platforms such as Apache Spark.</p>
+    <!--p>Apache Bahir provides extensions to distributed analytic platforms such as Apache Spark and Apache Flink.</p-->
 
     
-    <a href="/download" class="btn btn-primary btn-lg bigFingerButton" role="button">Download Apache Bahir 2.1.0</a></p>
+      <a href="/downloads/spark" class="btn btn-primary btn-lg bigFingerButton" role="button">Download Apache Bahir Spark Extensions 2.1.0</a></p>
+    
+
     
   </div>
 </div>
@@ -110,19 +112,10 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              <li><a href="/docs/spark/current/documentation" target="_self">Bahir Spark Extensions - Current</a></li>
+              <li><a href="/docs/spark/overview" target="_self">Bahir Spark Extensions</a></li>
               
               
-              <li><a href="/docs/spark/2.1.0/documentation" target="_self">Bahir Spark Extensions - 2.1.0</a></li>
-              
-              
-              <li><a href="/docs/spark/2.0.2/documentation" target="_self">Bahir Spark Extensions - 2.0.2</a></li>
-              
-              
-              <li><a href="/docs/spark/2.0.1/documentation" target="_self">Bahir Spark Extensions - 2.0.1</a></li>
-              
-              
-              <li><a href="/docs/spark/2.0.0/documentation" target="_self">Bahir Spark Extensions - 2.0.0</a></li>
+              <li><a href="/docs/flink/overview" target="_self">Bahir Flink Extensions</a></li>
               
             </ul>
             
@@ -133,8 +126,19 @@
           
           <li id="github">
             
-            
-            <a href="https://github.com/apache/bahir" target="_blank">GitHub</a>
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">GitHub<b class="caret"></b></a>
+            <ul class="dropdown-menu dropdown-left">
+              
+              
+              <li><a href="https://github.com/apache/bahir" target="_blank">Bahir Spark Extensions</a></li>
+              
+              
+              <li><a href="https://github.com/apache/bahir-flink" target="_blank">Bahir Flink Extensions</a></li>
+              
+              
+              <li><a href="https://github.com/apache/bahir-website" target="_blank">Bahir Website</a></li>
+              
+            </ul>
             
           </li>
           
@@ -192,9 +196,9 @@
 
 <h2 id="what-is-apache-bahir">What is Apache Bahir</h2>
 
-<p>Apache Bahir provides extensions to distributed analytic platforms such as <a href="http://spark.apache.org" target="_blank">Apache Spark</a> and <a href="http://flink.apache.org" target="_blank">Apache Fink</a>.</p>
+<p>Apache Bahir provides extensions to multiple distributed analytic platforms, extending their reach with a diversity of streaming connectors and SQL data sources.</p>
 
-<p>Bahir currently extends the reach of your analytic platform by providing a diversity of streaming connectors and SQL data sources.</p>
+<p>Currently, Bahir provides extensions for <a href="http://spark.apache.org" target="_blank">Apache Spark</a> and <a href="http://flink.apache.org" target="_blank">Apache Flink</a>.</p>
 
 <h2 id="apache-spark-extensions">Apache Spark extensions</h2>
 
@@ -209,16 +213,18 @@
 <h2 id="apache-flink-extensions">Apache Flink extensions</h2>
 
 <ul>
-  <li>Flink connector for ActiveMQ</li>
-  <li>Flink connector for Flume</li>
-  <li>Flink connector for Redis</li>
+  <li>Flink streaming connector for ActiveMQ</li>
+  <li>Flink streaming connector for Flume</li>
+  <li>Flink streaming connector for Redis</li>
+  <li>Flink streaming connector for Akka</li>
+  <li>Flink streaming connector for Netty</li>
 </ul>
 
 <p>The Apache Bahir community welcomes the proposal of new extensions.</p>
 
 <h2 id="contact-the-bahir-community">Contact the Bahir community</h2>
 
-<p>For Bahir updates and news, subscribe to our development mailing list. Check out <a href="/community">All Mailing Lists</a></p>
+<p>For Bahir updates and news, subscribe to our development mailing list. Check out <a href="/community">All Mailing Lists</a>.</p>
 
 <div class="row">
   <div class="col-md-12">

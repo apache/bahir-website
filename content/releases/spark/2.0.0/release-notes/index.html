@@ -4,8 +4,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bahir Release 2.1.0</title>
-    <meta name="description" content="Release Notes for Apache Bahir 2.1.0">
+    <title>Bahir Release 2.0.0</title>
+    <meta name="description" content="Release Notes for Apache Bahir 2.0.0">
     <meta name="author" content="">
 
     <!-- Enable responsive viewport -->
@@ -105,19 +105,10 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              <li><a href="/docs/spark/current/documentation" target="_self">Bahir Spark Extensions - Current</a></li>
+              <li><a href="/docs/spark/overview" target="_self">Bahir Spark Extensions</a></li>
               
               
-              <li><a href="/docs/spark/2.1.0/documentation" target="_self">Bahir Spark Extensions - 2.1.0</a></li>
-              
-              
-              <li><a href="/docs/spark/2.0.2/documentation" target="_self">Bahir Spark Extensions - 2.0.2</a></li>
-              
-              
-              <li><a href="/docs/spark/2.0.1/documentation" target="_self">Bahir Spark Extensions - 2.0.1</a></li>
-              
-              
-              <li><a href="/docs/spark/2.0.0/documentation" target="_self">Bahir Spark Extensions - 2.0.0</a></li>
+              <li><a href="/docs/flink/overview" target="_self">Bahir Flink Extensions</a></li>
               
             </ul>
             
@@ -128,8 +119,19 @@
           
           <li id="github">
             
-            
-            <a href="https://github.com/apache/bahir" target="_blank">GitHub</a>
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">GitHub<b class="caret"></b></a>
+            <ul class="dropdown-menu dropdown-left">
+              
+              
+              <li><a href="https://github.com/apache/bahir" target="_blank">Bahir Spark Extensions</a></li>
+              
+              
+              <li><a href="https://github.com/apache/bahir-flink" target="_blank">Bahir Flink Extensions</a></li>
+              
+              
+              <li><a href="https://github.com/apache/bahir-website" target="_blank">Bahir Website</a></li>
+              
+            </ul>
             
           </li>
           
@@ -174,7 +176,7 @@
 
       
 
-<!--<div class="hero-unit Bahir Release 2.1.0">
+<!--<div class="hero-unit Bahir Release 2.0.0">
   <h1></h1>
 </div>
 -->
@@ -185,16 +187,57 @@
 
 -->
 
-<h1 id="apache-bahir-21-for-apache-spark-21">Apache Bahir 2.1 for Apache Spark 2.1</h1>
+<h1 id="apache-bahir-20-for-apache-spark-20">Apache Bahir 2.0 for Apache Spark 2.0</h1>
 
-<h2 id="task">Task</h2>
+<h2 id="bug">Bug</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[BAHIR-87] - Prepare release based on Apache Spark 2.1.0
-[MINOR]    - Update Scaladoc in MQTTWordCount example  
-[MINOR]    - Fix Maven artifact IDs in README.md files
+<div class="highlighter-rouge"><pre class="highlight"><code>[BAHIR-13] - Update spark tags dependency
+[BAHIR-14] - Cleanup maven pom from Spark dependencies
+[BAHIR-15] - Enable RAT on Bahir builds
+[BAHIR-16] - Build issues due to log4j properties not found
+[BAHIR-18] - Include examples in Maven test build
+[BAHIR-23] - Build should fail on Checkstyle violation
+[BAHIR-24] - Fix MQTT Python code
+[BAHIR-38] - Spark-submit does not use latest locally installed Bahir packages
+[BAHIR-42] - Refactor sql-streaming-mqtt examples to follow other projects pattern
+[BAHIR-43] - Add missing apache license header to sql-mqtt file
+[BAHIR-44] - Add new sql-streaming-mqtt to distribution
 </code></pre>
 </div>
 
+<h2 id="improvement">Improvement</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[BAHIR-36] - Update readme.md with build instructions
+</code></pre>
+</div>
+
+<h2 id="new-feature">New Feature</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[BAHIR-2]  - Create initial build for Bahir components
+[BAHIR-39] - MQTT as a streaming source for SQL Streaming
+</code></pre>
+</div>
+
+<h2 id="task">Task</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[BAHIR-17] - Prepare release based on Apache Spark 2.0.0-preview
+[BAHIR-22] - Add script to run examples
+[BAHIR-35] - Include Python code in the binary jars for use with "--packages ..."
+[BAHIR-37] - Prepare release based on Apache Spark 2.0.0
+</code></pre>
+</div>
+
+<h2 id="sub-task">Sub-task</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[BAHIR-19] - Create Bahir source distribution
+[BAHIR-20] - Create release script
+[BAHIR-21] - Create script to change build between scala 2.10 and 2.11
+[BAHIR-28] - Add documentation for streaming-akka connector
+[BAHIR-29] - Add documentation for streaming-mqtt connector
+[BAHIR-30] - Add documentation for streaming-twitter connector
+[BAHIR-31] - Add documentation for streaming-zeromq connector
+</code></pre>
+</div>
 
   </div>
 </div>

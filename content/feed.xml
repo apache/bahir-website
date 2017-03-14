@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Apache Bahir</title>
-    <description>Apache Bahir provides extensions to distributed analytic platforms such as Apache Spark.
+    <description>Apache Bahir provides extensions to distributed analytic platforms such as Apache Spark and Apache Flink.
 </description>
     <link>http://bahir.apache.org/</link>
     <atom:link href="http://bahir.apache.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 22 Feb 2017 03:37:11 -0800</pubDate>
-    <lastBuildDate>Wed, 22 Feb 2017 03:37:11 -0800</lastBuildDate>
-    <generator>Jekyll v3.3.1</generator>
+    <pubDate>Tue, 14 Mar 2017 09:01:19 -0700</pubDate>
+    <lastBuildDate>Tue, 14 Mar 2017 09:01:19 -0700</lastBuildDate>
+    <generator>Jekyll v3.2.1</generator>
     
       <item>
         <title>Release 0.2.0</title>

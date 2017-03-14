@@ -4,8 +4,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bahir Release 2.0.0</title>
-    <meta name="description" content="Release Notes for Apache Bahir 2.0.0">
+    <title>Apache Flink Streaming Connector for Redis</title>
+    <meta name="description" content="Apache Flink Streaming Connector for Redis">
     <meta name="author" content="">
 
     <!-- Enable responsive viewport -->
@@ -105,19 +105,10 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              <li><a href="/docs/spark/current/documentation" target="_self">Bahir Spark Extensions - Current</a></li>
+              <li><a href="/docs/spark/overview" target="_self">Bahir Spark Extensions</a></li>
               
               
-              <li><a href="/docs/spark/2.1.0/documentation" target="_self">Bahir Spark Extensions - 2.1.0</a></li>
-              
-              
-              <li><a href="/docs/spark/2.0.2/documentation" target="_self">Bahir Spark Extensions - 2.0.2</a></li>
-              
-              
-              <li><a href="/docs/spark/2.0.1/documentation" target="_self">Bahir Spark Extensions - 2.0.1</a></li>
-              
-              
-              <li><a href="/docs/spark/2.0.0/documentation" target="_self">Bahir Spark Extensions - 2.0.0</a></li>
+              <li><a href="/docs/flink/overview" target="_self">Bahir Flink Extensions</a></li>
               
             </ul>
             
@@ -128,8 +119,19 @@
           
           <li id="github">
             
-            
-            <a href="https://github.com/apache/bahir" target="_blank">GitHub</a>
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">GitHub<b class="caret"></b></a>
+            <ul class="dropdown-menu dropdown-left">
+              
+              
+              <li><a href="https://github.com/apache/bahir" target="_blank">Bahir Spark Extensions</a></li>
+              
+              
+              <li><a href="https://github.com/apache/bahir-flink" target="_blank">Bahir Flink Extensions</a></li>
+              
+              
+              <li><a href="https://github.com/apache/bahir-website" target="_blank">Bahir Website</a></li>
+              
+            </ul>
             
           </li>
           
@@ -174,7 +176,7 @@
 
       
 
-<!--<div class="hero-unit Bahir Release 2.0.0">
+<!--<div class="hero-unit Apache Flink Streaming Connector for Redis">
   <h1></h1>
 </div>
 -->
@@ -185,57 +187,158 @@
 
 -->
 
-<h1 id="apache-bahir-20-for-apache-spark-20">Apache Bahir 2.0 for Apache Spark 2.0</h1>
+<h1 id="flink-redis-connector">Flink Redis Connector</h1>
 
-<h2 id="bug">Bug</h2>
+<p>This connector provides a Sink that can write to <a href="http://redis.io/">Redis</a> and also can publish data 
+to <a href="http://redis.io/topics/pubsub">Redis PubSub</a>. To use this connector, add the
+following dependency to your project:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[BAHIR-13] - Update spark tags dependency
-[BAHIR-14] - Cleanup maven pom from Spark dependencies
-[BAHIR-15] - Enable RAT on Bahir builds
-[BAHIR-16] - Build issues due to log4j properties not found
-[BAHIR-18] - Include examples in Maven test build
-[BAHIR-23] - Build should fail on Checkstyle violation
-[BAHIR-24] - Fix MQTT Python code
-[BAHIR-38] - Spark-submit does not use latest locally installed Bahir packages
-[BAHIR-42] - Refactor sql-streaming-mqtt examples to follow other projects pattern
-[BAHIR-43] - Add missing apache license header to sql-mqtt file
-[BAHIR-44] - Add new sql-streaming-mqtt to distribution
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
+  &lt;artifactId&gt;flink-connector-redis_2.11&lt;/artifactId&gt;
+  &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;
 </code></pre>
 </div>
 
-<h2 id="improvement">Improvement</h2>
+<p><em>Version Compatibility</em>: This module is compatible with Redis 2.8.5.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[BAHIR-36] - Update readme.md with build instructions
+<p>Note that the streaming connectors are not part of the binary distribution of Flink. You need to link them into your job jar for cluster execution.
+See how to link with them for cluster execution <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.2/dev/linking.html">here</a>.</p>
+
+<h2 id="installing-redis">Installing Redis</h2>
+
+<p>Follow the instructions from the <a href="http://redis.io/download">Redis download page</a>.</p>
+
+<h2 id="redis-sink">Redis Sink</h2>
+
+<p>A class providing an interface for sending data to Redis.
+The sink can use three different methods for communicating with different type of Redis environments:</p>
+
+<ol>
+  <li>Single Redis Server</li>
+  <li>Redis Cluster</li>
+  <li>Redis Sentinel</li>
+</ol>
+
+<p>This code shows how to create a sink that communicate to a single redis server:</p>
+
+<p><strong>Java:</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>public static class RedisExampleMapper implements RedisMapper&lt;Tuple2&lt;String, String&gt;&gt;{
+
+    @Override
+    public RedisCommandDescription getCommandDescription() {
+        return new RedisCommandDescription(RedisCommand.HSET, "HASH_NAME");
+    }
+
+    @Override
+    public String getKeyFromData(Tuple2&lt;String, String&gt; data) {
+        return data.f0;
+    }
+
+    @Override
+    public String getValueFromData(Tuple2&lt;String, String&gt; data) {
+        return data.f1;
+    }
+}
+FlinkJedisPoolConfig conf = new FlinkJedisPoolConfig.Builder().setHost("127.0.0.1").build();
+
+DataStream&lt;String&gt; stream = ...;
+stream.addSink(new RedisSink&lt;Tuple2&lt;String, String&gt;&gt;(conf, new RedisExampleMapper());
 </code></pre>
 </div>
 
-<h2 id="new-feature">New Feature</h2>
+<p><strong>Scala:</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[BAHIR-2]  - Create initial build for Bahir components
-[BAHIR-39] - MQTT as a streaming source for SQL Streaming
+<div class="highlighter-rouge"><pre class="highlight"><code>class RedisExampleMapper extends RedisMapper[(String, String)]{
+  override def getCommandDescription: RedisCommandDescription = {
+    new RedisCommandDescription(RedisCommand.HSET, "HASH_NAME")
+  }
+
+  override def getKeyFromData(data: (String, String)): String = data._1
+
+  override def getValueFromData(data: (String, String)): String = data._2
+}
+val conf = new FlinkJedisPoolConfig.Builder().setHost("127.0.0.1").build()
+stream.addSink(new RedisSink[(String, String)](conf, new RedisExampleMapper))
 </code></pre>
 </div>
 
-<h2 id="task">Task</h2>
+<p>This example code does the same, but for Redis Cluster:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[BAHIR-17] - Prepare release based on Apache Spark 2.0.0-preview
-[BAHIR-22] - Add script to run examples
-[BAHIR-35] - Include Python code in the binary jars for use with "--packages ..."
-[BAHIR-37] - Prepare release based on Apache Spark 2.0.0
+<p><strong>Java:</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>FlinkJedisPoolConfig conf = new FlinkJedisPoolConfig.Builder()
+    .setNodes(new HashSet&lt;InetSocketAddress&gt;(Arrays.asList(new InetSocketAddress(5601)))).build();
+
+DataStream&lt;String&gt; stream = ...;
+stream.addSink(new RedisSink&lt;Tuple2&lt;String, String&gt;&gt;(conf, new RedisExampleMapper());
 </code></pre>
 </div>
 
-<h2 id="sub-task">Sub-task</h2>
+<p><strong>Scala:</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[BAHIR-19] - Create Bahir source distribution
-[BAHIR-20] - Create release script
-[BAHIR-21] - Create script to change build between scala 2.10 and 2.11
-[BAHIR-28] - Add documentation for streaming-akka connector
-[BAHIR-29] - Add documentation for streaming-mqtt connector
-[BAHIR-30] - Add documentation for streaming-twitter connector
-[BAHIR-31] - Add documentation for streaming-zeromq connector
+<div class="highlighter-rouge"><pre class="highlight"><code>val conf = new FlinkJedisPoolConfig.Builder().setNodes(...).build()
+stream.addSink(new RedisSink[(String, String)](conf, new RedisExampleMapper))
 </code></pre>
 </div>
+
+<p>This example shows when the Redis environment is with Sentinels:</p>
+
+<p>Java:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>FlinkJedisSentinelConfig conf = new FlinkJedisSentinelConfig.Builder()
+    .setMasterName("master").setSentinels(...).build();
+
+DataStream&lt;String&gt; stream = ...;
+stream.addSink(new RedisSink&lt;Tuple2&lt;String, String&gt;&gt;(conf, new RedisExampleMapper());
+</code></pre>
+</div>
+
+<p>Scala:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>val conf = new FlinkJedisSentinelConfig.Builder().setMasterName("master").setSentinels(...).build()
+stream.addSink(new RedisSink[(String, String)](conf, new RedisExampleMapper))
+</code></pre>
+</div>
+
+<p>This section gives a description of all the available data types and what Redis command used for that.</p>
+
+<table class="table table-bordered" style="width: 75%">
+    <thead>
+        <tr>
+          <th class="text-center" style="width: 20%">Data Type</th>
+          <th class="text-center" style="width: 25%">Redis Command [Sink]</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td>HASH</td><td><a href="http://redis.io/commands/hset">HSET</a></td>
+        </tr>
+        <tr>
+            <td>LIST</td><td>
+                <a href="http://redis.io/commands/rpush">RPUSH</a>,
+                <a href="http://redis.io/commands/lpush">LPUSH</a>
+            </td>
+        </tr>
+        <tr>
+            <td>SET</td><td><a href="http://redis.io/commands/rpush">SADD</a></td>
+        </tr>
+        <tr>
+            <td>PUBSUB</td><td><a href="http://redis.io/commands/publish">PUBLISH</a></td>
+        </tr>
+        <tr>
+            <td>STRING</td><td><a href="http://redis.io/commands/set">SET</a></td>
+        </tr>
+        <tr>
+            <td>HYPER_LOG_LOG</td><td><a href="http://redis.io/commands/pfadd">PFADD</a></td>
+        </tr>
+        <tr>
+            <td>SORTED_SET</td><td><a href="http://redis.io/commands/zadd">ZADD</a></td>
+        </tr>                
+      </tbody>
+</table>
 
   </div>
 </div>
