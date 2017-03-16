@@ -30,8 +30,14 @@ limitations under the License.
 
 Currently, {{ site.data.project.short_name }} provides extensions for [Apache Spark](http://spark.apache.org){:target="_blank"} and [Apache Flink](http://flink.apache.org){:target="_blank"}.
 
-
 ## Apache Spark extensions
+
+{% if site.data.project.spark_latest_release %}
+The latest release for Bahir Spark extensions is {{ site.data.project.spark_latest_release }}, currently providing:
+{% else %}
+Currently, there isn't a release available for Bahir Spark Extensions yet.
+The following extensions are under development and will be supported in the upcoming release:
+{% endif %}
 
  - Spark Structured Streaming data source for MQTT
  - Spark DStream connector for Akka
@@ -41,6 +47,13 @@ Currently, {{ site.data.project.short_name }} provides extensions for [Apache Sp
 
 
 ## Apache Flink extensions
+
+{% if site.data.project.flink_latest_release %}
+The latest release for Bahir Flink extensions is {{ site.data.project.flink_latest_release }}, currently providing:
+{% else %}
+Currently, there isn't a release available for Bahir Flink Extensions yet.
+The following extensions are under development and will be supported in the upcoming release:
+{% endif %}
 
  - Flink streaming connector for ActiveMQ
  - Flink streaming connector for Flume

@@ -25,11 +25,11 @@ limitations under the License.
 
 {% include JB/setup %}
 
-# {{ site.data.project.name }} Extensions for Apache Spark Downloads
+# Download {{ site.data.project.name }} Extensions for Apache Spark
 
 Please find below the latest releases of {{ site.data.project.name }} for Apache Spark Extensions. Note that the binary artifacts for each platform are also published independently through Maven and each [extension documentation page](/docs/spark/overview) describes how to add these artifacts to your application.
 
-## Bahir Extensions for Apache Spark {{site.data.project.spark_latest_release}} Release
+## Bahir Extensions for Apache Spark Latest Release
 
 {% if site.data.project.spark_latest_release %}
 
