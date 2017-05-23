@@ -48,17 +48,17 @@ Our latest release supports Apache Spark {{site.data.project.spark_latest_releas
     <tbody>
         <tr>
             <td>{{ site.data.project.name }} Extensions for Apache Spark {{site.data.project.spark_latest_release}} (tar.gz)</td>
-            <td><a href="http://www.apache.org/dyn/closer.lua/{{site.data.project.spark_unix_name}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.tar.gz">tar.gz</a></td>
-            <td><a href="http://www.apache.org/dist/{{site.data.project.spark_unix_name}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.tar.gz.md5">MD5</a></td>
-            <!--td><a href="http://www.apache.org/dist/{{site.data.project.spark_unix_name}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.tar.gz.sha1">SHA-1</a></td-->
-            <td><a href="http://www.apache.org/dist/{{site.data.project.spark_unix_name}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.tar.gz.asc">ASC</a></td>
+            <td><a href="https://www.apache.org/dyn/closer.lua/{{site.data.project.spark_unix_name}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.tar.gz">tar.gz</a></td>
+            <td><a href="https://www.apache.org/dist/{{site.data.project.spark_unix_name}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.tar.gz.md5">MD5</a></td>
+            <!--td><a href="https://www.apache.org/dist/{{site.data.project.spark_unix_name}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.tar.gz.sha1">SHA-1</a></td-->
+            <td><a href="https://www.apache.org/dist/{{site.data.project.spark_unix_name}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.tar.gz.asc">ASC</a></td>
         </tr>
         <tr>
             <td>{{ site.data.project.name }} Extensions for Apache Spark {{site.data.project.spark_latest_release}} (zip)</td>
-            <td><a href="http://www.apache.org/dyn/closer.lua/{{site.data.project.spark_unix_name}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.zip">zip</a></td>
-            <td><a href="http://www.apache.org/dist/{{site.data.project.spark_unix_name}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.zip.md5">MD5</a></td>
-            <!--td><a href="http://www.apache.org/dist/{{site.data.project.spark_unix_name}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.zip.sha1">SHA-1</a></td-->
-            <td><a href="http://www.apache.org/dist/{{site.data.project.spark_unix_name}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.zip.asc">ASC</a></td>
+            <td><a href="https://www.apache.org/dyn/closer.lua/{{site.data.project.spark_unix_name}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.zip">zip</a></td>
+            <td><a href="https://www.apache.org/dist/{{site.data.project.spark_unix_name}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.zip.md5">MD5</a></td>
+            <!--td><a href="https://www.apache.org/dist/{{site.data.project.spark_unix_name}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.zip.sha1">SHA-1</a></td-->
+            <td><a href="https://www.apache.org/dist/{{site.data.project.spark_unix_name}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.zip.asc">ASC</a></td>
         </tr>
         <tr>
             <td>Release Notes</td>
@@ -80,7 +80,7 @@ git checkout -b tags/v{{site.data.project.spark_latest_release}} v{{site.data.pr
 
 ### Previous Releases
 
-All previous releases of {{ site.data.project.name }} Spark Extensions can be found in the [archives](http://archive.apache.org/dist/{{site.data.project.spark_unix_name}}/).
+All previous releases of {{ site.data.project.name }} Spark Extensions can be found in the [archives](https://archive.apache.org/dist/{{site.data.project.spark_unix_name}}/).
 
 ## Verifying a Release
 
@@ -89,13 +89,13 @@ Instructions for checking hashes and signatures is indicated on the [Verifying A
 Choose a source distribution in either *tar* or *zip* format,
 and [verify](http://www.apache.org/dyn/closer.cgi#verify)
 using the corresponding *pgp* signature (using the committer file in
-[KEYS](http://www.apache.org/dist/{{ site.data.project.spark_unix_name }}/KEYS)).
+[KEYS](https://www.apache.org/dist/{{ site.data.project.spark_unix_name }}/KEYS)).
 If you cannot do that, the *md5* hash file may be used to check that the
 download has completed OK.
 
 For fast downloads, current source distributions are hosted on mirror servers;
 older source distributions are in the
-[archive](http://archive.apache.org/dist/{{ site.data.project.spark_unix_name }}/).
+[archive](https://archive.apache.org/dist/{{ site.data.project.spark_unix_name }}/).
 If a download from a mirror fails, retry, and the second download will likely
 succeed.
 
