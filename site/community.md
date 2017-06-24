@@ -36,7 +36,7 @@ You can:
 * Report bugs and submit patches.
 * Contribute code, javadocs, documentation.
 
-Visit the [Contributing](/community) page for more information.
+Visit the [Contributing](/contributing) page for more information.
 
 ## Mailing list
 
