@@ -4,8 +4,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Extensions for Apache Flink</title>
-    <meta name="description" content="Extensions for Apache Flink">
+    <title>Apache Flink Streaming Connector for ActiveMQ</title>
+    <meta name="description" content="Apache Flink Streaming Connector for ActiveMQ">
     <meta name="author" content="">
 
     <!-- Enable responsive viewport -->
@@ -184,7 +184,7 @@
 
       
 
-<!--<div class="hero-unit Extensions for Apache Flink">
+<!--<div class="hero-unit Apache Flink Streaming Connector for ActiveMQ">
   <h1></h1>
 </div>
 -->
@@ -195,12 +195,25 @@
 
 -->
 
-<h3 id="apache-bahir-extensions-for-apache-flink">Apache Bahir Extensions for Apache Flink</h3>
+<h1 id="flink-activemq-connector">Flink ActiveMQ Connector</h1>
 
-<ul>
-  <li><a href="/docs/flink/current/documentation">Current - 1.0-SNAPSHOT</a></li>
-  <li><a href="/docs/flink/1.0/documentation">1.0</a></li>
-</ul>
+<p>This connector provides a source and sink to <a href="http://activemq.apache.org/">Apache ActiveMQ</a>™
+To use this connector, add the following dependency to your project:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
+  &lt;artifactId&gt;flink-connector-activemq_2.11&lt;/artifactId&gt;
+  &lt;version&gt;1.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+</div>
+
+<p><em>Version Compatibility</em>: This module is compatible with ActiveMQ 5.14.0.</p>
+
+<p>Note that the streaming connectors are not part of the binary distribution of Flink. You need to link them into your job jar for cluster execution.
+See how to link with them for cluster execution <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.2/dev/linking.html">here</a>.</p>
+
+<p>The source class is called <code class="highlighter-rouge">AMQSource</code>, and the sink is <code class="highlighter-rouge">AMQSink</code>.</p>
 
   </div>
 </div>

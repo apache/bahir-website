@@ -4,8 +4,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Extensions for Apache Flink</title>
-    <meta name="description" content="Extensions for Apache Flink">
+    <title>Apache Flink Streaming Connector for Netty</title>
+    <meta name="description" content="Apache Flink Streaming Connector for Netty">
     <meta name="author" content="">
 
     <!-- Enable responsive viewport -->
@@ -184,7 +184,7 @@
 
       
 
-<!--<div class="hero-unit Extensions for Apache Flink">
+<!--<div class="hero-unit Apache Flink Streaming Connector for Netty">
   <h1></h1>
 </div>
 -->
@@ -195,11 +195,79 @@
 
 -->
 
-<h3 id="apache-bahir-extensions-for-apache-flink">Apache Bahir Extensions for Apache Flink</h3>
+<h1 id="flink-netty-connector">Flink Netty Connector</h1>
+
+<p>This connector provides tcp source and http source for receiving push data, implemented by <a href="http://netty.io">Netty</a>.</p>
+
+<p>Note that the streaming connectors are not part of the binary distribution of Flink. You need to link them into your job jar for cluster execution.
+See how to link with them for cluster execution <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.2/dev/linking.html">here</a>.</p>
+
+<h2 id="data-flow">Data Flow</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>+-------------+      (2)    +------------------------+
+| user system |    &lt;-----   | Third Register Service |           
++-------------+             +------------------------+
+       |                                ^
+       | (3)                            |
+       |                                |
+       V                                |
++--------------------+                  |
+| Flink Netty Source |  ----------------+
++--------------------+         (1)
+</code></pre>
+</div>
+
+<p>There are three components:</p>
 
 <ul>
-  <li><a href="/docs/flink/current/documentation">Current - 1.0-SNAPSHOT</a></li>
-  <li><a href="/docs/flink/1.0/documentation">1.0</a></li>
+  <li>User System - where the data stream is coming from</li>
+  <li>Third Register Service - receive <code class="highlighter-rouge">Flink Netty Source</code>’s register request (ip and port)</li>
+  <li>Flink Netty Source - Netty Server for receiving pushed streaming data from <code class="highlighter-rouge">User System</code></li>
+</ul>
+
+<h2 id="maven-dependency">Maven Dependency</h2>
+<p>To use this connector, add the following dependency to your project:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
+  &lt;artifactId&gt;flink-connector-netty_2.11&lt;/artifactId&gt;
+  &lt;version&gt;1.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+</div>
+
+<h2 id="usage">Usage</h2>
+
+<p><em>Tcp Source:</em></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>val env = StreamExecutionEnvironment.getExecutionEnvironment
+env.addSource(new TcpReceiverSource("msg", 7070, Some("http://localhost:9090/cb")))
+</code></pre>
+</div>
+<blockquote>
+  <p>paramKey:  the http query param key
+tryPort:   try to use this point, if this point is used then try a new port
+callbackUrl:   register connector’s ip and port to a <code class="highlighter-rouge">Third Register Service</code></p>
+</blockquote>
+
+<p><em>Http Source:</em></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>val env = StreamExecutionEnvironment.getExecutionEnvironment
+env.addSource(new TcpReceiverSource(7070, Some("http://localhost:9090/cb")))
+</code></pre>
+</div>
+<blockquote>
+  <p>tryPort:   try to use this port, if this point is used then try a new port
+callbackUrl:   register connector’s ip and port to a <code class="highlighter-rouge">Third Register Service</code></p>
+</blockquote>
+
+<h2 id="full-example">Full Example</h2>
+
+<p>There are two example to get started:</p>
+
+<ul>
+  <li><a href="https://github.com/apache/bahir-flink/blob/master/flink-connector-netty/src/test/scala/org/apache/flink/streaming/connectors/netty/example/StreamSqlExample.scala">StreamSqlExample</a></li>
+  <li><a href="https://github.com/apache/bahir-flink/blob/master/flink-connector-netty/src/test/scala/org/apache/flink/streaming/connectors/netty/example/TcpSourceExample.scala">TcpSourceExample</a></li>
 </ul>
 
   </div>

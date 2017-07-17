@@ -201,14 +201,74 @@
 
 <h2 id="bahir-extensions-for-apache-flink-latest-release">Bahir Extensions for Apache Flink Latest Release</h2>
 
-<p>Currently, there isn’t a release available for Bahir Flink Extensions yet.</p>
+<p>Our latest Apache Bahir release for Apache Flink extensions is 1.0, released on 05/24/2017.</p>
 
-<p>You can still retrieve the source files from our git repository by typing:</p>
+<table class="table table-hover sortable">
+    <thead>
+        <tr>
+            <th><b>Name</b></th>
+            <th><b>Archive</b></th>
+            <th><b>MD5</b></th>
+            <!--th><b>SHA-1</b></th-->
+            <th><b>signature</b></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Apache Bahir Flink Extensions 1.0 (tar.gz)</td>
+            <td><a href="http://www.apache.org/dyn/closer.lua/bahir/bahir-flink/1.0/apache-bahir-flink-1.0-src.tgz">tar.gz</a></td>
+            <td><a href="http://www.apache.org/dist/bahir/bahir-flink/1.0/apache-bahir-flink-1.0-src.tgz.md5">MD5</a></td>
+            <!--td><a href="http://www.apache.org/dist/bahir/bahir-flink/1.0/apache-bahir-flink-1.0-src.tgz.sha1">SHA-1</a></td-->
+            <td><a href="http://www.apache.org/dist/bahir/bahir-flink/1.0/apache-bahir-flink-1.0-src.tgz.asc">ASC</a></td>
+        </tr>
+        <tr>
+            <td>Apache Bahir Flink Extensions 1.0 (zip)</td>
+            <td><a href="http://www.apache.org/dyn/closer.lua/bahir/bahir-flink/1.0/apache-bahir-flink-1.0-src.zip">zip</a></td>
+            <td><a href="http://www.apache.org/dist/bahir/bahir-flink/1.0/apache-bahir-flink-1.0-src.zip.md5">MD5</a></td>
+            <!--td><a href="http://www.apache.org/dist/bahir/bahir-flink/1.0/apache-bahir-flink-1.0-src.zip.sha1">SHA-1</a></td-->
+            <td><a href="http://www.apache.org/dist/bahir/bahir-flink/1.0/apache-bahir-flink-1.0-src.zip.asc">ASC</a></td>
+        </tr>
+        <tr>
+            <td>Release Notes</td>
+            <td><a href="/releases/flink/1.0/release-notes">1.0</a></td>
+            <td></td>
+            <!--td></td-->
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+<p>You can also retrieve the source files from our git repository by typing:</p>
 
 <pre>
 git clone https://github.com/apache/bahir-flink
 cd bahir-flink
+git checkout -b tags/v1.0 v1.0
 </pre>
+
+<h3 id="previous-releases">Previous Releases</h3>
+
+<p>All previous releases of Apache Bahir Flink Extensions can be found in the <a href="http://archive.apache.org/dist/bahir/bahir-flink">archives</a>.</p>
+
+<h2 id="verifying-a-release">Verifying a Release</h2>
+
+<p>Instructions for checking hashes and signatures is indicated on the <a href="http://www.apache.org/info/verification.html">Verifying Apache Software Foundation Releases</a> page.</p>
+
+<p>Choose a source distribution in either <em>tar</em> or <em>zip</em> format,
+and <a href="http://www.apache.org/dyn/closer.cgi#verify">verify</a>
+using the corresponding <em>pgp</em> signature (using the committer file in
+<a href="http://www.apache.org/dist/bahir-flink/KEYS">KEYS</a>).
+If you cannot do that, the <em>md5</em> hash file may be used to check that the
+download has completed OK.</p>
+
+<p>For fast downloads, current source distributions are hosted on mirror servers;
+older source distributions are in the
+<a href="http://archive.apache.org/dist/bahir-flink/">archive</a>.
+If a download from a mirror fails, retry, and the second download will likely
+succeed.</p>
+
+<p>For security, hash and signature files are always hosted at
+<a href="https://www.apache.org/dist">Apache</a>.</p>
 
 
   </div>
