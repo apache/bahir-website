@@ -48,17 +48,17 @@ Our latest {{ site.data.project.name }} release for Apache Flink extensions is {
     <tbody>
         <tr>
             <td>{{ site.data.project.name }} Flink Extensions {{site.data.project.flink_latest_release}} (tar.gz)</td>
-            <td><a href="http://www.apache.org/dyn/closer.lua/{{site.data.project.flink_unix_name}}/{{site.data.project.flink_latest_release}}/apache-bahir-{{site.data.project.flink_latest_release}}-src.tar.gz">tar.gz</a></td>
-            <td><a href="http://www.apache.org/dist/{{site.data.project.flink_unix_name}}/{{site.data.project.flink_latest_release}}/apache-bahir-{{site.data.project.flink_latest_release}}-src.tar.gz.md5">MD5</a></td>
-            <!--td><a href="http://www.apache.org/dist/{{site.data.project.flink_unix_name}}/{{site.data.project.flink_latest_release}}/apache-bahir-{{site.data.project.flink_latest_release}}-src.tar.gz.sha1">SHA-1</a></td-->
-            <td><a href="http://www.apache.org/dist/{{site.data.project.flink_unix_name}}/{{site.data.project.flink_latest_release}}/apache-bahir-{{site.data.project.flink_latest_release}}-src.tar.gz.asc">ASC</a></td>
+            <td><a href="{{site.data.project.flink_latest_release_location_mirror}}/{{site.data.project.flink_latest_release}}/apache-bahir-flink-{{site.data.project.flink_latest_release}}-src.tgz">tar.gz</a></td>
+            <td><a href="{{site.data.project.flink_latest_release_location}}/{{site.data.project.flink_latest_release}}/apache-bahir-flink-{{site.data.project.flink_latest_release}}-src.tgz.md5">MD5</a></td>
+            <!--td><a href="{{site.data.project.flink_latest_release_location}}/{{site.data.project.flink_latest_release}}/apache-bahir-flink-{{site.data.project.flink_latest_release}}-src.tgz.sha1">SHA-1</a></td-->
+            <td><a href="{{site.data.project.flink_latest_release_location}}/{{site.data.project.flink_latest_release}}/apache-bahir-flink-{{site.data.project.flink_latest_release}}-src.tgz.asc">ASC</a></td>
         </tr>
         <tr>
             <td>{{ site.data.project.name }} Flink Extensions {{site.data.project.flink_latest_release}} (zip)</td>
-            <td><a href="http://www.apache.org/dyn/closer.lua/{{site.data.project.flink_unix_name}}/{{site.data.project.flink_latest_release}}/apache-bahir-{{site.data.project.flink_latest_release}}-src.zip">zip</a></td>
-            <td><a href="http://www.apache.org/dist/{{site.data.project.flink_unix_name}}/{{site.data.project.flink_latest_release}}/apache-bahir-{{site.data.project.flink_latest_release}}-src.zip.md5">MD5</a></td>
-            <!--td><a href="http://www.apache.org/dist/{{site.data.project.flink_unix_name}}/{{site.data.project.flink_latest_release}}/apache-bahir-{{site.data.project.flink_latest_release}}-src.zip.sha1">SHA-1</a></td-->
-            <td><a href="http://www.apache.org/dist/{{site.data.project.flink_unix_name}}/{{site.data.project.flink_latest_release}}/apache-bahir-{{site.data.project.flink_latest_release}}-src.zip.asc">ASC</a></td>
+            <td><a href="{{site.data.project.flink_latest_release_location_mirror}}/{{site.data.project.flink_latest_release}}/apache-bahir-flink-{{site.data.project.flink_latest_release}}-src.zip">zip</a></td>
+            <td><a href="{{site.data.project.flink_latest_release_location}}/{{site.data.project.flink_latest_release}}/apache-bahir-flink-{{site.data.project.flink_latest_release}}-src.zip.md5">MD5</a></td>
+            <!--td><a href="{{site.data.project.flink_latest_release_location}}/{{site.data.project.flink_latest_release}}/apache-bahir-flink-{{site.data.project.flink_latest_release}}-src.zip.sha1">SHA-1</a></td-->
+            <td><a href="{{site.data.project.flink_latest_release_location}}/{{site.data.project.flink_latest_release}}/apache-bahir-flink-{{site.data.project.flink_latest_release}}-src.zip.asc">ASC</a></td>
         </tr>
         <tr>
             <td>Release Notes</td>
@@ -80,7 +80,7 @@ git checkout -b tags/v{{site.data.project.flink_latest_release}} v{{site.data.pr
 
 ### Previous Releases
 
-All previous releases of {{ site.data.project.name }} Flink Extensions can be found in the [archives](http://archive.apache.org/dist/{{site.data.project.flink_unix_name}}/).
+All previous releases of {{ site.data.project.name }} Flink Extensions can be found in the [archives](http://archive.apache.org/dist/{{site.data.project.unix_name}}/{{site.data.project.flink_unix_name}}).
 
 ## Verifying a Release
 
