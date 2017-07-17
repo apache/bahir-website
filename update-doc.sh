@@ -150,9 +150,12 @@ function update_spark {
 
     update_docs "$SPARK_WEBSITE_TEMPLATES_DIR"              \
         "$SPARK_WEBSITE_DOC_DIR"  "$SPARK_BAHIR_SOURCE_DIR" \
+        spark-sql-cloudant        sql-cloudant              \
+        spark-sql-streaming-akka  sql-streaming-akka        \
         spark-sql-streaming-mqtt  sql-streaming-mqtt        \
         spark-streaming-akka      streaming-akka            \
         spark-streaming-mqtt      streaming-mqtt            \
+        spark-streaming-pubsub    streaming-pubsub          \
         spark-streaming-twitter   streaming-twitter         \
         spark-streaming-zeromq    streaming-zeromq
 

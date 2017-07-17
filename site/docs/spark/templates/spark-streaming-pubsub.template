@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Extensions for Apache Spark
-description: Extensions for Apache Spark
+title: Spark Streaming Google Pub-Sub
+description: Spark Streaming Google Pub-Sub
 group: nav-right
 ---
 <!--
@@ -24,12 +24,3 @@ limitations under the License.
 -->
 
 {% include JB/setup %}
-
-### Apache Bahir Extensions for Apache Spark
-
- - [Current - 2.2.0-SNAPSHOT](/docs/spark/current/documentation)
- - [2.1.1](/docs/spark/2.1.1/documentation)
- - [2.1.0](/docs/spark/2.1.0/documentation)
- - [2.0.2](/docs/spark/2.0.2/documentation)
- - [2.0.1](/docs/spark/2.0.1/documentation)
- - [2.0.0](/docs/spark/2.0.0/documentation)
