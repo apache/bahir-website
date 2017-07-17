@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Extensions for Apache Flink
-description: Extensions for Apache Flink
+title: Extensions for Apache Flink (1.0.0-SNAPSHOT)
+description: Extensions for Apache Flink (1.0.0-SNAPSHOT)
 group: nav-right
 ---
 <!--
@@ -27,5 +27,16 @@ limitations under the License.
 
 ### Apache Bahir Extensions for Apache Flink
 
- - [Current - 1.0-SNAPSHOT](/docs/flink/current/documentation)
- - [1.0](/docs/flink/1.0/documentation)
+<br/>
+
+#### Streaming Connectors
+
+[ActiveMQ connector](../flink-streaming-activemq)
+
+[Akka connector](../flink-streaming-akka)
+
+[Flume connector](../flink-streaming-flume)
+
+[Netty connector](../flink-streaming-netty)
+
+[Redis connector](../flink-streaming-redis)
