@@ -31,13 +31,13 @@ limitations under the License.
 
 #### SQL  Data Sources
 
-[Apache CouchDB/Cloudant data source](../spark-sql-cloudant)
+[Apache CouchDB/Cloudant data source](../spark-sql-cloudant) ![](/assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"}
 
 <br/>
 
 #### Structured Streaming Data Sources
 
-[Akka data source](../spark-sql-streaming-akka)
+[Akka data source](../spark-sql-streaming-akka) ![](/assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"}
 
 [MQTT data source](../spark-sql-streaming-mqtt)
 
@@ -45,9 +45,11 @@ limitations under the License.
 
 #### Discretized Streams (DStreams) Connectors
 
+[Apache CouchDB/Cloudant connector](../spark-sql-cloudant) ![](/assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"}
+
 [Akka connector](../spark-streaming-akka)
 
-[Google Cloud Pub/Sub connector](../spark-streaming-pubsub)
+[Google Cloud Pub/Sub connector](../spark-streaming-pubsub) ![](/assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"}
 
 [MQTT connector](../spark-streaming-mqtt)
 

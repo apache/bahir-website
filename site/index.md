@@ -33,8 +33,12 @@ Currently, {{ site.data.project.short_name }} provides extensions for [Apache Sp
 
 ## Apache Spark extensions
 
+ - Spark data source for Apache CounchDB/Cloudant ![](assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"}
+ - Spark Structured Streaming data source for Akka ![](assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"}
  - Spark Structured Streaming data source for MQTT
+ - Spark DStream connector for Apache CounchDB/Cloudant ![](assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"}
  - Spark DStream connector for Akka
+ - Spark DStream connector for Google Cloud Pub/Sub ![](assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"}
  - Spark DStream connector for MQTT
  - Spark DStream connector for Twitter
  - Spark DStream connector for ZeroMQ
@@ -48,7 +52,7 @@ Currently, {{ site.data.project.short_name }} provides extensions for [Apache Sp
  - Flink streaming connector for Akka
  - Flink streaming connector for Netty
 
- 
+
 The {{ site.data.project.name }} community welcomes the proposal of new extensions.
 
 ## Contact the {{ site.data.project.short_name }} community
