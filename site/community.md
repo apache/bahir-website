@@ -78,8 +78,3 @@ The project sources for each supported platform are accessible via their respect
  - Apache Spark Extensions: ({{ site.data.project.spark_source_repository }}), also mirrored in [GitHub]({{ site.data.project.spark_source_repository_mirror }})
  - Apache Flink Extensions: ({{ site.data.project.flink_source_repository }}), also mirrored in [GitHub]({{ site.data.project.flink_source_repository_mirror }})
  - Website: ({{ site.data.project.website_source_repository }}), also mirrored in [GitHub]({{ site.data.project.website_source_repository_mirror }})
-
-
-## Website Source Code
-
-The project website sources are accessible via the [website source code repository]({{ site.data.project.website_repository }}) which is also mirrored in [GitHub]({{ site.data.project.website_repository_mirror }})
