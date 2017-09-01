@@ -63,7 +63,7 @@ topnav:
   - title: Issue Tracker
     url: https://issues.apache.org/jira/browse/BAHIR
   - title: Source Code
-    url: https://github.com/apache/bahir
+    url: /community#source-code
   - title: Project Committers
     url: /community-members
 
