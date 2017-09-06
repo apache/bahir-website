@@ -25,7 +25,7 @@ limitations under the License.
 
 {% include JB/setup %}
 
-### Apache Bahir Extensions for Apache Spark
+### Apache Bahir Extensions for Apache Spark 2.1.1
 
 <br/>
 

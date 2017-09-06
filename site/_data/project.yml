@@ -58,8 +58,8 @@ podling: false
 spark_unix_name: bahir
 spark_github_project_name: bahir
 
-spark_latest_release: 2.1.1
-spark_latest_release_date: 07/11/2017
+spark_latest_release: 2.2.0
+spark_latest_release_date: 08/22/2017
 spark_latest_release_location: http://www.apache.org/dist/bahir/bahir-spark
 spark_latest_release_location_mirror: http://www.apache.org/dyn/closer.lua/bahir/bahir-spark
 spark_download: /downloads/spark
