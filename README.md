@@ -35,7 +35,7 @@ The steps below will install the latest [Jekyll](https://jekyllrb.com/) version 
 ```
 1. sudo gem install jekyll bundler
 2. cd site
-3. sudo bundle install
+3. bundle install
 ```
 
 For more information, see [Installing Jekyll](https://jekyllrb.com/docs/installation/).
