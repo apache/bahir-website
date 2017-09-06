@@ -4,8 +4,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Spark Streaming Akka</title>
-    <meta name="description" content="Spark Streaming Akka">
+    <title>Extensions for Apache Spark</title>
+    <meta name="description" content="Extensions for Apache Spark">
     <meta name="author" content="">
 
     <!-- Enable responsive viewport -->
@@ -184,7 +184,7 @@
 
       
 
-<!--<div class="hero-unit Spark Streaming Akka">
+<!--<div class="hero-unit Extensions for Apache Spark">
   <h1></h1>
 </div>
 -->
@@ -195,78 +195,37 @@
 
 -->
 
-<p>A library for reading data from Akka Actors using Spark Streaming.</p>
+<h3 id="apache-bahir-extensions-for-apache-spark-220">Apache Bahir Extensions for Apache Spark 2.2.0</h3>
 
-<h2 id="linking">Linking</h2>
+<p><br /></p>
 
-<p>Using SBT:</p>
+<h4 id="sql--data-sources">SQL  Data Sources</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>libraryDependencies += "org.apache.bahir" %% "spark-streaming-akka" % "2.2.0.1.0.0-SNAPSHOT"
-</code></pre>
-</div>
+<p><a href="../spark-sql-cloudant">Apache CouchDB/Cloudant data source</a> <img src="/assets/themes/apache-clean/img/new-black.png" alt="" height="36px" width="36px" /></p>
 
-<p>Using Maven:</p>
+<p><br /></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
-    &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
-    &lt;artifactId&gt;spark-streaming-akka_2.11&lt;/artifactId&gt;
-    &lt;version&gt;2.2.0.1.0.0-SNAPSHOT&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
-</div>
+<h4 id="structured-streaming-data-sources">Structured Streaming Data Sources</h4>
 
-<p>This library can also be added to Spark jobs launched through <code class="highlighter-rouge">spark-shell</code> or <code class="highlighter-rouge">spark-submit</code> by using the <code class="highlighter-rouge">--packages</code> command line option.
-For example, to include it when starting the spark shell:</p>
+<p><a href="../spark-sql-streaming-akka">Akka data source</a> <img src="/assets/themes/apache-clean/img/new-black.png" alt="" height="36px" width="36px" /></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ bin/spark-shell --packages org.apache.bahir:spark-streaming-akka_2.11:2.2.0.1.0.0-SNAPSHOT
-</code></pre>
-</div>
+<p><a href="../spark-sql-streaming-mqtt">MQTT data source</a></p>
 
-<p>Unlike using <code class="highlighter-rouge">--jars</code>, using <code class="highlighter-rouge">--packages</code> ensures that this library and its dependencies will be added to the classpath.
-The <code class="highlighter-rouge">--packages</code> argument can also be used with <code class="highlighter-rouge">bin/spark-submit</code>.</p>
+<p><br /></p>
 
-<p>This library is cross-published for Scala 2.10 and Scala 2.11, so users should replace the proper Scala version (2.10 or 2.11) in the commands listed above.</p>
+<h4 id="discretized-streams-dstreams-connectors">Discretized Streams (DStreams) Connectors</h4>
 
-<h2 id="examples">Examples</h2>
+<p><a href="../spark-sql-cloudant">Apache CouchDB/Cloudant connector</a> <img src="/assets/themes/apache-clean/img/new-black.png" alt="" height="36px" width="36px" /></p>
 
-<p>DStreams can be created with data streams received through Akka actors by using <code class="highlighter-rouge">AkkaUtils.createStream(ssc, actorProps, actor-name)</code>.</p>
+<p><a href="../spark-streaming-akka">Akka connector</a></p>
 
-<h3 id="scala-api">Scala API</h3>
+<p><a href="../spark-streaming-pubsub">Google Cloud Pub/Sub connector</a> <img src="/assets/themes/apache-clean/img/new-black.png" alt="" height="36px" width="36px" /></p>
 
-<p>You need to extend <code class="highlighter-rouge">ActorReceiver</code> so as to store received data into Spark using <code class="highlighter-rouge">store(...)</code> methods. The supervisor strategy of
-this actor can be configured to handle failures, etc.</p>
+<p><a href="../spark-streaming-mqtt">MQTT connector</a></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>class CustomActor extends ActorReceiver {
-  def receive = {
-    case data: String =&gt; store(data)
-  }
-}
+<p><a href="../spark-streaming-twitter">Twitter connector</a></p>
 
-// A new input stream can be created with this custom actor as
-val ssc: StreamingContext = ...
-val lines = AkkaUtils.createStream[String](ssc, Props[CustomActor](), "CustomReceiver")
-</code></pre>
-</div>
-
-<h3 id="java-api">Java API</h3>
-
-<p>You need to extend <code class="highlighter-rouge">JavaActorReceiver</code> so as to store received data into Spark using <code class="highlighter-rouge">store(...)</code> methods. The supervisor strategy of
-this actor can be configured to handle failures, etc.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>class CustomActor extends JavaActorReceiver {
-    @Override
-    public void onReceive(Object msg) throws Exception {
-        store((String) msg);
-    }
-}
-
-// A new input stream can be created with this custom actor as
-JavaStreamingContext jssc = ...;
-JavaDStream&lt;String&gt; lines = AkkaUtils.&lt;String&gt;createStream(jssc, Props.create(CustomActor.class), "CustomReceiver");
-</code></pre>
-</div>
-
-<p>See end-to-end examples at <a href="https://github.com/apache/bahir/tree/master/streaming-akka/examples">Akka Examples</a></p>
+<p><a href="../spark-streaming-zeromq">ZeroMQ connector</a></p>
 
   </div>
 </div>
