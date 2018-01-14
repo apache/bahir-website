@@ -56,7 +56,7 @@ The process to propose a doc change is otherwise the same as the process for pro
 Please review the preceding section before proposing a code change. This section documents how to do so:
 
 
-<img src='https://developer.atlassian.com/s/en_GB/5989/aaad9997c145089d7f38b9dea0ac5b91728ef55a.56/_/images/icons/emoticons/check.png'> **When you contribute code, you affirm that the contribution is your original work and that you license the work to the project under the project's open source license. Whether or not you state this explicitly, by submitting any copyrighted material via pull request, email, or other means you agree to license the material under the project's open source license and warrant that you have the legal authority to do so.**
+<img src='/assets/images/important.png' height="22" width="22"> **When you contribute code, you affirm that the contribution is your original work and that you license the work to the project under the project's open source license. Whether or not you state this explicitly, by submitting any copyrighted material via pull request, email, or other means you agree to license the material under the project's open source license and warrant that you have the legal authority to do so.**
 
 
 
@@ -84,7 +84,7 @@ Bahir uses JIRA to track issues, including bugs and improvements, and uses Githu
       * Critical: a large minority of users are missing important functionality without this, and/or a workaround is difficult
       * Major: a small minority of users are missing important functionality without this, and there is a workaround
       * Minor: a niche use case is missing some support, but it does not affect usage or is easily worked around
-      * Trivial: a nice-to-have change but unlikely to be any problem in practice otherwise 
+      * Trivial: a nice-to-have change but unlikely to be any problem in practice otherwise
     * **Component**
     * **Affects Version**. For Bugs, assign at least one version that is known to exhibit the problem or need the change
   * Do not set the following fields:
@@ -116,9 +116,9 @@ Now you should rebase your branch with master, to receive the upstream changes
 
 In both cases, you can have conflicts:
 
-    
+
     error: could not apply fa39187... something to add to patch A
-    
+
     When you have resolved this problem, run "git rebase --continue".
     If you prefer to skip this patch, run "git rebase --skip" instead.
     To check out the original branch and stop rebasing, run "git rebase --abort".
@@ -152,7 +152,7 @@ To fix the conflict, you can follow [the standard procedures for resolving merge
 Below is an example of a good commit message
 
     [BAHIR-130] Performance enhancements for decision tree
-    
+
     Generate Matrix with random values through local memory
     if there is sufficient memory.
 
@@ -173,7 +173,7 @@ Before considering how to contribute code, it's useful to understand how code is
 
 * Band-aids a symptom of a bug only
 * Introduces complex new functionality, especially an API that needs to be supported
-* Adds complexity that only helps a niche use case 
+* Adds complexity that only helps a niche use case
 * Changes a public API or semantics (rarely allowed)
 * Adds large dependencies
 * Changes versions of existing dependencies
