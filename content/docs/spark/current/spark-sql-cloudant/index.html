@@ -209,7 +209,7 @@ clusters, desktop PCs, and mobile devices.</p>
 
 <p>Using SBT:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>libraryDependencies += "org.apache.bahir" %% "spark-sql-cloudant" % "2.2.0.1.0.0-SNAPSHOT"
+<div class="highlighter-rouge"><pre class="highlight"><code>libraryDependencies += "org.apache.bahir" %% "spark-sql-cloudant" % "2.3.0-SNAPSHOT"
 </code></pre>
 </div>
 
@@ -218,14 +218,14 @@ clusters, desktop PCs, and mobile devices.</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
     &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
     &lt;artifactId&gt;spark-sql-cloudant_2.11&lt;/artifactId&gt;
-    &lt;version&gt;2.2.0.1.0.0-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.3.0-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre>
 </div>
 
 <p>This library can also be added to Spark jobs launched through <code class="highlighter-rouge">spark-shell</code> or <code class="highlighter-rouge">spark-submit</code> by using the <code class="highlighter-rouge">--packages</code> command line option.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ bin/spark-shell --packages org.apache.bahir:spark-sql-cloudant_2.11:2.2.0.1.0.0-SNAPSHOT
+<div class="highlighter-rouge"><pre class="highlight"><code>$ bin/spark-shell --packages org.apache.bahir:spark-sql-cloudant_2.11:2.3.0-SNAPSHOT
 </code></pre>
 </div>
 
@@ -470,7 +470,7 @@ The <code class="highlighter-rouge">--packages</code> argument can also be used 
 
 <p>Submit job example:
 <code class="highlighter-rouge">
-spark-submit  --packages org.apache.bahir:spark-sql-cloudant_2.11:2.2.0.1.0.0-SNAPSHOT --conf spark.cloudant.host=ACCOUNT.cloudant.com --conf spark.cloudant.username=USERNAME --conf spark.cloudant.password=PASSWORD sql-cloudant/examples/python/CloudantApp.py
+spark-submit  --packages org.apache.bahir:spark-sql-cloudant_2.11:2.3.0-SNAPSHOT --conf spark.cloudant.host=ACCOUNT.cloudant.com --conf spark.cloudant.username=USERNAME --conf spark.cloudant.password=PASSWORD sql-cloudant/examples/python/CloudantApp.py
 </code></p>
 
 <h4 id="using-dataframe-in-python">Using DataFrame In Python</h4>
@@ -540,7 +540,7 @@ Persisting will also speed up computation. This statement will persist an RDD in
 
 <p>Submit job example:
 <code class="highlighter-rouge">
-spark-submit --class org.apache.spark.examples.sql.cloudant.CloudantApp --packages org.apache.bahir:spark-sql-cloudant_2.11:2.2.0.1.0.0-SNAPSHOT --conf spark.cloudant.host=ACCOUNT.cloudant.com --conf spark.cloudant.username=USERNAME --conf spark.cloudant.password=PASSWORD  /path/to/spark-sql-cloudant_2.11-2.2.0.1.0.0-SNAPSHOT-tests.jar
+spark-submit --class org.apache.spark.examples.sql.cloudant.CloudantApp --packages org.apache.bahir:spark-sql-cloudant_2.11:2.3.0-SNAPSHOT --conf spark.cloudant.host=ACCOUNT.cloudant.com --conf spark.cloudant.username=USERNAME --conf spark.cloudant.password=PASSWORD  /path/to/spark-sql-cloudant_2.11-2.3.0-SNAPSHOT-tests.jar
 </code></p>
 
 <h3 id="using-dataframe-in-scala">Using DataFrame In Scala</h3>
@@ -627,7 +627,7 @@ example for more details):</p>
 
       <hr>
 
-      <!-- <p>&copy; 2017 </p>-->
+      <!-- <p>&copy; 2018 </p>-->
       <footer class="site-footer">
     <div class="wrapper">
         <div class="footer-col-wrapper">
