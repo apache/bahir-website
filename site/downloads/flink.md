@@ -95,7 +95,7 @@ download has completed OK.
 
 For fast downloads, current source distributions are hosted on mirror servers;
 older source distributions are in the
-[archive](http://archive.apache.org/dist/{{ site.data.project.flink_unix_name }}/).
+[archive](http://archive.apache.org/dist/{{site.data.project.unix_name}}/{{site.data.project.flink_unix_name}}).
 If a download from a mirror fails, retry, and the second download will likely
 succeed.
 
