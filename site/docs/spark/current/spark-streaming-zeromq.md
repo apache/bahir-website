@@ -25,7 +25,7 @@ limitations under the License.
 
 {% include JB/setup %}
 
-A library for reading data from [ZeroMQ](http://zeromq.org/) using Spark Streaming.
+A library for reading data from [ZeroMQ](http://zeromq.org/) using Spark Streaming. 
 
 ## Linking
 

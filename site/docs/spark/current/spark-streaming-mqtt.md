@@ -26,7 +26,7 @@ limitations under the License.
 {% include JB/setup %}
 
 
-[MQTT](http://mqtt.org/) is MQTT is a machine-to-machine (M2M)/"Internet of Things" connectivity protocol. It was designed as an extremely lightweight publish/subscribe messaging transport. It is useful for connections with remote locations where a small code footprint is required and/or network bandwidth is at a premium.
+[MQTT](http://mqtt.org/) is MQTT is a machine-to-machine (M2M)/"Internet of Things" connectivity protocol. It was designed as an extremely lightweight publish/subscribe messaging transport. It is useful for connections with remote locations where a small code footprint is required and/or network bandwidth is at a premium. 
 
 ## Linking
 
@@ -79,12 +79,14 @@ this actor can be configured to handle failures, etc.
 
     val lines = MQTTUtils.createStream(ssc, brokerUrl, topic)
     val lines = MQTTUtils.createPairedStream(ssc, brokerUrl, topic)
+    val lines = MQTTUtils.createPairedByteArrayStream(ssc, brokerUrl, topic)
 
 Additional mqtt connection options can be provided:
 
 ```Scala
 val lines = MQTTUtils.createStream(ssc, brokerUrl, topic, storageLevel, clientId, username, password, cleanSession, qos, connectionTimeout, keepAliveInterval, mqttVersion)
 val lines = MQTTUtils.createPairedStream(ssc, brokerUrl, topics, storageLevel, clientId, username, password, cleanSession, qos, connectionTimeout, keepAliveInterval, mqttVersion)
+val lines = MQTTUtils.createPairedByteArrayStream(ssc, brokerUrl, topics, storageLevel, clientId, username, password, cleanSession, qos, connectionTimeout, keepAliveInterval, mqttVersion)
 ```
 
 ### Java API
@@ -94,5 +96,21 @@ this actor can be configured to handle failures, etc.
 
     JavaDStream<String> lines = MQTTUtils.createStream(jssc, brokerUrl, topic);
     JavaReceiverInputDStream<Tuple2<String, String>> lines = MQTTUtils.createPairedStream(jssc, brokerUrl, topics);
+    JavaReceiverInputDStream<Tuple2<String, String>> lines = MQTTUtils.createPairedByteArrayStream(jssc, brokerUrl, topics);
 
 See end-to-end examples at [MQTT Examples](https://github.com/apache/bahir/tree/master/streaming-mqtt/examples)
+
+
+### Python API
+
+Create a DStream from a single topic.
+
+```Python
+	MQTTUtils.createStream(ssc, broker_url, topic)
+```
+
+Create a DStream from a list of topics.
+
+```Python
+	MQTTUtils.createPairedStream(ssc, broker_url, topics)
+```

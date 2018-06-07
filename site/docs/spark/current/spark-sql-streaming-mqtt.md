@@ -25,7 +25,7 @@ limitations under the License.
 
 {% include JB/setup %}
 
-A library for reading data from MQTT Servers using Spark SQL Streaming ( or Structured streaming.).
+A library for reading data from MQTT Servers using Spark SQL Streaming ( or Structured streaming.). 
 
 ## Linking
 
@@ -89,7 +89,7 @@ This source uses [Eclipse Paho Java Client](https://eclipse.org/paho/clients/jav
 
 ### Scala API
 
-An example, for scala API to count words from incoming message stream.
+An example, for scala API to count words from incoming message stream. 
 
     // Create DataFrame representing the stream of input lines from connection to mqtt server
     val lines = spark.readStream
@@ -115,7 +115,7 @@ Please see `MQTTStreamWordCount.scala` for full example.
 
 ### Java API
 
-An example, for Java API to count words from incoming message stream.
+An example, for Java API to count words from incoming message stream. 
 
     // Create DataFrame representing the stream of input lines from connection to mqtt server.
     Dataset<String> lines = spark
@@ -144,3 +144,4 @@ An example, for Java API to count words from incoming message stream.
     query.awaitTermination();
 
 Please see `JavaMQTTStreamWordCount.java` for full example.
+
