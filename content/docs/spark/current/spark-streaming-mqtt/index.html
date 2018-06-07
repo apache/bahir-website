@@ -255,6 +255,7 @@ this actor can be configured to handle failures, etc.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>val lines = MQTTUtils.createStream(ssc, brokerUrl, topic)
 val lines = MQTTUtils.createPairedStream(ssc, brokerUrl, topic)
+val lines = MQTTUtils.createPairedByteArrayStream(ssc, brokerUrl, topic)
 </code></pre>
 </div>
 
@@ -262,6 +263,7 @@ val lines = MQTTUtils.createPairedStream(ssc, brokerUrl, topic)
 
 <pre><code class="language-Scala">val lines = MQTTUtils.createStream(ssc, brokerUrl, topic, storageLevel, clientId, username, password, cleanSession, qos, connectionTimeout, keepAliveInterval, mqttVersion)
 val lines = MQTTUtils.createPairedStream(ssc, brokerUrl, topics, storageLevel, clientId, username, password, cleanSession, qos, connectionTimeout, keepAliveInterval, mqttVersion)
+val lines = MQTTUtils.createPairedByteArrayStream(ssc, brokerUrl, topics, storageLevel, clientId, username, password, cleanSession, qos, connectionTimeout, keepAliveInterval, mqttVersion)
 </code></pre>
 
 <h3 id="java-api">Java API</h3>
@@ -271,10 +273,23 @@ this actor can be configured to handle failures, etc.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>JavaDStream&lt;String&gt; lines = MQTTUtils.createStream(jssc, brokerUrl, topic);
 JavaReceiverInputDStream&lt;Tuple2&lt;String, String&gt;&gt; lines = MQTTUtils.createPairedStream(jssc, brokerUrl, topics);
+JavaReceiverInputDStream&lt;Tuple2&lt;String, String&gt;&gt; lines = MQTTUtils.createPairedByteArrayStream(jssc, brokerUrl, topics);
 </code></pre>
 </div>
 
 <p>See end-to-end examples at <a href="https://github.com/apache/bahir/tree/master/streaming-mqtt/examples">MQTT Examples</a></p>
+
+<h3 id="python-api">Python API</h3>
+
+<p>Create a DStream from a single topic.</p>
+
+<pre><code class="language-Python">	MQTTUtils.createStream(ssc, broker_url, topic)
+</code></pre>
+
+<p>Create a DStream from a list of topics.</p>
+
+<pre><code class="language-Python">	MQTTUtils.createPairedStream(ssc, broker_url, topics)
+</code></pre>
 
   </div>
 </div>

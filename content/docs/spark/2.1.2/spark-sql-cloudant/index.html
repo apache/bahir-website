@@ -197,10 +197,10 @@
 
 <p>A library for reading data from Cloudant or CouchDB databases using Spark SQL and Spark Streaming.</p>
 
-<p><a href="https://cloudant.com">IBM® Cloudant®</a> is a document-oriented DataBase as a Service (DBaaS). It stores data as documents 
-in JSON format. It’s built with scalability, high availability, and durability in mind. It comes with a 
-wide variety of indexing options including map-reduce, Cloudant Query, full-text indexing, and 
-geospatial indexing. The replication capabilities make it easy to keep data in sync between database 
+<p><a href="https://cloudant.com">IBM® Cloudant®</a> is a document-oriented DataBase as a Service (DBaaS). It stores data as documents
+in JSON format. It’s built with scalability, high availability, and durability in mind. It comes with a
+wide variety of indexing options including map-reduce, Cloudant Query, full-text indexing, and
+geospatial indexing. The replication capabilities make it easy to keep data in sync between database
 clusters, desktop PCs, and mobile devices.</p>
 
 <p><a href="http://couchdb.apache.org">Apache CouchDB™</a> is open source database software that focuses on ease of use and having an architecture that “completely embraces the Web”. It has a document-oriented NoSQL database architecture and is implemented in the concurrency-oriented language Erlang; it uses JSON to store data, JavaScript as its query language using MapReduce, and HTTP for an API.</p>
@@ -209,7 +209,7 @@ clusters, desktop PCs, and mobile devices.</p>
 
 <p>Using SBT:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>libraryDependencies += "org.apache.bahir" %% "spark-sql-cloudant" % "2.3.0-SNAPSHOT"
+<div class="highlighter-rouge"><pre class="highlight"><code>libraryDependencies += "org.apache.bahir" %% "spark-sql-cloudant" % "2.1.2"
 </code></pre>
 </div>
 
@@ -218,14 +218,14 @@ clusters, desktop PCs, and mobile devices.</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
     &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
     &lt;artifactId&gt;spark-sql-cloudant_2.11&lt;/artifactId&gt;
-    &lt;version&gt;2.3.0-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.1.2&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre>
 </div>
 
 <p>This library can also be added to Spark jobs launched through <code class="highlighter-rouge">spark-shell</code> or <code class="highlighter-rouge">spark-submit</code> by using the <code class="highlighter-rouge">--packages</code> command line option.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ bin/spark-shell --packages org.apache.bahir:spark-sql-cloudant_2.11:2.3.0-SNAPSHOT
+<div class="highlighter-rouge"><pre class="highlight"><code>$ bin/spark-shell --packages org.apache.bahir:spark-sql-cloudant_2.11:2.1.2
 </code></pre>
 </div>
 
@@ -234,13 +234,13 @@ The <code class="highlighter-rouge">--packages</code> argument can also be used 
 
 <p>Submit a job in Python:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>spark-submit  --master local[4] --packages org.apache.bahir:spark-sql-cloudant__2.11:2.3.0-SNAPSHOT  &lt;path to python script&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code>spark-submit  --master local[4] --packages org.apache.bahir:spark-sql-cloudant__2.11:2.1.2  &lt;path to python script&gt;
 </code></pre>
 </div>
 
 <p>Submit a job in Scala:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>spark-submit --class "&lt;your class&gt;" --master local[4] --packages org.apache.bahir:spark-sql-cloudant__2.11:2.3.0-SNAPSHOT &lt;path to spark-sql-cloudant jar&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code>spark-submit --class "&lt;your class&gt;" --master local[4] --packages org.apache.bahir:spark-sql-cloudant__2.11:2.1.2 &lt;path to spark-sql-cloudant jar&gt;
 </code></pre>
 </div>
 
@@ -367,8 +367,8 @@ The <code class="highlighter-rouge">--packages</code> argument can also be used 
 
 <p>The <code class="highlighter-rouge">cloudant.endpoint</code> option sets ` _changes<code class="highlighter-rouge"> or </code>_all_docs` API endpoint to be called while loading Cloudant data into Spark DataFrames or SQL Tables.</p>
 
-<p><strong>Note:</strong> When using <code class="highlighter-rouge">_changes</code> API, please consider: 
-1. Results are partially ordered and may not be be presented in order in 
+<p><strong>Note:</strong> When using <code class="highlighter-rouge">_changes</code> API, please consider:
+1. Results are partially ordered and may not be be presented in order in
 which documents were updated.
 2. In case of shards’ unavailability, you may see duplicate results (changes that have been seen already)
 3. Can use <code class="highlighter-rouge">selector</code> option to filter Cloudant docs during load
@@ -378,13 +378,13 @@ which documents were updated.
 <p>When using <code class="highlighter-rouge">_all_docs</code> API:
 1. Supports parallel reads (using offset and range) and partitioning.
 2. Using partitions may not represent the true snapshot of a database.  Some docs
-   may be added or deleted in the database between loading data into different 
+   may be added or deleted in the database between loading data into different
    Spark partitions.</p>
 
 <p>If loading Cloudant docs from a database greater than 100 MB, set <code class="highlighter-rouge">cloudant.endpoint</code> to <code class="highlighter-rouge">_changes</code> and <code class="highlighter-rouge">spark.streaming.unpersist</code> to <code class="highlighter-rouge">false</code>.
 This will enable RDD persistence during load against <code class="highlighter-rouge">_changes</code> endpoint and allow the persisted RDDs to be accessible after streaming completes.</p>
 
-<p>See <a href="src/test/scala/org/apache/bahir/cloudant/CloudantChangesDFSuite.scala">CloudantChangesDFSuite</a> 
+<p>See <a href="src/test/scala/org/apache/bahir/cloudant/CloudantChangesDFSuite.scala">CloudantChangesDFSuite</a>
 for examples of loading data into a Spark DataFrame with <code class="highlighter-rouge">_changes</code> API.</p>
 
 <h3 id="configuration-on-spark-sql-temporary-table-or-dataframe">Configuration on Spark SQL Temporary Table or DataFrame</h3>
@@ -522,7 +522,7 @@ for examples of loading data into a Spark DataFrame with <code class="highlighte
 
 <p>Submit job example:
 <code class="highlighter-rouge">
-spark-submit  --packages org.apache.bahir:spark-sql-cloudant_2.11:2.3.0-SNAPSHOT --conf spark.cloudant.host=ACCOUNT.cloudant.com --conf spark.cloudant.username=USERNAME --conf spark.cloudant.password=PASSWORD sql-cloudant/examples/python/CloudantApp.py
+spark-submit  --packages org.apache.bahir:spark-sql-cloudant_2.11:2.1.2 --conf spark.cloudant.host=ACCOUNT.cloudant.com --conf spark.cloudant.username=USERNAME --conf spark.cloudant.password=PASSWORD sql-cloudant/examples/python/CloudantApp.py
 </code></p>
 
 <h4 id="using-dataframe-in-python">Using DataFrame In Python</h4>
@@ -538,7 +538,7 @@ spark-submit  --packages org.apache.bahir:spark-sql-cloudant_2.11:2.3.0-SNAPSHOT
 
 <span class="c"># ***1. Loading dataframe from Cloudant db</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s">"n_airportcodemapping"</span><span class="p">,</span> <span class="s">"org.apache.bahir.cloudant"</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span> 
+<span class="n">df</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
 <span class="n">df</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
 <span class="n">df</span><span class="o">.</span><span class="nb">filter</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">airportName</span> <span class="o">&gt;=</span> <span class="s">'Moscow'</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">"_id"</span><span class="p">,</span><span class="s">'airportName'</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="n">df</span><span class="o">.</span><span class="nb">filter</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">_id</span> <span class="o">&gt;=</span> <span class="s">'CAA'</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">"_id"</span><span class="p">,</span><span class="s">'airportName'</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>	    
@@ -572,7 +572,7 @@ Persisting will also speed up computation. This statement will persist an RDD in
 
 <span class="c1">// For implicit conversions of Dataframe to RDDs
 </span><span class="k">import</span> <span class="nn">spark.implicits._</span>
-    
+
 <span class="c1">// create a temp table from Cloudant db and query it using sql syntax
 </span><span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="o">(</span>
     <span class="n">s</span><span class="s">"""
@@ -592,7 +592,7 @@ Persisting will also speed up computation. This statement will persist an RDD in
 
 <p>Submit job example:
 <code class="highlighter-rouge">
-spark-submit --class org.apache.spark.examples.sql.cloudant.CloudantApp --packages org.apache.bahir:spark-sql-cloudant_2.11:2.3.0-SNAPSHOT --conf spark.cloudant.host=ACCOUNT.cloudant.com --conf spark.cloudant.username=USERNAME --conf spark.cloudant.password=PASSWORD  /path/to/spark-sql-cloudant_2.11-2.3.0-SNAPSHOT-tests.jar
+spark-submit --class org.apache.spark.examples.sql.cloudant.CloudantApp --packages org.apache.bahir:spark-sql-cloudant_2.11:2.1.2 --conf spark.cloudant.host=ACCOUNT.cloudant.com --conf spark.cloudant.username=USERNAME --conf spark.cloudant.password=PASSWORD  /path/to/spark-sql-cloudant_2.11-2.1.2-tests.jar
 </code></p>
 
 <h3 id="using-dataframe-in-scala">Using DataFrame In Scala</h3>
@@ -606,12 +606,12 @@ spark-submit --class org.apache.spark.examples.sql.cloudant.CloudantApp --packag
       <span class="o">.</span><span class="n">config</span><span class="o">(</span><span class="s">"createDBOnSave"</span><span class="o">,</span><span class="s">"true"</span><span class="o">)</span> <span class="c1">// to create a db on save
 </span>      <span class="o">.</span><span class="n">config</span><span class="o">(</span><span class="s">"jsonstore.rdd.partitions"</span><span class="o">,</span> <span class="s">"20"</span><span class="o">)</span> <span class="c1">// using 20 partitions
 </span>      <span class="o">.</span><span class="n">getOrCreate</span><span class="o">()</span>
-          
+
 <span class="c1">// 1. Loading data from Cloudant db
 </span><span class="k">val</span> <span class="n">df</span> <span class="k">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">format</span><span class="o">(</span><span class="s">"org.apache.bahir.cloudant"</span><span class="o">).</span><span class="n">load</span><span class="o">(</span><span class="s">"n_flight"</span><span class="o">)</span>
 <span class="c1">// Caching df in memory to speed computations
 // and not to retrieve data from cloudant again
-</span><span class="n">df</span><span class="o">.</span><span class="n">cache</span><span class="o">()</span> 
+</span><span class="n">df</span><span class="o">.</span><span class="n">cache</span><span class="o">()</span>
 <span class="n">df</span><span class="o">.</span><span class="n">printSchema</span><span class="o">()</span>
 
 <span class="c1">// 2. Saving dataframe to Cloudant db
@@ -652,14 +652,14 @@ spark-submit --class org.apache.spark.examples.sql.cloudant.CloudantApp --packag
 <span class="c1">// run streaming for 120 secs
 </span><span class="nc">Thread</span><span class="o">.</span><span class="n">sleep</span><span class="o">(</span><span class="mi">120000L</span><span class="o">)</span>
 <span class="n">ssc</span><span class="o">.</span><span class="n">stop</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
-	
+
 </code></pre>
 </div>
 
 <p>See <a href="examples/scala/src/main/scala/mytest/spark/CloudantStreaming.scala">CloudantStreaming.scala</a> for examples.</p>
 
-<p>By default, Spark Streaming will load all documents from a database. If you want to limit the loading to 
-specific documents, use <code class="highlighter-rouge">selector</code> option of <code class="highlighter-rouge">CloudantReceiver</code> and specify your conditions 
+<p>By default, Spark Streaming will load all documents from a database. If you want to limit the loading to
+specific documents, use <code class="highlighter-rouge">selector</code> option of <code class="highlighter-rouge">CloudantReceiver</code> and specify your conditions
 (See <a href="examples/scala/src/main/scala/mytest/spark/CloudantStreamingSelector.scala">CloudantStreamingSelector.scala</a>
 example for more details):</p>
 

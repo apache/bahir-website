@@ -195,13 +195,13 @@
 
 -->
 
-<p>A library for reading data from MQTT Servers using Spark SQL Streaming ( or Structured streaming.).</p>
+<p><a href="http://mqtt.org/">MQTT</a> is MQTT is a machine-to-machine (M2M)/”Internet of Things” connectivity protocol. It was designed as an extremely lightweight publish/subscribe messaging transport. It is useful for connections with remote locations where a small code footprint is required and/or network bandwidth is at a premium.</p>
 
 <h2 id="linking">Linking</h2>
 
 <p>Using SBT:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>libraryDependencies += "org.apache.bahir" %% "spark-sql-streaming-mqtt" % "2.3.0-SNAPSHOT"
+<div class="highlighter-rouge"><pre class="highlight"><code>libraryDependencies += "org.apache.bahir" %% "spark-streaming-mqtt" % "2.1.2"
 </code></pre>
 </div>
 
@@ -209,8 +209,8 @@
 
 <div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
     &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
-    &lt;artifactId&gt;spark-sql-streaming-mqtt_2.11&lt;/artifactId&gt;
-    &lt;version&gt;2.3.0-SNAPSHOT&lt;/version&gt;
+    &lt;artifactId&gt;spark-streaming-mqtt_2.11&lt;/artifactId&gt;
+    &lt;version&gt;2.1.2&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre>
 </div>
@@ -218,119 +218,78 @@
 <p>This library can also be added to Spark jobs launched through <code class="highlighter-rouge">spark-shell</code> or <code class="highlighter-rouge">spark-submit</code> by using the <code class="highlighter-rouge">--packages</code> command line option.
 For example, to include it when starting the spark shell:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ bin/spark-shell --packages org.apache.bahir:spark-sql-streaming-mqtt_2.11:2.3.0-SNAPSHOT
+<div class="highlighter-rouge"><pre class="highlight"><code>$ bin/spark-shell --packages org.apache.bahir:spark-streaming-mqtt_2.11:2.1.2
 </code></pre>
 </div>
 
 <p>Unlike using <code class="highlighter-rouge">--jars</code>, using <code class="highlighter-rouge">--packages</code> ensures that this library and its dependencies will be added to the classpath.
 The <code class="highlighter-rouge">--packages</code> argument can also be used with <code class="highlighter-rouge">bin/spark-submit</code>.</p>
 
-<p>This library is compiled for Scala 2.11 only, and intends to support Spark 2.0 onwards.</p>
-
-<h2 id="examples">Examples</h2>
-
-<p>A SQL Stream can be created with data streams received through MQTT Server using,</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>sqlContext.readStream
-    .format("org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider")
-    .option("topic", "mytopic")
-    .load("tcp://localhost:1883")
-</code></pre>
-</div>
-
-<h2 id="enable-recovering-from-failures">Enable recovering from failures.</h2>
-
-<p>Setting values for option <code class="highlighter-rouge">localStorage</code> and <code class="highlighter-rouge">clientId</code> helps in recovering in case of a restart, by restoring the state where it left off before the shutdown.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>sqlContext.readStream
-    .format("org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider")
-    .option("topic", "mytopic")
-    .option("localStorage", "/path/to/localdir")
-    .option("clientId", "some-client-id")
-    .load("tcp://localhost:1883")
-</code></pre>
-</div>
+<p>This library is cross-published for Scala 2.10 and Scala 2.11, so users should replace the proper Scala version (2.10 or 2.11) in the commands listed above.</p>
 
 <h2 id="configuration-options">Configuration options.</h2>
 
-<p>This source uses <a href="https://eclipse.org/paho/clients/java/">Eclipse Paho Java Client</a>. Client API documentation is located <a href="http://www.eclipse.org/paho/files/javadoc/index.html">here</a>.</p>
+<p>This source uses the <a href="https://eclipse.org/paho/clients/java/">Eclipse Paho Java Client</a>. Client API documentation is located <a href="http://www.eclipse.org/paho/files/javadoc/index.html">here</a>.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">brokerUrl</code> A url MqttClient connects to. Set this or <code class="highlighter-rouge">path</code> as the url of the Mqtt Server. e.g. tcp://localhost:1883.</li>
-  <li><code class="highlighter-rouge">persistence</code> By default it is used for storing incoming messages on disk. If <code class="highlighter-rouge">memory</code> is provided as value for this option, then recovery on restart is not supported.</li>
+  <li><code class="highlighter-rouge">brokerUrl</code> A url MqttClient connects to. Set this as the url of the Mqtt Server. e.g. tcp://localhost:1883.</li>
+  <li><code class="highlighter-rouge">storageLevel</code> By default it is used for storing incoming messages on disk.</li>
   <li><code class="highlighter-rouge">topic</code> Topic MqttClient subscribes to.</li>
+  <li><code class="highlighter-rouge">topics</code> List of topics MqttClient subscribes to.</li>
   <li><code class="highlighter-rouge">clientId</code> clientId, this client is assoicated with. Provide the same value to recover a stopped client.</li>
   <li><code class="highlighter-rouge">QoS</code> The maximum quality of service to subscribe each topic at. Messages published at a lower quality of service will be received at the published QoS. Messages published at a higher quality of service will be received using the QoS specified on the subscribe.</li>
   <li><code class="highlighter-rouge">username</code> Sets the user name to use for the connection to Mqtt Server. Do not set it, if server does not need this. Setting it empty will lead to errors.</li>
   <li><code class="highlighter-rouge">password</code> Sets the password to use for the connection.</li>
   <li><code class="highlighter-rouge">cleanSession</code> Setting it true starts a clean session, removes all checkpointed messages by a previous run of this source. This is set to false by default.</li>
-  <li><code class="highlighter-rouge">connectionTimeout</code> Sets the connection timeout, a value of 0 is interpretted as wait until client connects. See <code class="highlighter-rouge">MqttConnectOptions.setConnectionTimeout</code> for more information.</li>
+  <li><code class="highlighter-rouge">connectionTimeout</code> Sets the connection timeout, a value of 0 is interpreted as wait until client connects. See <code class="highlighter-rouge">MqttConnectOptions.setConnectionTimeout</code> for more information.</li>
   <li><code class="highlighter-rouge">keepAlive</code> Same as <code class="highlighter-rouge">MqttConnectOptions.setKeepAliveInterval</code>.</li>
   <li><code class="highlighter-rouge">mqttVersion</code> Same as <code class="highlighter-rouge">MqttConnectOptions.setMqttVersion</code>.</li>
 </ul>
 
+<h2 id="examples">Examples</h2>
+
 <h3 id="scala-api">Scala API</h3>
 
-<p>An example, for scala API to count words from incoming message stream.</p>
+<p>You need to extend <code class="highlighter-rouge">ActorReceiver</code> so as to store received data into Spark using <code class="highlighter-rouge">store(...)</code> methods. The supervisor strategy of
+this actor can be configured to handle failures, etc.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>// Create DataFrame representing the stream of input lines from connection to mqtt server
-val lines = spark.readStream
-  .format("org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider")
-  .option("topic", topic)
-  .load(brokerUrl).as[(String, Timestamp)]
-
-// Split the lines into words
-val words = lines.map(_._1).flatMap(_.split(" "))
-
-// Generate running word count
-val wordCounts = words.groupBy("value").count()
-
-// Start running the query that prints the running counts to the console
-val query = wordCounts.writeStream
-  .outputMode("complete")
-  .format("console")
-  .start()
-
-query.awaitTermination()
+<div class="highlighter-rouge"><pre class="highlight"><code>val lines = MQTTUtils.createStream(ssc, brokerUrl, topic)
+val lines = MQTTUtils.createPairedStream(ssc, brokerUrl, topic)
+val lines = MQTTUtils.createPairedByteArrayStream(ssc, brokerUrl, topic)
 </code></pre>
 </div>
 
-<p>Please see <code class="highlighter-rouge">MQTTStreamWordCount.scala</code> for full example.</p>
+<p>Additional mqtt connection options can be provided:</p>
+
+<pre><code class="language-Scala">val lines = MQTTUtils.createStream(ssc, brokerUrl, topic, storageLevel, clientId, username, password, cleanSession, qos, connectionTimeout, keepAliveInterval, mqttVersion)
+val lines = MQTTUtils.createPairedStream(ssc, brokerUrl, topics, storageLevel, clientId, username, password, cleanSession, qos, connectionTimeout, keepAliveInterval, mqttVersion)
+val lines = MQTTUtils.createPairedByteArrayStream(ssc, brokerUrl, topics, storageLevel, clientId, username, password, cleanSession, qos, connectionTimeout, keepAliveInterval, mqttVersion)
+</code></pre>
 
 <h3 id="java-api">Java API</h3>
 
-<p>An example, for Java API to count words from incoming message stream.</p>
+<p>You need to extend <code class="highlighter-rouge">JavaActorReceiver</code> so as to store received data into Spark using <code class="highlighter-rouge">store(...)</code> methods. The supervisor strategy of
+this actor can be configured to handle failures, etc.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>// Create DataFrame representing the stream of input lines from connection to mqtt server.
-Dataset&lt;String&gt; lines = spark
-        .readStream()
-        .format("org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider")
-        .option("topic", topic)
-        .load(brokerUrl).select("value").as(Encoders.STRING());
-
-// Split the lines into words
-Dataset&lt;String&gt; words = lines.flatMap(new FlatMapFunction&lt;String, String&gt;() {
-    @Override
-    public Iterator&lt;String&gt; call(String x) {
-        return Arrays.asList(x.split(" ")).iterator();
-    }
-}, Encoders.STRING());
-
-// Generate running word count
-Dataset&lt;Row&gt; wordCounts = words.groupBy("value").count();
-
-// Start running the query that prints the running counts to the console
-StreamingQuery query = wordCounts.writeStream()
-        .outputMode("complete")
-        .format("console")
-        .start();
-
-query.awaitTermination();
+<div class="highlighter-rouge"><pre class="highlight"><code>JavaDStream&lt;String&gt; lines = MQTTUtils.createStream(jssc, brokerUrl, topic);
+JavaReceiverInputDStream&lt;Tuple2&lt;String, String&gt;&gt; lines = MQTTUtils.createPairedStream(jssc, brokerUrl, topics);
+JavaReceiverInputDStream&lt;Tuple2&lt;String, String&gt;&gt; lines = MQTTUtils.createPairedByteArrayStream(jssc, brokerUrl, topics);
 </code></pre>
 </div>
 
-<p>Please see <code class="highlighter-rouge">JavaMQTTStreamWordCount.java</code> for full example.</p>
+<p>See end-to-end examples at <a href="https://github.com/apache/bahir/tree/master/streaming-mqtt/examples">MQTT Examples</a></p>
 
+<h3 id="python-api">Python API</h3>
+
+<p>Create a DStream from a single topic.</p>
+
+<pre><code class="language-Python">	MQTTUtils.createStream(ssc, broker_url, topic)
+</code></pre>
+
+<p>Create a DStream from a list of topics.</p>
+
+<pre><code class="language-Python">	MQTTUtils.createPairedStream(ssc, broker_url, topics)
+</code></pre>
 
   </div>
 </div>

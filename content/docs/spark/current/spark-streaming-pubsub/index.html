@@ -251,6 +251,33 @@ The <code class="highlighter-rouge">--packages</code> argument can also be used 
 
 <p>See end-to-end examples at <a href="streaming-pubsub/examples">Google Cloud Pubsub Examples</a></p>
 
+<h3 id="unit-test">Unit Test</h3>
+
+<p>To run the PubSub test cases, you need to generate <strong>Google API service account key files</strong> and set the corresponding environment variable to enable the test.</p>
+
+<h4 id="to-generate-a-service-account-key-file-with-pubsub-permission">To generate a service account key file with PubSub permission</h4>
+
+<ol>
+  <li>Go to <a href="console.cloud.google.com">Google API Console</a></li>
+  <li>Choose the <code class="highlighter-rouge">Credentials</code> Tab&gt; <code class="highlighter-rouge">Create credentials</code> button&gt; <code class="highlighter-rouge">Service account key</code></li>
+  <li>Fill the account name, assign <code class="highlighter-rouge">Role&gt; Pub/Sub&gt; Pub/Sub Editor</code> and check the option <code class="highlighter-rouge">Furnish a private key</code> to create one. You need to create one for JSON key file, another for P12.</li>
+  <li>The account email is the <code class="highlighter-rouge">Service account ID</code></li>
+</ol>
+
+<h4 id="setting-the-environment-variables-and-run-test">Setting the environment variables and run test</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>mvn clean package -DskipTests -pl streaming-pubsub
+
+export ENABLE_PUBSUB_TESTS=1
+export GCP_TEST_ACCOUNT="THE_P12_SERVICE_ACCOUNT_ID_MENTIONED_ABOVE"
+export GCP_TEST_PROJECT_ID="YOUR_GCP_PROJECT_ID"
+export GCP_TEST_JSON_KEY_PATH=/path/to/pubsub/credential/files/Apache-Bahir-PubSub-1234abcd.json
+export GCP_TEST_P12_KEY_PATH=/path/to/pubsub/credential/files/Apache-Bahir-PubSub-5678efgh.p12
+
+mvn test -pl streaming-pubsub
+</code></pre>
+</div>
+
   </div>
 </div>
 
