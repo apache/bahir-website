@@ -29,6 +29,7 @@ limitations under the License.
 
  - [Current - 2.3.0-SNAPSHOT](/docs/spark/current/documentation)
  - [2.2.0](/docs/spark/2.2.0/documentation)
+ - [2.1.2](/docs/spark/2.1.2/documentation)
  - [2.1.1](/docs/spark/2.1.1/documentation)
  - [2.1.0](/docs/spark/2.1.0/documentation)
  - [2.0.2](/docs/spark/2.0.2/documentation)
