@@ -66,14 +66,6 @@ Our latest release supports Apache Spark {{site.data.project.spark_latest_releas
     </tbody>
 </table>
 
-You can also retrieve the source files from our git repository by typing:
-
-<pre>
-git clone {{site.data.project.spark_source_repository_mirror}}
-cd {{site.data.project.spark_github_project_name}}
-git checkout -b tags/v{{site.data.project.spark_latest_release}} v{{site.data.project.spark_latest_release}}
-</pre>
-
 ### Previous Releases
 
 All previous releases of {{ site.data.project.name }} Spark Extensions can be found in the [archives](https://archive.apache.org/dist/{{site.data.project.spark_unix_name}}/).

@@ -70,14 +70,6 @@ Our latest {{ site.data.project.name }} release for Apache Flink extensions is {
     </tbody>
 </table>
 
-You can also retrieve the source files from our git repository by typing:
-
-<pre>
-git clone {{site.data.project.flink_source_repository_mirror}}
-cd {{site.data.project.flink_github_project_name}}
-git checkout -b tags/v{{site.data.project.flink_latest_release}} v{{site.data.project.flink_latest_release}}
-</pre>
-
 ### Previous Releases
 
 All previous releases of {{ site.data.project.name }} Flink Extensions can be found in the [archives](http://archive.apache.org/dist/{{site.data.project.unix_name}}/{{site.data.project.flink_unix_name}}).
