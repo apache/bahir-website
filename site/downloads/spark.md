@@ -40,8 +40,7 @@ Our latest release supports Apache Spark {{site.data.project.spark_latest_releas
         <tr>
             <th><b>Name</b></th>
             <th><b>Archive</b></th>
-            <th><b>MD5</b></th>
-            <!--th><b>SHA-1</b></th-->
+            <!th><b>SHA-512</b></th>
             <th><b>signature</b></th>
         </tr>
     </thead>
@@ -49,22 +48,19 @@ Our latest release supports Apache Spark {{site.data.project.spark_latest_releas
         <tr>
             <td>{{ site.data.project.name }} Extensions for Apache Spark {{site.data.project.spark_latest_release}} (tar.gz)</td>
             <td><a href="{{site.data.project.spark_latest_release_location_mirror}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.tar.gz">tar.gz</a></td>
-            <td><a href="{{site.data.project.spark_latest_release_location}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.tar.gz.md5">MD5</a></td>
-            <!--td><a href="{{site.data.project.spark_latest_release_location}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.tar.gz.sha1">SHA-1</a></td-->
+            <td><a href="{{site.data.project.spark_latest_release_location}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.tar.gz.sha512">SHA-512</a></td>
             <td><a href="{{site.data.project.spark_latest_release_location}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.tar.gz.asc">ASC</a></td>
         </tr>
         <tr>
             <td>{{ site.data.project.name }} Extensions for Apache Spark {{site.data.project.spark_latest_release}} (zip)</td>
             <td><a href="{{site.data.project.spark_latest_release_location_mirror}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.zip">zip</a></td>
-            <td><a href="{{site.data.project.spark_latest_release_location}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.zip.md5">MD5</a></td>
-            <!--td><a href="{{site.data.project.spark_latest_release_location}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.zip.sha1">SHA-1</a></td-->
+            <td><a href="{{site.data.project.spark_latest_release_location}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.zip.sha512">SHA-512</a></td>
             <td><a href="{{site.data.project.spark_latest_release_location}}/{{site.data.project.spark_latest_release}}/apache-bahir-{{site.data.project.spark_latest_release}}-src.zip.asc">ASC</a></td>
         </tr>
         <tr>
             <td>Release Notes</td>
             <td><a href="/releases/spark/{{ site.data.project.spark_latest_release }}/release-notes">{{ site.data.project.spark_latest_release }}</a></td>
             <td></td>
-            <!--td></td-->
             <td></td>
         </tr>
     </tbody>
