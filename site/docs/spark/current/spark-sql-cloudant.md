@@ -57,11 +57,11 @@ The `--packages` argument can also be used with `bin/spark-submit`.
 
 Submit a job in Python:
     
-    spark-submit  --master local[4] --packages org.apache.bahir:spark-sql-cloudant__{{site.SCALA_BINARY_VERSION}}:{{site.SPARK_VERSION}}  <path to python script>
+    spark-submit  --master local[4] --packages org.apache.bahir:spark-sql-cloudant_{{site.SCALA_BINARY_VERSION}}:{{site.SPARK_VERSION}}  <path to python script>
     
 Submit a job in Scala:
 
-	spark-submit --class "<your class>" --master local[4] --packages org.apache.bahir:spark-sql-cloudant__{{site.SCALA_BINARY_VERSION}}:{{site.SPARK_VERSION}} <path to spark-sql-cloudant jar>
+	spark-submit --class "<your class>" --master local[4] --packages org.apache.bahir:spark-sql-cloudant_{{site.SCALA_BINARY_VERSION}}:{{site.SPARK_VERSION}} <path to spark-sql-cloudant jar>
 
 This library is compiled for Scala 2.11 only, and intends to support Spark 2.0 onwards.
 
