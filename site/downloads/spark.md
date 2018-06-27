@@ -40,7 +40,7 @@ Our latest release supports Apache Spark {{site.data.project.spark_latest_releas
         <tr>
             <th><b>Name</b></th>
             <th><b>Archive</b></th>
-            <!th><b>SHA-512</b></th>
+            <th><b>SHA-512</b></th>
             <th><b>signature</b></th>
         </tr>
     </thead>
