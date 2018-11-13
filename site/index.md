@@ -33,12 +33,12 @@ Currently, {{ site.data.project.short_name }} provides extensions for [Apache Sp
 
 ## Apache Spark extensions
 
- - Spark data source for Apache CouchDB/Cloudant ![](assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"}
- - Spark Structured Streaming data source for Akka ![](assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"}
+ - Spark data source for Apache CouchDB/Cloudant
+ - Spark Structured Streaming data source for Akka
  - Spark Structured Streaming data source for MQTT
- - Spark DStream connector for Apache CouchDB/Cloudant ![](assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"}
+ - Spark DStream connector for Apache CouchDB/Cloudant
  - Spark DStream connector for Akka
- - Spark DStream connector for Google Cloud Pub/Sub ![](assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"}
+ - Spark DStream connector for Google Cloud Pub/Sub
  - Spark DStream connector for MQTT
  - Spark DStream connector for Twitter
  - Spark DStream connector for ZeroMQ
