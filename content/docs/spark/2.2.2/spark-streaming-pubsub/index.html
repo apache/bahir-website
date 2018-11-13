@@ -4,8 +4,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Extensions for Apache Spark</title>
-    <meta name="description" content="Extensions for Apache Spark">
+    <title>Spark Streaming Google Pub-Sub</title>
+    <meta name="description" content="Spark Streaming Google Pub-Sub">
     <meta name="author" content="">
 
     <!-- Enable responsive viewport -->
@@ -184,7 +184,7 @@
 
       
 
-<!--<div class="hero-unit Extensions for Apache Spark">
+<!--<div class="hero-unit Spark Streaming Google Pub-Sub">
   <h1></h1>
 </div>
 -->
@@ -195,37 +195,88 @@
 
 -->
 
-<h3 id="apache-bahir-extensions-for-apache-spark-220">Apache Bahir Extensions for Apache Spark 2.2.0</h3>
+<p>A library for reading data from <a href="https://cloud.google.com/pubsub/">Google Cloud Pub/Sub</a> using Spark Streaming.</p>
 
-<p><br /></p>
+<h2 id="linking">Linking</h2>
 
-<h4 id="sql--data-sources">SQL  Data Sources</h4>
+<p>Using SBT:</p>
 
-<p><a href="../spark-sql-cloudant">Apache CouchDB/Cloudant data source</a></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>libraryDependencies += "org.apache.bahir" %% "spark-streaming-pubsub" % "2.2.2"
+</code></pre>
+</div>
 
-<p><br /></p>
+<p>Using Maven:</p>
 
-<h4 id="structured-streaming-data-sources">Structured Streaming Data Sources</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
+    &lt;artifactId&gt;spark-streaming-pubsub_2.11&lt;/artifactId&gt;
+    &lt;version&gt;2.2.2&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+</div>
 
-<p><a href="../spark-sql-streaming-akka">Akka data source</a></p>
+<p>This library can also be added to Spark jobs launched through <code class="highlighter-rouge">spark-shell</code> or <code class="highlighter-rouge">spark-submit</code> by using the <code class="highlighter-rouge">--packages</code> command line option.
+For example, to include it when starting the spark shell:</p>
 
-<p><a href="../spark-sql-streaming-mqtt">MQTT data source</a></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ bin/spark-shell --packages org.apache.bahir:spark-streaming-pubsub_2.11:2.2.2
+</code></pre>
+</div>
 
-<p><br /></p>
+<p>Unlike using <code class="highlighter-rouge">--jars</code>, using <code class="highlighter-rouge">--packages</code> ensures that this library and its dependencies will be added to the classpath.
+The <code class="highlighter-rouge">--packages</code> argument can also be used with <code class="highlighter-rouge">bin/spark-submit</code>.</p>
 
-<h4 id="discretized-streams-dstreams-connectors">Discretized Streams (DStreams) Connectors</h4>
+<h2 id="examples">Examples</h2>
 
-<p><a href="../spark-sql-cloudant">Apache CouchDB/Cloudant connector</a></p>
+<p>First you need to create credential by SparkGCPCredentials, it support four type of credentials
+* application default
+    <code class="highlighter-rouge">SparkGCPCredentials.builder.build()</code>
+* json type service account
+    <code class="highlighter-rouge">SparkGCPCredentials.builder.jsonServiceAccount(PATH_TO_JSON_KEY).build()</code>
+* p12 type service account
+    <code class="highlighter-rouge">SparkGCPCredentials.builder.p12ServiceAccount(PATH_TO_P12_KEY, EMAIL_ACCOUNT).build()</code>
+* metadata service account(running on dataproc)
+    <code class="highlighter-rouge">SparkGCPCredentials.builder.metadataServiceAccount().build()</code></p>
 
-<p><a href="../spark-streaming-akka">Akka connector</a></p>
+<h3 id="scala-api">Scala API</h3>
 
-<p><a href="../spark-streaming-pubsub">Google Cloud Pub/Sub connector</a></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>val lines = PubsubUtils.createStream(ssc, projectId, subscriptionName, credential, ..)
+</code></pre>
+</div>
 
-<p><a href="../spark-streaming-mqtt">MQTT connector</a></p>
+<h3 id="java-api">Java API</h3>
 
-<p><a href="../spark-streaming-twitter">Twitter connector</a></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>JavaDStream&lt;SparkPubsubMessage&gt; lines = PubsubUtils.createStream(jssc, projectId, subscriptionName, credential...)
+</code></pre>
+</div>
 
-<p><a href="../spark-streaming-zeromq">ZeroMQ connector</a></p>
+<p>See end-to-end examples at <a href="streaming-pubsub/examples">Google Cloud Pubsub Examples</a></p>
+
+<h3 id="unit-test">Unit Test</h3>
+
+<p>To run the PubSub test cases, you need to generate <strong>Google API service account key files</strong> and set the corresponding environment variable to enable the test.</p>
+
+<h4 id="to-generate-a-service-account-key-file-with-pubsub-permission">To generate a service account key file with PubSub permission</h4>
+
+<ol>
+  <li>Go to <a href="console.cloud.google.com">Google API Console</a></li>
+  <li>Choose the <code class="highlighter-rouge">Credentials</code> Tab&gt; <code class="highlighter-rouge">Create credentials</code> button&gt; <code class="highlighter-rouge">Service account key</code></li>
+  <li>Fill the account name, assign <code class="highlighter-rouge">Role&gt; Pub/Sub&gt; Pub/Sub Editor</code> and check the option <code class="highlighter-rouge">Furnish a private key</code> to create one. You need to create one for JSON key file, another for P12.</li>
+  <li>The account email is the <code class="highlighter-rouge">Service account ID</code></li>
+</ol>
+
+<h4 id="setting-the-environment-variables-and-run-test">Setting the environment variables and run test</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>mvn clean package -DskipTests -pl streaming-pubsub
+
+export ENABLE_PUBSUB_TESTS=1
+export GCP_TEST_ACCOUNT="THE_P12_SERVICE_ACCOUNT_ID_MENTIONED_ABOVE"
+export GCP_TEST_PROJECT_ID="YOUR_GCP_PROJECT_ID"
+export GCP_TEST_JSON_KEY_PATH=/path/to/pubsub/credential/files/Apache-Bahir-PubSub-1234abcd.json
+export GCP_TEST_P12_KEY_PATH=/path/to/pubsub/credential/files/Apache-Bahir-PubSub-5678efgh.p12
+
+mvn test -pl streaming-pubsub
+</code></pre>
+</div>
 
   </div>
 </div>
