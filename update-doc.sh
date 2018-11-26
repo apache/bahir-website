@@ -85,6 +85,8 @@ FLINK_WEBSITE_DOC_DIR=site/docs/flink/current
 FLINK_REPO_NAME=bahir-flink
 FLINK_BAHIR_SOURCE_DIR=target/$FLINK_REPO_NAME
 
+GIT_REF=${GIT_REF:-master}
+
 function checkout_code {
     # Checkout code
     cd "$BASE_DIR" # make sure we're in the base dir
@@ -156,6 +158,7 @@ function update_spark {
         spark-streaming-akka      streaming-akka            \
         spark-streaming-mqtt      streaming-mqtt            \
         spark-streaming-pubsub    streaming-pubsub          \
+        spark-streaming-pubnub    streaming-pubnub          \
         spark-streaming-twitter   streaming-twitter         \
         spark-streaming-zeromq    streaming-zeromq
 
@@ -174,6 +177,8 @@ function update_flink {
         flink-streaming-activemq  flink-connector-activemq  \
         flink-streaming-akka      flink-connector-akka      \
         flink-streaming-flume     flink-connector-flume     \
+        flink-streaming-influxdb  flink-connector-influxdb  \
+        flink-streaming-kudu      flink-connector-kudu      \
         flink-streaming-netty     flink-connector-netty     \
         flink-streaming-redis     flink-connector-redis
 
