@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Spark Streaming Google Pub-Sub
-description: Spark Streaming Google Pub-Sub
+title: Spark Streaming PubNub
+description: Spark Streaming PubNub
 group: nav-right
 ---
 <!--
