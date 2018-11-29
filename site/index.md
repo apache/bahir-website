@@ -39,9 +39,10 @@ Currently, {{ site.data.project.short_name }} provides extensions for [Apache Sp
  - Spark DStream connector for Apache CouchDB/Cloudant
  - Spark DStream connector for Akka
  - Spark DStream connector for Google Cloud Pub/Sub
- - Spark DStream connector for MQTT
+ - Spark DStream connector for Google PubNub ![](/assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"}
+ - Spark DStream connector for MQTT ![](/assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"} (new Sink)
  - Spark DStream connector for Twitter
- - Spark DStream connector for ZeroMQ
+ - Spark DStream connector for ZeroMQ ![](/assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"} (Enhanced Implementation)
 
 
 ## Apache Flink extensions

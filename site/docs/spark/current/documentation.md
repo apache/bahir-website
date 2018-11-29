@@ -39,7 +39,7 @@ limitations under the License.
 
 [Akka data source](../spark-sql-streaming-akka)
 
-[MQTT data source](../spark-sql-streaming-mqtt)
+[MQTT data source](../spark-sql-streaming-mqtt) ![](/assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"} (new Sink)
 
 <br/>
 
@@ -51,8 +51,10 @@ limitations under the License.
 
 [Google Cloud Pub/Sub connector](../spark-streaming-pubsub)
 
+[Cloud PubNub connector](../spark-streaming-pubnub) ![](/assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"}
+
 [MQTT connector](../spark-streaming-mqtt)
 
 [Twitter connector](../spark-streaming-twitter)
 
-[ZeroMQ connector](../spark-streaming-zeromq)
+[ZeroMQ connector](../spark-streaming-zeromq) ![](/assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"} (Enhanced Implementation)
