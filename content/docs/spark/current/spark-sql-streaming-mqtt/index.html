@@ -195,7 +195,7 @@
 
 -->
 
-<p>A library for reading data from MQTT Servers using Spark SQL Streaming ( or Structured streaming.).</p>
+<p>A library for writing and reading data from MQTT Servers using Spark SQL Streaming (or Structured streaming).</p>
 
 <h2 id="linking">Linking</h2>
 
@@ -229,7 +229,7 @@ The <code class="highlighter-rouge">--packages</code> argument can also be used 
 
 <h2 id="examples">Examples</h2>
 
-<p>A SQL Stream can be created with data streams received through MQTT Server using,</p>
+<p>SQL Stream can be created with data streams received through MQTT Server using:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>sqlContext.readStream
     .format("org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider")
@@ -238,9 +238,20 @@ The <code class="highlighter-rouge">--packages</code> argument can also be used 
 </code></pre>
 </div>
 
-<h2 id="enable-recovering-from-failures">Enable recovering from failures.</h2>
+<p>SQL Stream may be also transferred into MQTT messages using:</p>
 
-<p>Setting values for option <code class="highlighter-rouge">localStorage</code> and <code class="highlighter-rouge">clientId</code> helps in recovering in case of a restart, by restoring the state where it left off before the shutdown.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>sqlContext.writeStream
+    .format("org.apache.bahir.sql.streaming.mqtt.MQTTStreamSinkProvider")
+    .option("checkpointLocation", "/path/to/localdir")
+    .outputMode("complete")
+    .option("topic", "mytopic")
+    .load("tcp://localhost:1883")
+</code></pre>
+</div>
+
+<h2 id="source-recovering-from-failures">Source recovering from failures</h2>
+
+<p>Setting values for option <code class="highlighter-rouge">localStorage</code> and <code class="highlighter-rouge">clientId</code> helps in recovering in case of source restart, by restoring the state where it left off before the shutdown.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>sqlContext.readStream
     .format("org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider")
@@ -251,15 +262,15 @@ The <code class="highlighter-rouge">--packages</code> argument can also be used 
 </code></pre>
 </div>
 
-<h2 id="configuration-options">Configuration options.</h2>
+<h2 id="configuration-options">Configuration options</h2>
 
-<p>This source uses <a href="https://eclipse.org/paho/clients/java/">Eclipse Paho Java Client</a>. Client API documentation is located <a href="http://www.eclipse.org/paho/files/javadoc/index.html">here</a>.</p>
+<p>This connector uses <a href="https://eclipse.org/paho/clients/java/">Eclipse Paho Java Client</a>. Client API documentation is located <a href="http://www.eclipse.org/paho/files/javadoc/index.html">here</a>.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">brokerUrl</code> A url MqttClient connects to. Set this or <code class="highlighter-rouge">path</code> as the url of the Mqtt Server. e.g. tcp://localhost:1883.</li>
+  <li><code class="highlighter-rouge">brokerUrl</code> An URL MqttClient connects to. Set this or <code class="highlighter-rouge">path</code> as the URL of the Mqtt Server. e.g. tcp://localhost:1883.</li>
   <li><code class="highlighter-rouge">persistence</code> By default it is used for storing incoming messages on disk. If <code class="highlighter-rouge">memory</code> is provided as value for this option, then recovery on restart is not supported.</li>
   <li><code class="highlighter-rouge">topic</code> Topic MqttClient subscribes to.</li>
-  <li><code class="highlighter-rouge">clientId</code> clientId, this client is assoicated with. Provide the same value to recover a stopped client.</li>
+  <li><code class="highlighter-rouge">clientId</code> clientId, this client is associated with. Provide the same value to recover a stopped source client. MQTT sink ignores client identifier, because Spark batch can be distributed across multiple workers whereas MQTT broker does not allow simultanous connections with same ID from multiple hosts.</li>
   <li><code class="highlighter-rouge">QoS</code> The maximum quality of service to subscribe each topic at. Messages published at a lower quality of service will be received at the published QoS. Messages published at a higher quality of service will be received using the QoS specified on the subscribe.</li>
   <li><code class="highlighter-rouge">username</code> Sets the user name to use for the connection to Mqtt Server. Do not set it, if server does not need this. Setting it empty will lead to errors.</li>
   <li><code class="highlighter-rouge">password</code> Sets the password to use for the connection.</li>
@@ -267,6 +278,20 @@ The <code class="highlighter-rouge">--packages</code> argument can also be used 
   <li><code class="highlighter-rouge">connectionTimeout</code> Sets the connection timeout, a value of 0 is interpretted as wait until client connects. See <code class="highlighter-rouge">MqttConnectOptions.setConnectionTimeout</code> for more information.</li>
   <li><code class="highlighter-rouge">keepAlive</code> Same as <code class="highlighter-rouge">MqttConnectOptions.setKeepAliveInterval</code>.</li>
   <li><code class="highlighter-rouge">mqttVersion</code> Same as <code class="highlighter-rouge">MqttConnectOptions.setMqttVersion</code>.</li>
+  <li><code class="highlighter-rouge">maxInflight</code> Same as <code class="highlighter-rouge">MqttConnectOptions.setMaxInflight</code></li>
+  <li><code class="highlighter-rouge">autoReconnect</code> Same as <code class="highlighter-rouge">MqttConnectOptions.setAutomaticReconnect</code></li>
+</ul>
+
+<h2 id="environment-variables">Environment variables</h2>
+
+<p>Custom environment variables allowing to manage MQTT connectivity performed by sink connector:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">spark.mqtt.client.connect.attempts</code> Number of attempts sink will try to connect to MQTT broker before failing.</li>
+  <li><code class="highlighter-rouge">spark.mqtt.client.connect.backoff</code> Delay in milliseconds to wait before retrying connection to the server.</li>
+  <li><code class="highlighter-rouge">spark.mqtt.connection.cache.timeout</code> Sink connector caches MQTT connections. Idle connections will be closed after timeout milliseconds.</li>
+  <li><code class="highlighter-rouge">spark.mqtt.client.publish.attempts</code> Number of attempts to publish the message before failing the task.</li>
+  <li><code class="highlighter-rouge">spark.mqtt.client.publish.backoff</code> Delay in milliseconds to wait before retrying send operation.</li>
 </ul>
 
 <h3 id="scala-api">Scala API</h3>
@@ -277,7 +302,7 @@ The <code class="highlighter-rouge">--packages</code> argument can also be used 
 val lines = spark.readStream
   .format("org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider")
   .option("topic", topic)
-  .load(brokerUrl).as[(String, Timestamp)]
+  .load(brokerUrl).selectExpr("CAST(payload AS STRING)").as[String]
 
 // Split the lines into words
 val words = lines.map(_._1).flatMap(_.split(" "))
@@ -295,7 +320,7 @@ query.awaitTermination()
 </code></pre>
 </div>
 
-<p>Please see <code class="highlighter-rouge">MQTTStreamWordCount.scala</code> for full example.</p>
+<p>Please see <code class="highlighter-rouge">MQTTStreamWordCount.scala</code> for full example. Review <code class="highlighter-rouge">MQTTSinkWordCount.scala</code>, if interested in publishing data to MQTT broker.</p>
 
 <h3 id="java-api">Java API</h3>
 
@@ -306,7 +331,8 @@ Dataset&lt;String&gt; lines = spark
         .readStream()
         .format("org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider")
         .option("topic", topic)
-        .load(brokerUrl).select("value").as(Encoders.STRING());
+        .load(brokerUrl)
+        .selectExpr("CAST(payload AS STRING)").as(Encoders.STRING());
 
 // Split the lines into words
 Dataset&lt;String&gt; words = lines.flatMap(new FlatMapFunction&lt;String, String&gt;() {
@@ -329,7 +355,71 @@ query.awaitTermination();
 </code></pre>
 </div>
 
-<p>Please see <code class="highlighter-rouge">JavaMQTTStreamWordCount.java</code> for full example.</p>
+<p>Please see <code class="highlighter-rouge">JavaMQTTStreamWordCount.java</code> for full example. Review <code class="highlighter-rouge">JavaMQTTSinkWordCount.java</code>, if interested in publishing data to MQTT broker.</p>
+
+<h2 id="best-practices">Best Practices.</h2>
+
+<ol>
+  <li>Turn Mqtt into a more reliable messaging service.</li>
+</ol>
+
+<blockquote>
+  <p><em>MQTT is a machine-to-machine (M2M)/”Internet of Things” connectivity protocol. It was designed as an extremely lightweight publish/subscribe messaging transport.</em></p>
+</blockquote>
+
+<p>The design of Mqtt and the purpose it serves goes well together, but often in an application it is of utmost value to have reliability. Since mqtt is not a distributed message queue and thus does not offer the highest level of reliability features. It should be redirected via a kafka message queue to take advantage of a distributed message queue. In fact, using a kafka message queue offers a lot of possibilities including a single kafka topic subscribed to several mqtt sources and even a single mqtt stream publishing to multiple kafka topics. Kafka is a reliable and scalable message queue.</p>
+
+<ol>
+  <li>Often the message payload is not of the default character encoding or contains binary that needs to be parsed using a particular parser. In such cases, spark mqtt payload should be processed using the external parser. For example:</li>
+</ol>
+
+<ul>
+  <li>
+    <p>Scala API example:
+<code class="highlighter-rouge">scala
+ // Create DataFrame representing the stream of binary messages
+ val lines = spark.readStream
+   .format("org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider")
+   .option("topic", topic)
+   .load(brokerUrl).select("payload").as[Array[Byte]].map(externalParser(_))
+</code></p>
+  </li>
+  <li>
+    <p>Java API example
+```java
+     // Create DataFrame representing the stream of binary messages
+     Dataset&lt;byte[]&gt; lines = spark
+             .readStream()
+             .format(“org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider”)
+             .option(“topic”, topic)
+             .load(brokerUrl).selectExpr(“CAST(payload AS BINARY)”).as(Encoders.BINARY());</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code> // Split the lines into words
+ Dataset&lt;String&gt; words = lines.map(new MapFunction&lt;byte[], String&gt;() {
+     @Override
+     public String call(byte[] bytes) throws Exception {
+         return new String(bytes); // Plug in external parser here.
+     }
+ }, Encoders.STRING()).flatMap(new FlatMapFunction&lt;String, String&gt;() {
+     @Override
+     public Iterator&lt;String&gt; call(String x) {
+         return Arrays.asList(x.split(" ")).iterator();
+     }
+ }, Encoders.STRING());
+</code></pre>
+    </div>
+  </li>
+</ul>
+
+<p>```</p>
+
+<ol>
+  <li>What is the solution for a situation when there are a large number of varied mqtt sources, each with different schema and throughput characteristics.</li>
+</ol>
+
+<p>Generally, one would create a lot of streaming pipelines to solve this problem. This would either require a very sophisticated scheduling setup or will waste a lot of resources, as it is not certain which stream is using more amount of data.</p>
+
+<p>The general solution is both less optimum and is more cumbersome to operate, with multiple moving parts incurs a high maintenance overall. As an alternative, in this situation, one can setup a single topic kafka-spark stream, where message from each of the varied stream contains a unique tag separating one from other streams. This way at the processing end, one can distinguish the message from one another and apply the right kind of decoding and processing. Similarly while storing, each message can be distinguished from others by a tag that distinguishes.</p>
 
 
   </div>

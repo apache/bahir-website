@@ -4,8 +4,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Extensions for Apache Spark</title>
-    <meta name="description" content="Extensions for Apache Spark">
+    <title>Spark Streaming Google Pub-Sub</title>
+    <meta name="description" content="Spark Streaming Google Pub-Sub">
     <meta name="author" content="">
 
     <!-- Enable responsive viewport -->
@@ -184,7 +184,7 @@
 
       
 
-<!--<div class="hero-unit Extensions for Apache Spark">
+<!--<div class="hero-unit Spark Streaming Google Pub-Sub">
   <h1></h1>
 </div>
 -->
@@ -195,39 +195,91 @@
 
 -->
 
-<h3 id="apache-bahir-extensions-for-apache-spark">Apache Bahir Extensions for Apache Spark</h3>
+<h1 id="spark-streaming-pubnub-connector">Spark Streaming PubNub Connector</h1>
 
-<p><br /></p>
+<p>Library for reading data from real-time messaging infrastructure <a href="https://www.pubnub.com/">PubNub</a> using Spark Streaming.</p>
 
-<h4 id="sql--data-sources">SQL  Data Sources</h4>
+<h2 id="linking">Linking</h2>
 
-<p><a href="../spark-sql-cloudant">Apache CouchDB/Cloudant data source</a></p>
+<p>Using SBT:</p>
 
-<p><br /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>libraryDependencies += "org.apache.bahir" %% "spark-streaming-pubnub" % "2.3.0-SNAPSHOT"
+</code></pre>
+</div>
 
-<h4 id="structured-streaming-data-sources">Structured Streaming Data Sources</h4>
+<p>Using Maven:</p>
 
-<p><a href="../spark-sql-streaming-akka">Akka data source</a></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
+    &lt;artifactId&gt;spark-streaming-pubnub_2.11&lt;/artifactId&gt;
+    &lt;version&gt;2.3.0-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+</div>
 
-<p><a href="../spark-sql-streaming-mqtt">MQTT data source</a> <img src="/assets/themes/apache-clean/img/new-black.png" alt="" height="36px" width="36px" /> (new Sink)</p>
+<p>This library can also be added to Spark jobs launched through <code class="highlighter-rouge">spark-shell</code> or <code class="highlighter-rouge">spark-submit</code> by using the <code class="highlighter-rouge">--packages</code> command line option.
+For example, to include it when starting the spark shell:</p>
 
-<p><br /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ bin/spark-shell --packages org.apache.bahir:spark-streaming-pubnub_2.11:2.3.0-SNAPSHOT
+</code></pre>
+</div>
 
-<h4 id="discretized-streams-dstreams-connectors">Discretized Streams (DStreams) Connectors</h4>
+<p>Unlike using <code class="highlighter-rouge">--jars</code>, using <code class="highlighter-rouge">--packages</code> ensures that this library and its dependencies will be added to the classpath.
+The <code class="highlighter-rouge">--packages</code> argument can also be used with <code class="highlighter-rouge">bin/spark-submit</code>.</p>
 
-<p><a href="../spark-sql-cloudant">Apache CouchDB/Cloudant connector</a></p>
+<h2 id="examples">Examples</h2>
 
-<p><a href="../spark-streaming-akka">Akka connector</a></p>
+<p>Connector leverages official Java client for PubNub cloud infrastructure. You can import the <code class="highlighter-rouge">PubNubUtils</code>
+class and create input stream by calling <code class="highlighter-rouge">PubNubUtils.createStream()</code> as shown below. Security and performance related
+features shall be setup inside standard <code class="highlighter-rouge">PNConfiguration</code> object. We advise to configure reconnection policy so that
+temporary network outages do not interrupt processing job. Users may subscribe to multiple channels and channel groups,
+as well as specify time token to start receiving messages since given point in time.</p>
 
-<p><a href="../spark-streaming-pubsub">Google Cloud Pub/Sub connector</a></p>
+<p>For complete code examples, please review <em>examples</em> directory.</p>
 
-<p><a href="../spark-streaming-pubnub">Cloud PubNub connector</a> <img src="/assets/themes/apache-clean/img/new-black.png" alt="" height="36px" width="36px" /></p>
+<h3 id="scala-api">Scala API</h3>
 
-<p><a href="../spark-streaming-mqtt">MQTT connector</a></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>import com.pubnub.api.PNConfiguration
+import com.pubnub.api.enums.PNReconnectionPolicy
 
-<p><a href="../spark-streaming-twitter">Twitter connector</a></p>
+import org.apache.spark.streaming.pubnub.{PubNubUtils, SparkPubNubMessage}
 
-<p><a href="../spark-streaming-zeromq">ZeroMQ connector</a> <img src="/assets/themes/apache-clean/img/new-black.png" alt="" height="36px" width="36px" /> (Enhanced Implementation)</p>
+val config = new PNConfiguration
+config.setSubscribeKey(subscribeKey)
+config.setSecure(true)
+config.setReconnectionPolicy(PNReconnectionPolicy.LINEAR)
+val channel = "my-channel"
+
+val pubNubStream: ReceiverInputDStream[SparkPubNubMessage] = PubNubUtils.createStream(
+  ssc, config, Seq(channel), Seq(), None, StorageLevel.MEMORY_AND_DISK_SER_2
+)
+</code></pre>
+</div>
+
+<h3 id="java-api">Java API</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import com.pubnub.api.PNConfiguration
+import com.pubnub.api.enums.PNReconnectionPolicy
+
+import org.apache.spark.streaming.pubnub.PubNubUtils
+import org.apache.spark.streaming.pubnub.SparkPubNubMessage
+
+PNConfiguration config = new PNConfiguration()
+config.setSubscribeKey(subscribeKey)
+config.setSecure(true)
+config.setReconnectionPolicy(PNReconnectionPolicy.LINEAR)
+Set&lt;String&gt; channels = new HashSet&lt;String&gt;() ;
+
+ReceiverInputDStream&lt;SparkPubNubMessage&gt; pubNubStream = PubNubUtils.createStream(
+  ssc, config, channels, Collections.EMPTY_SET, null,
+  StorageLevel.MEMORY_AND_DISK_SER_2()
+)
+</code></pre>
+</div>
+
+<h2 id="unit-test">Unit Test</h2>
+
+<p>Unit tests take advantage of publicly available <em>demo</em> subscription and and publish key, which has limited request rate.</p>
 
   </div>
 </div>
