@@ -27,17 +27,34 @@ limitations under the License.
 
 ### Apache Bahir Extensions for Apache Spark
 
- - [Current - 2.3.0-SNAPSHOT](/docs/spark/current/documentation)
- - [2.3.2](/docs/spark/2.3.2/documentation)
- - [2.3.1](/docs/spark/2.3.1/documentation)
- - [2.3.0](/docs/spark/2.3.0/documentation)
- - [2.2.2](/docs/spark/2.2.2/documentation)
- - [2.2.1](/docs/spark/2.2.1/documentation)
- - [2.2.0](/docs/spark/2.2.0/documentation)
- - [2.1.3](/docs/spark/2.1.3/documentation)
- - [2.1.2](/docs/spark/2.1.2/documentation)
- - [2.1.1](/docs/spark/2.1.1/documentation)
- - [2.1.0](/docs/spark/2.1.0/documentation)
- - [2.0.2](/docs/spark/2.0.2/documentation)
- - [2.0.1](/docs/spark/2.0.1/documentation)
- - [2.0.0](/docs/spark/2.0.0/documentation)
+<br/>
+
+#### SQL  Data Sources
+
+[Apache CouchDB/Cloudant data source](../spark-sql-cloudant)
+
+<br/>
+
+#### Structured Streaming Data Sources
+
+[Akka data source](../spark-sql-streaming-akka)
+
+[MQTT data source](../spark-sql-streaming-mqtt) ![](/assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"} (new Sink)
+
+<br/>
+
+#### Discretized Streams (DStreams) Connectors
+
+[Apache CouchDB/Cloudant connector](../spark-sql-cloudant)
+
+[Akka connector](../spark-streaming-akka)
+
+[Google Cloud Pub/Sub connector](../spark-streaming-pubsub)
+
+[Cloud PubNub connector](../spark-streaming-pubnub) ![](/assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"}
+
+[MQTT connector](../spark-streaming-mqtt)
+
+[Twitter connector](../spark-streaming-twitter)
+
+[ZeroMQ connector](../spark-streaming-zeromq) ![](/assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"} (Enhanced Implementation)
