@@ -27,7 +27,7 @@ limitations under the License.
 
 ### Apache Bahir Extensions for Apache Spark
 
- - [Current - 2.3.0-SNAPSHOT](/docs/spark/current/documentation)
+ - [Current - 2.4.0-SNAPSHOT](/docs/spark/current/documentation)
  - [2.3.2](/docs/spark/2.3.2/documentation)
  - [2.3.1](/docs/spark/2.3.1/documentation)
  - [2.3.0](/docs/spark/2.3.0/documentation)
