@@ -27,5 +27,5 @@ limitations under the License.
 
 ### Apache Bahir Extensions for Apache Flink
 
- - [Current - 1.0-SNAPSHOT](/docs/flink/current/documentation)
+ - [Current - 1.1-SNAPSHOT](/docs/flink/current/documentation)
  - [1.0](/docs/flink/1.0/documentation)

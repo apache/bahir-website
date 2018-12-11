@@ -48,9 +48,11 @@ Currently, {{ site.data.project.short_name }} provides extensions for [Apache Sp
 ## Apache Flink extensions
 
  - Flink streaming connector for ActiveMQ
- - Flink streaming connector for Flume
- - Flink streaming connector for Redis
  - Flink streaming connector for Akka
+ - Flink streaming connector for Flume
+ - Flink streaming connector for InfluxDB ![](/assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"}
+ - Flink streaming connector for Kudu ![](/assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"}
+ - Flink streaming connector for Redis
  - Flink streaming connector for Netty
 
 
