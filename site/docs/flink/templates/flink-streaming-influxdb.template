@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Extensions for Apache Flink (1.1-SNAPSHOT)
-description: Extensions for Apache Flink (1.1-SNAPSHOT)
+title: Apache Flink Streaming Connector for InfluxDB
+description: Apache Flink Streaming Connector for InfluxDB
 group: nav-right
 ---
 <!--
@@ -25,22 +25,3 @@ limitations under the License.
 
 {% include JB/setup %}
 
-### Apache Bahir Extensions for Apache Flink
-
-<br/>
-
-#### Streaming Connectors
-
-[ActiveMQ connector](../flink-streaming-activemq)
-
-[Akka connector](../flink-streaming-akka)
-
-[Flume connector](../flink-streaming-flume)
-
-[InfluxDB connector](../flink-streaming-influxdb)
-
-[Kudu connector](../flink-streaming-kudu)
-
-[Netty connector](../flink-streaming-netty)
-
-[Redis connector](../flink-streaming-redis)
