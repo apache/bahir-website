@@ -4,8 +4,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Contributing a new extension</title>
-    <meta name="description" content="Contributing a new extension page">
+    <title>Apache Flink Streaming Connector for Apache Kudu</title>
+    <meta name="description" content="Apache Flink Streaming Connector for Apache Kudu">
     <meta name="author" content="">
 
     <!-- Enable responsive viewport -->
@@ -184,7 +184,7 @@
 
       
 
-<!--<div class="hero-unit Contributing a new extension">
+<!--<div class="hero-unit Apache Flink Streaming Connector for Apache Kudu">
   <h1></h1>
 </div>
 -->
@@ -195,51 +195,106 @@
 
 -->
 
-<h1 id="contributing-new-extensions-to-apache-bahir">Contributing new Extensions to Apache Bahir</h1>
+<h1 id="flink-kudu-connector">Flink Kudu Connector</h1>
 
-<p>Apache Bahir provides extensions to distributed analytic platforms such as Apache Spark.  In the context of Apache Spark, extensions can be Streaming connectors, SQL data sources, etc</p>
+<p>This connector provides a source (<code class="highlighter-rouge">KuduInputFormat</code>) and a sink/output (<code class="highlighter-rouge">KuduSink</code> and <code class="highlighter-rouge">KuduOutputFormat</code>, respectively) that can read and write to <a href="https://kudu.apache.org/">Kudu</a>. To use this connector, add the
+following dependency to your project:</p>
 
-<p>This document explains the process for proposing a new extension to Apache Bahir, and how the extension lifecycle are handled in the project.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
+  &lt;artifactId&gt;flink-connector-kudu_2.11&lt;/artifactId&gt;
+  &lt;version&gt;1.1-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+</div>
 
-<h2 id="proposing-a-new-extension">Proposing a new extension</h2>
+<p><em>Version Compatibility</em>: This module is compatible with Apache Kudu <em>1.7.1</em> (last stable version).</p>
 
-<p>In Apache Bahir we believe that forming a community around these extensions will actually make it better, and extend its life cycle, thus we require that new extensions be discussed on the project mailing list and receive at least 3 +1 from other committers.</p>
+<p>Note that the streaming connectors are not part of the binary distribution of Flink. You need to link them into your job jar for cluster execution.
+See how to link with them for cluster execution <a href="https://ci.apache.org/projects/flink/flink-docs-stable/start/dependencies.html">here</a>.</p>
 
-<p>When set of committers provides a +1 vote to a new extension, they become the initial community around the extension, and will become responsible for helping on patch reviews, but especially, they will become the backup for maintaining the extension in case of build issues, reacting to api changes, or any other issues that might break the extension.</p>
+<h2 id="installing-kudu">Installing Kudu</h2>
 
-<p>Once a proposed extension gets the necessary votes, the author should follow the regular contribution process, creating a jira if one is not available yet, and provide a pull request.</p>
+<p>Follow the instructions from the <a href="https://kudu.apache.org/docs/installation.html">Kudu Installation Guide</a>.
+Optionally, you can use the docker images provided in dockers folder.</p>
 
-<h2 id="what-is-expected-of-a-new-extension">What is expected of a new extension</h2>
+<h2 id="kuduinputformat">KuduInputFormat</h2>
 
-<p>Extensions must provide:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 
-<ol>
-  <li><strong>The main extension code</strong>: this is the actually the extension core code</li>
-  <li><strong>Extensible test coverage</strong>: automated tests is a MUST to serve as examples on how to use the extension, but also to assert that it works and continue to works while it evolves</li>
-  <li><strong>Documentation</strong>: extensions MUST provide details on how users would integrated the extension in their applications</li>
-</ol>
+env.setParallelism(PARALLELISM);
 
-<p>Extensions might also provide:</p>
+// create a table info object
+KuduTableInfo tableInfo = KuduTableInfo.Builder
+        .create("books")
+        .addColumn(KuduColumnInfo.Builder.create("id", Type.INT32).key(true).hashKey(true).build())
+        .addColumn(KuduColumnInfo.Builder.create("title", Type.STRING).build())
+        .addColumn(KuduColumnInfo.Builder.create("author", Type.STRING).build())
+        .addColumn(KuduColumnInfo.Builder.create("price", Type.DOUBLE).build())
+        .addColumn(KuduColumnInfo.Builder.create("quantity", Type.INT32).build())
+        .build();
+    
+// Pass the tableInfo to the KuduInputFormat and provide kuduMaster ips
+env.createInput(new KuduInputFormat&lt;&gt;("172.25.0.6", tableInfo))
+        .count();
+        
+env.execute();
+</code></pre>
+</div>
 
-<ol>
-  <li><strong>Example</strong>: a simple application that can serve as a reference point on how to use the extension in an application. Users must be able to simply build and deploy the sample application into a cluster.</li>
-</ol>
+<h2 id="kuduoutputformat">KuduOutputFormat</h2>
 
-<h2 id="extension-life-cycle">Extension life cycle</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 
-<p>We understand that software, particularly open source one, evolves quite quickly, and thus we antecipate that some extensions might start to lag behind in its maintenance.</p>
+env.setParallelism(PARALLELISM);
 
-<p>The steps described below were crafted with the intention to alleviate the side-effects of one extension lagging behind and becoming broke for one reason or another.</p>
+// create a table info object
+KuduTableInfo tableInfo = KuduTableInfo.Builder
+        .create("books")
+        .createIfNotExist(true)
+        .replicas(1)
+        .addColumn(KuduColumnInfo.Builder.create("id", Type.INT32).key(true).hashKey(true).build())
+        .addColumn(KuduColumnInfo.Builder.create("title", Type.STRING).build())
+        .addColumn(KuduColumnInfo.Builder.create("author", Type.STRING).build())
+        .addColumn(KuduColumnInfo.Builder.create("price", Type.DOUBLE).build())
+        .addColumn(KuduColumnInfo.Builder.create("quantity", Type.INT32).build())
+        .build();
 
-<h3 id="retiring-extensions">Retiring extensions</h3>
+...
 
-<p>When a particular extension breaks a build, it will be removed from the build (TBD the actual period here) to minimize the impact on the community.</p>
+env.fromCollection(books)
+        .output(new KuduOutputFormat&lt;&gt;("172.25.0.6", tableInfo));
 
-<p>Extensions that stay out of the build for a period of time (TBD the actual period here) will be retired to an ‘contrib’ folder, and at that point will not be part of the official releases.</p>
+env.execute();
+</code></pre>
+</div>
 
-<h3 id="resurecting-a-retired-extension">Resurecting a retired extension</h3>
+<h2 id="kudusink">KuduSink</h2>
 
-<p>At any point, a community member can request to resurect a retired extension, and at this point, the process is the same as the initial extension proposal, where he would propose the extension to be brought to life again, and would need to receive at least 3 +1 from other committers.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+
+env.setParallelism(PARALLELISM);
+
+// create a table info object
+KuduTableInfo tableInfo = KuduTableInfo.Builder
+        .create("books")
+        .createIfNotExist(true)
+        .replicas(1)
+        .addColumn(KuduColumnInfo.Builder.create("id", Type.INT32).key(true).hashKey(true).build())
+        .addColumn(KuduColumnInfo.Builder.create("title", Type.STRING).build())
+        .addColumn(KuduColumnInfo.Builder.create("author", Type.STRING).build())
+        .addColumn(KuduColumnInfo.Builder.create("price", Type.DOUBLE).build())
+        .addColumn(KuduColumnInfo.Builder.create("quantity", Type.INT32).build())
+        .build();
+
+...
+
+env.fromCollection(books)
+    .addSink(new KuduSink&lt;&gt;("172.25.0.6", tableInfo));
+
+env.execute();
+</code></pre>
+</div>
 
   </div>
 </div>
