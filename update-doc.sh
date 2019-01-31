@@ -94,7 +94,7 @@ function checkout_code {
     rm -rf target
     mkdir target
     cd target
-    git clone "https://git-wip-us.apache.org/repos/asf/$1.git" --quiet
+    git clone "https://gitbox.apache.org/repos/asf/$1.git" --quiet
     cd "$1"
     git checkout "$GIT_REF"
     git_hash=$(git rev-parse --short HEAD)
