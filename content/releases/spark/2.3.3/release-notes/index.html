@@ -4,8 +4,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Home</title>
-    
+    <title>Bahir Release 2.1.0</title>
+    <meta name="description" content="Release Notes for Apache Bahir 2.1.0">
     <meta name="author" content="">
 
     <!-- Enable responsive viewport -->
@@ -37,26 +37,6 @@
   <body>
 
     
-<div class="jumbotron">
-  <div class="container">
-    <img class="logo-img" src="/assets/themes/apache-clean/img/apache_logo_800.png" alt="Apache Bahir"/>
-    <!--h1>Apache Bahir</h1-->
-    <!--p>Apache Bahir provides extensions to distributed analytic platforms such as Apache Spark and Apache Flink.</p-->
-
-    
-      <div class="col-md-12 text-center">
-         <a href="/downloads/spark" class="btn btn-primary btn-lg bigFingerButton" role="button">Download Apache Bahir Spark Extensions 2.3.3</a></p>
-      </div>
-    
-
-    
-      <div class="col-md-12 text-center">
-         <a href="/downloads/flink" class="btn btn-primary btn-lg bigFingerButton" role="button">Download Apache Bahir Flink Extensions 1.0</a></p>
-      </div>
-    
-  </div>
-</div>
-
 
 <!-- Navigation -->
 <div id="nav-bar">
@@ -78,6 +58,21 @@
         <ul class="nav navbar-nav">
           
           
+          
+          <li id="download">
+            
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Download<b class="caret"></b></a>
+            <ul class="dropdown-menu dropdown-left">
+              
+              
+              <li><a href="/downloads/spark" target="_self">Bahir Spark Extensions</a></li>
+              
+              
+              <li><a href="/downloads/flink" target="_self">Bahir Flink Extensions</a></li>
+              
+            </ul>
+            
+          </li>
           
           
           
@@ -189,8 +184,8 @@
 
       
 
-<!--<div class="hero-unit Home">
-  <h1> <small>Apache Project !</small></h1>
+<!--<div class="hero-unit Bahir Release 2.1.0">
+  <h1></h1>
 </div>
 -->
 
@@ -200,52 +195,33 @@
 
 -->
 
-<h2 id="what-is-apache-bahir">What is Apache Bahir</h2>
+<h1 id="apache-bahir-for-apache-spark-233">Apache Bahir for Apache Spark 2.3.3</h1>
 
-<p>Apache Bahir provides extensions to multiple distributed analytic platforms, extending their reach with a diversity of streaming connectors and SQL data sources.</p>
+<p>Below are all the enhancements and bug fixes for the 2.3.x releases.</p>
 
-<p>Currently, Bahir provides extensions for <a href="http://spark.apache.org" target="_blank">Apache Spark</a> and <a href="http://flink.apache.org" target="_blank">Apache Flink</a>.</p>
+<p>Release Notes - Bahir - Version Spark-2.3.0</p>
 
-<h2 id="apache-spark-extensions">Apache Spark extensions</h2>
-
-<ul>
-  <li>Spark data source for Apache CouchDB/Cloudant</li>
-  <li>Spark Structured Streaming data source for Akka</li>
-  <li>Spark Structured Streaming data source for MQTT</li>
-  <li>Spark DStream connector for Apache CouchDB/Cloudant</li>
-  <li>Spark DStream connector for Akka</li>
-  <li>Spark DStream connector for Google Cloud Pub/Sub</li>
-  <li>Spark DStream connector for PubNub <img src="/assets/themes/apache-clean/img/new-black.png" alt="" height="36px" width="36px" /></li>
-  <li>Spark DStream connector for MQTT <img src="/assets/themes/apache-clean/img/new-black.png" alt="" height="36px" width="36px" /> (new Sink)</li>
-  <li>Spark DStream connector for Twitter</li>
-  <li>Spark DStream connector for ZeroMQ <img src="/assets/themes/apache-clean/img/new-black.png" alt="" height="36px" width="36px" /> (Enhanced Implementation)</li>
-</ul>
-
-<h2 id="apache-flink-extensions">Apache Flink extensions</h2>
-
-<ul>
-  <li>Flink streaming connector for ActiveMQ</li>
-  <li>Flink streaming connector for Akka</li>
-  <li>Flink streaming connector for Flume</li>
-  <li>Flink streaming connector for InfluxDB <img src="/assets/themes/apache-clean/img/new-black.png" alt="" height="36px" width="36px" /></li>
-  <li>Flink streaming connector for Kudu <img src="/assets/themes/apache-clean/img/new-black.png" alt="" height="36px" width="36px" /></li>
-  <li>Flink streaming connector for Redis</li>
-  <li>Flink streaming connector for Netty</li>
-</ul>
-
-<p>The Apache Bahir community welcomes the proposal of new extensions.</p>
-
-<h2 id="contact-the-bahir-community">Contact the Bahir community</h2>
-
-<p>For Bahir updates and news, subscribe to our development mailing list. Check out <a href="/community">All Mailing Lists</a>.</p>
-
-<div class="row">
-  <div class="col-md-12">
-      <a href="mailto:dev@bahir.apache.org?subject=Please update your subject" class="btn btn-primary btn-lg bigFingerButton" role="button">E-mail us</a>
-      <a href="mailto:dev-subscribe@bahir.apache.org?subject=send this email to subscribe" class="btn btn-primary btn-lg bigFingerButton" role="button">Subscribe</a>
-      <a href="https://www.mail-archive.com/dev@bahir.apache.org/" target="_blank" class="btn btn-primary btn-lg bigFingerButton" role="button">View Archive</a>
-  </div>
+<div class="highlighter-rouge"><pre class="highlight"><code>* [BAHIR-46]  - Handle re-delivery of message in MQTT structured streaming source.
+* [BAHIR-104] - MQTT Dstream returned by the new multi topic support API is not a pairRDD
+* [BAHIR-128] - Test failing sporadically in sql-cloudant's CloudantChangesDFSuite
+* [BAHIR-139] - Scala-maven-plugin does not respect Java compile level
+* [BAHIR-152] - License header not enforced for Java sources
+* [BAHIR-159] - Our project needs to use org.apache.bahir:spark-sql-streaming-mqtt_2.11:2.2.0, which has dependency conflict problem.
+* [BAHIR-165] - The avro messages to streaming-mqtt gives negative value.
+* [BAHIR-66]  - Add test that ZeroMQ streaming connector can receive data
+* [BAHIR-164] - Spark Streaming with MQTT fails with Spark 2.3.0
+* [BAHIR-166] - Migrate akka sql streaming source to datasrouce v2 API
+* [BAHIR-49]  - Add MQTTSink to SQL Streaming MQTT.
+* [BAHIR-182] - Create PubNub extension for Apache Spark Streaming
+* [BAHIR-137] - Load performance improvements for _changes API in sql-cloudant
+* [BAHIR-154] - Refactor sql-cloudant to use Cloudant's java-cloudant features
+* [BAHIR-181] - username and password should be available for pyspark when using mqtt streaming
+* [BAHIR-123] - Fix errors to support the latest version of Play JSON library for sql-cloudant
+* [BAHIR-138] - Fix sql-cloudant deprecation messages
+* [BAHIR-150] - Jenkins PR builder should not abort build after first failed module
+</code></pre>
 </div>
+
 
   </div>
 </div>
