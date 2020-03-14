@@ -65,7 +65,9 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="/downloads/spark" target="_self">Bahir Spark Extensions</a></li>
+              
               
               
               <li><a href="/downloads/flink" target="_self">Bahir Flink Extensions</a></li>
@@ -83,19 +85,25 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="/community" target="_self">Get Involved</a></li>
+              
               
               
               <li><a href="/contributing" target="_self">Contributing</a></li>
               
               
+              
               <li><a href="/contributing-extensions" target="_self">Contributing Extensions</a></li>
+              
               
               
               <li><a href="https://issues.apache.org/jira/browse/BAHIR" target="_blank">Issue Tracker</a></li>
               
               
+              
               <li><a href="/community#source-code" target="_self">Source Code</a></li>
+              
               
               
               <li><a href="/community-members" target="_self">Project Committers</a></li>
@@ -113,7 +121,9 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="/docs/spark/overview" target="_self">Bahir Spark Extensions</a></li>
+              
               
               
               <li><a href="/docs/flink/overview" target="_self">Bahir Flink Extensions</a></li>
@@ -131,10 +141,13 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="https://github.com/apache/bahir" target="_blank">Bahir Spark Extensions</a></li>
               
               
+              
               <li><a href="https://github.com/apache/bahir-flink" target="_blank">Bahir Flink Extensions</a></li>
+              
               
               
               <li><a href="https://github.com/apache/bahir-website" target="_blank">Bahir Website</a></li>
@@ -152,16 +165,21 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="http://www.apache.org/foundation/how-it-works.html" target="_blank">Apache Software Foundation</a></li>
+              
               
               
               <li><a href="http://www.apache.org/licenses/" target="_blank">Apache License</a></li>
               
               
+              
               <li><a href="http://www.apache.org/foundation/sponsorship" target="_blank">Sponsorship</a></li>
               
               
+              
               <li><a href="http://www.apache.org/foundation/thanks.html" target="_blank">Thanks</a></li>
+              
               
               
               <li><a href="/privacy-policy" target="_self">Privacy Policy</a></li>
@@ -201,13 +219,12 @@
 to <a href="http://redis.io/topics/pubsub">Redis PubSub</a>. To use this connector, add the
 following dependency to your project:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
+<pre><code>&lt;dependency&gt;
   &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
   &lt;artifactId&gt;flink-connector-redis_2.11&lt;/artifactId&gt;
   &lt;version&gt;1.0&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre>
-</div>
 
 <p><em>Version Compatibility</em>: This module is compatible with Redis 2.8.5.</p>
 
@@ -233,7 +250,7 @@ The sink can use three different methods for communicating with different type o
 
 <p><strong>Java:</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>public static class RedisExampleMapper implements RedisMapper&lt;Tuple2&lt;String, String&gt;&gt;{
+<pre><code>public static class RedisExampleMapper implements RedisMapper&lt;Tuple2&lt;String, String&gt;&gt;{
 
     @Override
     public RedisCommandDescription getCommandDescription() {
@@ -255,11 +272,10 @@ FlinkJedisPoolConfig conf = new FlinkJedisPoolConfig.Builder().setHost("127.0.0.
 DataStream&lt;String&gt; stream = ...;
 stream.addSink(new RedisSink&lt;Tuple2&lt;String, String&gt;&gt;(conf, new RedisExampleMapper());
 </code></pre>
-</div>
 
 <p><strong>Scala:</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>class RedisExampleMapper extends RedisMapper[(String, String)]{
+<pre><code>class RedisExampleMapper extends RedisMapper[(String, String)]{
   override def getCommandDescription: RedisCommandDescription = {
     new RedisCommandDescription(RedisCommand.HSET, "HASH_NAME")
   }
@@ -271,45 +287,40 @@ stream.addSink(new RedisSink&lt;Tuple2&lt;String, String&gt;&gt;(conf, new Redis
 val conf = new FlinkJedisPoolConfig.Builder().setHost("127.0.0.1").build()
 stream.addSink(new RedisSink[(String, String)](conf, new RedisExampleMapper))
 </code></pre>
-</div>
 
 <p>This example code does the same, but for Redis Cluster:</p>
 
 <p><strong>Java:</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>FlinkJedisPoolConfig conf = new FlinkJedisPoolConfig.Builder()
+<pre><code>FlinkJedisPoolConfig conf = new FlinkJedisPoolConfig.Builder()
     .setNodes(new HashSet&lt;InetSocketAddress&gt;(Arrays.asList(new InetSocketAddress(5601)))).build();
 
 DataStream&lt;String&gt; stream = ...;
 stream.addSink(new RedisSink&lt;Tuple2&lt;String, String&gt;&gt;(conf, new RedisExampleMapper());
 </code></pre>
-</div>
 
 <p><strong>Scala:</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>val conf = new FlinkJedisPoolConfig.Builder().setNodes(...).build()
+<pre><code>val conf = new FlinkJedisPoolConfig.Builder().setNodes(...).build()
 stream.addSink(new RedisSink[(String, String)](conf, new RedisExampleMapper))
 </code></pre>
-</div>
 
 <p>This example shows when the Redis environment is with Sentinels:</p>
 
 <p>Java:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>FlinkJedisSentinelConfig conf = new FlinkJedisSentinelConfig.Builder()
+<pre><code>FlinkJedisSentinelConfig conf = new FlinkJedisSentinelConfig.Builder()
     .setMasterName("master").setSentinels(...).build();
 
 DataStream&lt;String&gt; stream = ...;
 stream.addSink(new RedisSink&lt;Tuple2&lt;String, String&gt;&gt;(conf, new RedisExampleMapper());
 </code></pre>
-</div>
 
 <p>Scala:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>val conf = new FlinkJedisSentinelConfig.Builder().setMasterName("master").setSentinels(...).build()
+<pre><code>val conf = new FlinkJedisSentinelConfig.Builder().setMasterName("master").setSentinels(...).build()
 stream.addSink(new RedisSink[(String, String)](conf, new RedisExampleMapper))
 </code></pre>
-</div>
 
 <p>This section gives a description of all the available data types and what Redis command used for that.</p>
 
@@ -358,7 +369,7 @@ stream.addSink(new RedisSink[(String, String)](conf, new RedisExampleMapper))
 
       <hr>
 
-      <!-- <p>&copy; 2019 </p>-->
+      <!-- <p>&copy; 2020 </p>-->
       <footer class="site-footer">
     <div class="wrapper">
         <div class="footer-col-wrapper">

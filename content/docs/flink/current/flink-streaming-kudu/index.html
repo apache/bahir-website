@@ -65,7 +65,9 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="/downloads/spark" target="_self">Bahir Spark Extensions</a></li>
+              
               
               
               <li><a href="/downloads/flink" target="_self">Bahir Flink Extensions</a></li>
@@ -83,19 +85,25 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="/community" target="_self">Get Involved</a></li>
+              
               
               
               <li><a href="/contributing" target="_self">Contributing</a></li>
               
               
+              
               <li><a href="/contributing-extensions" target="_self">Contributing Extensions</a></li>
+              
               
               
               <li><a href="https://issues.apache.org/jira/browse/BAHIR" target="_blank">Issue Tracker</a></li>
               
               
+              
               <li><a href="/community#source-code" target="_self">Source Code</a></li>
+              
               
               
               <li><a href="/community-members" target="_self">Project Committers</a></li>
@@ -113,7 +121,9 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="/docs/spark/overview" target="_self">Bahir Spark Extensions</a></li>
+              
               
               
               <li><a href="/docs/flink/overview" target="_self">Bahir Flink Extensions</a></li>
@@ -131,10 +141,13 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="https://github.com/apache/bahir" target="_blank">Bahir Spark Extensions</a></li>
               
               
+              
               <li><a href="https://github.com/apache/bahir-flink" target="_blank">Bahir Flink Extensions</a></li>
+              
               
               
               <li><a href="https://github.com/apache/bahir-website" target="_blank">Bahir Website</a></li>
@@ -152,16 +165,21 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="http://www.apache.org/foundation/how-it-works.html" target="_blank">Apache Software Foundation</a></li>
+              
               
               
               <li><a href="http://www.apache.org/licenses/" target="_blank">Apache License</a></li>
               
               
+              
               <li><a href="http://www.apache.org/foundation/sponsorship" target="_blank">Sponsorship</a></li>
               
               
+              
               <li><a href="http://www.apache.org/foundation/thanks.html" target="_blank">Thanks</a></li>
+              
               
               
               <li><a href="/privacy-policy" target="_self">Privacy Policy</a></li>
@@ -197,16 +215,15 @@
 
 <h1 id="flink-kudu-connector">Flink Kudu Connector</h1>
 
-<p>This connector provides a source (<code class="highlighter-rouge">KuduInputFormat</code>) and a sink/output (<code class="highlighter-rouge">KuduSink</code> and <code class="highlighter-rouge">KuduOutputFormat</code>, respectively) that can read and write to <a href="https://kudu.apache.org/">Kudu</a>. To use this connector, add the
+<p>This connector provides a source (<code>KuduInputFormat</code>) and a sink/output (<code>KuduSink</code> and <code>KuduOutputFormat</code>, respectively) that can read and write to <a href="https://kudu.apache.org/">Kudu</a>. To use this connector, add the
 following dependency to your project:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
+<pre><code>&lt;dependency&gt;
   &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
   &lt;artifactId&gt;flink-connector-kudu_2.11&lt;/artifactId&gt;
   &lt;version&gt;1.1-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre>
-</div>
 
 <p><em>Version Compatibility</em>: This module is compatible with Apache Kudu <em>1.7.1</em> (last stable version).</p>
 
@@ -220,81 +237,81 @@ Optionally, you can use the docker images provided in dockers folder.</p>
 
 <h2 id="kuduinputformat">KuduInputFormat</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
+<p>```
+ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();</p>
 
-env.setParallelism(PARALLELISM);
+<p>env.setParallelism(PARALLELISM);</p>
 
-// create a table info object
+<p>// create a table info object
 KuduTableInfo tableInfo = KuduTableInfo.Builder
-        .create("books")
-        .addColumn(KuduColumnInfo.Builder.create("id", Type.INT32).key(true).hashKey(true).build())
-        .addColumn(KuduColumnInfo.Builder.create("title", Type.STRING).build())
-        .addColumn(KuduColumnInfo.Builder.create("author", Type.STRING).build())
-        .addColumn(KuduColumnInfo.Builder.create("price", Type.DOUBLE).build())
-        .addColumn(KuduColumnInfo.Builder.create("quantity", Type.INT32).build())
-        .build();
-    
-// Pass the tableInfo to the KuduInputFormat and provide kuduMaster ips
-env.createInput(new KuduInputFormat&lt;&gt;("172.25.0.6", tableInfo))
-        .count();
-        
-env.execute();
-</code></pre>
-</div>
+        .create(“books”)
+        .addColumn(KuduColumnInfo.Builder.create(“id”, Type.INT32).key(true).hashKey(true).build())
+        .addColumn(KuduColumnInfo.Builder.create(“title”, Type.STRING).build())
+        .addColumn(KuduColumnInfo.Builder.create(“author”, Type.STRING).build())
+        .addColumn(KuduColumnInfo.Builder.create(“price”, Type.DOUBLE).build())
+        .addColumn(KuduColumnInfo.Builder.create(“quantity”, Type.INT32).build())
+        .build();</p>
+
+<p>// Pass the tableInfo to the KuduInputFormat and provide kuduMaster ips
+env.createInput(new KuduInputFormat&lt;&gt;(“172.25.0.6”, tableInfo))
+        .count();</p>
+
+<p>env.execute();
+```</p>
 
 <h2 id="kuduoutputformat">KuduOutputFormat</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
+<p>```
+ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();</p>
 
-env.setParallelism(PARALLELISM);
+<p>env.setParallelism(PARALLELISM);</p>
 
-// create a table info object
+<p>// create a table info object
 KuduTableInfo tableInfo = KuduTableInfo.Builder
-        .create("books")
+        .create(“books”)
         .createIfNotExist(true)
         .replicas(1)
-        .addColumn(KuduColumnInfo.Builder.create("id", Type.INT32).key(true).hashKey(true).build())
-        .addColumn(KuduColumnInfo.Builder.create("title", Type.STRING).build())
-        .addColumn(KuduColumnInfo.Builder.create("author", Type.STRING).build())
-        .addColumn(KuduColumnInfo.Builder.create("price", Type.DOUBLE).build())
-        .addColumn(KuduColumnInfo.Builder.create("quantity", Type.INT32).build())
-        .build();
+        .addColumn(KuduColumnInfo.Builder.create(“id”, Type.INT32).key(true).hashKey(true).build())
+        .addColumn(KuduColumnInfo.Builder.create(“title”, Type.STRING).build())
+        .addColumn(KuduColumnInfo.Builder.create(“author”, Type.STRING).build())
+        .addColumn(KuduColumnInfo.Builder.create(“price”, Type.DOUBLE).build())
+        .addColumn(KuduColumnInfo.Builder.create(“quantity”, Type.INT32).build())
+        .build();</p>
 
-...
+<p>…</p>
 
-env.fromCollection(books)
-        .output(new KuduOutputFormat&lt;&gt;("172.25.0.6", tableInfo));
+<p>env.fromCollection(books)
+        .output(new KuduOutputFormat&lt;&gt;(“172.25.0.6”, tableInfo));</p>
 
-env.execute();
-</code></pre>
-</div>
+<p>env.execute();
+```</p>
 
 <h2 id="kudusink">KuduSink</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+<p>```
+StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();</p>
 
-env.setParallelism(PARALLELISM);
+<p>env.setParallelism(PARALLELISM);</p>
 
-// create a table info object
+<p>// create a table info object
 KuduTableInfo tableInfo = KuduTableInfo.Builder
-        .create("books")
+        .create(“books”)
         .createIfNotExist(true)
         .replicas(1)
-        .addColumn(KuduColumnInfo.Builder.create("id", Type.INT32).key(true).hashKey(true).build())
-        .addColumn(KuduColumnInfo.Builder.create("title", Type.STRING).build())
-        .addColumn(KuduColumnInfo.Builder.create("author", Type.STRING).build())
-        .addColumn(KuduColumnInfo.Builder.create("price", Type.DOUBLE).build())
-        .addColumn(KuduColumnInfo.Builder.create("quantity", Type.INT32).build())
-        .build();
+        .addColumn(KuduColumnInfo.Builder.create(“id”, Type.INT32).key(true).hashKey(true).build())
+        .addColumn(KuduColumnInfo.Builder.create(“title”, Type.STRING).build())
+        .addColumn(KuduColumnInfo.Builder.create(“author”, Type.STRING).build())
+        .addColumn(KuduColumnInfo.Builder.create(“price”, Type.DOUBLE).build())
+        .addColumn(KuduColumnInfo.Builder.create(“quantity”, Type.INT32).build())
+        .build();</p>
 
-...
+<p>…</p>
 
-env.fromCollection(books)
-    .addSink(new KuduSink&lt;&gt;("172.25.0.6", tableInfo));
+<p>env.fromCollection(books)
+    .addSink(new KuduSink&lt;&gt;(“172.25.0.6”, tableInfo));</p>
 
-env.execute();
-</code></pre>
-</div>
+<p>env.execute();
+```</p>
 
   </div>
 </div>
@@ -303,7 +320,7 @@ env.execute();
 
       <hr>
 
-      <!-- <p>&copy; 2019 </p>-->
+      <!-- <p>&copy; 2020 </p>-->
       <footer class="site-footer">
     <div class="wrapper">
         <div class="footer-col-wrapper">

@@ -65,7 +65,9 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="/downloads/spark" target="_self">Bahir Spark Extensions</a></li>
+              
               
               
               <li><a href="/downloads/flink" target="_self">Bahir Flink Extensions</a></li>
@@ -83,19 +85,25 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="/community" target="_self">Get Involved</a></li>
+              
               
               
               <li><a href="/contributing" target="_self">Contributing</a></li>
               
               
+              
               <li><a href="/contributing-extensions" target="_self">Contributing Extensions</a></li>
+              
               
               
               <li><a href="https://issues.apache.org/jira/browse/BAHIR" target="_blank">Issue Tracker</a></li>
               
               
+              
               <li><a href="/community#source-code" target="_self">Source Code</a></li>
+              
               
               
               <li><a href="/community-members" target="_self">Project Committers</a></li>
@@ -113,7 +121,9 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="/docs/spark/overview" target="_self">Bahir Spark Extensions</a></li>
+              
               
               
               <li><a href="/docs/flink/overview" target="_self">Bahir Flink Extensions</a></li>
@@ -131,10 +141,13 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="https://github.com/apache/bahir" target="_blank">Bahir Spark Extensions</a></li>
               
               
+              
               <li><a href="https://github.com/apache/bahir-flink" target="_blank">Bahir Flink Extensions</a></li>
+              
               
               
               <li><a href="https://github.com/apache/bahir-website" target="_blank">Bahir Website</a></li>
@@ -152,16 +165,21 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="http://www.apache.org/foundation/how-it-works.html" target="_blank">Apache Software Foundation</a></li>
+              
               
               
               <li><a href="http://www.apache.org/licenses/" target="_blank">Apache License</a></li>
               
               
+              
               <li><a href="http://www.apache.org/foundation/sponsorship" target="_blank">Sponsorship</a></li>
               
               
+              
               <li><a href="http://www.apache.org/foundation/thanks.html" target="_blank">Thanks</a></li>
+              
               
               
               <li><a href="/privacy-policy" target="_self">Privacy Policy</a></li>
@@ -200,24 +218,22 @@
 <p>This connector provides a sink that can send data to <a href="https://flume.apache.org/">Apache Flume</a>™. To use this connector, add the
 following dependency to your project:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
+<pre><code>&lt;dependency&gt;
   &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
   &lt;artifactId&gt;flink-connector-flume_2.11&lt;/artifactId&gt;
   &lt;version&gt;1.1-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre>
-</div>
 
 <p><em>Version Compatibility</em>: This module is compatible with Flume 1.8.0.</p>
 
 <p>Note that the streaming connectors are not part of the binary distribution of Flink. You need to link them into your job jar for cluster execution.
 See how to link with them for cluster execution <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.2/dev/linking.html">here</a>.</p>
 
-<p>To create a <code class="highlighter-rouge">FlumeSink</code> instantiate the following constructor:</p>
+<p>To create a <code>FlumeSink</code> instantiate the following constructor:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>FlumeSink(String host, int port, SerializationSchema&lt;IN&gt; schema)
+<pre><code>FlumeSink(String host, int port, SerializationSchema&lt;IN&gt; schema)
 </code></pre>
-</div>
 
 
   </div>
@@ -227,7 +243,7 @@ See how to link with them for cluster execution <a href="https://ci.apache.org/p
 
       <hr>
 
-      <!-- <p>&copy; 2019 </p>-->
+      <!-- <p>&copy; 2020 </p>-->
       <footer class="site-footer">
     <div class="wrapper">
         <div class="footer-col-wrapper">

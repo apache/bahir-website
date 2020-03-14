@@ -65,7 +65,9 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="/downloads/spark" target="_self">Bahir Spark Extensions</a></li>
+              
               
               
               <li><a href="/downloads/flink" target="_self">Bahir Flink Extensions</a></li>
@@ -83,19 +85,25 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="/community" target="_self">Get Involved</a></li>
+              
               
               
               <li><a href="/contributing" target="_self">Contributing</a></li>
               
               
+              
               <li><a href="/contributing-extensions" target="_self">Contributing Extensions</a></li>
+              
               
               
               <li><a href="https://issues.apache.org/jira/browse/BAHIR" target="_blank">Issue Tracker</a></li>
               
               
+              
               <li><a href="/community#source-code" target="_self">Source Code</a></li>
+              
               
               
               <li><a href="/community-members" target="_self">Project Committers</a></li>
@@ -113,7 +121,9 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="/docs/spark/overview" target="_self">Bahir Spark Extensions</a></li>
+              
               
               
               <li><a href="/docs/flink/overview" target="_self">Bahir Flink Extensions</a></li>
@@ -131,10 +141,13 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="https://github.com/apache/bahir" target="_blank">Bahir Spark Extensions</a></li>
               
               
+              
               <li><a href="https://github.com/apache/bahir-flink" target="_blank">Bahir Flink Extensions</a></li>
+              
               
               
               <li><a href="https://github.com/apache/bahir-website" target="_blank">Bahir Website</a></li>
@@ -152,16 +165,21 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="http://www.apache.org/foundation/how-it-works.html" target="_blank">Apache Software Foundation</a></li>
+              
               
               
               <li><a href="http://www.apache.org/licenses/" target="_blank">Apache License</a></li>
               
               
+              
               <li><a href="http://www.apache.org/foundation/sponsorship" target="_blank">Sponsorship</a></li>
               
               
+              
               <li><a href="http://www.apache.org/foundation/thanks.html" target="_blank">Thanks</a></li>
+              
               
               
               <li><a href="/privacy-policy" target="_self">Privacy Policy</a></li>
@@ -201,29 +219,26 @@
 
 <p>Using SBT:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>libraryDependencies += "org.apache.bahir" %% "spark-streaming-mqtt" % "2.2.0"
+<pre><code>libraryDependencies += "org.apache.bahir" %% "spark-streaming-mqtt" % "2.2.0"
 </code></pre>
-</div>
 
 <p>Using Maven:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
+<pre><code>&lt;dependency&gt;
     &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
     &lt;artifactId&gt;spark-streaming-mqtt_2.11&lt;/artifactId&gt;
     &lt;version&gt;2.2.0&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre>
-</div>
 
-<p>This library can also be added to Spark jobs launched through <code class="highlighter-rouge">spark-shell</code> or <code class="highlighter-rouge">spark-submit</code> by using the <code class="highlighter-rouge">--packages</code> command line option.
+<p>This library can also be added to Spark jobs launched through <code>spark-shell</code> or <code>spark-submit</code> by using the <code>--packages</code> command line option.
 For example, to include it when starting the spark shell:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ bin/spark-shell --packages org.apache.bahir:spark-streaming-mqtt_2.11:2.2.0
+<pre><code>$ bin/spark-shell --packages org.apache.bahir:spark-streaming-mqtt_2.11:2.2.0
 </code></pre>
-</div>
 
-<p>Unlike using <code class="highlighter-rouge">--jars</code>, using <code class="highlighter-rouge">--packages</code> ensures that this library and its dependencies will be added to the classpath.
-The <code class="highlighter-rouge">--packages</code> argument can also be used with <code class="highlighter-rouge">bin/spark-submit</code>.</p>
+<p>Unlike using <code>--jars</code>, using <code>--packages</code> ensures that this library and its dependencies will be added to the classpath.
+The <code>--packages</code> argument can also be used with <code>bin/spark-submit</code>.</p>
 
 <p>This library is cross-published for Scala 2.10 and Scala 2.11, so users should replace the proper Scala version (2.10 or 2.11) in the commands listed above.</p>
 
@@ -232,47 +247,46 @@ The <code class="highlighter-rouge">--packages</code> argument can also be used 
 <p>This source uses the <a href="https://eclipse.org/paho/clients/java/">Eclipse Paho Java Client</a>. Client API documentation is located <a href="http://www.eclipse.org/paho/files/javadoc/index.html">here</a>.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">brokerUrl</code> A url MqttClient connects to. Set this as the url of the Mqtt Server. e.g. tcp://localhost:1883.</li>
-  <li><code class="highlighter-rouge">storageLevel</code> By default it is used for storing incoming messages on disk.</li>
-  <li><code class="highlighter-rouge">topic</code> Topic MqttClient subscribes to.</li>
-  <li><code class="highlighter-rouge">topics</code> List of topics MqttClient subscribes to.</li>
-  <li><code class="highlighter-rouge">clientId</code> clientId, this client is assoicated with. Provide the same value to recover a stopped client.</li>
-  <li><code class="highlighter-rouge">QoS</code> The maximum quality of service to subscribe each topic at. Messages published at a lower quality of service will be received at the published QoS. Messages published at a higher quality of service will be received using the QoS specified on the subscribe.</li>
-  <li><code class="highlighter-rouge">username</code> Sets the user name to use for the connection to Mqtt Server. Do not set it, if server does not need this. Setting it empty will lead to errors.</li>
-  <li><code class="highlighter-rouge">password</code> Sets the password to use for the connection.</li>
-  <li><code class="highlighter-rouge">cleanSession</code> Setting it true starts a clean session, removes all checkpointed messages by a previous run of this source. This is set to false by default.</li>
-  <li><code class="highlighter-rouge">connectionTimeout</code> Sets the connection timeout, a value of 0 is interpreted as wait until client connects. See <code class="highlighter-rouge">MqttConnectOptions.setConnectionTimeout</code> for more information.</li>
-  <li><code class="highlighter-rouge">keepAlive</code> Same as <code class="highlighter-rouge">MqttConnectOptions.setKeepAliveInterval</code>.</li>
-  <li><code class="highlighter-rouge">mqttVersion</code> Same as <code class="highlighter-rouge">MqttConnectOptions.setMqttVersion</code>.</li>
+  <li><code>brokerUrl</code> A url MqttClient connects to. Set this as the url of the Mqtt Server. e.g. tcp://localhost:1883.</li>
+  <li><code>storageLevel</code> By default it is used for storing incoming messages on disk.</li>
+  <li><code>topic</code> Topic MqttClient subscribes to.</li>
+  <li><code>topics</code> List of topics MqttClient subscribes to.</li>
+  <li><code>clientId</code> clientId, this client is assoicated with. Provide the same value to recover a stopped client.</li>
+  <li><code>QoS</code> The maximum quality of service to subscribe each topic at. Messages published at a lower quality of service will be received at the published QoS. Messages published at a higher quality of service will be received using the QoS specified on the subscribe.</li>
+  <li><code>username</code> Sets the user name to use for the connection to Mqtt Server. Do not set it, if server does not need this. Setting it empty will lead to errors.</li>
+  <li><code>password</code> Sets the password to use for the connection.</li>
+  <li><code>cleanSession</code> Setting it true starts a clean session, removes all checkpointed messages by a previous run of this source. This is set to false by default.</li>
+  <li><code>connectionTimeout</code> Sets the connection timeout, a value of 0 is interpreted as wait until client connects. See <code>MqttConnectOptions.setConnectionTimeout</code> for more information.</li>
+  <li><code>keepAlive</code> Same as <code>MqttConnectOptions.setKeepAliveInterval</code>.</li>
+  <li><code>mqttVersion</code> Same as <code>MqttConnectOptions.setMqttVersion</code>.</li>
 </ul>
 
 <h2 id="examples">Examples</h2>
 
 <h3 id="scala-api">Scala API</h3>
 
-<p>You need to extend <code class="highlighter-rouge">ActorReceiver</code> so as to store received data into Spark using <code class="highlighter-rouge">store(...)</code> methods. The supervisor strategy of
+<p>You need to extend <code>ActorReceiver</code> so as to store received data into Spark using <code>store(...)</code> methods. The supervisor strategy of
 this actor can be configured to handle failures, etc.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>val lines = MQTTUtils.createStream(ssc, brokerUrl, topic)
+<pre><code>val lines = MQTTUtils.createStream(ssc, brokerUrl, topic)
 val lines = MQTTUtils.createPairedStream(ssc, brokerUrl, topic)
 </code></pre>
-</div>
 
 <p>Additional mqtt connection options can be provided:</p>
 
-<pre><code class="language-Scala">val lines = MQTTUtils.createStream(ssc, brokerUrl, topic, storageLevel, clientId, username, password, cleanSession, qos, connectionTimeout, keepAliveInterval, mqttVersion)
+<p><code>Scala
+val lines = MQTTUtils.createStream(ssc, brokerUrl, topic, storageLevel, clientId, username, password, cleanSession, qos, connectionTimeout, keepAliveInterval, mqttVersion)
 val lines = MQTTUtils.createPairedStream(ssc, brokerUrl, topics, storageLevel, clientId, username, password, cleanSession, qos, connectionTimeout, keepAliveInterval, mqttVersion)
-</code></pre>
+</code></p>
 
 <h3 id="java-api">Java API</h3>
 
-<p>You need to extend <code class="highlighter-rouge">JavaActorReceiver</code> so as to store received data into Spark using <code class="highlighter-rouge">store(...)</code> methods. The supervisor strategy of
+<p>You need to extend <code>JavaActorReceiver</code> so as to store received data into Spark using <code>store(...)</code> methods. The supervisor strategy of
 this actor can be configured to handle failures, etc.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>JavaDStream&lt;String&gt; lines = MQTTUtils.createStream(jssc, brokerUrl, topic);
+<pre><code>JavaDStream&lt;String&gt; lines = MQTTUtils.createStream(jssc, brokerUrl, topic);
 JavaReceiverInputDStream&lt;Tuple2&lt;String, String&gt;&gt; lines = MQTTUtils.createPairedStream(jssc, brokerUrl, topics);
 </code></pre>
-</div>
 
 <p>See end-to-end examples at <a href="https://github.com/apache/bahir/tree/master/streaming-mqtt/examples">MQTT Examples</a></p>
 
@@ -283,7 +297,7 @@ JavaReceiverInputDStream&lt;Tuple2&lt;String, String&gt;&gt; lines = MQTTUtils.c
 
       <hr>
 
-      <!-- <p>&copy; 2019 </p>-->
+      <!-- <p>&copy; 2020 </p>-->
       <footer class="site-footer">
     <div class="wrapper">
         <div class="footer-col-wrapper">

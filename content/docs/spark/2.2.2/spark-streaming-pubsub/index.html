@@ -65,7 +65,9 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="/downloads/spark" target="_self">Bahir Spark Extensions</a></li>
+              
               
               
               <li><a href="/downloads/flink" target="_self">Bahir Flink Extensions</a></li>
@@ -83,19 +85,25 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="/community" target="_self">Get Involved</a></li>
+              
               
               
               <li><a href="/contributing" target="_self">Contributing</a></li>
               
               
+              
               <li><a href="/contributing-extensions" target="_self">Contributing Extensions</a></li>
+              
               
               
               <li><a href="https://issues.apache.org/jira/browse/BAHIR" target="_blank">Issue Tracker</a></li>
               
               
+              
               <li><a href="/community#source-code" target="_self">Source Code</a></li>
+              
               
               
               <li><a href="/community-members" target="_self">Project Committers</a></li>
@@ -113,7 +121,9 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="/docs/spark/overview" target="_self">Bahir Spark Extensions</a></li>
+              
               
               
               <li><a href="/docs/flink/overview" target="_self">Bahir Flink Extensions</a></li>
@@ -131,10 +141,13 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="https://github.com/apache/bahir" target="_blank">Bahir Spark Extensions</a></li>
               
               
+              
               <li><a href="https://github.com/apache/bahir-flink" target="_blank">Bahir Flink Extensions</a></li>
+              
               
               
               <li><a href="https://github.com/apache/bahir-website" target="_blank">Bahir Website</a></li>
@@ -152,16 +165,21 @@
             <ul class="dropdown-menu dropdown-left">
               
               
+              
               <li><a href="http://www.apache.org/foundation/how-it-works.html" target="_blank">Apache Software Foundation</a></li>
+              
               
               
               <li><a href="http://www.apache.org/licenses/" target="_blank">Apache License</a></li>
               
               
+              
               <li><a href="http://www.apache.org/foundation/sponsorship" target="_blank">Sponsorship</a></li>
               
               
+              
               <li><a href="http://www.apache.org/foundation/thanks.html" target="_blank">Thanks</a></li>
+              
               
               
               <li><a href="/privacy-policy" target="_self">Privacy Policy</a></li>
@@ -201,53 +219,48 @@
 
 <p>Using SBT:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>libraryDependencies += "org.apache.bahir" %% "spark-streaming-pubsub" % "2.2.2"
+<pre><code>libraryDependencies += "org.apache.bahir" %% "spark-streaming-pubsub" % "2.2.2"
 </code></pre>
-</div>
 
 <p>Using Maven:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
+<pre><code>&lt;dependency&gt;
     &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
     &lt;artifactId&gt;spark-streaming-pubsub_2.11&lt;/artifactId&gt;
     &lt;version&gt;2.2.2&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre>
-</div>
 
-<p>This library can also be added to Spark jobs launched through <code class="highlighter-rouge">spark-shell</code> or <code class="highlighter-rouge">spark-submit</code> by using the <code class="highlighter-rouge">--packages</code> command line option.
+<p>This library can also be added to Spark jobs launched through <code>spark-shell</code> or <code>spark-submit</code> by using the <code>--packages</code> command line option.
 For example, to include it when starting the spark shell:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ bin/spark-shell --packages org.apache.bahir:spark-streaming-pubsub_2.11:2.2.2
+<pre><code>$ bin/spark-shell --packages org.apache.bahir:spark-streaming-pubsub_2.11:2.2.2
 </code></pre>
-</div>
 
-<p>Unlike using <code class="highlighter-rouge">--jars</code>, using <code class="highlighter-rouge">--packages</code> ensures that this library and its dependencies will be added to the classpath.
-The <code class="highlighter-rouge">--packages</code> argument can also be used with <code class="highlighter-rouge">bin/spark-submit</code>.</p>
+<p>Unlike using <code>--jars</code>, using <code>--packages</code> ensures that this library and its dependencies will be added to the classpath.
+The <code>--packages</code> argument can also be used with <code>bin/spark-submit</code>.</p>
 
 <h2 id="examples">Examples</h2>
 
 <p>First you need to create credential by SparkGCPCredentials, it support four type of credentials
 * application default
-    <code class="highlighter-rouge">SparkGCPCredentials.builder.build()</code>
+    <code>SparkGCPCredentials.builder.build()</code>
 * json type service account
-    <code class="highlighter-rouge">SparkGCPCredentials.builder.jsonServiceAccount(PATH_TO_JSON_KEY).build()</code>
+    <code>SparkGCPCredentials.builder.jsonServiceAccount(PATH_TO_JSON_KEY).build()</code>
 * p12 type service account
-    <code class="highlighter-rouge">SparkGCPCredentials.builder.p12ServiceAccount(PATH_TO_P12_KEY, EMAIL_ACCOUNT).build()</code>
+    <code>SparkGCPCredentials.builder.p12ServiceAccount(PATH_TO_P12_KEY, EMAIL_ACCOUNT).build()</code>
 * metadata service account(running on dataproc)
-    <code class="highlighter-rouge">SparkGCPCredentials.builder.metadataServiceAccount().build()</code></p>
+    <code>SparkGCPCredentials.builder.metadataServiceAccount().build()</code></p>
 
 <h3 id="scala-api">Scala API</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>val lines = PubsubUtils.createStream(ssc, projectId, subscriptionName, credential, ..)
+<pre><code>val lines = PubsubUtils.createStream(ssc, projectId, subscriptionName, credential, ..)
 </code></pre>
-</div>
 
 <h3 id="java-api">Java API</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>JavaDStream&lt;SparkPubsubMessage&gt; lines = PubsubUtils.createStream(jssc, projectId, subscriptionName, credential...)
+<pre><code>JavaDStream&lt;SparkPubsubMessage&gt; lines = PubsubUtils.createStream(jssc, projectId, subscriptionName, credential...)
 </code></pre>
-</div>
 
 <p>See end-to-end examples at <a href="streaming-pubsub/examples">Google Cloud Pubsub Examples</a></p>
 
@@ -259,24 +272,24 @@ The <code class="highlighter-rouge">--packages</code> argument can also be used 
 
 <ol>
   <li>Go to <a href="console.cloud.google.com">Google API Console</a></li>
-  <li>Choose the <code class="highlighter-rouge">Credentials</code> Tab&gt; <code class="highlighter-rouge">Create credentials</code> button&gt; <code class="highlighter-rouge">Service account key</code></li>
-  <li>Fill the account name, assign <code class="highlighter-rouge">Role&gt; Pub/Sub&gt; Pub/Sub Editor</code> and check the option <code class="highlighter-rouge">Furnish a private key</code> to create one. You need to create one for JSON key file, another for P12.</li>
-  <li>The account email is the <code class="highlighter-rouge">Service account ID</code></li>
+  <li>Choose the <code>Credentials</code> Tab&gt; <code>Create credentials</code> button&gt; <code>Service account key</code></li>
+  <li>Fill the account name, assign <code>Role&gt; Pub/Sub&gt; Pub/Sub Editor</code> and check the option <code>Furnish a private key</code> to create one. You need to create one for JSON key file, another for P12.</li>
+  <li>The account email is the <code>Service account ID</code></li>
 </ol>
 
 <h4 id="setting-the-environment-variables-and-run-test">Setting the environment variables and run test</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>mvn clean package -DskipTests -pl streaming-pubsub
+<p>```
+mvn clean package -DskipTests -pl streaming-pubsub</p>
 
-export ENABLE_PUBSUB_TESTS=1
-export GCP_TEST_ACCOUNT="THE_P12_SERVICE_ACCOUNT_ID_MENTIONED_ABOVE"
-export GCP_TEST_PROJECT_ID="YOUR_GCP_PROJECT_ID"
+<p>export ENABLE_PUBSUB_TESTS=1
+export GCP_TEST_ACCOUNT=”THE_P12_SERVICE_ACCOUNT_ID_MENTIONED_ABOVE”
+export GCP_TEST_PROJECT_ID=”YOUR_GCP_PROJECT_ID”
 export GCP_TEST_JSON_KEY_PATH=/path/to/pubsub/credential/files/Apache-Bahir-PubSub-1234abcd.json
-export GCP_TEST_P12_KEY_PATH=/path/to/pubsub/credential/files/Apache-Bahir-PubSub-5678efgh.p12
+export GCP_TEST_P12_KEY_PATH=/path/to/pubsub/credential/files/Apache-Bahir-PubSub-5678efgh.p12</p>
 
-mvn test -pl streaming-pubsub
-</code></pre>
-</div>
+<p>mvn test -pl streaming-pubsub
+```</p>
 
   </div>
 </div>
@@ -285,7 +298,7 @@ mvn test -pl streaming-pubsub
 
       <hr>
 
-      <!-- <p>&copy; 2019 </p>-->
+      <!-- <p>&copy; 2020 </p>-->
       <footer class="site-footer">
     <div class="wrapper">
         <div class="footer-col-wrapper">

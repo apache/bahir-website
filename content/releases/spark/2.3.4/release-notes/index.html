@@ -4,8 +4,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Spark Streaming Google Pub-Sub</title>
-    <meta name="description" content="Spark Streaming Google Pub-Sub">
+    <title>Bahir Release 2.1.0</title>
+    <meta name="description" content="Release Notes for Apache Bahir 2.1.0">
     <meta name="author" content="">
 
     <!-- Enable responsive viewport -->
@@ -202,7 +202,7 @@
 
       
 
-<!--<div class="hero-unit Spark Streaming Google Pub-Sub">
+<!--<div class="hero-unit Bahir Release 2.1.0">
   <h1></h1>
 </div>
 -->
@@ -213,83 +213,31 @@
 
 -->
 
-<p>A library for reading data from <a href="https://cloud.google.com/pubsub/">Google Cloud Pub/Sub</a> using Spark Streaming.</p>
+<h1 id="apache-bahir-for-apache-spark-234">Apache Bahir for Apache Spark 2.3.4</h1>
 
-<h2 id="linking">Linking</h2>
+<p>Below are all the enhancements and bug fixes for the 2.3.x releases.</p>
 
-<p>Using SBT:</p>
+<p>Release Notes - Bahir - Version Spark-2.3.0</p>
 
-<pre><code>libraryDependencies += "org.apache.bahir" %% "spark-streaming-pubsub" % "2.1.3"
+<pre><code>* [BAHIR-46]  - Handle re-delivery of message in MQTT structured streaming source.
+* [BAHIR-104] - MQTT Dstream returned by the new multi topic support API is not a pairRDD
+* [BAHIR-128] - Test failing sporadically in sql-cloudant's CloudantChangesDFSuite
+* [BAHIR-139] - Scala-maven-plugin does not respect Java compile level
+* [BAHIR-152] - License header not enforced for Java sources
+* [BAHIR-159] - Our project needs to use org.apache.bahir:spark-sql-streaming-mqtt_2.11:2.2.0, which has dependency conflict problem.
+* [BAHIR-165] - The avro messages to streaming-mqtt gives negative value.
+* [BAHIR-66]  - Add test that ZeroMQ streaming connector can receive data
+* [BAHIR-164] - Spark Streaming with MQTT fails with Spark 2.3.0
+* [BAHIR-166] - Migrate akka sql streaming source to datasrouce v2 API
+* [BAHIR-49]  - Add MQTTSink to SQL Streaming MQTT.
+* [BAHIR-182] - Create PubNub extension for Apache Spark Streaming
+* [BAHIR-137] - Load performance improvements for _changes API in sql-cloudant
+* [BAHIR-154] - Refactor sql-cloudant to use Cloudant's java-cloudant features
+* [BAHIR-181] - username and password should be available for pyspark when using mqtt streaming
+* [BAHIR-123] - Fix errors to support the latest version of Play JSON library for sql-cloudant
+* [BAHIR-138] - Fix sql-cloudant deprecation messages
+* [BAHIR-150] - Jenkins PR builder should not abort build after first failed module
 </code></pre>
-
-<p>Using Maven:</p>
-
-<pre><code>&lt;dependency&gt;
-    &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
-    &lt;artifactId&gt;spark-streaming-pubsub_2.11&lt;/artifactId&gt;
-    &lt;version&gt;2.1.3&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
-
-<p>This library can also be added to Spark jobs launched through <code>spark-shell</code> or <code>spark-submit</code> by using the <code>--packages</code> command line option.
-For example, to include it when starting the spark shell:</p>
-
-<pre><code>$ bin/spark-shell --packages org.apache.bahir:spark-streaming-pubsub_2.11:2.1.3
-</code></pre>
-
-<p>Unlike using <code>--jars</code>, using <code>--packages</code> ensures that this library and its dependencies will be added to the classpath.
-The <code>--packages</code> argument can also be used with <code>bin/spark-submit</code>.</p>
-
-<h2 id="examples">Examples</h2>
-
-<p>First you need to create credential by SparkGCPCredentials, it support four type of credentials
-* application default
-    <code>SparkGCPCredentials.builder.build()</code>
-* json type service account
-    <code>SparkGCPCredentials.builder.jsonServiceAccount(PATH_TO_JSON_KEY).build()</code>
-* p12 type service account
-    <code>SparkGCPCredentials.builder.p12ServiceAccount(PATH_TO_P12_KEY, EMAIL_ACCOUNT).build()</code>
-* metadata service account(running on dataproc)
-    <code>SparkGCPCredentials.builder.metadataServiceAccount().build()</code></p>
-
-<h3 id="scala-api">Scala API</h3>
-
-<pre><code>val lines = PubsubUtils.createStream(ssc, projectId, subscriptionName, credential, ..)
-</code></pre>
-
-<h3 id="java-api">Java API</h3>
-
-<pre><code>JavaDStream&lt;SparkPubsubMessage&gt; lines = PubsubUtils.createStream(jssc, projectId, subscriptionName, credential...)
-</code></pre>
-
-<p>See end-to-end examples at <a href="streaming-pubsub/examples">Google Cloud Pubsub Examples</a></p>
-
-<h3 id="unit-test">Unit Test</h3>
-
-<p>To run the PubSub test cases, you need to generate <strong>Google API service account key files</strong> and set the corresponding environment variable to enable the test.</p>
-
-<h4 id="to-generate-a-service-account-key-file-with-pubsub-permission">To generate a service account key file with PubSub permission</h4>
-
-<ol>
-  <li>Go to <a href="console.cloud.google.com">Google API Console</a></li>
-  <li>Choose the <code>Credentials</code> Tab&gt; <code>Create credentials</code> button&gt; <code>Service account key</code></li>
-  <li>Fill the account name, assign <code>Role&gt; Pub/Sub&gt; Pub/Sub Editor</code> and check the option <code>Furnish a private key</code> to create one. You need to create one for JSON key file, another for P12.</li>
-  <li>The account email is the <code>Service account ID</code></li>
-</ol>
-
-<h4 id="setting-the-environment-variables-and-run-test">Setting the environment variables and run test</h4>
-
-<p>```
-mvn clean package -DskipTests -pl streaming-pubsub</p>
-
-<p>export ENABLE_PUBSUB_TESTS=1
-export GCP_TEST_ACCOUNT=”THE_P12_SERVICE_ACCOUNT_ID_MENTIONED_ABOVE”
-export GCP_TEST_PROJECT_ID=”YOUR_GCP_PROJECT_ID”
-export GCP_TEST_JSON_KEY_PATH=/path/to/pubsub/credential/files/Apache-Bahir-PubSub-1234abcd.json
-export GCP_TEST_P12_KEY_PATH=/path/to/pubsub/credential/files/Apache-Bahir-PubSub-5678efgh.p12</p>
-
-<p>mvn test -pl streaming-pubsub
-```</p>
 
   </div>
 </div>

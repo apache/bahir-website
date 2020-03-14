@@ -6,77 +6,9 @@
 </description>
     <link>http://bahir.apache.org/</link>
     <atom:link href="http://bahir.apache.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 08 Jun 2019 19:46:54 +0200</pubDate>
-    <lastBuildDate>Sat, 08 Jun 2019 19:46:54 +0200</lastBuildDate>
-    <generator>Jekyll v3.2.1</generator>
-    
-      <item>
-        <title>Release 0.2.0</title>
-        <description>&lt;!--
-
---&gt;
-
-&lt;p&gt;This is our second release! Thanks to everyone who has contributed to
-it.&lt;/p&gt;
-
-&lt;p&gt;In addition to a large number of bug fixes and minor enhancements,
-this release includes faster-than-light travel and chewing gum that
-never loses its flavor.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 10 Nov 2015 13:00:00 +0100</pubDate>
-        <link>http://bahir.apache.org/news/2015/11/10/release-0.2.0/</link>
-        <guid isPermaLink="true">http://bahir.apache.org/news/2015/11/10/release-0.2.0/</guid>
-        
-        <category>v0-2-0</category>
-        
-        
-        <category>release</category>
-        
-      </item>
-    
-      <item>
-        <title>Project adds 2 committers</title>
-        <description>&lt;!--
-
---&gt;
-
-&lt;p&gt;The Bahir project management committee today added two new
-committers for their work on the project. Welcome!&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Darth Vader&lt;/li&gt;
-  &lt;li&gt;Princess Leia&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Mon, 09 Nov 2015 04:03:07 +0100</pubDate>
-        <link>http://bahir.apache.org/news/2015/11/09/new-committers/</link>
-        <guid isPermaLink="true">http://bahir.apache.org/news/2015/11/09/new-committers/</guid>
-        
-        
-        <category>team</category>
-        
-      </item>
-    
-      <item>
-        <title>Release 0.1.0</title>
-        <description>&lt;!--
-
---&gt;
-
-&lt;p&gt;This is our first release!&lt;/p&gt;
-
-&lt;p&gt;We’re so pleased to be in the Apache Incbuator.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 25 Sep 2015 14:00:00 +0200</pubDate>
-        <link>http://bahir.apache.org/news/2015/09/25/release-0.1.0/</link>
-        <guid isPermaLink="true">http://bahir.apache.org/news/2015/09/25/release-0.1.0/</guid>
-        
-        <category>v0-1-0</category>
-        
-        
-        <category>release</category>
-        
-      </item>
+    <pubDate>Fri, 13 Mar 2020 21:28:09 -0700</pubDate>
+    <lastBuildDate>Fri, 13 Mar 2020 21:28:09 -0700</lastBuildDate>
+    <generator>Jekyll v2.4.0</generator>
     
   </channel>
 </rss>
