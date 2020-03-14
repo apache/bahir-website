@@ -31,11 +31,11 @@ Library for reading data from real-time messaging infrastructure [PubNub](https:
 ## Linking
 
 Using SBT:
-    
+
     libraryDependencies += "org.apache.bahir" %% "spark-streaming-pubnub" % "2.3.1"
-    
+
 Using Maven:
-    
+
     <dependency>
         <groupId>org.apache.bahir</groupId>
         <artifactId>spark-streaming-pubnub_2.11</artifactId>
@@ -64,7 +64,7 @@ For complete code examples, please review _examples_ directory.
 
     import com.pubnub.api.PNConfiguration
     import com.pubnub.api.enums.PNReconnectionPolicy
-    
+
     import org.apache.spark.streaming.pubnub.{PubNubUtils, SparkPubNubMessage}
 
     val config = new PNConfiguration
@@ -81,7 +81,7 @@ For complete code examples, please review _examples_ directory.
 
     import com.pubnub.api.PNConfiguration
     import com.pubnub.api.enums.PNReconnectionPolicy
-    
+
     import org.apache.spark.streaming.pubnub.PubNubUtils
     import org.apache.spark.streaming.pubnub.SparkPubNubMessage
 
@@ -89,9 +89,9 @@ For complete code examples, please review _examples_ directory.
     config.setSubscribeKey(subscribeKey)
     config.setSecure(true)
     config.setReconnectionPolicy(PNReconnectionPolicy.LINEAR)
-    Set<String> channels = new HashSet<String>() {{
+    Set<String> channels = new HashSet<String>() {
         add("my-channel");
-    }};
+    };
 
     ReceiverInputDStream<SparkPubNubMessage> pubNubStream = PubNubUtils.createStream(
       ssc, config, channels, Collections.EMPTY_SET, null,
