@@ -18,7 +18,8 @@
 
 set -e
 cd site
-bundle exec jekyll clean
+#bundle exec jekyll clean
+rm -rf _site
 bundle exec jekyll build -d _site
 COMMIT_HASH=`git rev-parse HEAD`
 cd ..
