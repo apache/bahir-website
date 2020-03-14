@@ -34,6 +34,7 @@ keep_files: [".git", ".svn", "apidocs"]
 
 # if 'analytics_on' is true, analytics section will be rendered on the HTML pages
 JB:
+  ASSET_PATH: "/assets/themes/apache-clean"
   analytics:
     provider: google_universal
     google_universal:
