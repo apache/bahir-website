@@ -24,7 +24,10 @@ github_username:  apache
 
 # Build settings
 markdown: kramdown
-permalink: /news/:year/:month/:day/:title/
+kramdown:
+  parse_block_html: true
+
+permalink: pretty
 excerpt_separator: ""
 
 repository: https://github.com/apache/bahir-website
