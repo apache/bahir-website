@@ -22,7 +22,7 @@ Apache Bahir Website
 
 The Apache Bahir website was forked from the [Apache Website Template](https://github.com/apache/apache-website-template).
 
-The website gets generated using [Jekyll](https://jekyllrb.com/).
+The website gets generated using [Jekyll](https://jekyllrb.com/) 2.4.0.
 
 How to deploy your project's web site
 =====================================
