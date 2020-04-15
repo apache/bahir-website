@@ -66,6 +66,12 @@
   org: Netflix
   role: Committer
 
+- name: Esteban Laver
+  apacheId: emlaver
+  githubId: emlaver
+  org: IBM
+  role: Committer
+
 - name: Haoyuan Li
   apacheId: haoyuan
   githubId: haoyuan
