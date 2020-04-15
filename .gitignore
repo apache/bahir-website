@@ -33,6 +33,7 @@ target/
 
 # ignore published content (after running ./publish.sh)
 site/_site/
+site/.bundle
 content/
 
 # Others
