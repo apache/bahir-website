@@ -114,6 +114,12 @@
   org: NTT Data
   role: Committer
 
+- name: Łukasz Antoniak
+  apacheId: lukasz
+  githubId: lukasz-antoniak
+  org:
+  role: Committer
+
 - name: Luciano Resende
   apacheId: lresende
   githubId: lresende
