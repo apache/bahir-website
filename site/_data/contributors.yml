@@ -90,6 +90,12 @@
   org: Talend
   role: PMC Member
 
+- name: João Boto
+  apacheId: eskabetxe
+  githubId: eskabetxe
+  org: Independent
+  role: Committer
+
 - name: Joseph Kurata Bradley
   apacheId: jkbradley
   githubId: jkbradley
