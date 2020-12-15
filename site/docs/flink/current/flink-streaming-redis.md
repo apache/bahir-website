@@ -105,7 +105,7 @@ This example code does the same, but for Redis Cluster:
 
 **Java:**
 
-    FlinkJedisPoolConfig conf = new FlinkJedisPoolConfig.Builder()
+    FlinkJedisPoolConfig conf = new FlinkJedisClusterConfig.Builder()
         .setNodes(new HashSet<InetSocketAddress>(Arrays.asList(new InetSocketAddress(5601)))).build();
 
     DataStream<String> stream = ...;
@@ -114,7 +114,7 @@ This example code does the same, but for Redis Cluster:
 **Scala:**
 
 
-    val conf = new FlinkJedisPoolConfig.Builder().setNodes(...).build()
+    val conf = new FlinkJedisClusterConfig.Builder().setNodes(...).build()
     stream.addSink(new RedisSink[(String, String)](conf, new RedisExampleMapper))
 
 
@@ -155,7 +155,7 @@ This section gives a description of all the available data types and what Redis 
             </td>
         </tr>
         <tr>
-            <td>SET</td><td><a href="http://redis.io/commands/rpush">SADD</a></td>
+            <td>SET</td><td><a href="http://redis.io/commands/sadd">SADD</a></td>
         </tr>
         <tr>
             <td>PUBSUB</td><td><a href="http://redis.io/commands/publish">PUBLISH</a></td>
