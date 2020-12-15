@@ -24,16 +24,36 @@ limitations under the License.
 -->
 
 {% include JB/setup %}
+<!--
+{% comment %}
+Licensed to the Apache Software Foundation (ASF) under one or more
+contributor license agreements.  See the NOTICE file distributed with
+this work for additional information regarding copyright ownership.
+The ASF licenses this file to You under the Apache License, Version 2.0
+(the "License"); you may not use this file except in compliance with
+the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+{% endcomment %}
+-->
+# Spark Streaming Google Cloud Pub/Sub Connector
+
 A library for reading data from [Google Cloud Pub/Sub](https://cloud.google.com/pubsub/) using Spark Streaming.
 
 ## Linking
 
 Using SBT:
-    
+
     libraryDependencies += "org.apache.bahir" %% "spark-streaming-pubsub" % "{{site.SPARK_VERSION}}"
-    
+
 Using Maven:
-    
+
     <dependency>
         <groupId>org.apache.bahir</groupId>
         <artifactId>spark-streaming-pubsub_{{site.SCALA_BINARY_VERSION}}</artifactId>
@@ -53,20 +73,22 @@ The `--packages` argument can also be used with `bin/spark-submit`.
 First you need to create credential by SparkGCPCredentials, it support four type of credentials
 * application default
     `SparkGCPCredentials.builder.build()`
-* json type service account
+* JSON type service account (based on file or its binary content)
     `SparkGCPCredentials.builder.jsonServiceAccount(PATH_TO_JSON_KEY).build()`
-* p12 type service account
+    `SparkGCPCredentials.builder.jsonServiceAccount(JSON_KEY_BYTES).build()`
+* P12 type service account
     `SparkGCPCredentials.builder.p12ServiceAccount(PATH_TO_P12_KEY, EMAIL_ACCOUNT).build()`
-* metadata service account(running on dataproc)
+    `SparkGCPCredentials.builder.p12ServiceAccount(P12_KEY_BYTES, EMAIL_ACCOUNT).build()`
+* Metadata service account (running on dataproc)
     `SparkGCPCredentials.builder.metadataServiceAccount().build()`
 
 ### Scala API
-    
+
     val lines = PubsubUtils.createStream(ssc, projectId, subscriptionName, credential, ..)
-    
+
 ### Java API
-    
-    JavaDStream<SparkPubsubMessage> lines = PubsubUtils.createStream(jssc, projectId, subscriptionName, credential...) 
+
+    JavaDStream<SparkPubsubMessage> lines = PubsubUtils.createStream(jssc, projectId, subscriptionName, credential...)
 
 See end-to-end examples at [Google Cloud Pubsub Examples](streaming-pubsub/examples)
 
