@@ -65,9 +65,7 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="/downloads/spark" target="_self">Bahir Spark Extensions</a></li>
-              
               
               
               <li><a href="/downloads/flink" target="_self">Bahir Flink Extensions</a></li>
@@ -85,25 +83,19 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="/community" target="_self">Get Involved</a></li>
-              
               
               
               <li><a href="/contributing" target="_self">Contributing</a></li>
               
               
-              
               <li><a href="/contributing-extensions" target="_self">Contributing Extensions</a></li>
-              
               
               
               <li><a href="https://issues.apache.org/jira/browse/BAHIR" target="_blank">Issue Tracker</a></li>
               
               
-              
               <li><a href="/community#source-code" target="_self">Source Code</a></li>
-              
               
               
               <li><a href="/community-members" target="_self">Project Committers</a></li>
@@ -121,9 +113,7 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="/docs/spark/overview" target="_self">Bahir Spark Extensions</a></li>
-              
               
               
               <li><a href="/docs/flink/overview" target="_self">Bahir Flink Extensions</a></li>
@@ -141,13 +131,10 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="https://github.com/apache/bahir" target="_blank">Bahir Spark Extensions</a></li>
               
               
-              
               <li><a href="https://github.com/apache/bahir-flink" target="_blank">Bahir Flink Extensions</a></li>
-              
               
               
               <li><a href="https://github.com/apache/bahir-website" target="_blank">Bahir Website</a></li>
@@ -165,21 +152,16 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="http://www.apache.org/foundation/how-it-works.html" target="_blank">Apache Software Foundation</a></li>
-              
               
               
               <li><a href="http://www.apache.org/licenses/" target="_blank">Apache License</a></li>
               
               
-              
               <li><a href="http://www.apache.org/foundation/sponsorship" target="_blank">Sponsorship</a></li>
               
               
-              
               <li><a href="http://www.apache.org/foundation/thanks.html" target="_blank">Thanks</a></li>
-              
               
               
               <li><a href="/privacy-policy" target="_self">Privacy Policy</a></li>
@@ -219,26 +201,26 @@
 
 <p>Using SBT:</p>
 
-<pre><code>libraryDependencies += "org.apache.bahir" %% "spark-sql-streaming-mqtt" % "2.3.2"
-</code></pre>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>libraryDependencies += "org.apache.bahir" %% "spark-sql-streaming-mqtt" % "2.3.2"
+</code></pre></div></div>
 
 <p>Using Maven:</p>
 
-<pre><code>&lt;dependency&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;dependency&gt;
     &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
     &lt;artifactId&gt;spark-sql-streaming-mqtt_2.11&lt;/artifactId&gt;
     &lt;version&gt;2.3.2&lt;/version&gt;
 &lt;/dependency&gt;
-</code></pre>
+</code></pre></div></div>
 
-<p>This library can also be added to Spark jobs launched through <code>spark-shell</code> or <code>spark-submit</code> by using the <code>--packages</code> command line option.
+<p>This library can also be added to Spark jobs launched through <code class="language-plaintext highlighter-rouge">spark-shell</code> or <code class="language-plaintext highlighter-rouge">spark-submit</code> by using the <code class="language-plaintext highlighter-rouge">--packages</code> command line option.
 For example, to include it when starting the spark shell:</p>
 
-<pre><code>$ bin/spark-shell --packages org.apache.bahir:spark-sql-streaming-mqtt_2.11:2.3.2
-</code></pre>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bin/spark-shell --packages org.apache.bahir:spark-sql-streaming-mqtt_2.11:2.3.2
+</code></pre></div></div>
 
-<p>Unlike using <code>--jars</code>, using <code>--packages</code> ensures that this library and its dependencies will be added to the classpath.
-The <code>--packages</code> argument can also be used with <code>bin/spark-submit</code>.</p>
+<p>Unlike using <code class="language-plaintext highlighter-rouge">--jars</code>, using <code class="language-plaintext highlighter-rouge">--packages</code> ensures that this library and its dependencies will be added to the classpath.
+The <code class="language-plaintext highlighter-rouge">--packages</code> argument can also be used with <code class="language-plaintext highlighter-rouge">bin/spark-submit</code>.</p>
 
 <p>This library is compiled for Scala 2.11 only, and intends to support Spark 2.0 onwards.</p>
 
@@ -246,52 +228,52 @@ The <code>--packages</code> argument can also be used with <code>bin/spark-submi
 
 <p>SQL Stream can be created with data streams received through MQTT Server using:</p>
 
-<pre><code>sqlContext.readStream
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlContext.readStream
     .format("org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider")
     .option("topic", "mytopic")
     .load("tcp://localhost:1883")
-</code></pre>
+</code></pre></div></div>
 
 <p>SQL Stream may be also transferred into MQTT messages using:</p>
 
-<pre><code>sqlContext.writeStream
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlContext.writeStream
     .format("org.apache.bahir.sql.streaming.mqtt.MQTTStreamSinkProvider")
     .option("checkpointLocation", "/path/to/localdir")
     .outputMode("complete")
     .option("topic", "mytopic")
     .load("tcp://localhost:1883")
-</code></pre>
+</code></pre></div></div>
 
 <h2 id="source-recovering-from-failures">Source recovering from failures</h2>
 
-<p>Setting values for option <code>localStorage</code> and <code>clientId</code> helps in recovering in case of source restart, by restoring the state where it left off before the shutdown.</p>
+<p>Setting values for option <code class="language-plaintext highlighter-rouge">localStorage</code> and <code class="language-plaintext highlighter-rouge">clientId</code> helps in recovering in case of source restart, by restoring the state where it left off before the shutdown.</p>
 
-<pre><code>sqlContext.readStream
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlContext.readStream
     .format("org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider")
     .option("topic", "mytopic")
     .option("localStorage", "/path/to/localdir")
     .option("clientId", "some-client-id")
     .load("tcp://localhost:1883")
-</code></pre>
+</code></pre></div></div>
 
 <h2 id="configuration-options">Configuration options</h2>
 
 <p>This connector uses <a href="https://eclipse.org/paho/clients/java/">Eclipse Paho Java Client</a>. Client API documentation is located <a href="http://www.eclipse.org/paho/files/javadoc/index.html">here</a>.</p>
 
 <ul>
-  <li><code>brokerUrl</code> An URL MqttClient connects to. Set this or <code>path</code> as the URL of the Mqtt Server. e.g. tcp://localhost:1883.</li>
-  <li><code>persistence</code> By default it is used for storing incoming messages on disk. If <code>memory</code> is provided as value for this option, then recovery on restart is not supported.</li>
-  <li><code>topic</code> Topic MqttClient subscribes to.</li>
-  <li><code>clientId</code> clientId, this client is associated with. Provide the same value to recover a stopped source client. MQTT sink ignores client identifier, because Spark batch can be distributed across multiple workers whereas MQTT broker does not allow simultanous connections with same ID from multiple hosts.</li>
-  <li><code>QoS</code> The maximum quality of service to subscribe each topic at. Messages published at a lower quality of service will be received at the published QoS. Messages published at a higher quality of service will be received using the QoS specified on the subscribe.</li>
-  <li><code>username</code> Sets the user name to use for the connection to Mqtt Server. Do not set it, if server does not need this. Setting it empty will lead to errors.</li>
-  <li><code>password</code> Sets the password to use for the connection.</li>
-  <li><code>cleanSession</code> Setting it true starts a clean session, removes all checkpointed messages by a previous run of this source. This is set to false by default.</li>
-  <li><code>connectionTimeout</code> Sets the connection timeout, a value of 0 is interpretted as wait until client connects. See <code>MqttConnectOptions.setConnectionTimeout</code> for more information.</li>
-  <li><code>keepAlive</code> Same as <code>MqttConnectOptions.setKeepAliveInterval</code>.</li>
-  <li><code>mqttVersion</code> Same as <code>MqttConnectOptions.setMqttVersion</code>.</li>
-  <li><code>maxInflight</code> Same as <code>MqttConnectOptions.setMaxInflight</code></li>
-  <li><code>autoReconnect</code> Same as <code>MqttConnectOptions.setAutomaticReconnect</code></li>
+  <li><code class="language-plaintext highlighter-rouge">brokerUrl</code> An URL MqttClient connects to. Set this or <code class="language-plaintext highlighter-rouge">path</code> as the URL of the Mqtt Server. e.g. tcp://localhost:1883.</li>
+  <li><code class="language-plaintext highlighter-rouge">persistence</code> By default it is used for storing incoming messages on disk. If <code class="language-plaintext highlighter-rouge">memory</code> is provided as value for this option, then recovery on restart is not supported.</li>
+  <li><code class="language-plaintext highlighter-rouge">topic</code> Topic MqttClient subscribes to.</li>
+  <li><code class="language-plaintext highlighter-rouge">clientId</code> clientId, this client is associated with. Provide the same value to recover a stopped source client. MQTT sink ignores client identifier, because Spark batch can be distributed across multiple workers whereas MQTT broker does not allow simultanous connections with same ID from multiple hosts.</li>
+  <li><code class="language-plaintext highlighter-rouge">QoS</code> The maximum quality of service to subscribe each topic at. Messages published at a lower quality of service will be received at the published QoS. Messages published at a higher quality of service will be received using the QoS specified on the subscribe.</li>
+  <li><code class="language-plaintext highlighter-rouge">username</code> Sets the user name to use for the connection to Mqtt Server. Do not set it, if server does not need this. Setting it empty will lead to errors.</li>
+  <li><code class="language-plaintext highlighter-rouge">password</code> Sets the password to use for the connection.</li>
+  <li><code class="language-plaintext highlighter-rouge">cleanSession</code> Setting it true starts a clean session, removes all checkpointed messages by a previous run of this source. This is set to false by default.</li>
+  <li><code class="language-plaintext highlighter-rouge">connectionTimeout</code> Sets the connection timeout, a value of 0 is interpretted as wait until client connects. See <code class="language-plaintext highlighter-rouge">MqttConnectOptions.setConnectionTimeout</code> for more information.</li>
+  <li><code class="language-plaintext highlighter-rouge">keepAlive</code> Same as <code class="language-plaintext highlighter-rouge">MqttConnectOptions.setKeepAliveInterval</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">mqttVersion</code> Same as <code class="language-plaintext highlighter-rouge">MqttConnectOptions.setMqttVersion</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">maxInflight</code> Same as <code class="language-plaintext highlighter-rouge">MqttConnectOptions.setMaxInflight</code></li>
+  <li><code class="language-plaintext highlighter-rouge">autoReconnect</code> Same as <code class="language-plaintext highlighter-rouge">MqttConnectOptions.setAutomaticReconnect</code></li>
 </ul>
 
 <h2 id="environment-variables">Environment variables</h2>
@@ -299,18 +281,18 @@ The <code>--packages</code> argument can also be used with <code>bin/spark-submi
 <p>Custom environment variables allowing to manage MQTT connectivity performed by sink connector:</p>
 
 <ul>
-  <li><code>spark.mqtt.client.connect.attempts</code> Number of attempts sink will try to connect to MQTT broker before failing.</li>
-  <li><code>spark.mqtt.client.connect.backoff</code> Delay in milliseconds to wait before retrying connection to the server.</li>
-  <li><code>spark.mqtt.connection.cache.timeout</code> Sink connector caches MQTT connections. Idle connections will be closed after timeout milliseconds.</li>
-  <li><code>spark.mqtt.client.publish.attempts</code> Number of attempts to publish the message before failing the task.</li>
-  <li><code>spark.mqtt.client.publish.backoff</code> Delay in milliseconds to wait before retrying send operation.</li>
+  <li><code class="language-plaintext highlighter-rouge">spark.mqtt.client.connect.attempts</code> Number of attempts sink will try to connect to MQTT broker before failing.</li>
+  <li><code class="language-plaintext highlighter-rouge">spark.mqtt.client.connect.backoff</code> Delay in milliseconds to wait before retrying connection to the server.</li>
+  <li><code class="language-plaintext highlighter-rouge">spark.mqtt.connection.cache.timeout</code> Sink connector caches MQTT connections. Idle connections will be closed after timeout milliseconds.</li>
+  <li><code class="language-plaintext highlighter-rouge">spark.mqtt.client.publish.attempts</code> Number of attempts to publish the message before failing the task.</li>
+  <li><code class="language-plaintext highlighter-rouge">spark.mqtt.client.publish.backoff</code> Delay in milliseconds to wait before retrying send operation.</li>
 </ul>
 
 <h3 id="scala-api">Scala API</h3>
 
 <p>An example, for scala API to count words from incoming message stream.</p>
 
-<pre><code>// Create DataFrame representing the stream of input lines from connection to mqtt server
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Create DataFrame representing the stream of input lines from connection to mqtt server
 val lines = spark.readStream
   .format("org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider")
   .option("topic", topic)
@@ -329,15 +311,15 @@ val query = wordCounts.writeStream
   .start()
 
 query.awaitTermination()
-</code></pre>
+</code></pre></div></div>
 
-<p>Please see <code>MQTTStreamWordCount.scala</code> for full example. Review <code>MQTTSinkWordCount.scala</code>, if interested in publishing data to MQTT broker.</p>
+<p>Please see <code class="language-plaintext highlighter-rouge">MQTTStreamWordCount.scala</code> for full example. Review <code class="language-plaintext highlighter-rouge">MQTTSinkWordCount.scala</code>, if interested in publishing data to MQTT broker.</p>
 
 <h3 id="java-api">Java API</h3>
 
 <p>An example, for Java API to count words from incoming message stream.</p>
 
-<pre><code>// Create DataFrame representing the stream of input lines from connection to mqtt server.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Create DataFrame representing the stream of input lines from connection to mqtt server.
 Dataset&lt;String&gt; lines = spark
         .readStream()
         .format("org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider")
@@ -363,9 +345,9 @@ StreamingQuery query = wordCounts.writeStream()
         .start();
 
 query.awaitTermination();
-</code></pre>
+</code></pre></div></div>
 
-<p>Please see <code>JavaMQTTStreamWordCount.java</code> for full example. Review <code>JavaMQTTSinkWordCount.java</code>, if interested in publishing data to MQTT broker.</p>
+<p>Please see <code class="language-plaintext highlighter-rouge">JavaMQTTStreamWordCount.java</code> for full example. Review <code class="language-plaintext highlighter-rouge">JavaMQTTSinkWordCount.java</code>, if interested in publishing data to MQTT broker.</p>
 
 <h2 id="best-practices">Best Practices.</h2>
 
@@ -384,15 +366,13 @@ query.awaitTermination();
 </ol>
 
 <ul>
-  <li>
-    <p>Scala API example:
-<code>scala
- // Create DataFrame representing the stream of binary messages
- val lines = spark.readStream
-   .format("org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider")
-   .option("topic", topic)
-   .load(brokerUrl).select("payload").as[Array[Byte]].map(externalParser(_))
-</code></p>
+  <li>Scala API example:
+    <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c1">// Create DataFrame representing the stream of binary messages</span>
+ <span class="k">val</span> <span class="nv">lines</span> <span class="k">=</span> <span class="nv">spark</span><span class="o">.</span><span class="py">readStream</span>
+   <span class="o">.</span><span class="py">format</span><span class="o">(</span><span class="s">"org.apache.bahir.sql.streaming.mqtt.MQTTStreamSourceProvider"</span><span class="o">)</span>
+   <span class="o">.</span><span class="py">option</span><span class="o">(</span><span class="s">"topic"</span><span class="o">,</span> <span class="n">topic</span><span class="o">)</span>
+   <span class="o">.</span><span class="py">load</span><span class="o">(</span><span class="n">brokerUrl</span><span class="o">).</span><span class="py">select</span><span class="o">(</span><span class="s">"payload"</span><span class="o">).</span><span class="py">as</span><span class="o">[</span><span class="kt">Array</span><span class="o">[</span><span class="kt">Byte</span><span class="o">]].</span><span class="py">map</span><span class="o">(</span><span class="nf">externalParser</span><span class="o">(</span><span class="k">_</span><span class="o">))</span>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>Java API example
@@ -404,7 +384,7 @@ query.awaitTermination();
              .option(“topic”, topic)
              .load(brokerUrl).selectExpr(“CAST(payload AS BINARY)”).as(Encoders.BINARY());</p>
 
-    <pre><code> // Split the lines into words
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> // Split the lines into words
  Dataset&lt;String&gt; words = lines.map(new MapFunction&lt;byte[], String&gt;() {
      @Override
      public String call(byte[] bytes) throws Exception {
@@ -416,7 +396,7 @@ query.awaitTermination();
          return Arrays.asList(x.split(" ")).iterator();
      }
  }, Encoders.STRING());
-</code></pre>
+</code></pre></div>    </div>
   </li>
 </ul>
 

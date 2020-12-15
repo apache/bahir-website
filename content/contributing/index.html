@@ -65,9 +65,7 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="/downloads/spark" target="_self">Bahir Spark Extensions</a></li>
-              
               
               
               <li><a href="/downloads/flink" target="_self">Bahir Flink Extensions</a></li>
@@ -85,25 +83,19 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="/community" target="_self">Get Involved</a></li>
-              
               
               
               <li><a href="/contributing" target="_self">Contributing</a></li>
               
               
-              
               <li><a href="/contributing-extensions" target="_self">Contributing Extensions</a></li>
-              
               
               
               <li><a href="https://issues.apache.org/jira/browse/BAHIR" target="_blank">Issue Tracker</a></li>
               
               
-              
               <li><a href="/community#source-code" target="_self">Source Code</a></li>
-              
               
               
               <li><a href="/community-members" target="_self">Project Committers</a></li>
@@ -121,9 +113,7 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="/docs/spark/overview" target="_self">Bahir Spark Extensions</a></li>
-              
               
               
               <li><a href="/docs/flink/overview" target="_self">Bahir Flink Extensions</a></li>
@@ -141,13 +131,10 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="https://github.com/apache/bahir" target="_blank">Bahir Spark Extensions</a></li>
               
               
-              
               <li><a href="https://github.com/apache/bahir-flink" target="_blank">Bahir Flink Extensions</a></li>
-              
               
               
               <li><a href="https://github.com/apache/bahir-website" target="_blank">Bahir Website</a></li>
@@ -165,21 +152,16 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="http://www.apache.org/foundation/how-it-works.html" target="_blank">Apache Software Foundation</a></li>
-              
               
               
               <li><a href="http://www.apache.org/licenses/" target="_blank">Apache License</a></li>
               
               
-              
               <li><a href="http://www.apache.org/foundation/sponsorship" target="_blank">Sponsorship</a></li>
               
               
-              
               <li><a href="http://www.apache.org/foundation/thanks.html" target="_blank">Thanks</a></li>
-              
               
               
               <li><a href="/privacy-policy" target="_self">Privacy Policy</a></li>
@@ -264,6 +246,8 @@
       <li>Provide a descriptive Title. “Update web UI” or “Problem in scheduler” is not sufficient. “Kafka Streaming support fails to handle empty queue in YARN cluster mode” is good.</li>
       <li>Write a detailed Description. For bug reports, this should ideally include a short reproduction of the problem. For new features, it may include a design document.</li>
       <li>Set required fields:</li>
+    </ul>
+    <ul>
       <li><strong>Issue Type</strong>. Generally, Bug, Improvement and New Feature are the only types used in Bahir.</li>
       <li><strong>Priority</strong>. Set to Major or below; higher priorities are generally reserved for committers to set. JIRA tends to unfortunately conflate “size” and “importance” in its Priority field values. Their meaning is roughly:
         <ul>
@@ -275,11 +259,11 @@
         </ul>
       </li>
       <li><strong>Component</strong></li>
-      <li><strong>Affects Version</strong>. For Bugs, assign at least one version that is known to exhibit the problem or need the change</li>
-      <li>Do not set the following fields:</li>
+      <li><strong>Affects Version</strong>. For Bugs, assign at least one version that is known to exhibit the problem or need the change
+      * Do not set the following fields:</li>
       <li><strong>Fix Version</strong>. This is assigned by committers only when resolved.</li>
-      <li><strong>Target Version</strong>. This is assigned by committers to indicate a PR has been accepted for possible fix by the target version.</li>
-      <li>Do not include a patch file; pull requests are used to propose the actual change.</li>
+      <li><strong>Target Version</strong>. This is assigned by committers to indicate a PR has been accepted for possible fix by the target version.
+      * Do not include a patch file; pull requests are used to propose the actual change.</li>
     </ul>
   </li>
   <li>If the change is a large change, consider inviting discussion on the issue at dev@bahir.apache.org first before proceeding to implement the change.</li>
@@ -297,26 +281,26 @@
 
 <p>Make sure you do not have any uncommitted changes and rebase master with latest changes from upstream:</p>
 
-<pre><code>git fetch upstream
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git fetch upstream
 git checkout master
 git rebase upstream/master
-</code></pre>
+</code></pre></div></div>
 
 <p>Now you should rebase your branch with master, to receive the upstream changes</p>
 
-<pre><code>git checkout branch
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout branch
 git rebase master
-</code></pre>
+</code></pre></div></div>
 
 <p>In both cases, you can have conflicts:</p>
 
-<pre><code>error: could not apply fa39187... something to add to patch A
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error: could not apply fa39187... something to add to patch A
 
 When you have resolved this problem, run "git rebase --continue".
 If you prefer to skip this patch, run "git rebase --skip" instead.
 To check out the original branch and stop rebasing, run "git rebase --abort".
 Could not apply fa39187f3c3dfd2ab5faa38ac01cf3de7ce2e841... Change fake file
-</code></pre>
+</code></pre></div></div>
 
 <p>Here, Git is telling you which commit is causing the conflict (fa39187). You’re given three choices:</p>
 
@@ -354,11 +338,11 @@ Could not apply fa39187f3c3dfd2ab5faa38ac01cf3de7ce2e841... Change fake file
 
 <p>Below is an example of a good commit message</p>
 
-<pre><code>[BAHIR-130] Performance enhancements for decision tree
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[BAHIR-130] Performance enhancements for decision tree
 
 Generate Matrix with random values through local memory
 if there is sufficient memory.
-</code></pre>
+</code></pre></div></div>
 
 <h3 id="code-review-criteria">Code Review Criteria</h3>
 <p>Before considering how to contribute code, it’s useful to understand how code is reviewed, and why changes may be rejected. Simply put, changes that have many or large positives, and few negative effects or risks, are much more likely to be merged, and merged quickly. Risky and less valuable changes are very unlikely to be merged, and may be rejected outright rather than receive iterations of review.</p>

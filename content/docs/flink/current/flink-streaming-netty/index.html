@@ -65,9 +65,7 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="/downloads/spark" target="_self">Bahir Spark Extensions</a></li>
-              
               
               
               <li><a href="/downloads/flink" target="_self">Bahir Flink Extensions</a></li>
@@ -85,25 +83,19 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="/community" target="_self">Get Involved</a></li>
-              
               
               
               <li><a href="/contributing" target="_self">Contributing</a></li>
               
               
-              
               <li><a href="/contributing-extensions" target="_self">Contributing Extensions</a></li>
-              
               
               
               <li><a href="https://issues.apache.org/jira/browse/BAHIR" target="_blank">Issue Tracker</a></li>
               
               
-              
               <li><a href="/community#source-code" target="_self">Source Code</a></li>
-              
               
               
               <li><a href="/community-members" target="_self">Project Committers</a></li>
@@ -121,9 +113,7 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="/docs/spark/overview" target="_self">Bahir Spark Extensions</a></li>
-              
               
               
               <li><a href="/docs/flink/overview" target="_self">Bahir Flink Extensions</a></li>
@@ -141,13 +131,10 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="https://github.com/apache/bahir" target="_blank">Bahir Spark Extensions</a></li>
               
               
-              
               <li><a href="https://github.com/apache/bahir-flink" target="_blank">Bahir Flink Extensions</a></li>
-              
               
               
               <li><a href="https://github.com/apache/bahir-website" target="_blank">Bahir Website</a></li>
@@ -165,21 +152,16 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="http://www.apache.org/foundation/how-it-works.html" target="_blank">Apache Software Foundation</a></li>
-              
               
               
               <li><a href="http://www.apache.org/licenses/" target="_blank">Apache License</a></li>
               
               
-              
               <li><a href="http://www.apache.org/foundation/sponsorship" target="_blank">Sponsorship</a></li>
               
               
-              
               <li><a href="http://www.apache.org/foundation/thanks.html" target="_blank">Thanks</a></li>
-              
               
               
               <li><a href="/privacy-policy" target="_self">Privacy Policy</a></li>
@@ -222,8 +204,7 @@ See how to link with them for cluster execution <a href="https://ci.apache.org/p
 
 <h2 id="data-flow">Data Flow</h2>
 
-<p><code>
-+-------------+      (2)    +------------------------+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+-------------+      (2)    +------------------------+
 | user system |    &lt;-----   | Third Register Service |           
 +-------------+             +------------------------+
        |                                ^
@@ -233,47 +214,48 @@ See how to link with them for cluster execution <a href="https://ci.apache.org/p
 +--------------------+                  |
 | Flink Netty Source |  ----------------+
 +--------------------+         (1)
-</code></p>
+</code></pre></div></div>
 
 <p>There are three components:</p>
 
 <ul>
   <li>User System - where the data stream is coming from</li>
-  <li>Third Register Service - receive <code>Flink Netty Source</code>’s register request (ip and port)</li>
-  <li>Flink Netty Source - Netty Server for receiving pushed streaming data from <code>User System</code></li>
+  <li>Third Register Service - receive <code class="language-plaintext highlighter-rouge">Flink Netty Source</code>’s register request (ip and port)</li>
+  <li>Flink Netty Source - Netty Server for receiving pushed streaming data from <code class="language-plaintext highlighter-rouge">User System</code></li>
 </ul>
 
 <h2 id="maven-dependency">Maven Dependency</h2>
 <p>To use this connector, add the following dependency to your project:</p>
 
-<p>```</p>
-<dependency>
-  <groupid>org.apache.bahir</groupid>
-  <artifactid>flink-connector-netty_2.11</artifactid>
-  <version>1.1-SNAPSHOT</version>
-</dependency>
-<p>```</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
+  &lt;artifactId&gt;flink-connector-netty_2.11&lt;/artifactId&gt;
+  &lt;version&gt;1.1-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></div></div>
 
 <h2 id="usage">Usage</h2>
 
 <p><em>Tcp Source:</em></p>
 
-<p><code>
-val env = StreamExecutionEnvironment.getExecutionEnvironment
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>val env = StreamExecutionEnvironment.getExecutionEnvironment
 env.addSource(new TcpReceiverSource("msg", 7070, Some("http://localhost:9090/cb")))
-</code>
-&gt;paramKey:  the http query param key
-&gt;tryPort:   try to use this point, if this point is used then try a new port
-&gt;callbackUrl:   register connector’s ip and port to a <code>Third Register Service</code></p>
+</code></pre></div></div>
+<blockquote>
+  <p>paramKey:  the http query param key
+tryPort:   try to use this point, if this point is used then try a new port
+callbackUrl:   register connector’s ip and port to a <code class="language-plaintext highlighter-rouge">Third Register Service</code></p>
+</blockquote>
 
 <p><em>Http Source:</em></p>
 
-<p><code>
-val env = StreamExecutionEnvironment.getExecutionEnvironment
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>val env = StreamExecutionEnvironment.getExecutionEnvironment
 env.addSource(new TcpReceiverSource(7070, Some("http://localhost:9090/cb")))
-</code>
-&gt;tryPort:   try to use this port, if this point is used then try a new port
-&gt;callbackUrl:   register connector’s ip and port to a <code>Third Register Service</code></p>
+</code></pre></div></div>
+<blockquote>
+  <p>tryPort:   try to use this port, if this point is used then try a new port
+callbackUrl:   register connector’s ip and port to a <code class="language-plaintext highlighter-rouge">Third Register Service</code></p>
+</blockquote>
 
 <h2 id="full-example">Full Example</h2>
 

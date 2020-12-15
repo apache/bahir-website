@@ -65,9 +65,7 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="/downloads/spark" target="_self">Bahir Spark Extensions</a></li>
-              
               
               
               <li><a href="/downloads/flink" target="_self">Bahir Flink Extensions</a></li>
@@ -85,25 +83,19 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="/community" target="_self">Get Involved</a></li>
-              
               
               
               <li><a href="/contributing" target="_self">Contributing</a></li>
               
               
-              
               <li><a href="/contributing-extensions" target="_self">Contributing Extensions</a></li>
-              
               
               
               <li><a href="https://issues.apache.org/jira/browse/BAHIR" target="_blank">Issue Tracker</a></li>
               
               
-              
               <li><a href="/community#source-code" target="_self">Source Code</a></li>
-              
               
               
               <li><a href="/community-members" target="_self">Project Committers</a></li>
@@ -121,9 +113,7 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="/docs/spark/overview" target="_self">Bahir Spark Extensions</a></li>
-              
               
               
               <li><a href="/docs/flink/overview" target="_self">Bahir Flink Extensions</a></li>
@@ -141,13 +131,10 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="https://github.com/apache/bahir" target="_blank">Bahir Spark Extensions</a></li>
               
               
-              
               <li><a href="https://github.com/apache/bahir-flink" target="_blank">Bahir Flink Extensions</a></li>
-              
               
               
               <li><a href="https://github.com/apache/bahir-website" target="_blank">Bahir Website</a></li>
@@ -165,21 +152,16 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="http://www.apache.org/foundation/how-it-works.html" target="_blank">Apache Software Foundation</a></li>
-              
               
               
               <li><a href="http://www.apache.org/licenses/" target="_blank">Apache License</a></li>
               
               
-              
               <li><a href="http://www.apache.org/foundation/sponsorship" target="_blank">Sponsorship</a></li>
               
               
-              
               <li><a href="http://www.apache.org/foundation/thanks.html" target="_blank">Thanks</a></li>
-              
               
               
               <li><a href="/privacy-policy" target="_self">Privacy Policy</a></li>
@@ -227,35 +209,35 @@ clusters, desktop PCs, and mobile devices.</p>
 
 <p>Using SBT:</p>
 
-<pre><code>libraryDependencies += "org.apache.bahir" %% "spark-sql-cloudant" % "2.3.2"
-</code></pre>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>libraryDependencies += "org.apache.bahir" %% "spark-sql-cloudant" % "2.3.2"
+</code></pre></div></div>
 
 <p>Using Maven:</p>
 
-<pre><code>&lt;dependency&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;dependency&gt;
     &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
     &lt;artifactId&gt;spark-sql-cloudant_2.11&lt;/artifactId&gt;
     &lt;version&gt;2.3.2&lt;/version&gt;
 &lt;/dependency&gt;
-</code></pre>
+</code></pre></div></div>
 
-<p>This library can also be added to Spark jobs launched through <code>spark-shell</code> or <code>spark-submit</code> by using the <code>--packages</code> command line option.</p>
+<p>This library can also be added to Spark jobs launched through <code class="language-plaintext highlighter-rouge">spark-shell</code> or <code class="language-plaintext highlighter-rouge">spark-submit</code> by using the <code class="language-plaintext highlighter-rouge">--packages</code> command line option.</p>
 
-<pre><code>$ bin/spark-shell --packages org.apache.bahir:spark-sql-cloudant_2.11:2.3.2
-</code></pre>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bin/spark-shell --packages org.apache.bahir:spark-sql-cloudant_2.11:2.3.2
+</code></pre></div></div>
 
-<p>Unlike using <code>--jars</code>, using <code>--packages</code> ensures that this library and its dependencies will be added to the classpath.
-The <code>--packages</code> argument can also be used with <code>bin/spark-submit</code>.</p>
+<p>Unlike using <code class="language-plaintext highlighter-rouge">--jars</code>, using <code class="language-plaintext highlighter-rouge">--packages</code> ensures that this library and its dependencies will be added to the classpath.
+The <code class="language-plaintext highlighter-rouge">--packages</code> argument can also be used with <code class="language-plaintext highlighter-rouge">bin/spark-submit</code>.</p>
 
 <p>Submit a job in Python:</p>
 
-<pre><code>spark-submit  --master local[4] --packages org.apache.bahir:spark-sql-cloudant__2.11:2.3.2  &lt;path to python script&gt;
-</code></pre>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spark-submit  --master local[4] --packages org.apache.bahir:spark-sql-cloudant__2.11:2.3.2  &lt;path to python script&gt;
+</code></pre></div></div>
 
 <p>Submit a job in Scala:</p>
 
-<pre><code>spark-submit --class "&lt;your class&gt;" --master local[4] --packages org.apache.bahir:spark-sql-cloudant__2.11:2.3.2 &lt;path to spark-sql-cloudant jar&gt;
-</code></pre>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spark-submit --class "&lt;your class&gt;" --master local[4] --packages org.apache.bahir:spark-sql-cloudant__2.11:2.3.2 &lt;path to spark-sql-cloudant jar&gt;
+</code></pre></div></div>
 
 <p>This library is compiled for Scala 2.11 only, and intends to support Spark 2.0 onwards.</p>
 
@@ -288,12 +270,12 @@ The <code>--packages</code> argument can also be used with <code>bin/spark-submi
     <tr>
       <td>cloudant.batchInterval</td>
       <td style="text-align: center">8</td>
-      <td>number of seconds to set for streaming all documents from <code>_changes</code> endpoint into Spark dataframe.  See <a href="https://spark.apache.org/docs/latest/streaming-programming-guide.html#setting-the-right-batch-interval">Setting the right batch interval</a> for tuning this value.</td>
+      <td>number of seconds to set for streaming all documents from <code class="language-plaintext highlighter-rouge">_changes</code> endpoint into Spark dataframe.  See <a href="https://spark.apache.org/docs/latest/streaming-programming-guide.html#setting-the-right-batch-interval">Setting the right batch interval</a> for tuning this value.</td>
     </tr>
     <tr>
       <td>cloudant.endpoint</td>
-      <td style="text-align: center"><code>_all_docs</code></td>
-      <td>endpoint for RelationProvider when loading data from Cloudant to DataFrames or SQL temporary tables. Select between the Cloudant <code>_all_docs</code> or <code>_changes</code> API endpoint.  See <strong>Note</strong> below for differences between endpoints.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">_all_docs</code></td>
+      <td>endpoint for RelationProvider when loading data from Cloudant to DataFrames or SQL temporary tables. Select between the Cloudant <code class="language-plaintext highlighter-rouge">_all_docs</code> or <code class="language-plaintext highlighter-rouge">_changes</code> API endpoint.  See <strong>Note</strong> below for differences between endpoints.</td>
     </tr>
     <tr>
       <td>cloudant.protocol</td>
@@ -318,32 +300,32 @@ The <code>--packages</code> argument can also be used with <code>bin/spark-submi
     <tr>
       <td>cloudant.numberOfRetries</td>
       <td style="text-align: center">3</td>
-      <td>number of times to replay a request that received a 429 <code>Too Many Requests</code> response</td>
+      <td>number of times to replay a request that received a 429 <code class="language-plaintext highlighter-rouge">Too Many Requests</code> response</td>
     </tr>
     <tr>
       <td>cloudant.useQuery</td>
       <td style="text-align: center">false</td>
-      <td>by default, <code>_all_docs</code> endpoint is used if configuration ‘view’ and ‘index’ (see below) are not set. When useQuery is enabled, <code>_find</code> endpoint will be used in place of <code>_all_docs</code> when query condition is not on primary key field (_id), so that query predicates may be driven into datastore.</td>
+      <td>by default, <code class="language-plaintext highlighter-rouge">_all_docs</code> endpoint is used if configuration ‘view’ and ‘index’ (see below) are not set. When useQuery is enabled, <code class="language-plaintext highlighter-rouge">_find</code> endpoint will be used in place of <code class="language-plaintext highlighter-rouge">_all_docs</code> when query condition is not on primary key field (_id), so that query predicates may be driven into datastore.</td>
     </tr>
     <tr>
       <td>cloudant.queryLimit</td>
       <td style="text-align: center">25</td>
-      <td>the maximum number of results returned when querying the <code>_find</code> endpoint.</td>
+      <td>the maximum number of results returned when querying the <code class="language-plaintext highlighter-rouge">_find</code> endpoint.</td>
     </tr>
     <tr>
       <td>cloudant.storageLevel</td>
       <td style="text-align: center">MEMORY_ONLY</td>
-      <td>the storage level for persisting Spark RDDs during load when <code>cloudant.endpoint</code> is set to <code>_changes</code>.  See <a href="https://spark.apache.org/docs/latest/programming-guide.html#rdd-persistence">RDD Persistence section</a> in Spark’s Progamming Guide for all available storage level options.</td>
+      <td>the storage level for persisting Spark RDDs during load when <code class="language-plaintext highlighter-rouge">cloudant.endpoint</code> is set to <code class="language-plaintext highlighter-rouge">_changes</code>.  See <a href="https://spark.apache.org/docs/latest/programming-guide.html#rdd-persistence">RDD Persistence section</a> in Spark’s Progamming Guide for all available storage level options.</td>
     </tr>
     <tr>
       <td>cloudant.timeout</td>
       <td style="text-align: center">60000</td>
-      <td>stop the response after waiting the defined number of milliseconds for data.  Only supported with <code>changes</code> endpoint.</td>
+      <td>stop the response after waiting the defined number of milliseconds for data.  Only supported with <code class="language-plaintext highlighter-rouge">changes</code> endpoint.</td>
     </tr>
     <tr>
       <td>jsonstore.rdd.partitions</td>
       <td style="text-align: center">10</td>
-      <td>the number of partitions intent used to drive JsonStoreRDD loading query result in parallel. The actual number is calculated based on total rows returned and satisfying maxInPartition and minInPartition. Only supported with <code>_all_docs</code> endpoint.</td>
+      <td>the number of partitions intent used to drive JsonStoreRDD loading query result in parallel. The actual number is calculated based on total rows returned and satisfying maxInPartition and minInPartition. Only supported with <code class="language-plaintext highlighter-rouge">_all_docs</code> endpoint.</td>
     </tr>
     <tr>
       <td>jsonstore.rdd.maxInPartition</td>
@@ -368,7 +350,7 @@ The <code>--packages</code> argument can also be used with <code>bin/spark-submi
     <tr>
       <td>schemaSampleSize</td>
       <td style="text-align: center">-1</td>
-      <td>the sample size for RDD schema discovery. 1 means we are using only the first document for schema discovery; -1 means all documents; 0 will be treated as 1; any number N means min(N, total) docs. Only supported with <code>_all_docs</code> endpoint.</td>
+      <td>the sample size for RDD schema discovery. 1 means we are using only the first document for schema discovery; -1 means all documents; 0 will be treated as 1; any number N means min(N, total) docs. Only supported with <code class="language-plaintext highlighter-rouge">_all_docs</code> endpoint.</td>
     </tr>
     <tr>
       <td>createDBOnSave</td>
@@ -378,27 +360,31 @@ The <code>--packages</code> argument can also be used with <code>bin/spark-submi
   </tbody>
 </table>
 
-<p>The <code>cloudant.endpoint</code> option sets ` _changes<code> or </code>_all_docs` API endpoint to be called while loading Cloudant data into Spark DataFrames or SQL Tables.</p>
+<p>The <code class="language-plaintext highlighter-rouge">cloudant.endpoint</code> option sets ` _changes<code class="language-plaintext highlighter-rouge"> or </code>_all_docs` API endpoint to be called while loading Cloudant data into Spark DataFrames or SQL Tables.</p>
 
-<p><strong>Note:</strong> When using <code>_changes</code> API, please consider: 
-1. Results are partially ordered and may not be be presented in order in 
-which documents were updated.
-2. In case of shards’ unavailability, you may see duplicate results (changes that have been seen already)
-3. Can use <code>selector</code> option to filter Cloudant docs during load
-4. Supports a real snapshot of the database and represents it in a single point of time.
-5. Only supports a single partition.</p>
+<p><strong>Note:</strong> When using <code class="language-plaintext highlighter-rouge">_changes</code> API, please consider:</p>
+<ol>
+  <li>Results are partially ordered and may not be be presented in order in 
+which documents were updated.</li>
+  <li>In case of shards’ unavailability, you may see duplicate results (changes that have been seen already)</li>
+  <li>Can use <code class="language-plaintext highlighter-rouge">selector</code> option to filter Cloudant docs during load</li>
+  <li>Supports a real snapshot of the database and represents it in a single point of time.</li>
+  <li>Only supports a single partition.</li>
+</ol>
 
-<p>When using <code>_all_docs</code> API:
-1. Supports parallel reads (using offset and range) and partitioning.
-2. Using partitions may not represent the true snapshot of a database.  Some docs
-   may be added or deleted in the database between loading data into different 
-   Spark partitions.</p>
+<p>When using <code class="language-plaintext highlighter-rouge">_all_docs</code> API:</p>
+<ol>
+  <li>Supports parallel reads (using offset and range) and partitioning.</li>
+  <li>Using partitions may not represent the true snapshot of a database.  Some docs
+may be added or deleted in the database between loading data into different 
+Spark partitions.</li>
+</ol>
 
-<p>If loading Cloudant docs from a database greater than 100 MB, set <code>cloudant.endpoint</code> to <code>_changes</code> and <code>spark.streaming.unpersist</code> to <code>false</code>.
-This will enable RDD persistence during load against <code>_changes</code> endpoint and allow the persisted RDDs to be accessible after streaming completes.</p>
+<p>If loading Cloudant docs from a database greater than 100 MB, set <code class="language-plaintext highlighter-rouge">cloudant.endpoint</code> to <code class="language-plaintext highlighter-rouge">_changes</code> and <code class="language-plaintext highlighter-rouge">spark.streaming.unpersist</code> to <code class="language-plaintext highlighter-rouge">false</code>.
+This will enable RDD persistence during load against <code class="language-plaintext highlighter-rouge">_changes</code> endpoint and allow the persisted RDDs to be accessible after streaming completes.</p>
 
 <p>See <a href="src/test/scala/org/apache/bahir/cloudant/CloudantChangesDFSuite.scala">CloudantChangesDFSuite</a> 
-for examples of loading data into a Spark DataFrame with <code>_changes</code> API.</p>
+for examples of loading data into a Spark DataFrame with <code class="language-plaintext highlighter-rouge">_changes</code> API.</p>
 
 <h3 id="configuration-on-spark-sql-temporary-table-or-dataframe">Configuration on Spark SQL Temporary Table or DataFrame</h3>
 
@@ -446,7 +432,7 @@ for examples of loading data into a Spark DataFrame with <code>_changes</code> A
     <tr>
       <td>selector</td>
       <td style="text-align: center">all documents</td>
-      <td>a selector written in Cloudant Query syntax, specifying conditions for selecting documents when the <code>cloudant.endpoint</code> option is set to <code>_changes</code>. Only documents satisfying the selector’s conditions will be retrieved from Cloudant and loaded into Spark.</td>
+      <td>a selector written in Cloudant Query syntax, specifying conditions for selecting documents when the <code class="language-plaintext highlighter-rouge">cloudant.endpoint</code> option is set to <code class="language-plaintext highlighter-rouge">_changes</code>. Only documents satisfying the selector’s conditions will be retrieved from Cloudant and loaded into Spark.</td>
     </tr>
     <tr>
       <td>view</td>
@@ -456,12 +442,11 @@ for examples of loading data into a Spark DataFrame with <code>_changes</code> A
   </tbody>
 </table>
 
-<p>For fast loading, views are loaded without include_docs. Thus, a derived schema will always be: <code>{id, key, value}</code>, where <code>value </code>can be a compount field. An example of loading data from a view:</p>
+<p>For fast loading, views are loaded without include_docs. Thus, a derived schema will always be: <code class="language-plaintext highlighter-rouge">{id, key, value}</code>, where <code class="language-plaintext highlighter-rouge">value </code>can be a compount field. An example of loading data from a view:</p>
 
-<p>```python
-spark.sql(“ CREATE TEMPORARY TABLE flightTable1 USING org.apache.bahir.cloudant OPTIONS ( database ‘n_flight’, view ‘_design/view/_view/AA0’)”)</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">spark</span><span class="p">.</span><span class="n">sql</span><span class="p">(</span><span class="s">" CREATE TEMPORARY TABLE flightTable1 USING org.apache.bahir.cloudant OPTIONS ( database 'n_flight', view '_design/view/_view/AA0')"</span><span class="p">)</span>
 
-<p>```</p>
+</code></pre></div></div>
 
 <h3 id="configuration-on-cloudant-receiver-for-spark-streaming">Configuration on Cloudant Receiver for Spark Streaming</h3>
 
@@ -502,9 +487,9 @@ spark.sql(“ CREATE TEMPORARY TABLE flightTable1 USING org.apache.bahir.cloudan
   </tbody>
 </table>
 
-<h3 id="configuration-in-spark-submit-using---conf-option">Configuration in spark-submit using –conf option</h3>
+<h3 id="configuration-in-spark-submit-using-conf-option">Configuration in spark-submit using –conf option</h3>
 
-<p>The above stated configuration keys can also be set using <code>spark-submit --conf</code> option. When passing configuration in spark-submit, make sure adding “spark.” as prefix to the keys.</p>
+<p>The above stated configuration keys can also be set using <code class="language-plaintext highlighter-rouge">spark-submit --conf</code> option. When passing configuration in spark-submit, make sure adding “spark.” as prefix to the keys.</p>
 
 <h2 id="examples">Examples</h2>
 
@@ -512,61 +497,58 @@ spark.sql(“ CREATE TEMPORARY TABLE flightTable1 USING org.apache.bahir.cloudan
 
 <h4 id="using-sql-in-python">Using SQL In Python</h4>
 
-<p>```python
-spark = SparkSession\
-    .builder\
-    .appName(“Cloudant Spark SQL Example in Python using temp tables”)\
-    .config(“cloudant.host”,”ACCOUNT.cloudant.com”)\
-    .config(“cloudant.username”, “USERNAME”)\
-    .config(“cloudant.password”,”PASSWORD”)\
-    .getOrCreate()</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span>\
+    <span class="p">.</span><span class="n">builder</span>\
+    <span class="p">.</span><span class="n">appName</span><span class="p">(</span><span class="s">"Cloudant Spark SQL Example in Python using temp tables"</span><span class="p">)</span>\
+    <span class="p">.</span><span class="n">config</span><span class="p">(</span><span class="s">"cloudant.host"</span><span class="p">,</span><span class="s">"ACCOUNT.cloudant.com"</span><span class="p">)</span>\
+    <span class="p">.</span><span class="n">config</span><span class="p">(</span><span class="s">"cloudant.username"</span><span class="p">,</span> <span class="s">"USERNAME"</span><span class="p">)</span>\
+    <span class="p">.</span><span class="n">config</span><span class="p">(</span><span class="s">"cloudant.password"</span><span class="p">,</span><span class="s">"PASSWORD"</span><span class="p">)</span>\
+    <span class="p">.</span><span class="n">getOrCreate</span><span class="p">()</span>
 
-<h1 id="loading-temp-table-from-cloudant-db">Loading temp table from Cloudant db</h1>
-<p>spark.sql(“ CREATE TEMPORARY TABLE airportTable USING org.apache.bahir.cloudant OPTIONS ( database ‘n_airportcodemapping’)”)
-airportData = spark.sql(“SELECT _id, airportName FROM airportTable WHERE _id &gt;= ‘CAA’ AND _id &lt;= ‘GAA’ ORDER BY _id”)
-airportData.printSchema()
-print ‘Total # of rows in airportData: ‘ + str(airportData.count())
-for code in airportData.collect():
-    print code._id
-```</p>
+
+<span class="c1"># Loading temp table from Cloudant db
+</span><span class="n">spark</span><span class="p">.</span><span class="n">sql</span><span class="p">(</span><span class="s">" CREATE TEMPORARY TABLE airportTable USING org.apache.bahir.cloudant OPTIONS ( database 'n_airportcodemapping')"</span><span class="p">)</span>
+<span class="n">airportData</span> <span class="o">=</span> <span class="n">spark</span><span class="p">.</span><span class="n">sql</span><span class="p">(</span><span class="s">"SELECT _id, airportName FROM airportTable WHERE _id &gt;= 'CAA' AND _id &lt;= 'GAA' ORDER BY _id"</span><span class="p">)</span>
+<span class="n">airportData</span><span class="p">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">'Total # of rows in airportData: '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">airportData</span><span class="p">.</span><span class="n">count</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">code</span> <span class="ow">in</span> <span class="n">airportData</span><span class="p">.</span><span class="n">collect</span><span class="p">():</span>
+    <span class="k">print</span> <span class="n">code</span><span class="p">.</span><span class="n">_id</span>
+</code></pre></div></div>
 
 <p>See <a href="examples/python/CloudantApp.py">CloudantApp.py</a> for examples.</p>
 
-<p>Submit job example:
-<code>
-spark-submit  --packages org.apache.bahir:spark-sql-cloudant_2.11:2.3.2 --conf spark.cloudant.host=ACCOUNT.cloudant.com --conf spark.cloudant.username=USERNAME --conf spark.cloudant.password=PASSWORD sql-cloudant/examples/python/CloudantApp.py
-</code></p>
+<p>Submit job example:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spark-submit  --packages org.apache.bahir:spark-sql-cloudant_2.11:2.3.2 --conf spark.cloudant.host=ACCOUNT.cloudant.com --conf spark.cloudant.username=USERNAME --conf spark.cloudant.password=PASSWORD sql-cloudant/examples/python/CloudantApp.py
+</code></pre></div></div>
 
 <h4 id="using-dataframe-in-python">Using DataFrame In Python</h4>
 
-<p>```python
-spark = SparkSession\
-    .builder\
-    .appName(“Cloudant Spark SQL Example in Python using dataframes”)\
-    .config(“cloudant.host”,”ACCOUNT.cloudant.com”)\
-    .config(“cloudant.username”, “USERNAME”)\
-    .config(“cloudant.password”,”PASSWORD”)\
-    .config(“jsonstore.rdd.partitions”, 8)\
-    .getOrCreate()</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span>\
+    <span class="p">.</span><span class="n">builder</span>\
+    <span class="p">.</span><span class="n">appName</span><span class="p">(</span><span class="s">"Cloudant Spark SQL Example in Python using dataframes"</span><span class="p">)</span>\
+    <span class="p">.</span><span class="n">config</span><span class="p">(</span><span class="s">"cloudant.host"</span><span class="p">,</span><span class="s">"ACCOUNT.cloudant.com"</span><span class="p">)</span>\
+    <span class="p">.</span><span class="n">config</span><span class="p">(</span><span class="s">"cloudant.username"</span><span class="p">,</span> <span class="s">"USERNAME"</span><span class="p">)</span>\
+    <span class="p">.</span><span class="n">config</span><span class="p">(</span><span class="s">"cloudant.password"</span><span class="p">,</span><span class="s">"PASSWORD"</span><span class="p">)</span>\
+    <span class="p">.</span><span class="n">config</span><span class="p">(</span><span class="s">"jsonstore.rdd.partitions"</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>\
+    <span class="p">.</span><span class="n">getOrCreate</span><span class="p">()</span>
 
-<h1 id="loading-dataframe-from-cloudant-db">***1. Loading dataframe from Cloudant db</h1>
-<p>df = spark.read.load(“n_airportcodemapping”, “org.apache.bahir.cloudant”)
-df.cache() 
-df.printSchema()
-df.filter(df.airportName &gt;= ‘Moscow’).select(“_id”,’airportName’).show()
-df.filter(df._id &gt;= ‘CAA’).select(“_id”,’airportName’).show()	  <br />
-```</p>
+<span class="c1"># ***1. Loading dataframe from Cloudant db
+</span><span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="p">.</span><span class="n">read</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s">"n_airportcodemapping"</span><span class="p">,</span> <span class="s">"org.apache.bahir.cloudant"</span><span class="p">)</span>
+<span class="n">df</span><span class="p">.</span><span class="n">cache</span><span class="p">()</span> 
+<span class="n">df</span><span class="p">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df</span><span class="p">.</span><span class="nb">filter</span><span class="p">(</span><span class="n">df</span><span class="p">.</span><span class="n">airportName</span> <span class="o">&gt;=</span> <span class="s">'Moscow'</span><span class="p">).</span><span class="n">select</span><span class="p">(</span><span class="s">"_id"</span><span class="p">,</span><span class="s">'airportName'</span><span class="p">).</span><span class="n">show</span><span class="p">()</span>
+<span class="n">df</span><span class="p">.</span><span class="nb">filter</span><span class="p">(</span><span class="n">df</span><span class="p">.</span><span class="n">_id</span> <span class="o">&gt;=</span> <span class="s">'CAA'</span><span class="p">).</span><span class="n">select</span><span class="p">(</span><span class="s">"_id"</span><span class="p">,</span><span class="s">'airportName'</span><span class="p">).</span><span class="n">show</span><span class="p">()</span>	    
+</code></pre></div></div>
 
 <p>See <a href="examples/python/CloudantDF.py">CloudantDF.py</a> for examples.</p>
 
 <p>In case of doing multiple operations on a dataframe (select, filter etc.),
 you should persist a dataframe. Otherwise, every operation on a dataframe will load the same data from Cloudant again.
-Persisting will also speed up computation. This statement will persist an RDD in memory: <code>df.cache()</code>.  Alternatively for large dbs to persist in memory &amp; disk, use:</p>
+Persisting will also speed up computation. This statement will persist an RDD in memory: <code class="language-plaintext highlighter-rouge">df.cache()</code>.  Alternatively for large dbs to persist in memory &amp; disk, use:</p>
 
-<p><code>python
-from pyspark import StorageLevel
-df.persist(storageLevel = StorageLevel(True, True, False, True, 1))
-</code></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">pyspark</span> <span class="kn">import</span> <span class="n">StorageLevel</span>
+<span class="n">df</span><span class="p">.</span><span class="n">persist</span><span class="p">(</span><span class="n">storageLevel</span> <span class="o">=</span> <span class="n">StorageLevel</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</code></pre></div></div>
 
 <p><a href="examples/python/CloudantDFOption.py">Sample code</a> on using DataFrame option to define cloudant configuration</p>
 
@@ -574,65 +556,62 @@ df.persist(storageLevel = StorageLevel(True, True, False, True, 1))
 
 <h4 id="using-sql-in-scala">Using SQL In Scala</h4>
 
-<p>```scala
-val spark = SparkSession
-      .builder()
-      .appName(“Cloudant Spark SQL Example”)
-      .config(“cloudant.host”,”ACCOUNT.cloudant.com”)
-      .config(“cloudant.username”, “USERNAME”)
-      .config(“cloudant.password”,”PASSWORD”)
-      .getOrCreate()</p>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">val</span> <span class="nv">spark</span> <span class="k">=</span> <span class="nc">SparkSession</span>
+      <span class="o">.</span><span class="py">builder</span><span class="o">()</span>
+      <span class="o">.</span><span class="py">appName</span><span class="o">(</span><span class="s">"Cloudant Spark SQL Example"</span><span class="o">)</span>
+      <span class="o">.</span><span class="py">config</span><span class="o">(</span><span class="s">"cloudant.host"</span><span class="o">,</span><span class="s">"ACCOUNT.cloudant.com"</span><span class="o">)</span>
+      <span class="o">.</span><span class="py">config</span><span class="o">(</span><span class="s">"cloudant.username"</span><span class="o">,</span> <span class="s">"USERNAME"</span><span class="o">)</span>
+      <span class="o">.</span><span class="py">config</span><span class="o">(</span><span class="s">"cloudant.password"</span><span class="o">,</span><span class="s">"PASSWORD"</span><span class="o">)</span>
+      <span class="o">.</span><span class="py">getOrCreate</span><span class="o">()</span>
 
-<p>// For implicit conversions of Dataframe to RDDs
-import spark.implicits._</p>
-
-<p>// create a temp table from Cloudant db and query it using sql syntax
-spark.sql(
-    s”””
+<span class="c1">// For implicit conversions of Dataframe to RDDs</span>
+<span class="k">import</span> <span class="nn">spark.implicits._</span>
+    
+<span class="c1">// create a temp table from Cloudant db and query it using sql syntax</span>
+<span class="nv">spark</span><span class="o">.</span><span class="py">sql</span><span class="o">(</span>
+    <span class="n">s</span><span class="s">"""
     |CREATE TEMPORARY TABLE airportTable
     |USING org.apache.bahir.cloudant
-    |OPTIONS ( database ‘n_airportcodemapping’)
-    “”“.stripMargin)
-// create a dataframe
-val airportData = spark.sql(“SELECT _id, airportName FROM airportTable WHERE _id &gt;= ‘CAA’ AND _id &lt;= ‘GAA’ ORDER BY _id”)
-airportData.printSchema()
-println(s”Total # of rows in airportData: “ + airportData.count())
-// convert dataframe to array of Rows, and process each row
-airportData.map(t =&gt; “code: “ + t(0) + “,name:” + t(1)).collect().foreach(println)
-```
-See <a href="examples/scala/src/main/scala/mytest/spark/CloudantApp.scala">CloudantApp.scala</a> for examples.</p>
+    |OPTIONS ( database 'n_airportcodemapping')
+    """</span><span class="o">.</span><span class="py">stripMargin</span><span class="o">)</span>
+<span class="c1">// create a dataframe</span>
+<span class="k">val</span> <span class="nv">airportData</span> <span class="k">=</span> <span class="nv">spark</span><span class="o">.</span><span class="py">sql</span><span class="o">(</span><span class="s">"SELECT _id, airportName FROM airportTable WHERE _id &gt;= 'CAA' AND _id &lt;= 'GAA' ORDER BY _id"</span><span class="o">)</span>
+<span class="nv">airportData</span><span class="o">.</span><span class="py">printSchema</span><span class="o">()</span>
+<span class="nf">println</span><span class="o">(</span><span class="n">s</span><span class="s">"Total # of rows in airportData: "</span> <span class="o">+</span> <span class="nv">airportData</span><span class="o">.</span><span class="py">count</span><span class="o">())</span>
+<span class="c1">// convert dataframe to array of Rows, and process each row</span>
+<span class="nv">airportData</span><span class="o">.</span><span class="py">map</span><span class="o">(</span><span class="n">t</span> <span class="k">=&gt;</span> <span class="s">"code: "</span> <span class="o">+</span> <span class="nf">t</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span> <span class="o">+</span> <span class="s">",name:"</span> <span class="o">+</span> <span class="nf">t</span><span class="o">(</span><span class="mi">1</span><span class="o">)).</span><span class="py">collect</span><span class="o">().</span><span class="py">foreach</span><span class="o">(</span><span class="n">println</span><span class="o">)</span>
+</code></pre></div></div>
+<p>See <a href="examples/scala/src/main/scala/mytest/spark/CloudantApp.scala">CloudantApp.scala</a> for examples.</p>
 
-<p>Submit job example:
-<code>
-spark-submit --class org.apache.spark.examples.sql.cloudant.CloudantApp --packages org.apache.bahir:spark-sql-cloudant_2.11:2.3.2 --conf spark.cloudant.host=ACCOUNT.cloudant.com --conf spark.cloudant.username=USERNAME --conf spark.cloudant.password=PASSWORD  /path/to/spark-sql-cloudant_2.11-2.3.2-tests.jar
-</code></p>
+<p>Submit job example:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spark-submit --class org.apache.spark.examples.sql.cloudant.CloudantApp --packages org.apache.bahir:spark-sql-cloudant_2.11:2.3.2 --conf spark.cloudant.host=ACCOUNT.cloudant.com --conf spark.cloudant.username=USERNAME --conf spark.cloudant.password=PASSWORD  /path/to/spark-sql-cloudant_2.11-2.3.2-tests.jar
+</code></pre></div></div>
 
 <h3 id="using-dataframe-in-scala">Using DataFrame In Scala</h3>
 
-<p>```scala
-val spark = SparkSession
-      .builder()
-      .appName(“Cloudant Spark SQL Example with Dataframe”)
-      .config(“cloudant.host”,”ACCOUNT.cloudant.com”)
-      .config(“cloudant.username”, “USERNAME”)
-      .config(“cloudant.password”,”PASSWORD”)
-      .config(“createDBOnSave”,”true”) // to create a db on save
-      .config(“jsonstore.rdd.partitions”, “20”) // using 20 partitions
-      .getOrCreate()</p>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">val</span> <span class="nv">spark</span> <span class="k">=</span> <span class="nc">SparkSession</span>
+      <span class="o">.</span><span class="py">builder</span><span class="o">()</span>
+      <span class="o">.</span><span class="py">appName</span><span class="o">(</span><span class="s">"Cloudant Spark SQL Example with Dataframe"</span><span class="o">)</span>
+      <span class="o">.</span><span class="py">config</span><span class="o">(</span><span class="s">"cloudant.host"</span><span class="o">,</span><span class="s">"ACCOUNT.cloudant.com"</span><span class="o">)</span>
+      <span class="o">.</span><span class="py">config</span><span class="o">(</span><span class="s">"cloudant.username"</span><span class="o">,</span> <span class="s">"USERNAME"</span><span class="o">)</span>
+      <span class="o">.</span><span class="py">config</span><span class="o">(</span><span class="s">"cloudant.password"</span><span class="o">,</span><span class="s">"PASSWORD"</span><span class="o">)</span>
+      <span class="o">.</span><span class="py">config</span><span class="o">(</span><span class="s">"createDBOnSave"</span><span class="o">,</span><span class="s">"true"</span><span class="o">)</span> <span class="c1">// to create a db on save</span>
+      <span class="o">.</span><span class="py">config</span><span class="o">(</span><span class="s">"jsonstore.rdd.partitions"</span><span class="o">,</span> <span class="s">"20"</span><span class="o">)</span> <span class="c1">// using 20 partitions</span>
+      <span class="o">.</span><span class="py">getOrCreate</span><span class="o">()</span>
+          
+<span class="c1">// 1. Loading data from Cloudant db</span>
+<span class="k">val</span> <span class="nv">df</span> <span class="k">=</span> <span class="nv">spark</span><span class="o">.</span><span class="py">read</span><span class="o">.</span><span class="py">format</span><span class="o">(</span><span class="s">"org.apache.bahir.cloudant"</span><span class="o">).</span><span class="py">load</span><span class="o">(</span><span class="s">"n_flight"</span><span class="o">)</span>
+<span class="c1">// Caching df in memory to speed computations</span>
+<span class="c1">// and not to retrieve data from cloudant again</span>
+<span class="nv">df</span><span class="o">.</span><span class="py">cache</span><span class="o">()</span> 
+<span class="nv">df</span><span class="o">.</span><span class="py">printSchema</span><span class="o">()</span>
 
-<p>// 1. Loading data from Cloudant db
-val df = spark.read.format(“org.apache.bahir.cloudant”).load(“n_flight”)
-// Caching df in memory to speed computations
-// and not to retrieve data from cloudant again
-df.cache() 
-df.printSchema()</p>
-
-<p>// 2. Saving dataframe to Cloudant db
-val df2 = df.filter(df(“flightSegmentId”) === “AA106”)
-    .select(“flightSegmentId”,”economyClassBaseCost”)
-df2.show()
-df2.write.format(“org.apache.bahir.cloudant”).save(“n_flight2”)
-```</p>
+<span class="c1">// 2. Saving dataframe to Cloudant db</span>
+<span class="k">val</span> <span class="nv">df2</span> <span class="k">=</span> <span class="nv">df</span><span class="o">.</span><span class="py">filter</span><span class="o">(</span><span class="nf">df</span><span class="o">(</span><span class="s">"flightSegmentId"</span><span class="o">)</span> <span class="o">===</span> <span class="s">"AA106"</span><span class="o">)</span>
+    <span class="o">.</span><span class="py">select</span><span class="o">(</span><span class="s">"flightSegmentId"</span><span class="o">,</span><span class="s">"economyClassBaseCost"</span><span class="o">)</span>
+<span class="nv">df2</span><span class="o">.</span><span class="py">show</span><span class="o">()</span>
+<span class="nv">df2</span><span class="o">.</span><span class="py">write</span><span class="o">.</span><span class="py">format</span><span class="o">(</span><span class="s">"org.apache.bahir.cloudant"</span><span class="o">).</span><span class="py">save</span><span class="o">(</span><span class="s">"n_flight2"</span><span class="o">)</span>
+</code></pre></div></div>
 
 <p>See <a href="examples/scala/src/main/scala/mytest/spark/CloudantDF.scala">CloudantDF.scala</a> for examples.</p>
 
@@ -640,49 +619,47 @@ df2.write.format(“org.apache.bahir.cloudant”).save(“n_flight2”)
 
 <h3 id="using-streams-in-scala">Using Streams In Scala</h3>
 
-<p>```scala
-val ssc = new StreamingContext(sparkConf, Seconds(10))
-val changes = ssc.receiverStream(new CloudantReceiver(Map(
-  “cloudant.host” -&gt; “ACCOUNT.cloudant.com”,
-  “cloudant.username” -&gt; “USERNAME”,
-  “cloudant.password” -&gt; “PASSWORD”,
-  “database” -&gt; “n_airportcodemapping”)))</p>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">val</span> <span class="nv">ssc</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StreamingContext</span><span class="o">(</span><span class="n">sparkConf</span><span class="o">,</span> <span class="nc">Seconds</span><span class="o">(</span><span class="mi">10</span><span class="o">))</span>
+<span class="k">val</span> <span class="nv">changes</span> <span class="k">=</span> <span class="nv">ssc</span><span class="o">.</span><span class="py">receiverStream</span><span class="o">(</span><span class="k">new</span> <span class="nc">CloudantReceiver</span><span class="o">(</span><span class="nc">Map</span><span class="o">(</span>
+  <span class="s">"cloudant.host"</span> <span class="o">-&gt;</span> <span class="s">"ACCOUNT.cloudant.com"</span><span class="o">,</span>
+  <span class="s">"cloudant.username"</span> <span class="o">-&gt;</span> <span class="s">"USERNAME"</span><span class="o">,</span>
+  <span class="s">"cloudant.password"</span> <span class="o">-&gt;</span> <span class="s">"PASSWORD"</span><span class="o">,</span>
+  <span class="s">"database"</span> <span class="o">-&gt;</span> <span class="s">"n_airportcodemapping"</span><span class="o">)))</span>
 
-<p>changes.foreachRDD((rdd: RDD[String], time: Time) =&gt; {
-  // Get the singleton instance of SparkSession
-  val spark = SparkSessionSingleton.getInstance(rdd.sparkContext.getConf)</p>
+<span class="nv">changes</span><span class="o">.</span><span class="py">foreachRDD</span><span class="o">((</span><span class="n">rdd</span><span class="k">:</span> <span class="kt">RDD</span><span class="o">[</span><span class="kt">String</span><span class="o">],</span> <span class="n">time</span><span class="k">:</span> <span class="kt">Time</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">{</span>
+  <span class="c1">// Get the singleton instance of SparkSession</span>
+  <span class="k">val</span> <span class="nv">spark</span> <span class="k">=</span> <span class="nv">SparkSessionSingleton</span><span class="o">.</span><span class="py">getInstance</span><span class="o">(</span><span class="nv">rdd</span><span class="o">.</span><span class="py">sparkContext</span><span class="o">.</span><span class="py">getConf</span><span class="o">)</span>
 
-<p>println(s”========= $time =========”)
-  // Convert RDD[String] to DataFrame
-  val changesDataFrame = spark.read.json(rdd)
-  if (!changesDataFrame.schema.isEmpty) {
-    changesDataFrame.printSchema()
-    changesDataFrame.select(“*”).show()
-    ….
-  }
-})
-ssc.start()
-// run streaming for 120 secs
-Thread.sleep(120000L)
-ssc.stop(true)</p>
-
-<p>```</p>
+  <span class="nf">println</span><span class="o">(</span><span class="n">s</span><span class="s">"========= $time ========="</span><span class="o">)</span>
+  <span class="c1">// Convert RDD[String] to DataFrame</span>
+  <span class="k">val</span> <span class="nv">changesDataFrame</span> <span class="k">=</span> <span class="nv">spark</span><span class="o">.</span><span class="py">read</span><span class="o">.</span><span class="py">json</span><span class="o">(</span><span class="n">rdd</span><span class="o">)</span>
+  <span class="nf">if</span> <span class="o">(!</span><span class="nv">changesDataFrame</span><span class="o">.</span><span class="py">schema</span><span class="o">.</span><span class="py">isEmpty</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nv">changesDataFrame</span><span class="o">.</span><span class="py">printSchema</span><span class="o">()</span>
+    <span class="nv">changesDataFrame</span><span class="o">.</span><span class="py">select</span><span class="o">(</span><span class="s">"*"</span><span class="o">).</span><span class="py">show</span><span class="o">()</span>
+    <span class="o">....</span>
+  <span class="o">}</span>
+<span class="o">})</span>
+<span class="nv">ssc</span><span class="o">.</span><span class="py">start</span><span class="o">()</span>
+<span class="c1">// run streaming for 120 secs</span>
+<span class="nv">Thread</span><span class="o">.</span><span class="py">sleep</span><span class="o">(</span><span class="mi">120000L</span><span class="o">)</span>
+<span class="nv">ssc</span><span class="o">.</span><span class="py">stop</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+	
+</code></pre></div></div>
 
 <p>See <a href="examples/scala/src/main/scala/mytest/spark/CloudantStreaming.scala">CloudantStreaming.scala</a> for examples.</p>
 
 <p>By default, Spark Streaming will load all documents from a database. If you want to limit the loading to 
-specific documents, use <code>selector</code> option of <code>CloudantReceiver</code> and specify your conditions 
+specific documents, use <code class="language-plaintext highlighter-rouge">selector</code> option of <code class="language-plaintext highlighter-rouge">CloudantReceiver</code> and specify your conditions 
 (See <a href="examples/scala/src/main/scala/mytest/spark/CloudantStreamingSelector.scala">CloudantStreamingSelector.scala</a>
 example for more details):</p>
 
-<p><code>scala
-val changes = ssc.receiverStream(new CloudantReceiver(Map(
-  "cloudant.host" -&gt; "ACCOUNT.cloudant.com",
-  "cloudant.username" -&gt; "USERNAME",
-  "cloudant.password" -&gt; "PASSWORD",
-  "database" -&gt; "sales",
-  "selector" -&gt; "{\"month\":\"May\", \"rep\":\"John\"}")))
-</code></p>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">val</span> <span class="nv">changes</span> <span class="k">=</span> <span class="nv">ssc</span><span class="o">.</span><span class="py">receiverStream</span><span class="o">(</span><span class="k">new</span> <span class="nc">CloudantReceiver</span><span class="o">(</span><span class="nc">Map</span><span class="o">(</span>
+  <span class="s">"cloudant.host"</span> <span class="o">-&gt;</span> <span class="s">"ACCOUNT.cloudant.com"</span><span class="o">,</span>
+  <span class="s">"cloudant.username"</span> <span class="o">-&gt;</span> <span class="s">"USERNAME"</span><span class="o">,</span>
+  <span class="s">"cloudant.password"</span> <span class="o">-&gt;</span> <span class="s">"PASSWORD"</span><span class="o">,</span>
+  <span class="s">"database"</span> <span class="o">-&gt;</span> <span class="s">"sales"</span><span class="o">,</span>
+  <span class="s">"selector"</span> <span class="o">-&gt;</span> <span class="s">"{\"month\":\"May\", \"rep\":\"John\"}"</span><span class="o">)))</span>
+</code></pre></div></div>
 
   </div>
 </div>

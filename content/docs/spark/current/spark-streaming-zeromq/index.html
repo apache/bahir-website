@@ -65,9 +65,7 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="/downloads/spark" target="_self">Bahir Spark Extensions</a></li>
-              
               
               
               <li><a href="/downloads/flink" target="_self">Bahir Flink Extensions</a></li>
@@ -85,25 +83,19 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="/community" target="_self">Get Involved</a></li>
-              
               
               
               <li><a href="/contributing" target="_self">Contributing</a></li>
               
               
-              
               <li><a href="/contributing-extensions" target="_self">Contributing Extensions</a></li>
-              
               
               
               <li><a href="https://issues.apache.org/jira/browse/BAHIR" target="_blank">Issue Tracker</a></li>
               
               
-              
               <li><a href="/community#source-code" target="_self">Source Code</a></li>
-              
               
               
               <li><a href="/community-members" target="_self">Project Committers</a></li>
@@ -121,9 +113,7 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="/docs/spark/overview" target="_self">Bahir Spark Extensions</a></li>
-              
               
               
               <li><a href="/docs/flink/overview" target="_self">Bahir Flink Extensions</a></li>
@@ -141,13 +131,10 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="https://github.com/apache/bahir" target="_blank">Bahir Spark Extensions</a></li>
               
               
-              
               <li><a href="https://github.com/apache/bahir-flink" target="_blank">Bahir Flink Extensions</a></li>
-              
               
               
               <li><a href="https://github.com/apache/bahir-website" target="_blank">Bahir Website</a></li>
@@ -165,21 +152,16 @@
             <ul class="dropdown-menu dropdown-left">
               
               
-              
               <li><a href="http://www.apache.org/foundation/how-it-works.html" target="_blank">Apache Software Foundation</a></li>
-              
               
               
               <li><a href="http://www.apache.org/licenses/" target="_blank">Apache License</a></li>
               
               
-              
               <li><a href="http://www.apache.org/foundation/sponsorship" target="_blank">Sponsorship</a></li>
               
               
-              
               <li><a href="http://www.apache.org/foundation/thanks.html" target="_blank">Thanks</a></li>
-              
               
               
               <li><a href="/privacy-policy" target="_self">Privacy Policy</a></li>
@@ -213,6 +195,9 @@
 
 -->
 
+<!--
+
+-->
 <h1 id="spark-streaming-zeromq-connector">Spark Streaming ZeroMQ Connector</h1>
 
 <p>A library for reading data from <a href="http://zeromq.org/">ZeroMQ</a> using Spark Streaming.</p>
@@ -221,28 +206,28 @@
 
 <p>Using SBT:</p>
 
-<pre><code>libraryDependencies += "org.apache.bahir" %% "spark-streaming-zeromq" % "2.4.0-SNAPSHOT"
-</code></pre>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>libraryDependencies += "org.apache.bahir" %% "spark-streaming-zeromq" % "2.4.0-SNAPSHOT"
+</code></pre></div></div>
 
 <p>Using Maven:</p>
 
-<pre><code>&lt;dependency&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;dependency&gt;
     &lt;groupId&gt;org.apache.bahir&lt;/groupId&gt;
     &lt;artifactId&gt;spark-streaming-zeromq_2.11&lt;/artifactId&gt;
     &lt;version&gt;2.4.0-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;
-</code></pre>
+</code></pre></div></div>
 
-<p>This library can also be added to Spark jobs launched through <code>spark-shell</code> or <code>spark-submit</code> by using the <code>--packages</code> command line option.
+<p>This library can also be added to Spark jobs launched through <code class="language-plaintext highlighter-rouge">spark-shell</code> or <code class="language-plaintext highlighter-rouge">spark-submit</code> by using the <code class="language-plaintext highlighter-rouge">--packages</code> command line option.
 For example, to include it when starting the spark shell:</p>
 
-<pre><code>$ bin/spark-shell --packages org.apache.bahir:spark-streaming-zeromq_2.11:2.4.0-SNAPSHOT
-</code></pre>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bin/spark-shell --packages org.apache.bahir:spark-streaming-zeromq_2.11:2.4.0-SNAPSHOT
+</code></pre></div></div>
 
-<p>Unlike using <code>--jars</code>, using <code>--packages</code> ensures that this library and its dependencies will be added to the classpath.
-The <code>--packages</code> argument can also be used with <code>bin/spark-submit</code>.</p>
+<p>Unlike using <code class="language-plaintext highlighter-rouge">--jars</code>, using <code class="language-plaintext highlighter-rouge">--packages</code> ensures that this library and its dependencies will be added to the classpath.
+The <code class="language-plaintext highlighter-rouge">--packages</code> argument can also be used with <code class="language-plaintext highlighter-rouge">bin/spark-submit</code>.</p>
 
-<p>This library is cross-published for Scala 2.10 and Scala 2.11, so users should replace the proper Scala version (2.10 or 2.11) in the commands listed above.</p>
+<p>This library is cross-published for Scala 2.11 and Scala 2.12, so users should replace the proper Scala version in the commands listed above.</p>
 
 <h2 id="examples">Examples</h2>
 
@@ -250,16 +235,16 @@ The <code>--packages</code> argument can also be used with <code>bin/spark-submi
 
 <h3 id="scala-api">Scala API</h3>
 
-<pre><code>import org.apache.spark.streaming.zeromq.ZeroMQUtils
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import org.apache.spark.streaming.zeromq.ZeroMQUtils
 
 val lines = ZeroMQUtils.createTextStream(
   ssc, "tcp://server:5555", true, Seq("my-topic".getBytes)
 )
-</code></pre>
+</code></pre></div></div>
 
 <h3 id="java-api">Java API</h3>
 
-<pre><code>import org.apache.spark.storage.StorageLevel;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import org.apache.spark.storage.StorageLevel;
 import org.apache.spark.streaming.api.java.JavaReceiverInputDStream;
 import org.apache.spark.streaming.zeromq.ZeroMQUtils;
 
@@ -267,7 +252,7 @@ JavaReceiverInputDStream&lt;String&gt; test1 = ZeroMQUtils.createJavaStream(
     ssc, "tcp://server:5555", true, Arrays.asList("my-topic.getBytes()),
     StorageLevel.MEMORY_AND_DISK_SER_2()
 );
-</code></pre>
+</code></pre></div></div>
 
   </div>
 </div>
