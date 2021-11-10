@@ -178,8 +178,10 @@ function update_flink {
         flink-streaming-akka      flink-connector-akka      \
         flink-streaming-flume     flink-connector-flume     \
         flink-streaming-influxdb  flink-connector-influxdb  \
+        flink-streaming-influxdb2  flink-connector-influxdb2  \
         flink-streaming-kudu      flink-connector-kudu      \
         flink-streaming-netty     flink-connector-netty     \
+        flink-streaming-pinot     flink-connector-pinot     \
         flink-streaming-redis     flink-connector-redis
 
     check_version_strings "$FLINK_WEBSITE_DOC_DIR"
