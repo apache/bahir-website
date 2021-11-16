@@ -48,7 +48,7 @@ Before opening a pull request, you can preview your contributions by running fro
 ```
 1. cd site
 2. bundle exec jekyll serve --watch
-3. Open [http://localhost:4000](http://localhost:4000)
+3. Open http://localhost:4000
 ```
 
 Update extensions documentation
