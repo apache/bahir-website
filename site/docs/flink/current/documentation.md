@@ -39,8 +39,12 @@ limitations under the License.
 
 [InfluxDB connector](../flink-streaming-influxdb)
 
+[InfluxDB2 connector](../flink-streaming-influxdb2) ![](/assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"}
+
 [Kudu connector](../flink-streaming-kudu)
 
 [Netty connector](../flink-streaming-netty)
+
+[Pinot connector](../flink-streaming-pinot) ![](/assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"}
 
 [Redis connector](../flink-streaming-redis)
