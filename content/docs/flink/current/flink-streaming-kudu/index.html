@@ -347,18 +347,57 @@ returning a list of Kudu <a href="https://kudu.apache.org/apidocs/org/apache/kud
 <p>Read more about Kudu schema design in the <a href="https://kudu.apache.org/docs/schema_design.html">Kudu docs</a>.</p>
 
 <h3 id="supported-data-types">Supported data types</h3>
-<p>| Flink/SQL     | Kudu           | 
-| ————- |:————-:| 
-|    STRING     | STRING        | 
-| BOOLEAN       |    BOOL       | 
-| TINYINT       |   INT8        | 
-| SMALLINT      |  INT16        | 
-| INT           |  INT32        | 
-| BIGINT        |   INT64     |
-| FLOAT         |  FLOAT      |
-| DOUBLE        |    DOUBLE    |
-| BYTES        |    BINARY    |
-| TIMESTAMP(3)     |    UNIXTIME_MICROS |</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Flink/SQL</th>
+      <th style="text-align: center">Kudu</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">STRING</code></td>
+      <td style="text-align: center">STRING</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BOOLEAN</code></td>
+      <td style="text-align: center">BOOL</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TINYINT</code></td>
+      <td style="text-align: center">INT8</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SMALLINT</code></td>
+      <td style="text-align: center">INT16</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">INT</code></td>
+      <td style="text-align: center">INT32</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BIGINT</code></td>
+      <td style="text-align: center">INT64</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">FLOAT</code></td>
+      <td style="text-align: center">FLOAT</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DOUBLE</code></td>
+      <td style="text-align: center">DOUBLE</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BYTES</code></td>
+      <td style="text-align: center">BINARY</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TIMESTAMP(3)</code></td>
+      <td style="text-align: center">UNIXTIME_MICROS</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>Note:</p>
 <ul>

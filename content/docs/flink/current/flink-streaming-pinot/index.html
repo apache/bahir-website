@@ -215,6 +215,7 @@ See how to link with them for cluster execution <a href="https://ci.apache.org/p
 <p>The sink class is called <code class="language-plaintext highlighter-rouge">PinotSink</code>.</p>
 
 <h2 id="architecture">Architecture</h2>
+
 <p>The Pinot sink stores elements from upstream Flink tasks in an Apache Pinot table.
 We support two execution modes</p>
 <ul>
@@ -223,6 +224,7 @@ We support two execution modes</p>
 </ul>
 
 <h3 id="pinotsinkwriter">PinotSinkWriter</h3>
+
 <p>Whenever the sink receives elements from upstream tasks, they are received by an instance of the PinotSinkWriter.
 The <code class="language-plaintext highlighter-rouge">PinotSinkWriter</code> holds a list of <code class="language-plaintext highlighter-rouge">PinotWriterSegment</code>s where each <code class="language-plaintext highlighter-rouge">PinotWriterSegment</code> is capable of storing <code class="language-plaintext highlighter-rouge">maxRowsPerSegment</code> elements.
 Whenever the maximum number of elements to hold is not yet reached the <code class="language-plaintext highlighter-rouge">PinotWriterSegment</code> is considered to be active.
@@ -233,8 +235,9 @@ Once the maximum number of elements to hold was reached, an active <code class="
 <p>Thus, there is always one active <code class="language-plaintext highlighter-rouge">PinotWriterSegment</code> that new incoming elements will go to.
 Over time, the list of <code class="language-plaintext highlighter-rouge">PinotWriterSegment</code> per <code class="language-plaintext highlighter-rouge">PinotSinkWriter</code> increases up to the point where a checkpoint is created.</p>
 
-<p><strong>Checkpointing</strong><br />
-On checkpoint creation <code class="language-plaintext highlighter-rouge">PinotSinkWriter.prepareCommit</code> gets called by the Flink environment.
+<p><strong>Checkpointing</strong></p>
+
+<p>On checkpoint creation <code class="language-plaintext highlighter-rouge">PinotSinkWriter.prepareCommit</code> gets called by the Flink environment.
 This triggers the creation of <code class="language-plaintext highlighter-rouge">PinotSinkCommittable</code>s where each inactive <code class="language-plaintext highlighter-rouge">PinotWriterSegment</code> creates exactly one <code class="language-plaintext highlighter-rouge">PinotSinkCommittable</code>.</p>
 
 <p><img height="250" alt="PinotSinkWriter prepareCommit" src="docs/images/PinotSinkWriter_prepareCommit.png" /></p>
@@ -244,6 +247,7 @@ The file contains a list of elements in JSON format. The serialization is done v
 A <code class="language-plaintext highlighter-rouge">PinotSinkCommittables</code> then holds the path to the data file on the shared filesystem as well as the minimum and maximum timestamp of all contained elements (extracted via <code class="language-plaintext highlighter-rouge">EventTimeExtractor</code>).</p>
 
 <h3 id="pinotsinkglobalcommitter">PinotSinkGlobalCommitter</h3>
+
 <p>In order to be able to follow the guidelines for Pinot segment naming, we need to include the minimum and maximum timestamp of an element in the metadata of a segment and in its name.
 The minimum and maximum timestamp of all elements between two checkpoints is determined at a parallelism of 1 in the <code class="language-plaintext highlighter-rouge">PinotSinkGlobalCommitter</code>.
 This procedure allows recovering from failure by deleting previously uploaded segments which prevents having duplicate segments in the Pinot table.</p>
@@ -263,24 +267,65 @@ Moreover, the <code class="language-plaintext highlighter-rouge">PinotSinkGlobal
 </ul>
 
 <h2 id="delivery-guarantees">Delivery Guarantees</h2>
+
 <p>Resulting from the above described architecture the <code class="language-plaintext highlighter-rouge">PinotSink</code> provides an at-least-once delivery guarantee.
 While the failure recovery mechanism ensures that duplicate segments are prevented, there might be temporary inconsistencies in the Pinot table which can result in downstream tasks receiving an element multiple times.</p>
 
 <h2 id="options">Options</h2>
-<p>| Option                 | Description                                                                      |
-| ———————- | ——————————————————————————– | 
-| <code class="language-plaintext highlighter-rouge">pinotControllerHost</code>  | Host of the Pinot controller                                                     |
-| <code class="language-plaintext highlighter-rouge">pinotControllerPort</code>  | Port of the Pinot controller                                                     |
-| <code class="language-plaintext highlighter-rouge">tableName</code>            | Target Pinot table’s name                                                        |
-| <code class="language-plaintext highlighter-rouge">maxRowsPerSegment</code>    | Maximum number of rows to be stored within a Pinot segment                       |
-| <code class="language-plaintext highlighter-rouge">tempDirPrefix</code>         | Prefix for temp directories used                                                  |
-| <code class="language-plaintext highlighter-rouge">jsonSerializer</code>       | Serializer used to convert elements to JSON                                      |
-| <code class="language-plaintext highlighter-rouge">eventTimeExtractor</code>   | Defines the way event times are extracted from received objects                   |
-| <code class="language-plaintext highlighter-rouge">segmentNameGenerator</code> | Pinot segment name generator                                                     |
-| <code class="language-plaintext highlighter-rouge">fsAdapter</code>            | Filesystem adapter used to save files for sharing files across nodes               |
-| <code class="language-plaintext highlighter-rouge">numCommitThreads</code>     | Number of threads used in the <code class="language-plaintext highlighter-rouge">PinotSinkGlobalCommitter</code> for committing segments |</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">pinotControllerHost</code></td>
+      <td>Host of the Pinot controller</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">pinotControllerPort</code></td>
+      <td>Port of the Pinot controller</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">tableName</code></td>
+      <td>Target Pinot table’s name</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">maxRowsPerSegment</code></td>
+      <td>Maximum number of rows to be stored within a Pinot segment</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">tempDirPrefix</code></td>
+      <td>Prefix for temp directories used</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">jsonSerializer</code></td>
+      <td>Serializer used to convert elements to JSON</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">eventTimeExtractor</code></td>
+      <td>Defines the way event times are extracted from received objects</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">segmentNameGenerator</code></td>
+      <td>Pinot segment name generator</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">fsAdapter</code></td>
+      <td>Filesystem adapter used to save files for sharing files across nodes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">numCommitThreads</code></td>
+      <td>Number of threads used in the <code class="language-plaintext highlighter-rouge">PinotSinkGlobalCommitter</code> for committing segments</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="usage">Usage</h2>
+
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">StreamExecutionEnvironment</span> <span class="n">env</span> <span class="o">=</span> <span class="o">...</span>
 <span class="c1">// Checkpointing needs to be enabled when executing in STREAMING mode</span>
         <span class="n">env</span><span class="o">.</span><span class="na">enableCheckpointing</span><span class="o">(</span><span class="kt">long</span> <span class="n">interval</span><span class="o">);</span>
