@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Extensions for Apache Flink (1.1-SNAPSHOT)
-description: Extensions for Apache Flink (1.1-SNAPSHOT)
+title: Extensions for Apache Flink (1.2-SNAPSHOT)
+description: Extensions for Apache Flink (1.2-SNAPSHOT)
 group: nav-right
 ---
 <!--
@@ -39,12 +39,12 @@ limitations under the License.
 
 [InfluxDB connector](../flink-streaming-influxdb)
 
-[InfluxDB2 connector](../flink-streaming-influxdb2) ![](/assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"}
+[InfluxDB2 connector](../flink-streaming-influxdb2)
 
 [Kudu connector](../flink-streaming-kudu)
 
 [Netty connector](../flink-streaming-netty)
 
-[Pinot connector](../flink-streaming-pinot) ![](/assets/themes/apache-clean/img/new-black.png){:height="36px" width="36px"}
+[Pinot connector](../flink-streaming-pinot)
 
 [Redis connector](../flink-streaming-redis)
