@@ -33,7 +33,7 @@ following dependency to your project:
     <dependency>
       <groupId>org.apache.bahir</groupId>
       <artifactId>flink-connector-flume_2.11</artifactId>
-      <version>1.2-SNAPSHOT</version>
+      <version>1.1.0</version>
     </dependency>
 
 *Version Compatibility*: This module is compatible with Flume 1.8.0.

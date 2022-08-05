@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Apache Flink Streaming Connector for Apache Flume
-description: Apache Flink Streaming Connector for Apache Flume
+title: Apache Flink Streaming Connector for InfluxDB
+description: Apache Flink Streaming Connector for InfluxDB
 group: nav-right
 ---
 <!--
@@ -25,23 +25,35 @@ limitations under the License.
 
 {% include JB/setup %}
 
-# Flink Flume Connector
+# Flink InfluxDB Connector
 
-This connector provides a sink that can send data to [Apache Flume](https://flume.apache.org/)™. To use this connector, add the
+This connector provides a sink that can send data to [InfluxDB](https://www.influxdata.com/). To use this connector, add the
 following dependency to your project:
 
     <dependency>
       <groupId>org.apache.bahir</groupId>
-      <artifactId>flink-connector-flume_2.11</artifactId>
-      <version>1.2-SNAPSHOT</version>
+      <artifactId>flink-connector-influxdb_2.11</artifactId>
+      <version>1.1.0</version>
     </dependency>
 
-*Version Compatibility*: This module is compatible with Flume 1.8.0.
+*Version Compatibility*: This module is compatible with InfluxDB 1.3.x   
+*Requirements*: Java 1.8+
 
 Note that the streaming connectors are not part of the binary distribution of Flink. You need to link them into your job jar for cluster execution.
-See how to link with them for cluster execution [here](https://ci.apache.org/projects/flink/flink-docs-release-1.2/dev/linking.html).
+See how to link with them for cluster execution [here](https://ci.apache.org/projects/flink/flink-docs-release-1.3/dev/linking.html).
+ 
+## Installing InfluxDB
+Follow the instructions from the [InfluxDB download page](https://portal.influxdata.com/downloads#influxdb).
+  
+## Examples
 
-To create a `FlumeSink` instantiate the following constructor:
+### JAVA API
 
-    FlumeSink(String host, int port, SerializationSchema<IN> schema)
+    DataStream<InfluxDBPoint> dataStream = ...
+    InfluxDBConfig influxDBConfig = InfluxDBConfig.builder(String host, String username, String password, String dbName)
+    dataStream.addSink(new InfluxDBSink(influxDBConfig));
+
+
+See end-to-end examples at [InfluxDB Examples](https://github.com/apache/bahir-flink/tree/master/flink-connector-influxdb/examples)
+
 
